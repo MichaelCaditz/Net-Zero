@@ -5,40 +5,66 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        Title="MainWindow" Height="600" Width="800">
+        Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <dxr:RibbonControl Grid.Row="0" RibbonStyle="Office2010">
-            <dxr:RibbonControl.ToolbarItems>
-                <dxb:BarButtonItemLink BarItemName="newItem"/>
-            </dxr:RibbonControl.ToolbarItems>
-            <dxr:RibbonDefaultPageCategory>
-                <dxr:RibbonPage Caption="Home">
-                    <dxr:RibbonPageGroup Caption="File">
-                        <dxb:BarButtonItem x:Name="newItem" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}" LargeGlyph="{dx:DXImage Image=New_32x32.png}"/>
-                        <dxb:BarItemSeparator/>
-                        <dxr:BarButtonGroup x:Name="editorGroup">
-                            <dxb:BarEditItem x:Name="editItem" EditSettings="{dxe:ComboBoxSettings}" EditWidth="80"/>
-                        </dxr:BarButtonGroup>
-                        <dxr:BarButtonGroup x:Name="alignmentGroup">
-                            <dxb:BarCheckItem x:Name="leftCheckItem" Content="Align Left" Glyph="{dx:DXImage Image=AlignLeft_16x16.png}" GroupIndex="1" IsChecked="True"/>
-                            <dxb:BarCheckItem x:Name="rightCheckItem" Content="Align Right" Glyph="{dx:DXImage Image=AlignRight_16x16.png}" GroupIndex="1"/>
-                            <dxb:BarCheckItem x:Name="justifyCheckItem" Content="Align Justify" Glyph="{dx:DXImage Image=AlignJustify_16x16.png}" GroupIndex="1"/>
-                        </dxr:BarButtonGroup>
-                        <dxb:BarItemSeparator/>
-                        <dxb:BarButtonItem x:Name="saveAsItem" Content="Save As" LargeGlyph="{dx:DXImage Image=SaveAs_32x32.png}"/>
-                    </dxr:RibbonPageGroup>
-                </dxr:RibbonPage>
-            </dxr:RibbonDefaultPageCategory>
-        </dxr:RibbonControl>
+
+        <dxb:BarContainerControl ContainerType="Top" Grid.Row="0">
+            <dxb:MainMenuControl Caption="Main Menu">
+                <dxb:BarSubItem Content="File">
+                    <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="btnOpen" Content="Open" Glyph="{dx:DXImage Image=Open_16x16.png}" ItemClick="btnOpen_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>
+                    <dxb:BarButtonItem Content="BarButtonItem"/>
+                    <dxb:BarButtonItem Content="BarButtonItem"/>
+                </dxb:BarSubItem>
+                <dxb:BarSubItem Content="Edit">
+                    <dxb:BarButtonItem x:Name="btnCut" Content="Cut" Glyph="{dx:DXImage Image=Cut_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="btnCopy" Content="Copy" Glyph="{dx:DXImage Image=Copy_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="btnPaste" Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}"/>
+                </dxb:BarSubItem>
+            </dxb:MainMenuControl>
+            <dxb:ToolBarControl Caption="File" RotateWhenVertical="True">
+                <dxb:BarButtonItemLink BarItemName="btnNew"/>
+                <dxb:BarButtonItemLink BarItemName="btnOpen"/>
+                <dxb:BarButtonItemLink BarItemName="btnClose"/>
+            </dxb:ToolBarControl>
+            <dxb:ToolBarControl Caption="Edit" RotateWhenVertical="True">
+                <dxb:BarButtonItemLink BarItemName="btnCut"/>
+                <dxb:BarButtonItemLink BarItemName="btnCopy"/>
+                <dxb:BarButtonItemLink BarItemName="btnPaste"/>
+            </dxb:ToolBarControl>
+
+        </dxb:BarContainerControl>
+
+
+
         <dxr:RibbonStatusBarControl Grid.Row="2">
             <dxr:RibbonStatusBarControl.RightItems>
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
+        <dx:DXTabControl Margin="32,60,0,0" Grid.RowSpan="2">
+            <dx:DXTabItem Header="System Summary">
+                <Grid Background="Transparent"/>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Demand">
+                <Grid Background="Transparent">
+                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="273,714,0,0" VerticalAlignment="Top" Width="75"/>
+                    <dxe:TextEdit x:Name="TextEditDemandTotal" HorizontalAlignment="Left" Margin="105,714,0,0" VerticalAlignment="Top" Width="150"/>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="PV">
+                <Grid Background="Transparent"/>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Batteries">
+                <Grid Background="Transparent"/>
+            </dx:DXTabItem>
+        </dx:DXTabControl>
+        
     </Grid>
 </dx:ThemedWindow>

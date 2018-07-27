@@ -24,5 +24,10 @@ namespace Net_Zero
         {
             InitializeComponent();
         }
+
+        private void btnOpen_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            TextEditDemandTotal.EditValue = 198.66;
+        }
     }
 }
