@@ -1,11 +1,25 @@
-﻿<dx:ThemedWindow x:Class="Net_Zero.MainWindow"
+﻿<dx:ThemedWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen">
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" x:Class="Net_Zero.MainWindow"
+        Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded">
+    <dx:ThemedWindow.Resources>
+        <local:DemandDataSet x:Key="demandDataSet"/>
+        <CollectionViewSource x:Key="demandItemsViewSource" Source="{Binding demandItems, Source={StaticResource demandDataSet}}"/>
+        <local:SummaryDataSet x:Key="summaryDataSet"/>
+        <CollectionViewSource x:Key="getSummaryViewSource" Source="{Binding getSummary, Source={StaticResource summaryDataSet}}"/>
+        <dx:TypedSimpleSource x:Key="TypedSimpleSource" AdapterType="{x:Type SummaryDataSetTableAdapters:getSummaryAllTableAdapter}" ContextType="{x:Type local:SummaryDataSet}" Path="getSummaryAll">
+            <dx:DesignDataManager.DesignData>
+                <dx:DesignDataSettings RowCount="5"/>
+            </dx:DesignDataManager.DesignData>
+        </dx:TypedSimpleSource>
+
+
+    </dx:ThemedWindow.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -50,12 +64,66 @@
         </dxr:RibbonStatusBarControl>
         <dx:DXTabControl Margin="32,60,0,0" Grid.RowSpan="2">
             <dx:DXTabItem Header="System Summary">
-                <Grid Background="Transparent"/>
+                <Grid Background="Transparent" DataContext="{StaticResource getSummaryViewSource}">
+                    <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,10,0,400" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
+                        <dxc:ChartControl.Legends>
+                            <dxc:Legend/>
+                        </dxc:ChartControl.Legends>
+                        <dxc:XYDiagram2D>
+                            <dxc:XYDiagram2D.AxisX>
+                                <dxc:AxisX2D/>
+                            </dxc:XYDiagram2D.AxisX>
+                            <dxc:BarSideBySideSeries2D DisplayName="Series 1" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                        </dxc:XYDiagram2D>
+                    </dxc:ChartControl>
+                    <DataGrid x:Name="getSummaryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="121,446,1213,87" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="nIDColumn1" Binding="{Binding nID}" Header="n ID" IsReadOnly="True" Width="SizeToHeader"/>
+                            <DataGridTemplateColumn x:Name="dtCreateDateColumn1" Header="dt Create Date" Width="SizeToHeader">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="nProjectsIDColumn1" Binding="{Binding nProjectsID}" Header="n Projects ID" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="cNoteColumn1" Binding="{Binding cNote}" Header="c Note" Width="SizeToHeader"/>
+                            <DataGridTemplateColumn x:Name="dtDateColumn" Header="dt Date" Width="SizeToHeader">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DatePicker SelectedDate="{Binding dtDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="nInsolationColumn" Binding="{Binding nInsolation}" Header="n Insolation" Width="SizeToHeader"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
-                <Grid Background="Transparent">
+                <Grid Background="Transparent" DataContext="{StaticResource demandItemsViewSource}">
                     <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="273,714,0,0" VerticalAlignment="Top" Width="75"/>
                     <dxe:TextEdit x:Name="TextEditDemandTotal" HorizontalAlignment="Left" Margin="105,714,0,0" VerticalAlignment="Top" Width="150"/>
+                    <DataGrid x:Name="demandItemsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,20,800,200" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="nIDColumn" Binding="{Binding nID}" Header="n ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
+                            <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="cDescColumn" Binding="{Binding cDesc}" Header="c Desc" Width="200"/>
+                            <DataGridTextColumn x:Name="nQtyColumn" Binding="{Binding nQty}" Header="n Qty" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="nHoursColumn" Binding="{Binding nHours}" Header="n Hours" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="nPowerWColumn" Binding="{Binding nPowerW}" Header="n Power W" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="c Note" Width="200"/>
+                            <DataGridCheckBoxColumn x:Name="bDeletedColumn" Binding="{Binding bDeleted}" Header="b Deleted" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="nOnOffFactorColumn" Binding="{Binding nOnOffFactor}" Header="n On Off Factor" Width="SizeToHeader"/>
+                            <DataGridTextColumn x:Name="nProjectsIDColumn" Binding="{Binding nProjectsID}" Header="n Projects ID" Width="SizeToHeader" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV">
@@ -65,6 +133,6 @@
                 <Grid Background="Transparent"/>
             </dx:DXTabItem>
         </dx:DXTabControl>
-        
+
     </Grid>
 </dx:ThemedWindow>
