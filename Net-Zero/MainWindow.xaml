@@ -65,7 +65,7 @@
         <dx:DXTabControl Margin="32,60,0,0" Grid.RowSpan="2">
             <dx:DXTabItem Header="System Summary">
                 <Grid Background="Transparent" DataContext="{StaticResource getSummaryViewSource}">
-                    <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,10,0,400" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
+                    <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,60,0,400" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
                         <dxc:ChartControl.Legends>
                             <dxc:Legend/>
                         </dxc:ChartControl.Legends>
@@ -98,6 +98,11 @@
                             <DataGridTextColumn x:Name="nInsolationColumn" Binding="{Binding nInsolation}" Header="n Insolation" Width="SizeToHeader"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <dxe:TextEdit x:Name="TextEditStartDate" HorizontalAlignment="Left" Margin="70,20,0,0" VerticalAlignment="Top" Width="150" MaskType="DateTime"/>
+                    <dxe:TextEdit x:Name="TextEditEndDate" HorizontalAlignment="Left" Margin="275,20,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dx:SimpleButton Content="Refresh" HorizontalAlignment="Left" Height="22" Margin="481,20,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
+                    <dxe:DateEdit x:Name="DateEditStartDate" HorizontalAlignment="Left" Margin="609,20,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxe:DateEdit x:Name="DateEditEndDate" HorizontalAlignment="Left" Margin="786,20,0,0" VerticalAlignment="Top" Width="150"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">

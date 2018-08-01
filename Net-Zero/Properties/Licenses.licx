@@ -2,3 +2,5 @@ DevExpress.Xpf.Editors.TextEdit, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Cu
 DevExpress.Xpf.WindowsUI.NavigationFrame, DevExpress.Xpf.Controls.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.Core.DXTabControl, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.Charts.ChartControl, DevExpress.Xpf.Charts.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Editors.DateNavigator.DateNavigator, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Editors.DateEdit, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
