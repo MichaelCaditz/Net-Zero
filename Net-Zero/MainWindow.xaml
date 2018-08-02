@@ -21,6 +21,10 @@
         <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvinceViewSource" Source="{Binding getAllCountries_getAllStateProvince, Source={StaticResource getAllCountriesViewSource}}"/>
         <CollectionViewSource x:Key="getAllStateProvinceViewSource" Source="{Binding getAllStateProvince, Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllStateProvincegetAllCityViewSource" Source="{Binding getAllStateProvince_getAllCity, Source={StaticResource getAllStateProvinceViewSource}}"/>
+        <CollectionViewSource x:Key="getAllCityViewSource" Source="{Binding getAllCity, Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllCountriesgetAllStateProvincegetAllCityViewSource" Source="{Binding getAllStateProvince_getAllCity, Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}"/>
+        <CollectionViewSource x:Key="getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource" Source="{Binding getAllCity_getAllInsolation, Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -149,7 +153,7 @@
                         </dxg:TreeListControl.View>
                         <dxg:TreeListControl.Columns>
                             <dxg:TreeListColumn FieldName="cName" Header="Country" />
-                            
+
                         </dxg:TreeListControl.Columns>
                     </dxg:TreeListControl>
                     <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="300,131,0,0" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}">
@@ -160,6 +164,32 @@
                             <dxg:TreeListColumn FieldName="cName" Header="Province" />
 
                         </dxg:TreeListControl.Columns>
+
+
+                    </dxg:TreeListControl>
+
+                    <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="500,131,0,0" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}}">
+                        <dxg:TreeListControl.View>
+                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
+                        </dxg:TreeListControl.View>
+                        <dxg:TreeListControl.Columns>
+                            <dxg:TreeListColumn FieldName="cName" Header="City" />
+
+                        </dxg:TreeListControl.Columns>
+
+
+                    </dxg:TreeListControl>
+
+                    <dxg:TreeListControl AutoGenerateColumns="AddNew" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="800,131,0,0" VerticalAlignment="Top" Width="500" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}">
+                        <dxg:TreeListControl.View>
+                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
+                        </dxg:TreeListControl.View>
+                        <dxg:TreeListControl.Columns>
+                            <!--<dxg:TreeListColumn FieldName="cName" Header="City" />-->
+
+                        </dxg:TreeListControl.Columns>
+
+
                     </dxg:TreeListControl>
                 </Grid>
             </dx:DXTabItem>
