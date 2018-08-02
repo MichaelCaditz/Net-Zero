@@ -56,7 +56,7 @@ namespace Net_Zero
             // This code could not be generated, because the summaryDataSetgetSummaryTableAdapter.Fill method is missing, or has unrecognized parameters.
 
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
-            summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary,1001);
+            summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, 1001);
 
 
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
@@ -64,10 +64,17 @@ namespace Net_Zero
 
 
 
-     
-           
 
 
+
+
+            Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
+            // TODO: Add code here to load data into the table getAllCountries.
+            // This code could not be generated, because the geographygetAllCountriesTableAdapter.Fill method is missing, or has unrecognized parameters.
+            Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter geographygetAllCountriesTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter();
+            geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
+            System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
+            getAllCountriesViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)

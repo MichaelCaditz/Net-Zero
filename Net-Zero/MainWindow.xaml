@@ -17,6 +17,8 @@
                 <dx:DesignDataSettings RowCount="5"/>
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
+        <local:Geography x:Key="geography"/>
+        <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -136,6 +138,71 @@
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
                 <Grid Background="Transparent"/>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Location">
+                <Grid Background="Transparent" DataContext="{StaticResource getAllCountriesViewSource}">
+                    <ListView x:Name="getAllCountriesListView" ItemsSource="{Binding}" Margin="148,104,1186,429" SelectionMode="Single">
+                        <ListView.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn x:Name="nIDColumn2" Header="n ID" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="6,-1,-6,-1" Text="{Binding nID, Mode=OneWay}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="dtCreateDateColumn2" Header="dt Create Date" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <DatePicker Margin="-6,-1" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="cNameColumn" Header="c Name" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="-6,-1" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="cAlpha2Column" Header="c Alpha 2" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="-6,-1" Text="{Binding cAlpha2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="cAlpha3Column" Header="c Alpha 3" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="-6,-1" Text="{Binding cAlpha3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="nCountryIDColumn" Header="n Country ID" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="-6,-1" Text="{Binding nCountryID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="cNoteColumn2" Header="c Note" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Margin="-6,-1" Text="{Binding cNote, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
 

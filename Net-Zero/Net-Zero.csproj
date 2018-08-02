@@ -71,6 +71,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="classes\ProgramSettings.cs" />
+    <Compile Include="Geography.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Geography.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SummaryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,6 +128,17 @@
     </None>
     <None Include="DemandDataSet.xss">
       <DependentUpon>DemandDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Geography.xsc">
+      <DependentUpon>Geography.xsd</DependentUpon>
+    </None>
+    <None Include="Geography.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Geography.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Geography.xss">
+      <DependentUpon>Geography.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
