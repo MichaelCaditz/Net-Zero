@@ -75,6 +75,16 @@ namespace Net_Zero
             geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
             System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
             getAllCountriesViewSource.View.MoveCurrentToFirst();
+
+
+            // TODO: Add code here to load data into the table getAllStateProvince.
+            // This code could not be generated, because the geographygetAllStateProvinceTableAdapter.Fill method is missing, or has unrecognized parameters.
+
+            Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter geographygetAllStateProvinceTableAdapter = new Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter();
+            geographygetAllStateProvinceTableAdapter.Fill(geography.getAllStateProvince);
+
+            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvinceViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvinceViewSource")));
+            getAllCountriesgetAllStateProvinceViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)

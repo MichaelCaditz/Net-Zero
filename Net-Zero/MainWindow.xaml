@@ -5,7 +5,7 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" x:Class="Net_Zero.MainWindow"
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="Net_Zero.MainWindow"
         Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
@@ -19,6 +19,8 @@
         </dx:TypedSimpleSource>
         <local:Geography x:Key="geography"/>
         <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllCountriesgetAllStateProvinceViewSource" Source="{Binding getAllCountries_getAllStateProvince, Source={StaticResource getAllCountriesViewSource}}"/>
+        <CollectionViewSource x:Key="getAllStateProvinceViewSource" Source="{Binding getAllStateProvince, Source={StaticResource geography}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -141,67 +143,24 @@
             </dx:DXTabItem>
             <dx:DXTabItem Header="Location">
                 <Grid Background="Transparent" DataContext="{StaticResource getAllCountriesViewSource}">
-                    <ListView x:Name="getAllCountriesListView" ItemsSource="{Binding}" Margin="148,104,1186,429" SelectionMode="Single">
-                        <ListView.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
-                                <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn x:Name="nIDColumn2" Header="n ID" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="6,-1,-6,-1" Text="{Binding nID, Mode=OneWay}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="dtCreateDateColumn2" Header="dt Create Date" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <DatePicker Margin="-6,-1" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="cNameColumn" Header="c Name" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="-6,-1" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="cAlpha2Column" Header="c Alpha 2" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="-6,-1" Text="{Binding cAlpha2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="cAlpha3Column" Header="c Alpha 3" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="-6,-1" Text="{Binding cAlpha3, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="nCountryIDColumn" Header="n Country ID" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="-6,-1" Text="{Binding nCountryID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn x:Name="cNoteColumn2" Header="c Note" Width="80">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBox Margin="-6,-1" Text="{Binding cNote, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}">
+                        <dxg:TreeListControl.View>
+                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
+                        </dxg:TreeListControl.View>
+                        <dxg:TreeListControl.Columns>
+                            <dxg:TreeListColumn FieldName="cName" Header="Country" />
+                            
+                        </dxg:TreeListControl.Columns>
+                    </dxg:TreeListControl>
+                    <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="300,131,0,0" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}">
+                        <dxg:TreeListControl.View>
+                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
+                        </dxg:TreeListControl.View>
+                        <dxg:TreeListControl.Columns>
+                            <dxg:TreeListColumn FieldName="cName" Header="Province" />
+
+                        </dxg:TreeListControl.Columns>
+                    </dxg:TreeListControl>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
