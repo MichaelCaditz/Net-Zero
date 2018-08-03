@@ -34,9 +34,9 @@ namespace Net_Zero {
         
         private global::System.Data.DataRelation relationgetAllCity_getAllInsolation;
         
-        private global::System.Data.DataRelation relationgetAllCountries_getAllStateProvince;
-        
         private global::System.Data.DataRelation relationgetAllStateProvince_getAllCity;
+        
+        private global::System.Data.DataRelation relationgetAllCountries_getAllStateProvince;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -273,8 +273,8 @@ namespace Net_Zero {
                 }
             }
             this.relationgetAllCity_getAllInsolation = this.Relations["getAllCity_getAllInsolation"];
-            this.relationgetAllCountries_getAllStateProvince = this.Relations["getAllCountries_getAllStateProvince"];
             this.relationgetAllStateProvince_getAllCity = this.Relations["getAllStateProvince_getAllCity"];
+            this.relationgetAllCountries_getAllStateProvince = this.Relations["getAllCountries_getAllStateProvince"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -296,15 +296,18 @@ namespace Net_Zero {
             this.relationgetAllCity_getAllInsolation = new global::System.Data.DataRelation("getAllCity_getAllInsolation", new global::System.Data.DataColumn[] {
                         this.tablegetAllCity.nIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablegetAllInsolation.nCityIDColumn}, false);
+            this.relationgetAllCity_getAllInsolation.Nested = true;
             this.Relations.Add(this.relationgetAllCity_getAllInsolation);
-            this.relationgetAllCountries_getAllStateProvince = new global::System.Data.DataRelation("getAllCountries_getAllStateProvince", new global::System.Data.DataColumn[] {
-                        this.tablegetAllCountries.nIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablegetAllStateProvince.nCountryIDColumn}, false);
-            this.Relations.Add(this.relationgetAllCountries_getAllStateProvince);
             this.relationgetAllStateProvince_getAllCity = new global::System.Data.DataRelation("getAllStateProvince_getAllCity", new global::System.Data.DataColumn[] {
                         this.tablegetAllStateProvince.nIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablegetAllCity.nStateProvinceIDColumn}, false);
+            this.relationgetAllStateProvince_getAllCity.Nested = true;
             this.Relations.Add(this.relationgetAllStateProvince_getAllCity);
+            this.relationgetAllCountries_getAllStateProvince = new global::System.Data.DataRelation("getAllCountries_getAllStateProvince", new global::System.Data.DataColumn[] {
+                        this.tablegetAllCountries.nIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablegetAllStateProvince.nCountryIDColumn}, false);
+            this.relationgetAllCountries_getAllStateProvince.Nested = true;
+            this.Relations.Add(this.relationgetAllCountries_getAllStateProvince);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1268,6 +1271,7 @@ namespace Net_Zero {
                 this.columnnID.Unique = true;
                 this.columncName.MaxLength = 100;
                 this.columncNote.MaxLength = 50;
+                this.Namespace = "http://tempuri.org/Geography.xsd";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1423,6 +1427,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columncNote;
             
+            private global::System.Data.DataColumn columncMonthText;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getAllInsolationDataTable() {
@@ -1546,6 +1552,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn cMonthTextColumn {
+                get {
+                    return this.columncMonthText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1581,7 +1595,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getAllInsolationRow AddgetAllInsolationRow(System.DateTime dtCreateDate, getAllCityRow parentgetAllCityRowBygetAllCity_getAllInsolation, int nMonth, decimal nTilt90, decimal nTiltLat, decimal nTiltLatMinus15, decimal nTiltLatPlus15, decimal nTilt0, decimal n2Axis, string cNote) {
+            public getAllInsolationRow AddgetAllInsolationRow(System.DateTime dtCreateDate, getAllCityRow parentgetAllCityRowBygetAllCity_getAllInsolation, int nMonth, decimal nTilt90, decimal nTiltLat, decimal nTiltLatMinus15, decimal nTiltLatPlus15, decimal nTilt0, decimal n2Axis, string cNote, string cMonthText) {
                 getAllInsolationRow rowgetAllInsolationRow = ((getAllInsolationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1594,7 +1608,8 @@ namespace Net_Zero {
                         nTiltLatPlus15,
                         nTilt0,
                         n2Axis,
-                        cNote};
+                        cNote,
+                        cMonthText};
                 if ((parentgetAllCityRowBygetAllCity_getAllInsolation != null)) {
                     columnValuesArray[2] = parentgetAllCityRowBygetAllCity_getAllInsolation[0];
                 }
@@ -1638,6 +1653,7 @@ namespace Net_Zero {
                 this.columnnTilt0 = base.Columns["nTilt0"];
                 this.columnn2Axis = base.Columns["n2Axis"];
                 this.columncNote = base.Columns["cNote"];
+                this.columncMonthText = base.Columns["cMonthText"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1665,6 +1681,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnn2Axis);
                 this.columncNote = new global::System.Data.DataColumn("cNote", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncNote);
+                this.columncMonthText = new global::System.Data.DataColumn("cMonthText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncMonthText);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1674,6 +1692,7 @@ namespace Net_Zero {
                 this.columnnID.ReadOnly = true;
                 this.columnnID.Unique = true;
                 this.columncNote.MaxLength = 2147483647;
+                this.Namespace = "http://tempuri.org/Geography.xsd";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2512,6 +2531,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string cMonthText {
+                get {
+                    try {
+                        return ((string)(this[this.tablegetAllInsolation.cMonthTextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cMonthText\' in table \'getAllInsolation\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetAllInsolation.cMonthTextColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getAllCityRow getAllCityRow {
                 get {
                     return ((getAllCityRow)(this.GetParentRow(this.Table.ParentRelations["getAllCity_getAllInsolation"])));
@@ -2639,6 +2674,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcNoteNull() {
                 this[this.tablegetAllInsolation.cNoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscMonthTextNull() {
+                return this.IsNull(this.tablegetAllInsolation.cMonthTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcMonthTextNull() {
+                this[this.tablegetAllInsolation.cMonthTextColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3432,6 +3479,7 @@ namespace Net_Zero.GeographyTableAdapters {
             tableMapping.ColumnMappings.Add("nTilt0", "nTilt0");
             tableMapping.ColumnMappings.Add("n2Axis", "n2Axis");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
+            tableMapping.ColumnMappings.Add("cMonthText", "cMonthText");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
