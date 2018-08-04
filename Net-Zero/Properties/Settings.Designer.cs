@@ -32,5 +32,29 @@ namespace Net_Zero.Properties {
                 return ((string)(this["Net_ZeroConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int nLastProjectID {
+            get {
+                return ((int)(this["nLastProjectID"]));
+            }
+            set {
+                this["nLastProjectID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int nCurrentProjectID {
+            get {
+                return ((int)(this["nCurrentProjectID"]));
+            }
+            set {
+                this["nCurrentProjectID"] = value;
+            }
+        }
     }
 }

@@ -326,6 +326,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnInsolation;
             
+            private global::System.Data.DataColumn columnnInsolationPredicted;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() {
@@ -409,6 +411,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nInsolationPredictedColumn {
+                get {
+                    return this.columnnInsolationPredicted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -444,7 +454,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, string nInsolation) {
+            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -452,7 +462,8 @@ namespace Net_Zero {
                         nProjectsID,
                         cNote,
                         dtDate,
-                        nInsolation};
+                        nInsolation,
+                        nInsolationPredicted};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -488,6 +499,7 @@ namespace Net_Zero {
                 this.columncNote = base.Columns["cNote"];
                 this.columndtDate = base.Columns["dtDate"];
                 this.columnnInsolation = base.Columns["nInsolation"];
+                this.columnnInsolationPredicted = base.Columns["nInsolationPredicted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -503,8 +515,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columncNote);
                 this.columndtDate = new global::System.Data.DataColumn("dtDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndtDate);
-                this.columnnInsolation = new global::System.Data.DataColumn("nInsolation", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnnInsolation = new global::System.Data.DataColumn("nInsolation", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnInsolation);
+                this.columnnInsolationPredicted = new global::System.Data.DataColumn("nInsolationPredicted", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnInsolationPredicted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -514,7 +528,6 @@ namespace Net_Zero {
                 this.columnnID.ReadOnly = true;
                 this.columnnID.Unique = true;
                 this.columncNote.MaxLength = 2147483647;
-                this.columnnInsolation.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1066,10 +1079,10 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string nInsolation {
+            public decimal nInsolation {
                 get {
                     try {
-                        return ((string)(this[this.tablegetSummary.nInsolationColumn]));
+                        return ((decimal)(this[this.tablegetSummary.nInsolationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nInsolation\' in table \'getSummary\' is DBNull.", e);
@@ -1077,6 +1090,22 @@ namespace Net_Zero {
                 }
                 set {
                     this[this.tablegetSummary.nInsolationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nInsolationPredicted {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nInsolationPredictedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nInsolationPredicted\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nInsolationPredictedColumn] = value;
                 }
             }
             
@@ -1138,6 +1167,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnInsolationNull() {
                 this[this.tablegetSummary.nInsolationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnInsolationPredictedNull() {
+                return this.IsNull(this.tablegetSummary.nInsolationPredictedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnInsolationPredictedNull() {
+                this[this.tablegetSummary.nInsolationPredictedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1506,6 +1547,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cNote", "cNote");
             tableMapping.ColumnMappings.Add("dtDate", "dtDate");
             tableMapping.ColumnMappings.Add("nInsolation", "nInsolation");
+            tableMapping.ColumnMappings.Add("nInsolationPredicted", "nInsolationPredicted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

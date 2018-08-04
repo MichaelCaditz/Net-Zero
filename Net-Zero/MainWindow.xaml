@@ -73,7 +73,7 @@
         <dx:DXTabControl Margin="32,60,0,0" Grid.RowSpan="2">
             <dx:DXTabItem Header="System Summary">
                 <Grid Background="Transparent" DataContext="{StaticResource getSummaryViewSource}">
-                    <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,60,0,400" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
+                    <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,60,0,300" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
                         <dxc:ChartControl.Legends>
                             <dxc:Legend/>
                         </dxc:ChartControl.Legends>
@@ -81,7 +81,8 @@
                             <dxc:XYDiagram2D.AxisX>
                                 <dxc:AxisX2D/>
                             </dxc:XYDiagram2D.AxisX>
-                            <dxc:BarSideBySideSeries2D DisplayName="Series 1" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>
                         </dxc:XYDiagram2D>
                     </dxc:ChartControl>
                     <DataGrid x:Name="getSummaryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="121,446,1213,87" RowDetailsVisibilityMode="VisibleWhenSelected">

@@ -20,6 +20,7 @@ using System.Diagnostics;
 using Net_Zero.classes;
 using System.ComponentModel;
 using System.Drawing;
+using Net_Zero.Properties;
 
 namespace Net_Zero
 {
@@ -41,6 +42,9 @@ namespace Net_Zero
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
+            int nLastProjectID = Settings.Default.nLastProjectID;
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             // Load data into the table demandItems. You can modify this code as needed.
@@ -56,7 +60,7 @@ namespace Net_Zero
             // This code could not be generated, because the summaryDataSetgetSummaryTableAdapter.Fill method is missing, or has unrecognized parameters.
 
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
-            summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, 1001);
+            summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
 
 
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
@@ -88,12 +92,18 @@ namespace Net_Zero
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
         {
-            int nProjectsID = 1001;
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
             Nullable<DateTime> beginDate;
             Nullable<DateTime> endDate;
-            beginDate = (DateEditStartDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditStartDate.EditValue) == true ? (Nullable<DateTime>)null :
-               (DateTime)DateEditStartDate.EditValue);
-            endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)null :
+            //beginDate = (DateEditStartDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditStartDate.EditValue) == true ? (Nullable<DateTime>)null :
+            //   (DateTime)DateEditStartDate.EditValue);
+            //endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)null :
+            //   (DateTime)DateEditEndDate.EditValue);
+
+            beginDate = (DateEditStartDate.EditValue == null ? (Nullable<DateTime>)DateTime.Now : DBNull.Value.Equals(DateEditStartDate.EditValue) == true ? (Nullable<DateTime>)DateTime.Now :
+              (DateTime)DateEditStartDate.EditValue);
+            endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)DateTime.Now.AddDays(365) : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)DateTime.Now.AddDays(365) :
                (DateTime)DateEditEndDate.EditValue);
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
@@ -122,7 +132,7 @@ namespace Net_Zero
                 // This code could not be generated, because the summaryDataSetgetSummaryTableAdapter.Fill method is missing, or has unrecognized parameters.
 
                 Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
-                summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, 1001);
+                summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
 
 
                 System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
