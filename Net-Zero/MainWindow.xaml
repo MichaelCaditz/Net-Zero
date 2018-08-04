@@ -5,7 +5,7 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="Net_Zero.MainWindow"
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" x:Class="Net_Zero.MainWindow"
         Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
@@ -31,7 +31,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="472*"/>
+            <RowDefinition Height="323*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -65,12 +66,12 @@
 
 
 
-        <dxr:RibbonStatusBarControl Grid.Row="2">
+        <dxr:RibbonStatusBarControl Grid.Row="3">
             <dxr:RibbonStatusBarControl.RightItems>
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
-        <dx:DXTabControl Margin="32,60,0,0" Grid.RowSpan="2">
+        <dx:DXTabControl Margin="32,12,0,0" Grid.RowSpan="2" Grid.Row="1">
             <dx:DXTabItem Header="System Summary">
                 <Grid Background="Transparent" DataContext="{StaticResource getSummaryViewSource}">
                     <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,60,0,300" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
@@ -81,37 +82,32 @@
                             <dxc:XYDiagram2D.AxisX>
                                 <dxc:AxisX2D/>
                             </dxc:XYDiagram2D.AxisX>
-                            <dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
-                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>
+                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                            <dxc:LineSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:LineSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
                         </dxc:XYDiagram2D>
                     </dxc:ChartControl>
-                    <DataGrid x:Name="getSummaryDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="121,446,1213,87" RowDetailsVisibilityMode="VisibleWhenSelected">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="nIDColumn1" Binding="{Binding nID}" Header="n ID" IsReadOnly="True" Width="SizeToHeader"/>
-                            <DataGridTemplateColumn x:Name="dtCreateDateColumn1" Header="dt Create Date" Width="SizeToHeader">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn x:Name="nProjectsIDColumn1" Binding="{Binding nProjectsID}" Header="n Projects ID" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cNoteColumn1" Binding="{Binding cNote}" Header="c Note" Width="SizeToHeader"/>
-                            <DataGridTemplateColumn x:Name="dtDateColumn" Header="dt Date" Width="SizeToHeader">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <DatePicker SelectedDate="{Binding dtDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn x:Name="nInsolationColumn" Binding="{Binding nInsolation}" Header="n Insolation" Width="SizeToHeader"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
                     <dxe:TextEdit x:Name="TextEditStartDate" HorizontalAlignment="Left" Margin="70,20,0,0" VerticalAlignment="Top" Width="150" MaskType="DateTime"/>
                     <dxe:TextEdit x:Name="TextEditEndDate" HorizontalAlignment="Left" Margin="275,20,0,0" VerticalAlignment="Top" Width="150"/>
                     <dx:SimpleButton Content="Refresh" HorizontalAlignment="Left" Height="22" Margin="481,20,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
                     <dxe:DateEdit x:Name="DateEditStartDate" HorizontalAlignment="Left" Margin="609,20,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxe:DateEdit x:Name="DateEditEndDate" HorizontalAlignment="Left" Margin="786,20,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10,450,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" Height="222" Width="1693">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" RenderTransformOrigin="0.492,0.836"/>
+                        </dxg:GridControl.View>
+                        
+                       
+                        <dxg:GridColumn FieldName="dtDate" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nInsolation" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nInsolationPredicted" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cNote" IsSmart="True"/>
+                    </dxg:GridControl>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
@@ -152,19 +148,14 @@
                         <dxg:TreeListControl.View>
                             <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                         </dxg:TreeListControl.View>
-                        <dxg:TreeListControl.Columns>
-                            <dxg:TreeListColumn FieldName="cName" Header="Country" />
+                        <dxg:TreeListColumn FieldName="cName" Header="Country" />
 
-                        </dxg:TreeListControl.Columns>
                     </dxg:TreeListControl>
                     <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}" ShowBorder="False" SelectionMode="Row">
                         <dxg:TreeListControl.View>
                             <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                         </dxg:TreeListControl.View>
-                        <dxg:TreeListControl.Columns>
-                            <dxg:TreeListColumn FieldName="cName" Header="Province" />
-
-                        </dxg:TreeListControl.Columns>
+                        <dxg:TreeListColumn FieldName="cName" Header="Province" />
 
 
                     </dxg:TreeListControl>
@@ -173,10 +164,7 @@
                         <dxg:TreeListControl.View>
                             <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                         </dxg:TreeListControl.View>
-                        <dxg:TreeListControl.Columns>
-                            <dxg:TreeListColumn FieldName="cName" Header="City" />
-
-                        </dxg:TreeListControl.Columns>
+                        <dxg:TreeListColumn FieldName="cName" Header="City" />
 
 
                     </dxg:TreeListControl>
@@ -185,17 +173,14 @@
                         <dxg:TreeListControl.View>
                             <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                         </dxg:TreeListControl.View>
-                        <dxg:TreeListControl.Columns>
-                            <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
-                            <dxg:TreeListColumn FieldName="nTilt0" Header="No Tilt" Width="110" />
-                            <dxg:TreeListColumn FieldName="nTilt90" Header="90 deg Tilt" Width="110"  />
-                            <dxg:TreeListColumn FieldName="nTiltLatMinus15" Header="Latitude -15 deg Tilt" Width="110"  />
-                            <dxg:TreeListColumn FieldName="nTiltLat" Header="Latitude Tilt" Width="110"  />
-                            <dxg:TreeListColumn FieldName="nTiltLatPlus15" Header="Latitude +15 deg Tilt" Width="110"  />
-                            <dxg:TreeListColumn FieldName="n2Axis" Header="2-Axis Track" Width="110"  />
-                            <dxg:TreeListColumn FieldName="cNote" Header="Note" Width="200"  />
-
-                        </dxg:TreeListControl.Columns>
+                        <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
+                        <dxg:TreeListColumn FieldName="nTilt0" Header="No Tilt" Width="110" />
+                        <dxg:TreeListColumn FieldName="nTilt90" Header="90 deg Tilt" Width="110"  />
+                        <dxg:TreeListColumn FieldName="nTiltLatMinus15" Header="Latitude -15 deg Tilt" Width="110"  />
+                        <dxg:TreeListColumn FieldName="nTiltLat" Header="Latitude Tilt" Width="110"  />
+                        <dxg:TreeListColumn FieldName="nTiltLatPlus15" Header="Latitude +15 deg Tilt" Width="110"  />
+                        <dxg:TreeListColumn FieldName="n2Axis" Header="2-Axis Track" Width="110"  />
+                        <dxg:TreeListColumn FieldName="cNote" Header="Note" Width="200"  />
 
 
                     </dxg:TreeListControl>
