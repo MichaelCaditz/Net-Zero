@@ -7,3 +7,4 @@ DevExpress.Xpf.Editors.DateEdit, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Cu
 DevExpress.Xpf.Grid.GridControl, DevExpress.Xpf.Grid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.Grid.TreeListControl, DevExpress.Xpf.Grid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.Xpf.PivotGrid.PivotGridControl, DevExpress.Xpf.PivotGrid.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Editors.ButtonEdit, DevExpress.Xpf.Core.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a

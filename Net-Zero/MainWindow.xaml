@@ -185,6 +185,9 @@
 
                     </dxg:TreeListControl>
                     <Label Content="kWh/m2 - Full Sun Hours" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <dx:SimpleButton Content="Save City &amp; kWh/m2" HorizontalAlignment="Left" Height="35" Margin="670,471,0,0" VerticalAlignment="Top" Width="160" Click="SimpleButton_Click_1" IsDefault="True"/>
+                    <dxe:TextEdit x:Name="TextEditInsolation" HorizontalAlignment="Left" Margin="670,392,0,0" VerticalAlignment="Top" Width="150" MaskType="Numeric"/>
+                    <Label Content="Chosen kWh/m2" HorizontalAlignment="Left" Margin="670,419,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>

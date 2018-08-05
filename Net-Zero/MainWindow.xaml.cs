@@ -155,5 +155,163 @@ namespace Net_Zero
                 //LocateNewLine(TransactID1);
             }
         }
+
+        private void SimpleButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            int nCityID = 0;
+            decimal nInsolation = 0;
+            //string notes = "";
+            //string account_no = "";
+            //string address1 = "";
+            //string address2 = "";
+            //string city = "";
+            //string state = "";
+            //string state_other = "";
+            //string zip = "";
+            //string country = "";
+            //string postal_code = "";
+            //string areacode = "";
+            //string phone = "";
+            //string email = "";
+            //string website = "";
+            //string rep = "";
+            //string name = "";
+            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
+            Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
+
+
+            //int accountCurrent = 0;
+            int wasnull = 0;
+            wasnull = (getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+
+
+                DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
+                //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
+                nInsolation = (TextEditInsolation.EditValue == null ? 0 : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
+                //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
+                //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
+                //address2 = (DBNull.Value.Equals(drv["address2"]) == true ? "" : (string)drv["address2"]);
+                //city = (DBNull.Value.Equals(drv["city"]) == true ? "" : (string)drv["city"]);
+                //state = (DBNull.Value.Equals(drv["state"]) == true ? "" : (string)drv["state"]);
+                //state_other = (DBNull.Value.Equals(drv["state_other"]) == true ? "" : (string)drv["state_other"]);
+                //zip = (DBNull.Value.Equals(drv["zip"]) == true ? "" : (string)drv["zip"]);
+                //country = (DBNull.Value.Equals(drv["country"]) == true ? "" : (string)drv["country"]);
+                //postal_code = (DBNull.Value.Equals(drv["postal_code"]) == true ? "" : (string)drv["postal_code"]);
+                //areacode = (DBNull.Value.Equals(drv["areacode"]) == true ? "" : (string)drv["areacode"]);
+                //phone = (DBNull.Value.Equals(drv["phone"]) == true ? "" : (string)drv["phone"]);
+                //email = (DBNull.Value.Equals(drv["email"]) == true ? "" : (string)drv["email"]);
+                //website = (DBNull.Value.Equals(drv["website"]) == true ? "" : (string)drv["website"]);
+                //rep = (DBNull.Value.Equals(drv["rep"]) == true ? "" : (string)drv["rep"]);
+                //name = (DBNull.Value.Equals(drv["name"]) == true ? "" : (string)drv["name"]);
+
+            }
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.updateCity";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@nCityID", nCityID);
+                    cmd3.Parameters.AddWithValue("@nInsolation", nInsolation);
+                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
+                    //cmd3.Parameters.AddWithValue("@address1", address1);
+                    //cmd3.Parameters.AddWithValue("@address2", address2);
+                    //cmd3.Parameters.AddWithValue("@city", city);
+                    //cmd3.Parameters.AddWithValue("@state", state);
+                    //cmd3.Parameters.AddWithValue("@state_other", state_other);
+                    //cmd3.Parameters.AddWithValue("@zip", zip);
+                    //cmd3.Parameters.AddWithValue("@country", country);
+                    //cmd3.Parameters.AddWithValue("@postal_code", postal_code);
+                    //cmd3.Parameters.AddWithValue("@areacode", areacode);
+                    //cmd3.Parameters.AddWithValue("@phone", phone);
+                    //cmd3.Parameters.AddWithValue("@email", email);
+                    //cmd3.Parameters.AddWithValue("@website", website);
+                    //cmd3.Parameters.AddWithValue("@rep", rep);
+                    //cmd3.Parameters.AddWithValue("@name", name);
+
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                //VendorDataSet.EnforceConstraints = false;
+
+                //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
+
+
+                //vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
+
+                //VendorDataSet.EnforceConstraints = true;
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                // LocateNewLine(TransactID1);
+                //this.Close();
+
+            }
+        }
     }
 }
