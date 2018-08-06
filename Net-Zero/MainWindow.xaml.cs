@@ -313,5 +313,80 @@ namespace Net_Zero
 
             }
         }
+
+        private void ButtonSaveDerates_Click(object sender, RoutedEventArgs e)
+        {
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            //int nCityID = 0;
+            decimal nMPPTFactor = 0;
+            decimal nBatteryEfficiency = 0;
+            decimal nInverterDerate = 0;
+            //string notes = "";
+           
+            
+
+
+               // DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
+                //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                //nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
+                nMPPTFactor = (SpinEditnMPPTFactor.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnMPPTFactor.EditValue) == true ? 0m : (decimal)SpinEditnMPPTFactor.EditValue);
+                nBatteryEfficiency = (SpinEditnBatteryEfficiency.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnBatteryEfficiency.EditValue) == true ? 0m : (decimal)SpinEditnBatteryEfficiency.EditValue);
+
+                nInverterDerate = (SpinEditnInverterDerate.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnInverterDerate.EditValue) == true ? 0m : (decimal)SpinEditnInverterDerate.EditValue);
+
+                //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
+                
+
+            
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.updateDerates";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@nMPPTFactor", nMPPTFactor);
+                    cmd3.Parameters.AddWithValue("@nBatteryEfficiency", nBatteryEfficiency);
+                    cmd3.Parameters.AddWithValue("@nInverterDerate", nInverterDerate);
+                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
+                    //cmd3.Parameters.AddWithValue("@address1", address1);
+                    
+
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                
+            }
+        }
     }
 }

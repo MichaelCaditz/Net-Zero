@@ -101,8 +101,8 @@
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" RenderTransformOrigin="0.492,0.836"/>
                         </dxg:GridControl.View>
-                        
-                       
+
+
                         <dxg:GridColumn FieldName="dtDate" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nInsolation" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nInsolationPredicted" IsSmart="True"/>
@@ -137,7 +137,15 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV">
-                <Grid Background="Transparent"/>
+                <Grid Background="Transparent">
+                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Derates" HorizontalAlignment="Left" Height="35" Margin="25,240,0,0" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click"/>
+                    <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top"/>
+                    <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Inverter/Wiring" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxe:SpinEdit x:Name="SpinEditnInverterDerate" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150"/>
+                </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
                 <Grid Background="Transparent"/>
