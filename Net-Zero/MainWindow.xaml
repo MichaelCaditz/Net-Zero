@@ -196,6 +196,7 @@
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV">
                 <Grid Background="Transparent" DataContext="{StaticResource getProjectViewSource}">
+                    <Rectangle HorizontalAlignment="Left" Height="300" Margin="320,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="619"/>
                     <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Derates" HorizontalAlignment="Left" Height="35" Margin="25,240,0,0" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click"/>
                     <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top"/>
                     <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
@@ -203,12 +204,24 @@
                     <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##"/>
                     <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.##"/>
                     <dxe:SpinEdit x:Name="SpinEditnInverterDerate" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
+                    <Label Content="PV array power required = " HorizontalAlignment="Left" Margin="341,54,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Demand" HorizontalAlignment="Left" Margin="658,38,0,0" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="Battery efficiency x MPPT factor x  Inverter derate x Insolation" HorizontalAlignment="Left" Margin="516,78,0,0" VerticalAlignment="Top"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="514,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="472,157,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="514,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
+                    <TextBox x:Name="nDemandTotalTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="658,132,0,578" Text="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <Label Content="kWh/day" HorizontalAlignment="Left" Margin="783,133,0,0" VerticalAlignment="Top" Width="99"/>
+                    <TextBox x:Name="nBatteryEfficiencyTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="375,197,0,513" Text="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <TextBox x:Name="nMPPTFactorTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="510,197,0,513" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <TextBox x:Name="nInverterDerateTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="644,197,0,513" Text="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    <TextBox x:Name="nChosenInsolationTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="783,197,0,513" Text="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
                 <Grid Background="Transparent"/>
             </dx:DXTabItem>
-            <dx:DXTabItem Header="Location">
+            <dx:DXTabItem Header="Location" Height="22" VerticalAlignment="Top">
                 <Grid Background="Transparent" DataContext="{StaticResource getAllCountriesViewSource}">
                     <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row">
                         <dxg:TreeListControl.View>
