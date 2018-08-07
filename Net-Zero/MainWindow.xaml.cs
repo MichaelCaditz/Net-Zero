@@ -83,11 +83,14 @@ namespace Net_Zero
 
             Net_Zero.GeographyTableAdapters.getAllCityTableAdapter geographygetAllCityTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCityTableAdapter();
             geographygetAllCityTableAdapter.Fill(geography.getAllCity);
-           
+
             Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter geographygetAllInsolationTableAdapter = new Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter();
             geographygetAllInsolationTableAdapter.Fill(geography.getAllInsolation);
-            //System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
-            //getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.MoveCurrentToFirst();
+            
+            Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+            summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+            getProjectViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -318,9 +321,9 @@ namespace Net_Zero
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
             //int nCityID = 0;
-            decimal nMPPTFactor = 0;
-            decimal nBatteryEfficiency = 0;
-            decimal nInverterDerate = 0;
+            decimal  nMPPTFactor = 0m;
+            decimal nBatteryEfficiency = 0m;
+            decimal nInverterDerate = 0m;
             //string notes = "";
            
             
@@ -329,15 +332,15 @@ namespace Net_Zero
                // DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 //nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
-                nMPPTFactor = (SpinEditnMPPTFactor.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnMPPTFactor.EditValue) == true ? 0m : (decimal)SpinEditnMPPTFactor.EditValue);
-                nBatteryEfficiency = (SpinEditnBatteryEfficiency.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnBatteryEfficiency.EditValue) == true ? 0m : (decimal)SpinEditnBatteryEfficiency.EditValue);
+                nMPPTFactor = (SpinEditnMPPTFactor.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnMPPTFactor.EditValue) == true ? 0m : (decimal)SpinEditnMPPTFactor.EditValue);
+                nBatteryEfficiency = (SpinEditnBatteryEfficiency.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnBatteryEfficiency.EditValue) == true ? 0m : (decimal)SpinEditnBatteryEfficiency.EditValue);
 
-                nInverterDerate = (SpinEditnInverterDerate.EditValue == null ? 0 : DBNull.Value.Equals(SpinEditnInverterDerate.EditValue) == true ? 0m : (decimal)SpinEditnInverterDerate.EditValue);
+                nInverterDerate = (SpinEditnInverterDerate.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnInverterDerate.EditValue) == true ? 0m : (decimal)SpinEditnInverterDerate.EditValue);
 
-                //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
-                
+            //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
 
-            
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+
 
 
 
@@ -367,6 +370,12 @@ namespace Net_Zero
                     conn.Open();
                     cmd3.ExecuteNonQuery();
                     //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+
+                    Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                    summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                    System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                    getProjectViewSource.View.MoveCurrentToFirst();
                 }
 
 

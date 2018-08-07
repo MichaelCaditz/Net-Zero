@@ -25,6 +25,7 @@
         <CollectionViewSource x:Key="getAllCityViewSource" Source="{Binding getAllCity, Source={StaticResource geography}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvincegetAllCityViewSource" Source="{Binding getAllStateProvince_getAllCity, Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource" Source="{Binding getAllCity_getAllInsolation, Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}}"/>
+        <CollectionViewSource x:Key="getProjectViewSource" Source="{Binding getProject, Source={StaticResource summaryDataSet}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -72,7 +73,64 @@
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
         <dx:DXTabControl Margin="32,12,0,0" Grid.RowSpan="2" Grid.Row="1">
-            <dx:DXTabItem Header="System Summary">
+            <dx:DXTabItem Header="Project Details">
+                <Grid Background="Transparent">
+                    <Grid x:Name="grid1" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Margin="550,105,0,0" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="n ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding nID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="dt Create Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <DatePicker x:Name="dtCreateDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                        <Label Content="c Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Desc:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cDescTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Note 1:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cNote1TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding cNote1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Note 2:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cNote2TextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding cNote2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n Clients ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nClientsIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="dt Date Due:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                        <DatePicker x:Name="dtDateDueDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="7" SelectedDate="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                        <Label Content="n Demand Total:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nDemandTotalTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n City ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nCityIDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding nCityID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n Chosen Insolation:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nChosenInsolationTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10" Text="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="c Chosen Tilt:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cChosenTiltTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding cChosenTilt, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n MPPTFactor:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nMPPTFactorTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n Battery Efficiency:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nBatteryEfficiencyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                        <Label Content="n Inverter Derate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                        <TextBox x:Name="nInverterDerateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+                    </Grid>
+                </Grid>
+            </dx:DXTabItem>
+            <dx:DXTabItem Header="Energy Summary">
                 <Grid Background="Transparent" DataContext="{StaticResource getSummaryViewSource}">
                     <dxc:ChartControl x:Name="SummaryChart1" HorizontalAlignment="Left" Margin="125,60,0,300" VerticalAlignment="Top" DataSource="{Binding Source={StaticResource getSummaryViewSource}}">
                         <dxc:ChartControl.Legends>
@@ -137,14 +195,14 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV">
-                <Grid Background="Transparent">
+                <Grid Background="Transparent" DataContext="{StaticResource getProjectViewSource}">
                     <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Derates" HorizontalAlignment="Left" Height="35" Margin="25,240,0,0" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click"/>
                     <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top"/>
                     <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
                     <Label Content="Inverter/Wiring" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Width="150"/>
-                    <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="150"/>
-                    <dxe:SpinEdit x:Name="SpinEditnInverterDerate" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##"/>
+                    <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.##"/>
+                    <dxe:SpinEdit x:Name="SpinEditnInverterDerate" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
