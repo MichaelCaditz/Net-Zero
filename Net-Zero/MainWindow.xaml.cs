@@ -91,6 +91,8 @@ namespace Net_Zero
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
+            TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+            TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -376,6 +378,9 @@ namespace Net_Zero
                     summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                     System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                     getProjectViewSource.View.MoveCurrentToFirst();
+                    TextEditnPVRequired.EditValue = Math.Round((Decimal) TextEditnPVRequired.EditValue, 2);
+                    TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+
                 }
 
 
