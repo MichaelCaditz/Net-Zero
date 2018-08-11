@@ -343,6 +343,8 @@ namespace Net_Zero {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
+            this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
+            this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1074,6 +1076,12 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnPVRequired;
             
+            private global::System.Data.DataColumn columnnDemandTotalWH;
+            
+            private global::System.Data.DataColumn columnnControllerEfficiency;
+            
+            private global::System.Data.DataColumn columnnAdjustedDemandWH;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1246,6 +1254,30 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDemandTotalWHColumn {
+                get {
+                    return this.columnnDemandTotalWH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nControllerEfficiencyColumn {
+                get {
+                    return this.columnnControllerEfficiency;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nAdjustedDemandWHColumn {
+                get {
+                    return this.columnnAdjustedDemandWH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1281,7 +1313,25 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getProjectRow AddgetProjectRow(System.DateTime dtCreateDate, string cName, string cDesc, string cNote1, string cNote2, int nClientsID, System.DateTime dtDateDue, decimal nDemandTotal, int nCityID, decimal nChosenInsolation, string cChosenTilt, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate, decimal nPVRequired) {
+            public getProjectRow AddgetProjectRow(
+                        System.DateTime dtCreateDate, 
+                        string cName, 
+                        string cDesc, 
+                        string cNote1, 
+                        string cNote2, 
+                        int nClientsID, 
+                        System.DateTime dtDateDue, 
+                        decimal nDemandTotal, 
+                        int nCityID, 
+                        decimal nChosenInsolation, 
+                        string cChosenTilt, 
+                        decimal nMPPTFactor, 
+                        decimal nBatteryEfficiency, 
+                        decimal nInverterDerate, 
+                        decimal nPVRequired, 
+                        decimal nDemandTotalWH, 
+                        decimal nControllerEfficiency, 
+                        decimal nAdjustedDemandWH) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1299,7 +1349,10 @@ namespace Net_Zero {
                         nMPPTFactor,
                         nBatteryEfficiency,
                         nInverterDerate,
-                        nPVRequired};
+                        nPVRequired,
+                        nDemandTotalWH,
+                        nControllerEfficiency,
+                        nAdjustedDemandWH};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1307,7 +1360,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getProjectRow AddgetProjectRow(System.DateTime dtCreateDate, string cName, string cDesc, string cNote1, string cNote2, int nClientsID, System.DateTime dtDateDue, decimal nDemandTotal, int nCityID, decimal nChosenInsolation, string cChosenTilt, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate) {
+            public getProjectRow AddgetProjectRow(System.DateTime dtCreateDate, string cName, string cDesc, string cNote1, string cNote2, int nClientsID, System.DateTime dtDateDue, decimal nDemandTotal, int nCityID, decimal nChosenInsolation, string cChosenTilt, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate, decimal nControllerEfficiency) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1325,6 +1378,9 @@ namespace Net_Zero {
                         nMPPTFactor,
                         nBatteryEfficiency,
                         nInverterDerate,
+                        null,
+                        null,
+                        nControllerEfficiency,
                         null};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
@@ -1371,6 +1427,9 @@ namespace Net_Zero {
                 this.columnnBatteryEfficiency = base.Columns["nBatteryEfficiency"];
                 this.columnnInverterDerate = base.Columns["nInverterDerate"];
                 this.columnnPVRequired = base.Columns["nPVRequired"];
+                this.columnnDemandTotalWH = base.Columns["nDemandTotalWH"];
+                this.columnnControllerEfficiency = base.Columns["nControllerEfficiency"];
+                this.columnnAdjustedDemandWH = base.Columns["nAdjustedDemandWH"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1408,6 +1467,12 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnInverterDerate);
                 this.columnnPVRequired = new global::System.Data.DataColumn("nPVRequired", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnPVRequired);
+                this.columnnDemandTotalWH = new global::System.Data.DataColumn("nDemandTotalWH", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDemandTotalWH);
+                this.columnnControllerEfficiency = new global::System.Data.DataColumn("nControllerEfficiency", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnControllerEfficiency);
+                this.columnnAdjustedDemandWH = new global::System.Data.DataColumn("nAdjustedDemandWH", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAdjustedDemandWH);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1422,6 +1487,8 @@ namespace Net_Zero {
                 this.columncNote2.MaxLength = 2147483647;
                 this.columncChosenTilt.MaxLength = 100;
                 this.columnnPVRequired.ReadOnly = true;
+                this.columnnDemandTotalWH.ReadOnly = true;
+                this.columnnAdjustedDemandWH.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1446,6 +1513,8 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
                 this.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
+                this.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
+                this.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2181,6 +2250,54 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDemandTotalWH {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nDemandTotalWHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDemandTotalWH\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nDemandTotalWHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nControllerEfficiency {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nControllerEfficiencyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nControllerEfficiency\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nControllerEfficiencyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nAdjustedDemandWH {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nAdjustedDemandWHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAdjustedDemandWH\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nAdjustedDemandWHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -2357,6 +2474,42 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnPVRequiredNull() {
                 this[this.tablegetProject.nPVRequiredColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDemandTotalWHNull() {
+                return this.IsNull(this.tablegetProject.nDemandTotalWHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDemandTotalWHNull() {
+                this[this.tablegetProject.nDemandTotalWHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnControllerEfficiencyNull() {
+                return this.IsNull(this.tablegetProject.nControllerEfficiencyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnControllerEfficiencyNull() {
+                this[this.tablegetProject.nControllerEfficiencyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnAdjustedDemandWHNull() {
+                return this.IsNull(this.tablegetProject.nAdjustedDemandWHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnAdjustedDemandWHNull() {
+                this[this.tablegetProject.nAdjustedDemandWHColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3252,6 +3405,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nMPPTFactor", "nMPPTFactor");
             tableMapping.ColumnMappings.Add("nBatteryEfficiency", "nBatteryEfficiency");
             tableMapping.ColumnMappings.Add("nInverterDerate", "nInverterDerate");
+            tableMapping.ColumnMappings.Add("nControllerEfficiency", "nControllerEfficiency");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
