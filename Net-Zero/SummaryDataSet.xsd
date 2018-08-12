@@ -144,6 +144,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nControllerEfficiency" DataSetColumn="nControllerEfficiency" />
               <Mapping SourceColumn="nDaysAutonomy" DataSetColumn="nDaysAutonomy" />
               <Mapping SourceColumn="nVoltage" DataSetColumn="nVoltage" />
+              <Mapping SourceColumn="nMDoD" DataSetColumn="nMDoD" />
+              <Mapping SourceColumn="nTDR" DataSetColumn="nTDR" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -253,6 +255,9 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDaysAutonomy" msprop:Generator_ColumnVarNameInTable="columnnDaysAutonomy" msprop:Generator_ColumnPropNameInRow="nDaysAutonomy" msprop:Generator_ColumnPropNameInTable="nDaysAutonomyColumn" msprop:Generator_UserColumnName="nDaysAutonomy" type="xs:decimal" minOccurs="0" />
               <xs:element name="nVoltage" msprop:Generator_ColumnVarNameInTable="columnnVoltage" msprop:Generator_ColumnPropNameInRow="nVoltage" msprop:Generator_ColumnPropNameInTable="nVoltageColumn" msprop:Generator_UserColumnName="nVoltage" type="xs:decimal" minOccurs="0" />
               <xs:element name="nUsableStorage" msdata:ReadOnly="true" msdata:Expression="(nAdjustedDemandWH*nDaysAutonomy)/nVoltage" msprop:Generator_ColumnVarNameInTable="columnnUsableStorage" msprop:Generator_ColumnPropNameInRow="nUsableStorage" msprop:Generator_ColumnPropNameInTable="nUsableStorageColumn" msprop:Generator_UserColumnName="nUsableStorage" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nMDoD" msprop:Generator_ColumnVarNameInTable="columnnMDoD" msprop:Generator_ColumnPropNameInRow="nMDoD" msprop:Generator_ColumnPropNameInTable="nMDoDColumn" msprop:Generator_UserColumnName="nMDoD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTDR" msprop:Generator_ColumnVarNameInTable="columnnTDR" msprop:Generator_ColumnPropNameInRow="nTDR" msprop:Generator_ColumnPropNameInTable="nTDRColumn" msprop:Generator_UserColumnName="nTDR" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nBatteryCapacityFinal" msdata:ReadOnly="true" msdata:Expression="nUsableStorage/(nMDoD*nTDR)" msprop:Generator_ColumnVarNameInTable="columnnBatteryCapacityFinal" msprop:Generator_ColumnPropNameInRow="nBatteryCapacityFinal" msprop:Generator_ColumnPropNameInTable="nBatteryCapacityFinalColumn" msprop:Generator_UserColumnName="nBatteryCapacityFinal" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

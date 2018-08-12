@@ -74,7 +74,7 @@
         </dxr:RibbonStatusBarControl>
         <dx:DXTabControl Margin="32,12,0,0" Grid.RowSpan="2" Grid.Row="1">
             <dx:DXTabItem Header="Project Details">
-                <Grid Background="Transparent">
+                <Grid DataContext="{StaticResource getProjectViewSource}" Background="Transparent">
                     <Grid x:Name="grid1" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Margin="550,105,0,0" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -128,6 +128,23 @@
                         <Label Content="n Inverter Derate:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
                         <TextBox x:Name="nInverterDerateTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                     </Grid>
+                    <Label Content="Days Autonomy" HorizontalAlignment="Left" Margin="25,235,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnDaysAutonomy"  DisplayFormatString="###.0" EditValue="{Binding nDaysAutonomy, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,208,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="365" MinValue="1" Mask="######.#"/>
+                    <Label Content="System Voltage" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnVoltage"  DisplayFormatString="###.00" EditValue="{Binding nVoltage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,278,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##"/>
+                    <Label Content="MDoD" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnMDoD"  DisplayFormatString="###.00" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,340,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##"/>
+                    <Label Content="TDR" HorizontalAlignment="Left" Margin="25,422,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,400,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##"/>
+                    <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
+                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Project Details" HorizontalAlignment="Left" Height="35" Margin="263,315,0,0" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click"/>
+                    <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="263,121,0,0" VerticalAlignment="Top"/>
+                    <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="263,183,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="263,243,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" DisplayFormatString="###.00"  EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="263,94,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##"/>
+                    <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" DisplayFormatString="###.00"  EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="263,156,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.##"/>
+                    <dxe:SpinEdit x:Name="SpinEditnInverterDerate"  DisplayFormatString="###.00" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="263,221,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Energy Summary">
@@ -197,13 +214,6 @@
             <dx:DXTabItem Header="PV">
                 <Grid Background="Transparent" DataContext="{StaticResource getProjectViewSource}">
                     <Rectangle HorizontalAlignment="Left" Height="300" Margin="320,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="619"/>
-                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Derates" HorizontalAlignment="Left" Height="35" Margin="25,240,0,0" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click"/>
-                    <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="25,46,0,0" VerticalAlignment="Top"/>
-                    <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" DisplayFormatString="###.00"  EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##"/>
-                    <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" DisplayFormatString="###.00"  EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,81,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.##"/>
-                    <dxe:SpinEdit x:Name="SpinEditnInverterDerate"  DisplayFormatString="###.00" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
                     <Label Content="PV array power required = " HorizontalAlignment="Left" Margin="341,54,0,0" VerticalAlignment="Top"/>
                     <Label Content="Demand" HorizontalAlignment="Left" Margin="658,38,0,0" VerticalAlignment="Top" Width="99"/>
                     <Label Content="Battery efficiency x MPPT factor x  Inverter derate x Insolation" HorizontalAlignment="Left" Margin="516,78,0,0" VerticalAlignment="Top" Width="366"/>
@@ -230,11 +240,11 @@
                     <Label Content="MDoD x TDR" HorizontalAlignment="Left" Margin="496,424,0,0" VerticalAlignment="Top" Width="366"/>
                     <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="494,414,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
                     <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="494,517,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
-                    <TextBox x:Name="TextBoxnBatteryEfficiency_Copy" HorizontalAlignment="Left" Height="23" Margin="483,543,0,167" Text="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <TextBox x:Name="nMPPTFactorTextBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="583,543,0,167" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
+                    <dxe:TextEdit x:Name="TextBoxnMDoD" DisplayFormatString="###.00"   HorizontalAlignment="Left" Height="23" Margin="483,543,0,167" Text="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
+                    <dxe:TextEdit x:Name="TextBoxnTDR" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="583,543,0,167" Text="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
                     <Label Content="Ah" HorizontalAlignment="Left" Margin="583,606,0,0" VerticalAlignment="Top" Width="99"/>
-                    <dxe:TextEdit x:Name="TextEditnPVRequired_Copy" EditValue="{Binding nPVRequired, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="483,599,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00"/>
-                    <dxe:TextEdit x:Name="TextEditnDemandTotal_Copy" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="638,479,0,0" VerticalAlignment="Top" Width="80"/>
+                    <dxe:TextEdit x:Name="TextEditnBatteryCapacityFinal" DisplayFormatString="###.00"  EditValue="{Binding nBatteryCapacityFinal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="483,599,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00"/>
+                    <dxe:TextEdit x:Name="TextEditnUsableStorage_1" DisplayFormatString="###.00"  EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="638,479,0,0" VerticalAlignment="Top" Width="80"/>
                     <Label Content="= " HorizontalAlignment="Left" Margin="421,503,0,0" VerticalAlignment="Top" Width="18"/>
                     <Label Content="= " HorizontalAlignment="Left" Margin="421,606,0,0" VerticalAlignment="Top" Width="18"/>
                     <Rectangle HorizontalAlignment="Left" Height="300" Margin="1006,12,0,0" Stroke="Black" VerticalAlignment="Top" Width="619"/>
@@ -270,12 +280,6 @@
                     <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="488,158,0,0" VerticalAlignment="Top" Width="80"/>
                     <Label Content="x" HorizontalAlignment="Left" Margin="609,220,0,0" VerticalAlignment="Top" Width="18"/>
                     <Label Content="= " HorizontalAlignment="Left" Margin="455,278,0,0" VerticalAlignment="Top" Width="18"/>
-                    <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
-                    <Label Content="Days Autonomy" HorizontalAlignment="Left" Margin="25,235,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditnDaysAutonomy"  DisplayFormatString="###.00" EditValue="{Binding nDaysAutonomy, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,213,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="365" MinValue="1" Mask="######.#"/>
-                    <Label Content="System Voltage" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditnVoltage"  DisplayFormatString="###.00" EditValue="{Binding nVoltage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,278,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Location" Height="22" VerticalAlignment="Top">
