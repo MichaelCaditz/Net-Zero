@@ -142,6 +142,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nBatteryEfficiency" DataSetColumn="nBatteryEfficiency" />
               <Mapping SourceColumn="nInverterDerate" DataSetColumn="nInverterDerate" />
               <Mapping SourceColumn="nControllerEfficiency" DataSetColumn="nControllerEfficiency" />
+              <Mapping SourceColumn="nDaysAutonomy" DataSetColumn="nDaysAutonomy" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -248,6 +249,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDemandTotalWH" msdata:ReadOnly="true" msdata:Expression="nDemandTotal*1000" msprop:Generator_ColumnVarNameInTable="columnnDemandTotalWH" msprop:Generator_ColumnPropNameInRow="nDemandTotalWH" msprop:Generator_ColumnPropNameInTable="nDemandTotalWHColumn" msprop:Generator_UserColumnName="nDemandTotalWH" type="xs:decimal" minOccurs="0" />
               <xs:element name="nControllerEfficiency" msprop:Generator_ColumnVarNameInTable="columnnControllerEfficiency" msprop:Generator_ColumnPropNameInRow="nControllerEfficiency" msprop:Generator_ColumnPropNameInTable="nControllerEfficiencyColumn" msprop:Generator_UserColumnName="nControllerEfficiency" type="xs:decimal" minOccurs="0" />
               <xs:element name="nAdjustedDemandWH" msdata:ReadOnly="true" msdata:Expression="nDemandTotalWH/(nInverterDerate*nControllerEfficiency)" msprop:Generator_ColumnVarNameInTable="columnnAdjustedDemandWH" msprop:Generator_ColumnPropNameInRow="nAdjustedDemandWH" msprop:Generator_ColumnPropNameInTable="nAdjustedDemandWHColumn" msprop:Generator_UserColumnName="nAdjustedDemandWH" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDaysAutonomy" msprop:Generator_ColumnVarNameInTable="columnnDaysAutonomy" msprop:Generator_ColumnPropNameInRow="nDaysAutonomy" msprop:Generator_ColumnPropNameInTable="nDaysAutonomyColumn" msprop:Generator_UserColumnName="nDaysAutonomy" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

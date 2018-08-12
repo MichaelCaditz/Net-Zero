@@ -245,8 +245,8 @@
                     <Label Content="= " HorizontalAlignment="Left" Margin="1152,159,0,0" VerticalAlignment="Top" Width="18"/>
                     <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="1200,173,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
                     <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="1289,135,0,0" VerticalAlignment="Top" Width="50"/>
-                    <TextBox x:Name="TextBoxnBatteryEfficiency_Copy1" HorizontalAlignment="Left" Height="23" Margin="1362,134,0,576" Text="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <TextBox x:Name="nMPPTFactorTextBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="1205,190,0,520" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
+                    <dxe:TextEdit x:Name="TextBoxnDaysAutonomy" DisplayFormatString="###.00" HorizontalAlignment="Left" Height="23" Margin="1362,134,0,576" Text="{Binding nDaysAutonomy, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
+                    <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="1205,190,0,520" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
                     <Label Content="= " HorizontalAlignment="Left" Margin="1152,255,0,0" VerticalAlignment="Top" Width="18"/>
                     <Label Content="Ah" HorizontalAlignment="Left" Margin="1289,255,0,0" VerticalAlignment="Top" Width="99"/>
                     <Label Content="V" HorizontalAlignment="Left" Margin="1292,191,0,0" VerticalAlignment="Top" Width="47"/>
@@ -272,6 +272,8 @@
                     <Label Content="= " HorizontalAlignment="Left" Margin="455,278,0,0" VerticalAlignment="Top" Width="18"/>
                     <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="25,168,0,0" VerticalAlignment="Top"/>
                     <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##"/>
+                    <Label Content="Days Autonomy" HorizontalAlignment="Left" Margin="25,235,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditnDaysAutonomy"  DisplayFormatString="###.00" EditValue="{Binding nDaysAutonomy, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="25,213,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="365" MinValue="1" Mask="######.#"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Location" Height="22" VerticalAlignment="Top">

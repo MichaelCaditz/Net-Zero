@@ -326,6 +326,7 @@ namespace Net_Zero
             decimal  nMPPTFactor = 0m;
             decimal nBatteryEfficiency = 0m;
             decimal nControllerEfficiency = 0m;
+            decimal nDaysAutonomy = 0m;
 
             decimal nInverterDerate = 0m;
             //string notes = "";
@@ -339,8 +340,9 @@ namespace Net_Zero
                 nMPPTFactor = (SpinEditnMPPTFactor.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnMPPTFactor.EditValue) == true ? 0m : (decimal)SpinEditnMPPTFactor.EditValue);
                 nBatteryEfficiency = (SpinEditnBatteryEfficiency.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnBatteryEfficiency.EditValue) == true ? 0m : (decimal)SpinEditnBatteryEfficiency.EditValue);
             nControllerEfficiency = (SpinEditnControllerEfficiency.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnControllerEfficiency.EditValue) == true ? 0m : (decimal)SpinEditnControllerEfficiency.EditValue);
-
             nInverterDerate = (SpinEditnInverterDerate.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnInverterDerate.EditValue) == true ? 0m : (decimal)SpinEditnInverterDerate.EditValue);
+
+            nDaysAutonomy = (SpinEditnDaysAutonomy.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDaysAutonomy.EditValue) == true ? 0m : (decimal)SpinEditnDaysAutonomy.EditValue);
 
             //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
 
@@ -366,6 +368,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nBatteryEfficiency", nBatteryEfficiency);
                     cmd3.Parameters.AddWithValue("@nInverterDerate", nInverterDerate);
                     cmd3.Parameters.AddWithValue("@nControllerEfficiency", nControllerEfficiency);
+                    cmd3.Parameters.AddWithValue("@nDaysAutonomy", nDaysAutonomy);
                     //cmd3.Parameters.AddWithValue("@account_no", account_no);
                     //cmd3.Parameters.AddWithValue("@address1", address1);
 

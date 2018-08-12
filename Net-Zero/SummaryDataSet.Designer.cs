@@ -1082,6 +1082,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnAdjustedDemandWH;
             
+            private global::System.Data.DataColumn columnnDaysAutonomy;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1278,6 +1280,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDaysAutonomyColumn {
+                get {
+                    return this.columnnDaysAutonomy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1331,7 +1341,8 @@ namespace Net_Zero {
                         decimal nPVRequired, 
                         decimal nDemandTotalWH, 
                         decimal nControllerEfficiency, 
-                        decimal nAdjustedDemandWH) {
+                        decimal nAdjustedDemandWH, 
+                        decimal nDaysAutonomy) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1352,7 +1363,8 @@ namespace Net_Zero {
                         nPVRequired,
                         nDemandTotalWH,
                         nControllerEfficiency,
-                        nAdjustedDemandWH};
+                        nAdjustedDemandWH,
+                        nDaysAutonomy};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1360,7 +1372,23 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getProjectRow AddgetProjectRow(System.DateTime dtCreateDate, string cName, string cDesc, string cNote1, string cNote2, int nClientsID, System.DateTime dtDateDue, decimal nDemandTotal, int nCityID, decimal nChosenInsolation, string cChosenTilt, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate, decimal nControllerEfficiency) {
+            public getProjectRow AddgetProjectRow(
+                        System.DateTime dtCreateDate, 
+                        string cName, 
+                        string cDesc, 
+                        string cNote1, 
+                        string cNote2, 
+                        int nClientsID, 
+                        System.DateTime dtDateDue, 
+                        decimal nDemandTotal, 
+                        int nCityID, 
+                        decimal nChosenInsolation, 
+                        string cChosenTilt, 
+                        decimal nMPPTFactor, 
+                        decimal nBatteryEfficiency, 
+                        decimal nInverterDerate, 
+                        decimal nControllerEfficiency, 
+                        decimal nDaysAutonomy) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1381,7 +1409,8 @@ namespace Net_Zero {
                         null,
                         null,
                         nControllerEfficiency,
-                        null};
+                        null,
+                        nDaysAutonomy};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1430,6 +1459,7 @@ namespace Net_Zero {
                 this.columnnDemandTotalWH = base.Columns["nDemandTotalWH"];
                 this.columnnControllerEfficiency = base.Columns["nControllerEfficiency"];
                 this.columnnAdjustedDemandWH = base.Columns["nAdjustedDemandWH"];
+                this.columnnDaysAutonomy = base.Columns["nDaysAutonomy"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1473,6 +1503,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnControllerEfficiency);
                 this.columnnAdjustedDemandWH = new global::System.Data.DataColumn("nAdjustedDemandWH", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAdjustedDemandWH);
+                this.columnnDaysAutonomy = new global::System.Data.DataColumn("nDaysAutonomy", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDaysAutonomy);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2298,6 +2330,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDaysAutonomy {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nDaysAutonomyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDaysAutonomy\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nDaysAutonomyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -2510,6 +2558,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnAdjustedDemandWHNull() {
                 this[this.tablegetProject.nAdjustedDemandWHColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDaysAutonomyNull() {
+                return this.IsNull(this.tablegetProject.nDaysAutonomyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDaysAutonomyNull() {
+                this[this.tablegetProject.nDaysAutonomyColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3406,6 +3466,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nBatteryEfficiency", "nBatteryEfficiency");
             tableMapping.ColumnMappings.Add("nInverterDerate", "nInverterDerate");
             tableMapping.ColumnMappings.Add("nControllerEfficiency", "nControllerEfficiency");
+            tableMapping.ColumnMappings.Add("nDaysAutonomy", "nDaysAutonomy");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
