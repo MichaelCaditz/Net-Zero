@@ -331,9 +331,17 @@ namespace Net_Zero
             decimal nInverterDerate = 0m;
             decimal nMDoD = 0m;
             decimal nTDR = 0m;
-            //string notes = "";
 
+            decimal nChosenInsolation = 0m;
+            decimal nDemandTotal = 0m;
 
+            string cName = "";
+            string cDesc = "";
+            string cNote1 = "";
+            string cNote2 = "";
+            string cChosenTilt = "";
+
+            Nullable<DateTime> dtDateDue; 
 
 
             // DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
@@ -349,6 +357,19 @@ namespace Net_Zero
             nTDR = (SpinEditnTDR.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnTDR.EditValue) == true ? 0m : (decimal)SpinEditnTDR.EditValue);
 
             nDaysAutonomy = (SpinEditnDaysAutonomy.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDaysAutonomy.EditValue) == true ? 0m : (decimal)SpinEditnDaysAutonomy.EditValue);
+
+            nChosenInsolation = (SpinEditnChosenInsolation.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenInsolation.EditValue) == true ? 0m : (decimal)SpinEditnChosenInsolation.EditValue);
+            nDemandTotal = (SpinEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDemandTotal.EditValue) == true ? 0m : (decimal)SpinEditnDemandTotal.EditValue);
+
+
+            cName = (TextEditcName.EditValue == null ? "" : DBNull.Value.Equals(TextEditcName.EditValue) == true ? "" : (string)TextEditcName.EditValue);
+            cDesc = (TextEditcDesc.EditValue == null ? "" : DBNull.Value.Equals(TextEditcDesc.EditValue) == true ? "" : (string)TextEditcDesc.EditValue);
+
+            cNote1 = (MemoEditcNote1.EditValue == null ? "" : DBNull.Value.Equals(MemoEditcNote1.EditValue) == true ? "" : (string)MemoEditcNote1.EditValue);
+            cNote2 = (MemoEditcNote2.EditValue == null ? "" : DBNull.Value.Equals(MemoEditcNote2.EditValue) == true ? "" : (string)MemoEditcNote2.EditValue);
+            cChosenTilt = (ComboBoxcChosenTilt.EditValue == null ? "" : DBNull.Value.Equals(ComboBoxcChosenTilt.EditValue) == true ? "" : (string)ComboBoxcChosenTilt.EditValue);
+
+
 
             //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
 
@@ -378,7 +399,14 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nVoltage", nVoltage);
                     cmd3.Parameters.AddWithValue("@nMDoD", nMDoD);
                     cmd3.Parameters.AddWithValue("@nTDR", nTDR);
-                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
+
+                    cmd3.Parameters.AddWithValue("@nChosenInsolation", nChosenInsolation);
+                    cmd3.Parameters.AddWithValue("@nDemandTotal", nDemandTotal);
+                    cmd3.Parameters.AddWithValue("@cName", cName);
+                    cmd3.Parameters.AddWithValue("@cDesc", cDesc);
+                    cmd3.Parameters.AddWithValue("@cNote1", cNote1);
+                    cmd3.Parameters.AddWithValue("@cNote2", cNote2);
+                    cmd3.Parameters.AddWithValue("@cChosenTilt", cChosenTilt);
                     //cmd3.Parameters.AddWithValue("@address1", address1);
 
 

@@ -80,6 +80,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Geography.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SummaryDataSet.cs">
+      <DependentUpon>SummaryDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SummaryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
