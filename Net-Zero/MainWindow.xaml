@@ -89,24 +89,24 @@
                     </Grid.RowDefinitions>
                     <Label Content="Project ID" HorizontalAlignment="Left" Margin="225,64,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
                     <dxe:TextEdit x:Name="nIDTextBox" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="225,40,0,0" Text="{Binding nID, Mode=OneWay}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
-                    <Label Content="Create Date" HorizontalAlignment="Left" Margin="728,144,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
-                    <dxe:DateEdit  x:Name="dtCreateDateDatePicker" EditValue="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True"  HorizontalAlignment="Left" Margin="728,120,0,0"  VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="Create Date" HorizontalAlignment="Left" Margin="515,144,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+                    <dxe:DateEdit  x:Name="dtCreateDateDatePicker" EditValue="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True"  HorizontalAlignment="Left" Margin="515,120,0,0"  VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Project Name" Grid.Column="1" HorizontalAlignment="Left" Margin="4,6,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:TextEdit x:Name="TextEditcName" HorizontalAlignment="Left" Height="23" Margin="4,7,0,0" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="341" Panel.ZIndex="1" Grid.RowSpan="2" Grid.Column="1"/>
                     <Label Content="Description" Grid.Column="1" HorizontalAlignment="Left" Margin="365,6,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:TextEdit x:Name="TextEditcDesc" HorizontalAlignment="Left" Height="23" Margin="365,7,0,0" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="694" Panel.ZIndex="2" Grid.RowSpan="2" Grid.Column="1"/>
                     <Label Content="Note 1" Grid.Column="1" HorizontalAlignment="Left" Margin="365,64,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:MemoEdit x:Name="MemoEditcNote1" HorizontalAlignment="Left" Height="23" Margin="365,41,0,0" Text="{Binding cNote1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.475,10.957" Panel.ZIndex="4" Grid.Row="1" Grid.Column="1"/>
-                    <Label Content="Note 2" Grid.Column="1" HorizontalAlignment="Left" Margin="544,64,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <dxe:MemoEdit x:Name="MemoEditcNote2" HorizontalAlignment="Left" Height="23" Margin="544,41,0,0" Text="{Binding cNote2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1"/>
-                    <Label Content="Client ID" HorizontalAlignment="Left" Margin="728,199,0,390" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-                    <dxe:TextEdit IsReadOnly="True"  x:Name="nClientsIDTextBox" HorizontalAlignment="Left" Height="22" Margin="728,175,0,0" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="Note 2" Grid.Column="1" HorizontalAlignment="Left" Margin="515,64,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                    <dxe:MemoEdit x:Name="MemoEditcNote2" HorizontalAlignment="Left" Height="23" Margin="515,41,0,0" Text="{Binding cNote2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="Client ID" HorizontalAlignment="Left" Margin="515,199,0,390" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                    <dxe:TextEdit IsReadOnly="True"  x:Name="nClientsIDTextBox" HorizontalAlignment="Left" Height="22" Margin="515,175,0,0" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="5,64,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="5,40,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Demand Total kWh/d" Grid.Column="1" HorizontalAlignment="Left" Margin="7,412,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="4,389,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1"/>
-                    <Label Content="City ID" HorizontalAlignment="Left" Margin="728,255,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
-                    <dxe:TextEdit IsReadOnly="True" x:Name="nCityIDTextBox" HorizontalAlignment="Left" Height="23" Margin="728,232,0,0" Text="{Binding nCityID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="City ID" HorizontalAlignment="Left" Margin="515,255,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+                    <dxe:TextEdit IsReadOnly="True" x:Name="nCityIDTextBox" HorizontalAlignment="Left" Height="23" Margin="515,232,0,0" Text="{Binding nCityID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Chosen Insolation" Grid.Column="1" HorizontalAlignment="Left" Margin="225,313,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnChosenInsolation" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="225,290,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
                     <Label Content="Chosen Array Tilt" Grid.Column="1" HorizontalAlignment="Left" Margin="225,362,0,0" VerticalAlignment="Top" Grid.Row="1"/>
@@ -136,6 +136,8 @@
                         <dxe:ComboBoxEditItem Content="Latitude Plus 15 Deg"/>
                         <dxe:ComboBoxEditItem Content="2 Axis Track"/>
                     </dxe:ComboBoxEdit>
+                    <Label Content="City" HorizontalAlignment="Left" Margin="515,313,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
+                    <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="515,290,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Energy Summary">
@@ -158,7 +160,7 @@
                             </dxc:LineSeries2D>
                         </dxc:XYDiagram2D>
                     </dxc:ChartControl>
-                    <dx:SimpleButton Content="Refresh" HorizontalAlignment="Left" Height="22" Margin="541,22,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
+                    <dx:SimpleButton Content="Generate" HorizontalAlignment="Left" Height="22" Margin="541,22,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
                     <dxe:DateEdit x:Name="DateEditStartDate" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxe:DateEdit x:Name="DateEditEndDate" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10,500,10,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" Height="212" Grid.ColumnSpan="2" Width="1700">
@@ -174,6 +176,8 @@
                     </dxg:GridControl>
                     <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="125,44,0,0" VerticalAlignment="Top"/>
                     <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top"/>
+                    <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top"/>
+                    <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">

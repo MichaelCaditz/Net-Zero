@@ -166,6 +166,8 @@ namespace Net_Zero
             int nProjectsID = Settings.Default.nCurrentProjectID;
             int nCityID = 0;
             decimal nInsolation = 0;
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+
             //string notes = "";
             //string account_no = "";
             //string address1 = "";
@@ -315,7 +317,14 @@ namespace Net_Zero
                 //resetButtons();
                 // LocateNewLine(TransactID1);
                 //this.Close();
+                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
+                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                getProjectViewSource.View.MoveCurrentToFirst();
+                TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
             }
         }
 
