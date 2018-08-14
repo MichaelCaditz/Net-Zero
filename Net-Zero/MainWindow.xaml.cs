@@ -368,7 +368,8 @@ namespace Net_Zero
             cNote1 = (MemoEditcNote1.EditValue == null ? "" : DBNull.Value.Equals(MemoEditcNote1.EditValue) == true ? "" : (string)MemoEditcNote1.EditValue);
             cNote2 = (MemoEditcNote2.EditValue == null ? "" : DBNull.Value.Equals(MemoEditcNote2.EditValue) == true ? "" : (string)MemoEditcNote2.EditValue);
             cChosenTilt = (ComboBoxcChosenTilt.EditValue == null ? "" : DBNull.Value.Equals(ComboBoxcChosenTilt.EditValue) == true ? "" : (string)ComboBoxcChosenTilt.EditValue);
-
+            dtDateDue = (DatePickerdtDateDue.EditValue == null ? (Nullable<DateTime>)DateTime.Now : DBNull.Value.Equals(DatePickerdtDateDue.EditValue) == true ? (Nullable<DateTime>)DateTime.Now :
+              (DateTime)DatePickerdtDateDue.EditValue);
 
 
             //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
@@ -407,6 +408,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@cNote1", cNote1);
                     cmd3.Parameters.AddWithValue("@cNote2", cNote2);
                     cmd3.Parameters.AddWithValue("@cChosenTilt", cChosenTilt);
+                    cmd3.Parameters.AddWithValue("@dtDateDue", dtDateDue);
                     //cmd3.Parameters.AddWithValue("@address1", address1);
 
 
