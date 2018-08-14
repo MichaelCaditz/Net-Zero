@@ -228,20 +228,7 @@ namespace Net_Zero
                 nInsolation = (TextEditInsolation.EditValue == null ? 0 : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
                 //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
                 //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
-                //address2 = (DBNull.Value.Equals(drv["address2"]) == true ? "" : (string)drv["address2"]);
-                //city = (DBNull.Value.Equals(drv["city"]) == true ? "" : (string)drv["city"]);
-                //state = (DBNull.Value.Equals(drv["state"]) == true ? "" : (string)drv["state"]);
-                //state_other = (DBNull.Value.Equals(drv["state_other"]) == true ? "" : (string)drv["state_other"]);
-                //zip = (DBNull.Value.Equals(drv["zip"]) == true ? "" : (string)drv["zip"]);
-                //country = (DBNull.Value.Equals(drv["country"]) == true ? "" : (string)drv["country"]);
-                //postal_code = (DBNull.Value.Equals(drv["postal_code"]) == true ? "" : (string)drv["postal_code"]);
-                //areacode = (DBNull.Value.Equals(drv["areacode"]) == true ? "" : (string)drv["areacode"]);
-                //phone = (DBNull.Value.Equals(drv["phone"]) == true ? "" : (string)drv["phone"]);
-                //email = (DBNull.Value.Equals(drv["email"]) == true ? "" : (string)drv["email"]);
-                //website = (DBNull.Value.Equals(drv["website"]) == true ? "" : (string)drv["website"]);
-                //rep = (DBNull.Value.Equals(drv["rep"]) == true ? "" : (string)drv["rep"]);
-                //name = (DBNull.Value.Equals(drv["name"]) == true ? "" : (string)drv["name"]);
-
+                
             }
 
 
@@ -265,17 +252,7 @@ namespace Net_Zero
                     //cmd3.Parameters.AddWithValue("@address1", address1);
                     //cmd3.Parameters.AddWithValue("@address2", address2);
                     //cmd3.Parameters.AddWithValue("@city", city);
-                    //cmd3.Parameters.AddWithValue("@state", state);
-                    //cmd3.Parameters.AddWithValue("@state_other", state_other);
-                    //cmd3.Parameters.AddWithValue("@zip", zip);
-                    //cmd3.Parameters.AddWithValue("@country", country);
-                    //cmd3.Parameters.AddWithValue("@postal_code", postal_code);
-                    //cmd3.Parameters.AddWithValue("@areacode", areacode);
-                    //cmd3.Parameters.AddWithValue("@phone", phone);
-                    //cmd3.Parameters.AddWithValue("@email", email);
-                    //cmd3.Parameters.AddWithValue("@website", website);
-                    //cmd3.Parameters.AddWithValue("@rep", rep);
-                    //cmd3.Parameters.AddWithValue("@name", name);
+                    
 
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
@@ -456,6 +433,73 @@ namespace Net_Zero
 
                 
             }
+        }
+
+        private void SimpleButtonSaveChosenPV_Click(object sender, RoutedEventArgs e)
+        {
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+          
+            decimal nChosenPV = 0m;
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+
+
+
+            nChosenPV = (SpinEditnChosenPV_1.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenPV_1.EditValue) == true ? 0m : (decimal)SpinEditnChosenPV_1.EditValue);
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.updateChosenPV";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@nChosenPV", nChosenPV);
+                    
+
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                
+                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+
+                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                getProjectViewSource.View.MoveCurrentToFirst();
+                TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+            }
+        }
+
+        private void SimpleButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            SpinEditnChosenPV_1.EditValue = TextEditnPVRequired.EditValue;
         }
     }
 }

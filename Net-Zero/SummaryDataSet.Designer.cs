@@ -258,7 +258,7 @@ namespace Net_Zero {
             this.Namespace = "http://tempuri.org/SummaryDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablegetSummary = new getSummaryDataTable();
+            this.tablegetSummary = new getSummaryDataTable(false);
             base.Tables.Add(this.tablegetSummary);
             this.tablegetSummaryAll = new getSummaryAllDataTable();
             base.Tables.Add(this.tablegetSummaryAll);
@@ -342,6 +342,7 @@ namespace Net_Zero {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
+            this.getSummary.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
             this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
@@ -379,12 +380,29 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnInsolationPredicted;
             
+            private global::System.Data.DataColumn columnnDemandTotal;
+            
+            private global::System.Data.DataColumn columnnRequiredPV;
+            
+            private global::System.Data.DataColumn columnnChosenPV;
+            
+            private global::System.Data.DataColumn columnnDifferenceRequiredPVChosenPV;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryDataTable() {
+            public getSummaryDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public getSummaryDataTable(bool initExpressions) {
                 this.TableName = "getSummary";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -470,6 +488,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDemandTotalColumn {
+                get {
+                    return this.columnnDemandTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nRequiredPVColumn {
+                get {
+                    return this.columnnRequiredPV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenPVColumn {
+                get {
+                    return this.columnnChosenPV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDifferenceRequiredPVChosenPVColumn {
+                get {
+                    return this.columnnDifferenceRequiredPVChosenPV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -505,7 +555,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted) {
+            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV, decimal nDifferenceRequiredPVChosenPV) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -514,7 +564,32 @@ namespace Net_Zero {
                         cNote,
                         dtDate,
                         nInsolation,
-                        nInsolationPredicted};
+                        nInsolationPredicted,
+                        nDemandTotal,
+                        nRequiredPV,
+                        nChosenPV,
+                        nDifferenceRequiredPVChosenPV};
+                rowgetSummaryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowgetSummaryRow);
+                return rowgetSummaryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV) {
+                getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        dtCreateDate,
+                        nProjectsID,
+                        cNote,
+                        dtDate,
+                        nInsolation,
+                        nInsolationPredicted,
+                        nDemandTotal,
+                        nRequiredPV,
+                        nChosenPV,
+                        null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -551,6 +626,10 @@ namespace Net_Zero {
                 this.columndtDate = base.Columns["dtDate"];
                 this.columnnInsolation = base.Columns["nInsolation"];
                 this.columnnInsolationPredicted = base.Columns["nInsolationPredicted"];
+                this.columnnDemandTotal = base.Columns["nDemandTotal"];
+                this.columnnRequiredPV = base.Columns["nRequiredPV"];
+                this.columnnChosenPV = base.Columns["nChosenPV"];
+                this.columnnDifferenceRequiredPVChosenPV = base.Columns["nDifferenceRequiredPVChosenPV"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -570,6 +649,14 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnInsolation);
                 this.columnnInsolationPredicted = new global::System.Data.DataColumn("nInsolationPredicted", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnInsolationPredicted);
+                this.columnnDemandTotal = new global::System.Data.DataColumn("nDemandTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDemandTotal);
+                this.columnnRequiredPV = new global::System.Data.DataColumn("nRequiredPV", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnRequiredPV);
+                this.columnnChosenPV = new global::System.Data.DataColumn("nChosenPV", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenPV);
+                this.columnnDifferenceRequiredPVChosenPV = new global::System.Data.DataColumn("nDifferenceRequiredPVChosenPV", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDifferenceRequiredPVChosenPV);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -579,6 +666,7 @@ namespace Net_Zero {
                 this.columnnID.ReadOnly = true;
                 this.columnnID.Unique = true;
                 this.columncNote.MaxLength = 2147483647;
+                this.columnnDifferenceRequiredPVChosenPV.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -597,6 +685,12 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(getSummaryRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1098,6 +1192,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columncCity;
             
+            private global::System.Data.DataColumn columnnChosenPV;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1350,6 +1446,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenPVColumn {
+                get {
+                    return this.columnnChosenPV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1410,7 +1514,8 @@ namespace Net_Zero {
                         decimal nMDoD, 
                         decimal nTDR, 
                         decimal nBatteryCapacityFinal, 
-                        string cCity) {
+                        string cCity, 
+                        decimal nChosenPV) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1438,7 +1543,8 @@ namespace Net_Zero {
                         nMDoD,
                         nTDR,
                         nBatteryCapacityFinal,
-                        cCity};
+                        cCity,
+                        nChosenPV};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1466,7 +1572,8 @@ namespace Net_Zero {
                         decimal nVoltage, 
                         decimal nMDoD, 
                         decimal nTDR, 
-                        string cCity) {
+                        string cCity, 
+                        decimal nChosenPV) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1494,7 +1601,8 @@ namespace Net_Zero {
                         nMDoD,
                         nTDR,
                         null,
-                        cCity};
+                        cCity,
+                        nChosenPV};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1550,6 +1658,7 @@ namespace Net_Zero {
                 this.columnnTDR = base.Columns["nTDR"];
                 this.columnnBatteryCapacityFinal = base.Columns["nBatteryCapacityFinal"];
                 this.columncCity = base.Columns["cCity"];
+                this.columnnChosenPV = base.Columns["nChosenPV"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1607,6 +1716,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnBatteryCapacityFinal);
                 this.columncCity = new global::System.Data.DataColumn("cCity", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncCity);
+                this.columnnChosenPV = new global::System.Data.DataColumn("nChosenPV", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenPV);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1884,6 +1995,71 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDemandTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDemandTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDemandTotal\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDemandTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nRequiredPV {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nRequiredPVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nRequiredPV\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nRequiredPVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenPV {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nChosenPVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenPV\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nChosenPVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDifferenceRequiredPVChosenPV {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDifferenceRequiredPVChosenPVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDifferenceRequiredPVChosenPV\' in table \'getSummary\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDifferenceRequiredPVChosenPVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -1952,6 +2128,54 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnInsolationPredictedNull() {
                 this[this.tablegetSummary.nInsolationPredictedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDemandTotalNull() {
+                return this.IsNull(this.tablegetSummary.nDemandTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDemandTotalNull() {
+                this[this.tablegetSummary.nDemandTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnRequiredPVNull() {
+                return this.IsNull(this.tablegetSummary.nRequiredPVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnRequiredPVNull() {
+                this[this.tablegetSummary.nRequiredPVColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenPVNull() {
+                return this.IsNull(this.tablegetSummary.nChosenPVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenPVNull() {
+                this[this.tablegetSummary.nChosenPVColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDifferenceRequiredPVChosenPVNull() {
+                return this.IsNull(this.tablegetSummary.nDifferenceRequiredPVChosenPVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDifferenceRequiredPVChosenPVNull() {
+                this[this.tablegetSummary.nDifferenceRequiredPVChosenPVColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2548,6 +2772,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenPV {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nChosenPVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenPV\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nChosenPVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -2845,6 +3085,18 @@ namespace Net_Zero {
             public void SetcCityNull() {
                 this[this.tablegetProject.cCityColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenPVNull() {
+                return this.IsNull(this.tablegetProject.nChosenPVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenPVNull() {
+                this[this.tablegetProject.nChosenPVColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3081,6 +3333,9 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("dtDate", "dtDate");
             tableMapping.ColumnMappings.Add("nInsolation", "nInsolation");
             tableMapping.ColumnMappings.Add("nInsolationPredicted", "nInsolationPredicted");
+            tableMapping.ColumnMappings.Add("nDemandTotal", "nDemandTotal");
+            tableMapping.ColumnMappings.Add("nRequiredPV", "nRequiredPV");
+            tableMapping.ColumnMappings.Add("nChosenPV", "nChosenPV");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3181,7 +3436,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            SummaryDataSet.getSummaryDataTable dataTable = new SummaryDataSet.getSummaryDataTable();
+            SummaryDataSet.getSummaryDataTable dataTable = new SummaryDataSet.getSummaryDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3745,6 +4000,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nMDoD", "nMDoD");
             tableMapping.ColumnMappings.Add("nTDR", "nTDR");
             tableMapping.ColumnMappings.Add("cCity", "cCity");
+            tableMapping.ColumnMappings.Add("nChosenPV", "nChosenPV");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
