@@ -4,5 +4,8 @@
 
     public partial class SummaryDataSet
     {
+        partial class getSummaryDataTable
+        {
+        }
     }
 }

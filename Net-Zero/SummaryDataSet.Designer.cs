@@ -343,6 +343,9 @@ namespace Net_Zero {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.getSummary.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
+            this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+            this.getSummary.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
+            this.getSummary.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
             this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
@@ -387,6 +390,20 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnChosenPV;
             
             private global::System.Data.DataColumn columnnDifferenceRequiredPVChosenPV;
+            
+            private global::System.Data.DataColumn columnnMPPTFactor;
+            
+            private global::System.Data.DataColumn columnnBatteryEfficiency;
+            
+            private global::System.Data.DataColumn columnnInverterDerate;
+            
+            private global::System.Data.DataColumn columnnChosenPVWouldAccomodate;
+            
+            private global::System.Data.DataColumn columnnExcessLoadSupplied;
+            
+            private global::System.Data.DataColumn columnnPercentLoadSupplied;
+            
+            private global::System.Data.DataColumn columnnDaysRunFullCharge;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -520,6 +537,62 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nMPPTFactorColumn {
+                get {
+                    return this.columnnMPPTFactor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nBatteryEfficiencyColumn {
+                get {
+                    return this.columnnBatteryEfficiency;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nInverterDerateColumn {
+                get {
+                    return this.columnnInverterDerate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenPVWouldAccomodateColumn {
+                get {
+                    return this.columnnChosenPVWouldAccomodate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nExcessLoadSuppliedColumn {
+                get {
+                    return this.columnnExcessLoadSupplied;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nPercentLoadSuppliedColumn {
+                get {
+                    return this.columnnPercentLoadSupplied;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDaysRunFullChargeColumn {
+                get {
+                    return this.columnnDaysRunFullCharge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -555,7 +628,24 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV, decimal nDifferenceRequiredPVChosenPV) {
+            public getSummaryRow AddgetSummaryRow(
+                        System.DateTime dtCreateDate, 
+                        int nProjectsID, 
+                        string cNote, 
+                        System.DateTime dtDate, 
+                        decimal nInsolation, 
+                        decimal nInsolationPredicted, 
+                        decimal nDemandTotal, 
+                        decimal nRequiredPV, 
+                        decimal nChosenPV, 
+                        decimal nDifferenceRequiredPVChosenPV, 
+                        decimal nMPPTFactor, 
+                        decimal nBatteryEfficiency, 
+                        decimal nInverterDerate, 
+                        decimal nChosenPVWouldAccomodate, 
+                        decimal nExcessLoadSupplied, 
+                        decimal nPercentLoadSupplied, 
+                        decimal nDaysRunFullCharge) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -568,7 +658,14 @@ namespace Net_Zero {
                         nDemandTotal,
                         nRequiredPV,
                         nChosenPV,
-                        nDifferenceRequiredPVChosenPV};
+                        nDifferenceRequiredPVChosenPV,
+                        nMPPTFactor,
+                        nBatteryEfficiency,
+                        nInverterDerate,
+                        nChosenPVWouldAccomodate,
+                        nExcessLoadSupplied,
+                        nPercentLoadSupplied,
+                        nDaysRunFullCharge};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -576,7 +673,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV) {
+            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate, decimal nDaysRunFullCharge) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -589,7 +686,14 @@ namespace Net_Zero {
                         nDemandTotal,
                         nRequiredPV,
                         nChosenPV,
-                        null};
+                        null,
+                        nMPPTFactor,
+                        nBatteryEfficiency,
+                        nInverterDerate,
+                        null,
+                        null,
+                        null,
+                        nDaysRunFullCharge};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -630,6 +734,13 @@ namespace Net_Zero {
                 this.columnnRequiredPV = base.Columns["nRequiredPV"];
                 this.columnnChosenPV = base.Columns["nChosenPV"];
                 this.columnnDifferenceRequiredPVChosenPV = base.Columns["nDifferenceRequiredPVChosenPV"];
+                this.columnnMPPTFactor = base.Columns["nMPPTFactor"];
+                this.columnnBatteryEfficiency = base.Columns["nBatteryEfficiency"];
+                this.columnnInverterDerate = base.Columns["nInverterDerate"];
+                this.columnnChosenPVWouldAccomodate = base.Columns["nChosenPVWouldAccomodate"];
+                this.columnnExcessLoadSupplied = base.Columns["nExcessLoadSupplied"];
+                this.columnnPercentLoadSupplied = base.Columns["nPercentLoadSupplied"];
+                this.columnnDaysRunFullCharge = base.Columns["nDaysRunFullCharge"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -657,6 +768,20 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnChosenPV);
                 this.columnnDifferenceRequiredPVChosenPV = new global::System.Data.DataColumn("nDifferenceRequiredPVChosenPV", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnDifferenceRequiredPVChosenPV);
+                this.columnnMPPTFactor = new global::System.Data.DataColumn("nMPPTFactor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnMPPTFactor);
+                this.columnnBatteryEfficiency = new global::System.Data.DataColumn("nBatteryEfficiency", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBatteryEfficiency);
+                this.columnnInverterDerate = new global::System.Data.DataColumn("nInverterDerate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnInverterDerate);
+                this.columnnChosenPVWouldAccomodate = new global::System.Data.DataColumn("nChosenPVWouldAccomodate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenPVWouldAccomodate);
+                this.columnnExcessLoadSupplied = new global::System.Data.DataColumn("nExcessLoadSupplied", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnExcessLoadSupplied);
+                this.columnnPercentLoadSupplied = new global::System.Data.DataColumn("nPercentLoadSupplied", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnPercentLoadSupplied);
+                this.columnnDaysRunFullCharge = new global::System.Data.DataColumn("nDaysRunFullCharge", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDaysRunFullCharge);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -667,6 +792,9 @@ namespace Net_Zero {
                 this.columnnID.Unique = true;
                 this.columncNote.MaxLength = 2147483647;
                 this.columnnDifferenceRequiredPVChosenPV.ReadOnly = true;
+                this.columnnChosenPVWouldAccomodate.ReadOnly = true;
+                this.columnnExcessLoadSupplied.ReadOnly = true;
+                this.columnnPercentLoadSupplied.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -691,6 +819,9 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
                 this.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
+                this.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+                this.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
+                this.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1194,6 +1325,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnChosenPV;
             
+            private global::System.Data.DataColumn columnnChosenBattery;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1454,6 +1587,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenBatteryColumn {
+                get {
+                    return this.columnnChosenBattery;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1515,7 +1656,8 @@ namespace Net_Zero {
                         decimal nTDR, 
                         decimal nBatteryCapacityFinal, 
                         string cCity, 
-                        decimal nChosenPV) {
+                        decimal nChosenPV, 
+                        decimal nChosenBattery) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1544,7 +1686,8 @@ namespace Net_Zero {
                         nTDR,
                         nBatteryCapacityFinal,
                         cCity,
-                        nChosenPV};
+                        nChosenPV,
+                        nChosenBattery};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1573,7 +1716,8 @@ namespace Net_Zero {
                         decimal nMDoD, 
                         decimal nTDR, 
                         string cCity, 
-                        decimal nChosenPV) {
+                        decimal nChosenPV, 
+                        decimal nChosenBattery) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1602,7 +1746,8 @@ namespace Net_Zero {
                         nTDR,
                         null,
                         cCity,
-                        nChosenPV};
+                        nChosenPV,
+                        nChosenBattery};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1659,6 +1804,7 @@ namespace Net_Zero {
                 this.columnnBatteryCapacityFinal = base.Columns["nBatteryCapacityFinal"];
                 this.columncCity = base.Columns["cCity"];
                 this.columnnChosenPV = base.Columns["nChosenPV"];
+                this.columnnChosenBattery = base.Columns["nChosenBattery"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1718,6 +1864,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columncCity);
                 this.columnnChosenPV = new global::System.Data.DataColumn("nChosenPV", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnChosenPV);
+                this.columnnChosenBattery = new global::System.Data.DataColumn("nChosenBattery", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenBattery);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2060,6 +2208,118 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nMPPTFactor {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nMPPTFactorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nMPPTFactor\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nMPPTFactorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nBatteryEfficiency {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nBatteryEfficiencyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBatteryEfficiency\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nBatteryEfficiencyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nInverterDerate {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nInverterDerateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nInverterDerate\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nInverterDerateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenPVWouldAccomodate {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nChosenPVWouldAccomodateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenPVWouldAccomodate\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nChosenPVWouldAccomodateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nExcessLoadSupplied {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nExcessLoadSuppliedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nExcessLoadSupplied\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nExcessLoadSuppliedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nPercentLoadSupplied {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nPercentLoadSuppliedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nPercentLoadSupplied\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nPercentLoadSuppliedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDaysRunFullCharge {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDaysRunFullChargeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDaysRunFullCharge\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDaysRunFullChargeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -2176,6 +2436,90 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnDifferenceRequiredPVChosenPVNull() {
                 this[this.tablegetSummary.nDifferenceRequiredPVChosenPVColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnMPPTFactorNull() {
+                return this.IsNull(this.tablegetSummary.nMPPTFactorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnMPPTFactorNull() {
+                this[this.tablegetSummary.nMPPTFactorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnBatteryEfficiencyNull() {
+                return this.IsNull(this.tablegetSummary.nBatteryEfficiencyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnBatteryEfficiencyNull() {
+                this[this.tablegetSummary.nBatteryEfficiencyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnInverterDerateNull() {
+                return this.IsNull(this.tablegetSummary.nInverterDerateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnInverterDerateNull() {
+                this[this.tablegetSummary.nInverterDerateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenPVWouldAccomodateNull() {
+                return this.IsNull(this.tablegetSummary.nChosenPVWouldAccomodateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenPVWouldAccomodateNull() {
+                this[this.tablegetSummary.nChosenPVWouldAccomodateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnExcessLoadSuppliedNull() {
+                return this.IsNull(this.tablegetSummary.nExcessLoadSuppliedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnExcessLoadSuppliedNull() {
+                this[this.tablegetSummary.nExcessLoadSuppliedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnPercentLoadSuppliedNull() {
+                return this.IsNull(this.tablegetSummary.nPercentLoadSuppliedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnPercentLoadSuppliedNull() {
+                this[this.tablegetSummary.nPercentLoadSuppliedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDaysRunFullChargeNull() {
+                return this.IsNull(this.tablegetSummary.nDaysRunFullChargeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDaysRunFullChargeNull() {
+                this[this.tablegetSummary.nDaysRunFullChargeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2788,6 +3132,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenBattery {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nChosenBatteryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenBattery\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nChosenBatteryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -3097,6 +3457,18 @@ namespace Net_Zero {
             public void SetnChosenPVNull() {
                 this[this.tablegetProject.nChosenPVColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenBatteryNull() {
+                return this.IsNull(this.tablegetProject.nChosenBatteryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenBatteryNull() {
+                this[this.tablegetProject.nChosenBatteryColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3336,6 +3708,9 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nDemandTotal", "nDemandTotal");
             tableMapping.ColumnMappings.Add("nRequiredPV", "nRequiredPV");
             tableMapping.ColumnMappings.Add("nChosenPV", "nChosenPV");
+            tableMapping.ColumnMappings.Add("nMPPTFactor", "nMPPTFactor");
+            tableMapping.ColumnMappings.Add("nBatteryEfficiency", "nBatteryEfficiency");
+            tableMapping.ColumnMappings.Add("nInverterDerate", "nInverterDerate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4001,6 +4376,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nTDR", "nTDR");
             tableMapping.ColumnMappings.Add("cCity", "cCity");
             tableMapping.ColumnMappings.Add("nChosenPV", "nChosenPV");
+            tableMapping.ColumnMappings.Add("nChosenBattery", "nChosenBattery");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

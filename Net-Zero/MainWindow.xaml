@@ -140,6 +140,8 @@
                     <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="515,290,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="225,412,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,390,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                    <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="225,461,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="###.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,439,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Energy Summary">
@@ -172,13 +174,61 @@
 
 
                         <dxg:GridColumn FieldName="dtDate" Header="Date"  IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation h/d"     IsSmart="True" Width="160"/>
-                        <dxg:GridColumn FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" IsSmart="True"  Width="160"/>
-                        <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" IsSmart="True"  Width="160"/>
-                        <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  Width="160"/>
-                        <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True"  Width="160"/>
-                        <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  Width="160"/>
+                        <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation h/d"     IsSmart="True" Width="160">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" IsSmart="True"  Width="160">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" IsSmart="True"  Width="160">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  Width="110">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True"  Width="110">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  Width="110">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nChosenPVWouldAccomodate" Header="Chosen PV Would Accomodate kWh/d" IsSmart="True"  Width="220">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nExcessLoadSupplied" Header="Surplus or Deficit Load Supplied kWh/d" IsSmart="True"  Width="230">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nPercentLoadSupplied" Header="Percent Load Supplied" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="P" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+
+                        <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="P" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="160"/>
+
+
                     </dxg:GridControl>
                     <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="125,44,0,0" VerticalAlignment="Top"/>
                     <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top"/>
@@ -286,6 +336,10 @@
                     <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="488,158,0,0" VerticalAlignment="Top" Width="80"/>
                     <Label Content="x" HorizontalAlignment="Left" Margin="609,220,0,0" VerticalAlignment="Top" Width="18"/>
                     <Label Content="= " HorizontalAlignment="Left" Margin="455,278,0,0" VerticalAlignment="Top" Width="18"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveChosenBattery" Content="Save Chosen Battery" HorizontalAlignment="Left" Height="35" Margin="935,617,0,0" VerticalAlignment="Top" Width="178" IsDefault="True" Click="SimpleButtonSaveChosenBattery_Click"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="935,555,0,0" VerticalAlignment="Top" Width="150" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01"/>
+                    <dx:SimpleButton x:Name="SimpleButtonBatteryToChosenBattery" Content="&gt;" HorizontalAlignment="Left" Height="30" Margin="935,511,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButtonBatteryToChosenBattery_Click"/>
+                    <Label Content="Chosen Battery" HorizontalAlignment="Left" Margin="935,577,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Location" Height="22" VerticalAlignment="Top">
