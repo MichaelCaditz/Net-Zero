@@ -1378,6 +1378,10 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnChosenBattery;
             
+            private global::System.Data.DataColumn columndtSummaryStartDate;
+            
+            private global::System.Data.DataColumn columndtSummaryEndDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1646,6 +1650,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn dtSummaryStartDateColumn {
+                get {
+                    return this.columndtSummaryStartDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn dtSummaryEndDateColumn {
+                get {
+                    return this.columndtSummaryEndDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1708,7 +1728,9 @@ namespace Net_Zero {
                         decimal nBatteryCapacityFinal, 
                         string cCity, 
                         decimal nChosenPV, 
-                        decimal nChosenBattery) {
+                        decimal nChosenBattery, 
+                        System.DateTime dtSummaryStartDate, 
+                        System.DateTime dtSummaryEndDate) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1738,7 +1760,9 @@ namespace Net_Zero {
                         nBatteryCapacityFinal,
                         cCity,
                         nChosenPV,
-                        nChosenBattery};
+                        nChosenBattery,
+                        dtSummaryStartDate,
+                        dtSummaryEndDate};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1768,7 +1792,9 @@ namespace Net_Zero {
                         decimal nTDR, 
                         string cCity, 
                         decimal nChosenPV, 
-                        decimal nChosenBattery) {
+                        decimal nChosenBattery, 
+                        System.DateTime dtSummaryStartDate, 
+                        System.DateTime dtSummaryEndDate) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1798,7 +1824,9 @@ namespace Net_Zero {
                         null,
                         cCity,
                         nChosenPV,
-                        nChosenBattery};
+                        nChosenBattery,
+                        dtSummaryStartDate,
+                        dtSummaryEndDate};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1856,6 +1884,8 @@ namespace Net_Zero {
                 this.columncCity = base.Columns["cCity"];
                 this.columnnChosenPV = base.Columns["nChosenPV"];
                 this.columnnChosenBattery = base.Columns["nChosenBattery"];
+                this.columndtSummaryStartDate = base.Columns["dtSummaryStartDate"];
+                this.columndtSummaryEndDate = base.Columns["dtSummaryEndDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1917,6 +1947,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnChosenPV);
                 this.columnnChosenBattery = new global::System.Data.DataColumn("nChosenBattery", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnChosenBattery);
+                this.columndtSummaryStartDate = new global::System.Data.DataColumn("dtSummaryStartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtSummaryStartDate);
+                this.columndtSummaryEndDate = new global::System.Data.DataColumn("dtSummaryEndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtSummaryEndDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -3283,6 +3317,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime dtSummaryStartDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablegetProject.dtSummaryStartDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtSummaryStartDate\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.dtSummaryStartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime dtSummaryEndDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablegetProject.dtSummaryEndDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtSummaryEndDate\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.dtSummaryEndDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -3603,6 +3669,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnChosenBatteryNull() {
                 this[this.tablegetProject.nChosenBatteryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsdtSummaryStartDateNull() {
+                return this.IsNull(this.tablegetProject.dtSummaryStartDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetdtSummaryStartDateNull() {
+                this[this.tablegetProject.dtSummaryStartDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsdtSummaryEndDateNull() {
+                return this.IsNull(this.tablegetProject.dtSummaryEndDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetdtSummaryEndDateNull() {
+                this[this.tablegetProject.dtSummaryEndDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4515,6 +4605,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("cCity", "cCity");
             tableMapping.ColumnMappings.Add("nChosenPV", "nChosenPV");
             tableMapping.ColumnMappings.Add("nChosenBattery", "nChosenBattery");
+            tableMapping.ColumnMappings.Add("dtSummaryStartDate", "dtSummaryStartDate");
+            tableMapping.ColumnMappings.Add("dtSummaryEndDate", "dtSummaryEndDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

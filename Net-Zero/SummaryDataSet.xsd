@@ -158,6 +158,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="cCity" DataSetColumn="cCity" />
               <Mapping SourceColumn="nChosenPV" DataSetColumn="nChosenPV" />
               <Mapping SourceColumn="nChosenBattery" DataSetColumn="nChosenBattery" />
+              <Mapping SourceColumn="dtSummaryStartDate" DataSetColumn="dtSummaryStartDate" />
+              <Mapping SourceColumn="dtSummaryEndDate" DataSetColumn="dtSummaryEndDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -287,6 +289,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="cCity" msprop:Generator_ColumnVarNameInTable="columncCity" msprop:Generator_ColumnPropNameInRow="cCity" msprop:Generator_ColumnPropNameInTable="cCityColumn" msprop:Generator_UserColumnName="cCity" type="xs:string" minOccurs="0" />
               <xs:element name="nChosenPV" msprop:Generator_ColumnVarNameInTable="columnnChosenPV" msprop:Generator_ColumnPropNameInRow="nChosenPV" msprop:Generator_ColumnPropNameInTable="nChosenPVColumn" msprop:Generator_UserColumnName="nChosenPV" type="xs:decimal" minOccurs="0" />
               <xs:element name="nChosenBattery" msprop:Generator_ColumnVarNameInTable="columnnChosenBattery" msprop:Generator_ColumnPropNameInRow="nChosenBattery" msprop:Generator_ColumnPropNameInTable="nChosenBatteryColumn" msprop:Generator_UserColumnName="nChosenBattery" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dtSummaryStartDate" msprop:Generator_ColumnVarNameInTable="columndtSummaryStartDate" msprop:Generator_ColumnPropNameInRow="dtSummaryStartDate" msprop:Generator_ColumnPropNameInTable="dtSummaryStartDateColumn" msprop:Generator_UserColumnName="dtSummaryStartDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dtSummaryEndDate" msprop:Generator_ColumnVarNameInTable="columndtSummaryEndDate" msprop:Generator_ColumnPropNameInRow="dtSummaryEndDate" msprop:Generator_ColumnPropNameInTable="dtSummaryEndDateColumn" msprop:Generator_UserColumnName="dtSummaryEndDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
