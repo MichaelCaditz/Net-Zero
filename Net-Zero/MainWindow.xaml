@@ -151,27 +151,8 @@
                         <RowDefinition Height="380"/>
                         <RowDefinition Height="280"/>
 
-
-
                     </Grid.RowDefinitions>
-                    <dxc:ChartControl x:Name="SummaryChart1" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-                        <dxc:ChartControl.Legends>
-                            <dxc:Legend/>
-                        </dxc:ChartControl.Legends>
-                        <dxc:XYDiagram2D>
-                            <dxc:XYDiagram2D.AxisX>
-                                <dxc:AxisX2D/>
-                            </dxc:XYDiagram2D.AxisX>
-                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
-                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                            <dxc:LineSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
-                            <dxc:LineSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted">
-                                <dxc:LineSeries2D.LineStyle>
-                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
-                                </dxc:LineSeries2D.LineStyle>
-                            </dxc:LineSeries2D>
-                        </dxc:XYDiagram2D>
-                    </dxc:ChartControl>
+                    
                     <dx:SimpleButton Content="Generate" HorizontalAlignment="Left" Height="22" Margin="541,22,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
                     <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
@@ -248,6 +229,36 @@
                     <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
+                    <dx:DXTabControl Margin="20,10,20,20" Grid.Row="1">
+                        <dx:DXTabItem Header="Insolation" HorizontalAlignment="Right" Width="70">
+                            <Grid Background="Transparent">
+                                <dxc:ChartControl x:Name="SummaryChart1" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                    <dxc:ChartControl.Legends>
+                                        <dxc:Legend/>
+                                    </dxc:ChartControl.Legends>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D/>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                        <dxc:LineSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                                        <dxc:LineSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted">
+                                            <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl>
+                            </Grid>
+                        </dx:DXTabItem>
+                        <dx:DXTabItem Header="PV">
+                            <Grid Background="Transparent"/>
+                        </dx:DXTabItem>
+                        <dx:DXTabItem Header="Energy">
+                            <Grid Background="Transparent"/>
+                        </dx:DXTabItem>
+                    </dx:DXTabControl>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
@@ -306,58 +317,58 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
-                    <Grid Background="#FFE1E1E1" Margin="10,-21,-10,21" DataContext="{StaticResource getProjectViewSource}">
-                        <Label Content="Recommended C/20 25C Capacity =" HorizontalAlignment="Left" Margin="364,264,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label Content="usable storage required" HorizontalAlignment="Left" Margin="618,264,0,0" VerticalAlignment="Top" Width="148"/>
-                        <Label Content="MDoD x TDR" HorizontalAlignment="Left" Margin="654,298,0,0" VerticalAlignment="Top" Width="92"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="592,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="201"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="592,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="201"/>
-                        <dxe:TextEdit x:Name="TextBoxnMDoD" DisplayFormatString="###.00"   HorizontalAlignment="Left" Margin="592,376,0,334" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
-                        <dxe:TextEdit x:Name="TextBoxnTDR" DisplayFormatString="###.00"  HorizontalAlignment="Left" Margin="696,376,0,0" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
-                        <Label Content="Ah" HorizontalAlignment="Left" Margin="669,413,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
-                        <dxe:TextEdit x:Name="TextEditnBatteryCapacityFinal" DisplayFormatString="###.00"  EditValue="{Binding nBatteryCapacityFinal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="579,416,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
-                        <dxe:TextEdit x:Name="TextEditnUsableStorage_1" DisplayFormatString="###.00"  EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="637,342,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="527,342,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="527,413,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Label Content="Usable Storage Required = " HorizontalAlignment="Left" Margin="612,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label Content="adjusted demand x days autonomy" HorizontalAlignment="Left" Margin="816,47,0,0" VerticalAlignment="Top" Width="204"/>
-                        <Label Content="system voltage" HorizontalAlignment="Left" Margin="857,70,0,0" VerticalAlignment="Top" Width="119"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="816,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="748,118,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="816,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="213"/>
-                        <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="901,112,0,0" VerticalAlignment="Top" Width="50"/>
-                        <dxe:TextEdit x:Name="TextBoxnDaysAutonomy" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="966,118,0,0" EditValue="{Binding nDaysAutonomy, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False"/>
-                        <dxe:TextEdit x:Name="TextBoxnVoltage" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="857,146,0,571" EditValue="{Binding nVoltage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="748,191,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Label Content="Ah" HorizontalAlignment="Left" Margin="892,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
-                        <Label Content="V" HorizontalAlignment="Left" Margin="934,142,0,0" VerticalAlignment="Top" Width="47"/>
-                        <dxe:TextEdit x:Name="TextEditnUsableStorage" DisplayFormatString="###.00" EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="807,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
-                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH_1" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="816,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
-                        <Label Content="Days" HorizontalAlignment="Left" Margin="1030,112,0,0" VerticalAlignment="Top" Width="39"/>
-                        <Label Content="x" HorizontalAlignment="Left" Margin="951,112,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Label Content="Ah" HorizontalAlignment="Left" Margin="722,342,0,0" VerticalAlignment="Top" Width="99"/>
-                        <Label Content="Adjusted Demand =" HorizontalAlignment="Left" Margin="36,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label Content="nominal demand" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="167"/>
-                        <Label Content="inverter efficiency x controller efficiency" HorizontalAlignment="Left" Margin="162,70,0,0" VerticalAlignment="Top" Width="224"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="150,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="111,118,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="238,112,0,0" VerticalAlignment="Top" Width="50"/>
-                        <dxe:TextEdit x:Name="TextBoxnControllerEfficiency" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="219,146,0,564" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
-                        <dxe:TextEdit x:Name="TextBoxnInverterDerate" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="153,146,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
-                        <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="234,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
-                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
-                        <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
-                        <Label Content="x" HorizontalAlignment="Left" Margin="207,142,0,0" VerticalAlignment="Top" Width="18"/>
-                        <Label Content="= " HorizontalAlignment="Left" Margin="111,191,0,0" VerticalAlignment="Top"/>
-                        <dx:SimpleButton x:Name="SimpleButtonSaveChosenBattery" Content="" HorizontalAlignment="Left" Height="35" Margin="598,572,0,0" VerticalAlignment="Top" IsDefault="True" Click="SimpleButtonSaveChosenBattery_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Chosen Battery Capacity to Project File"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01"/>
-                        <dx:SimpleButton x:Name="SimpleButtonBatteryToChosenBattery" Content="" HorizontalAlignment="Left" Height="30" Margin="597,474,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" Click="SimpleButtonBatteryToChosenBattery_Click" ToolTip="Choose Recommended Battery Capacity"/>
-                        <Label Content="Chosen Battery Capacity" HorizontalAlignment="Left" Margin="597,545,0,0" VerticalAlignment="Top"/>
-                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="150,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
-                        <Label Content="Ah" HorizontalAlignment="Left" Margin="752,523,0,0" VerticalAlignment="Top" Width="99"/>
-                        <Label Content="x" HorizontalAlignment="Left" Margin="678,369,0,0" VerticalAlignment="Top" Width="18"/>
-                    </Grid>
-                </dx:DXTabItem>
+                <Grid Background="#FFE1E1E1" Margin="10,-21,-10,21" DataContext="{StaticResource getProjectViewSource}">
+                    <Label Content="Recommended C/20 25C Capacity =" HorizontalAlignment="Left" Margin="364,264,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="usable storage required" HorizontalAlignment="Left" Margin="618,264,0,0" VerticalAlignment="Top" Width="148"/>
+                    <Label Content="MDoD x TDR" HorizontalAlignment="Left" Margin="654,298,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="592,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="201"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="592,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="201"/>
+                    <dxe:TextEdit x:Name="TextBoxnMDoD" DisplayFormatString="###.00"   HorizontalAlignment="Left" Margin="592,376,0,334" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="TextBoxnTDR" DisplayFormatString="###.00"  HorizontalAlignment="Left" Margin="696,376,0,0" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <Label Content="Ah" HorizontalAlignment="Left" Margin="669,413,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
+                    <dxe:TextEdit x:Name="TextEditnBatteryCapacityFinal" DisplayFormatString="###.00"  EditValue="{Binding nBatteryCapacityFinal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="579,416,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
+                    <dxe:TextEdit x:Name="TextEditnUsableStorage_1" DisplayFormatString="###.00"  EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="637,342,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="527,342,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="527,413,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="Usable Storage Required = " HorizontalAlignment="Left" Margin="612,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="adjusted demand x days autonomy" HorizontalAlignment="Left" Margin="816,47,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Label Content="system voltage" HorizontalAlignment="Left" Margin="857,70,0,0" VerticalAlignment="Top" Width="119"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="816,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="748,118,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="816,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="213"/>
+                    <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="901,112,0,0" VerticalAlignment="Top" Width="50"/>
+                    <dxe:TextEdit x:Name="TextBoxnDaysAutonomy" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="966,118,0,0" EditValue="{Binding nDaysAutonomy, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="TextBoxnVoltage" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="857,146,0,571" EditValue="{Binding nVoltage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="748,191,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="Ah" HorizontalAlignment="Left" Margin="892,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
+                    <Label Content="V" HorizontalAlignment="Left" Margin="934,142,0,0" VerticalAlignment="Top" Width="47"/>
+                    <dxe:TextEdit x:Name="TextEditnUsableStorage" DisplayFormatString="###.00" EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="807,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
+                    <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH_1" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="816,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <Label Content="Days" HorizontalAlignment="Left" Margin="1030,112,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="951,112,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="Ah" HorizontalAlignment="Left" Margin="722,342,0,0" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="Adjusted Demand =" HorizontalAlignment="Left" Margin="36,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="nominal demand" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="167"/>
+                    <Label Content="inverter efficiency x controller efficiency" HorizontalAlignment="Left" Margin="162,70,0,0" VerticalAlignment="Top" Width="224"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="150,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="111,118,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="238,112,0,0" VerticalAlignment="Top" Width="50"/>
+                    <dxe:TextEdit x:Name="TextBoxnControllerEfficiency" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="219,146,0,564" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="TextBoxnInverterDerate" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="153,146,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
+                    <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="234,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
+                    <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold"/>
+                    <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="207,142,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="111,191,0,0" VerticalAlignment="Top"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveChosenBattery" Content="" HorizontalAlignment="Left" Height="35" Margin="598,572,0,0" VerticalAlignment="Top" IsDefault="True" Click="SimpleButtonSaveChosenBattery_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Chosen Battery Capacity to Project File"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01"/>
+                    <dx:SimpleButton x:Name="SimpleButtonBatteryToChosenBattery" Content="" HorizontalAlignment="Left" Height="30" Margin="597,474,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" Click="SimpleButtonBatteryToChosenBattery_Click" ToolTip="Choose Recommended Battery Capacity"/>
+                    <Label Content="Chosen Battery Capacity" HorizontalAlignment="Left" Margin="597,545,0,0" VerticalAlignment="Top"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="150,139,0,0" Stroke="Black" VerticalAlignment="Top" Width="204"/>
+                    <Label Content="Ah" HorizontalAlignment="Left" Margin="752,523,0,0" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="678,369,0,0" VerticalAlignment="Top" Width="18"/>
+                </Grid>
+            </dx:DXTabItem>
             <dx:DXTabItem Header="Location" Height="22" VerticalAlignment="Top">
                 <Grid Background="Transparent" DataContext="{StaticResource getAllCountriesViewSource}">
                     <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row">
