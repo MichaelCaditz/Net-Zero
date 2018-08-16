@@ -278,28 +278,31 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV">
-                <Grid Background="Transparent" DataContext="{StaticResource getProjectViewSource}">
-                    <Rectangle HorizontalAlignment="Left" Height="300" Margin="320,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="619"/>
-                    <Label Content="PV array power required = " HorizontalAlignment="Left" Margin="341,54,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Demand" HorizontalAlignment="Left" Margin="658,38,0,0" VerticalAlignment="Top" Width="99"/>
-                    <Label Content="Battery efficiency x MPPT factor x  Inverter derate x Insolation" HorizontalAlignment="Left" Margin="516,78,0,0" VerticalAlignment="Top" Width="366"/>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="514,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
-                    <Label Content="= " HorizontalAlignment="Left" Margin="466,157,0,0" VerticalAlignment="Top" Width="18"/>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="514,171,0,0" Stroke="Black" VerticalAlignment="Top" Width="373"/>
-                    <Label Content="kWh/day" HorizontalAlignment="Left" Margin="783,133,0,0" VerticalAlignment="Top" Width="99"/>
-                    <dxe:TextEdit x:Name="TextBoxnBatteryEfficiency" HorizontalAlignment="Left" Height="23" Margin="503,197,0,513" Text="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="603,197,0,513" Text="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <dxe:TextEdit x:Name="nInverterDerateTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="706,197,0,513" Text="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <dxe:TextEdit x:Name="nChosenInsolationTextBox_Copy" HorizontalAlignment="Left" Height="23" Margin="807,197,0,513" Text="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="80"/>
-                    <Label Content="= " HorizontalAlignment="Left" Margin="466,253,0,0" VerticalAlignment="Top" Width="18"/>
-                    <Label Content="kW" HorizontalAlignment="Left" Margin="603,260,0,0" VerticalAlignment="Top" Width="99"/>
-                    <Label Content="h/d" HorizontalAlignment="Left" Margin="892,198,0,0" VerticalAlignment="Top" Width="47"/>
-                    <dxe:TextEdit x:Name="TextEditnPVRequired" EditValue="{Binding nPVRequired, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="503,253,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00"/>
-                    <dxe:TextEdit x:Name="TextEditnDemandTotal" EditValue="{Binding nDemandTotal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="658,133,0,0" VerticalAlignment="Top" Width="80"/>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveChosenPV" Content="Save Chosen PV" HorizontalAlignment="Left" Height="35" Margin="503,431,0,0" VerticalAlignment="Top" Width="178" IsDefault="True" Click="SimpleButtonSaveChosenPV_Click"/>
-                    <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="503,369,0,0" VerticalAlignment="Top" Width="150" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01"/>
-                    <Label Content="Chosen PV" HorizontalAlignment="Left" Margin="503,396,0,0" VerticalAlignment="Top"/>
-                    <dx:SimpleButton Content="&gt;" HorizontalAlignment="Left" Height="30" Margin="503,325,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click_2"/>
+                <Grid Background="#FFE6E6E6" DataContext="{StaticResource getProjectViewSource}" Margin="15,0,-15,0">
+                    <Label Content="Recommended PV Power =" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label Content="demand" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="battery efficiency x MPPT factor x  inverter derate x chosen insolation" HorizontalAlignment="Left" Margin="196,49,0,0" VerticalAlignment="Top" Width="366"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="196,42,0,0" Stroke="Black" VerticalAlignment="Top" Width="328"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="169,99,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="205,137,0,0" Stroke="Black" VerticalAlignment="Top" Width="319"/>
+                    <Label Content="kWh/day" HorizontalAlignment="Left" Margin="411,102,0,0" VerticalAlignment="Top" Width="99"/>
+                    <dxe:TextEdit x:Name="TextBoxnBatteryEfficiency" DisplayFormatString="####.00"  Mask="######.##" HorizontalAlignment="Left" Margin="200,162,0,0" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy" DisplayFormatString="####.##"  HorizontalAlignment="Left" Margin="274,162,0,0" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="nInverterDerateTextBox_Copy" DisplayFormatString="####.##" HorizontalAlignment="Left" Margin="351,162,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False"/>
+                    <dxe:TextEdit x:Name="nChosenInsolationTextBox_Copy" DisplayFormatString="####.##"  HorizontalAlignment="Left" Margin="424,162,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.517,0" ShowBorder="False"/>
+                    <Label Content="= " HorizontalAlignment="Left" Margin="169,237,0,0" VerticalAlignment="Top" Width="18" RenderTransformOrigin="-17.389,-1.636"/>
+                    <Label Content="kW" HorizontalAlignment="Left" Margin="255,237,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
+                    <Label Content="h/d" HorizontalAlignment="Left" Margin="472,159,0,0" VerticalAlignment="Top" Width="47"/>
+                    <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="00.00" FontWeight="Bold" ShowBorder="False" Height="23"/>
+                    <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveChosenPV" Content="" HorizontalAlignment="Left" Margin="196,392,0,0" VerticalAlignment="Top" IsDefault="True" Click="SimpleButtonSaveChosenPV_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Chosen PV to Project File"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="179,327,0,0" VerticalAlignment="Top" Width="100" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01" FontWeight="Bold"/>
+                    <Label Content="Chosen PV Power" HorizontalAlignment="Left" Margin="180,349,0,0" VerticalAlignment="Top"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="196,277,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_2" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="253,159,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="330,159,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="406,159,0,0" VerticalAlignment="Top" Width="18"/>
+                    <Label Content="kW" HorizontalAlignment="Left" Margin="282,327,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Batteries">
