@@ -148,8 +148,8 @@
                 <Grid Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
-                        <RowDefinition Height="380"/>
-                        <RowDefinition Height="280"/>
+                        <RowDefinition Height="400"/>
+                        <RowDefinition Height="260"/>
 
                     </Grid.RowDefinitions>
                     
@@ -253,10 +253,52 @@
                             </Grid>
                         </dx:DXTabItem>
                         <dx:DXTabItem Header="PV">
-                            <Grid Background="Transparent"/>
+                            <Grid Background="Transparent">
+
+                                <dxc:ChartControl x:Name="PVChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                    <dxc:ChartControl.Legends>
+                                        <dxc:Legend/>
+                                    </dxc:ChartControl.Legends>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D/>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                        <dxc:LineSeries2D DisplayName="Chosen PV" ArgumentDataMember="dtDate" ValueDataMember="nChosenPV"/>
+                                        <dxc:LineSeries2D DisplayName="Required PV" ArgumentDataMember="dtDate" ValueDataMember="nRequiredPV">
+                                            <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl>
+
+                            </Grid>
                         </dx:DXTabItem>
                         <dx:DXTabItem Header="Energy">
-                            <Grid Background="Transparent"/>
+                            <Grid Background="Transparent">
+                                <dxc:ChartControl x:Name="EnergyChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                    <dxc:ChartControl.Legends>
+                                        <dxc:Legend/>
+                                    </dxc:ChartControl.Legends>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D/>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                        <dxc:LineSeries2D DisplayName="Nominal Demand kWh/d" ArgumentDataMember="dtDate" ValueDataMember="nDemandTotal"/>
+                                        <dxc:LineSeries2D DisplayName="Accomodated Demand kWh/d" ArgumentDataMember="dtDate" ValueDataMember="nChosenPVWouldAccomodate">
+                                            <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl>
+                                
+                                
+                            </Grid>
                         </dx:DXTabItem>
                     </dx:DXTabControl>
                 </Grid>
