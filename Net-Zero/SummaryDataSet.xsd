@@ -91,6 +91,9 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nMPPTFactor" DataSetColumn="nMPPTFactor" />
               <Mapping SourceColumn="nBatteryEfficiency" DataSetColumn="nBatteryEfficiency" />
               <Mapping SourceColumn="nInverterDerate" DataSetColumn="nInverterDerate" />
+              <Mapping SourceColumn="nDaysRunFullCharge" DataSetColumn="nDaysRunFullCharge" />
+              <Mapping SourceColumn="nVoltage" DataSetColumn="nVoltage" />
+              <Mapping SourceColumn="nChosenBattery" DataSetColumn="nChosenBattery" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -193,6 +196,9 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nExcessLoadSupplied" msdata:ReadOnly="true" msdata:Expression="nChosenPVWouldAccomodate-nDemandTotal" msprop:Generator_ColumnVarNameInTable="columnnExcessLoadSupplied" msprop:Generator_ColumnPropNameInRow="nExcessLoadSupplied" msprop:Generator_ColumnPropNameInTable="nExcessLoadSuppliedColumn" msprop:Generator_UserColumnName="nExcessLoadSupplied" type="xs:decimal" minOccurs="0" />
               <xs:element name="nPercentLoadSupplied" msdata:ReadOnly="true" msdata:Expression="nChosenPVWouldAccomodate/nDemandTotal" msprop:Generator_ColumnVarNameInTable="columnnPercentLoadSupplied" msprop:Generator_ColumnPropNameInRow="nPercentLoadSupplied" msprop:Generator_ColumnPropNameInTable="nPercentLoadSuppliedColumn" msprop:Generator_UserColumnName="nPercentLoadSupplied" type="xs:decimal" minOccurs="0" />
               <xs:element name="nDaysRunFullCharge" msprop:Generator_ColumnVarNameInTable="columnnDaysRunFullCharge" msprop:Generator_ColumnPropNameInRow="nDaysRunFullCharge" msprop:Generator_ColumnPropNameInTable="nDaysRunFullChargeColumn" msprop:Generator_UserColumnName="nDaysRunFullCharge" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nVoltage" msprop:Generator_ColumnVarNameInTable="columnnVoltage" msprop:Generator_ColumnPropNameInRow="nVoltage" msprop:Generator_ColumnPropNameInTable="nVoltageColumn" msprop:Generator_UserColumnName="nVoltage" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nChosenBattery" msprop:Generator_ColumnVarNameInTable="columnnChosenBattery" msprop:Generator_ColumnPropNameInRow="nChosenBattery" msprop:Generator_ColumnPropNameInTable="nChosenBatteryColumn" msprop:Generator_UserColumnName="nChosenBattery" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDaysRunFullChargeLocal" msdata:ReadOnly="true" msdata:Expression="((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" msprop:Generator_ColumnVarNameInTable="columnnDaysRunFullChargeLocal" msprop:Generator_ColumnPropNameInRow="nDaysRunFullChargeLocal" msprop:Generator_ColumnPropNameInTable="nDaysRunFullChargeLocalColumn" msprop:Generator_UserColumnName="nDaysRunFullChargeLocal" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

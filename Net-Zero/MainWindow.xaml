@@ -141,7 +141,7 @@
                     <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="225,412,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,390,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="225,461,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="###.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,439,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="###.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,439,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Energy Summary">
@@ -173,13 +173,13 @@
                         </dxg:GridControl.View>
 
 
-                        <dxg:GridColumn FieldName="dtDate" Header="Date"  IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation h/d"     IsSmart="True" Width="160">
+                        <dxg:GridColumn FieldName="dtDate" Header="Date"  IsSmart="True"  Width="90"/>
+                        <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation h/d"     IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" IsSmart="True"  Width="160">
+                        <dxg:GridColumn FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" IsSmart="True"  Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00" />
                             </dxg:GridColumn.EditSettings>
@@ -222,9 +222,15 @@
 
                         <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True"  Width="130">
                             <dxg:GridColumn.EditSettings>
-                                <dxe:TextEditSettings DisplayFormat="P" />
+                                <dxe:TextEditSettings DisplayFormat="##.00"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
+
+                        <!--<dxg:GridColumn FieldName="nDaysRunFullChargeLocal" Header="Days run from full charge local" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>-->
 
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="160"/>
 
