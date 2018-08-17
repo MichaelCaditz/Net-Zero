@@ -82,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Geography.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InfoTDRLeadAcid.xaml.cs">
+      <DependentUpon>InfoTDRLeadAcid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SummaryDataSet.cs">
       <DependentUpon>SummaryDataSet.xsd</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SummaryDataSet.xsd</DependentUpon>
     </Compile>
+    <Page Include="InfoTDRLeadAcid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,7 +176,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\TDRLeadAcid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

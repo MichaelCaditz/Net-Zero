@@ -142,6 +142,14 @@
                     <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,390,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="225,461,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                     <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="###.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="225,439,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                    <dx:SimpleButton x:Name="SimpleButtonInfoTDRLeadAcid" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="154,340,0,0" Grid.Row="1" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Info_16x16.png}" Click="SimpleButtonInfoTDRLeadAcid_Click">
+                        <dx:SimpleButton.OpacityMask>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF5A5A5A" Offset="1"/>
+                            </LinearGradientBrush>
+                        </dx:SimpleButton.OpacityMask>
+                    </dx:SimpleButton>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Energy Summary">
@@ -416,7 +424,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="472*"/>
-                        
+
                     </Grid.RowDefinitions>
                     <dxg:TreeListControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
                         <dxg:TreeListControl.View>
@@ -459,8 +467,10 @@
 
                     </dxg:TreeListControl>
                     <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
-                    <dx:SimpleButton Content="Save City &amp; Sun Hours/day" HorizontalAlignment="Left" Height="35" Margin="670,471,0,0" VerticalAlignment="Top" Width="178" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1"/>
-                    <dxe:TextEdit x:Name="TextEditInsolation" HorizontalAlignment="Left" Margin="670,392,0,0" VerticalAlignment="Top" Width="150" MaskType="Numeric" Grid.Row="1"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="670,471,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
+                    <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="670,396,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Increment="0.01"/>
+
+
                     <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="670,419,0,0" VerticalAlignment="Top" Grid.Row="1"/>
                     <Label Content="City" HorizontalAlignment="Left" Margin="118,414,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
                     <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>

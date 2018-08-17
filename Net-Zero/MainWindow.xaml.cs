@@ -632,5 +632,13 @@ namespace Net_Zero
         {
             SpinEditnChosenBattery_1.EditValue = TextEditnBatteryCapacityFinal.EditValue;
         }
+
+        private void SimpleButtonInfoTDRLeadAcid_Click(object sender, RoutedEventArgs e)
+        {
+            InfoTDRLeadAcid InfoTDRLeadAcid1 = new InfoTDRLeadAcid();
+            
+
+            InfoTDRLeadAcid1.ShowDialog();
+        }
     }
 }
