@@ -491,39 +491,12 @@
                         <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="1466*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="getPVDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" Margin="57,46,707,76" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="3">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="nIDColumn1" Binding="{Binding nID}" Header="n ID" IsReadOnly="True" Width="SizeToHeader"/>
-                            <DataGridTemplateColumn x:Name="dtCreateDateColumn1" Header="dt Create Date" Width="SizeToHeader">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn x:Name="cModelColumn" Binding="{Binding cModel}" Header="c Model" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cBrandColumn" Binding="{Binding cBrand}" Header="c Brand" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nPmaxColumn" Binding="{Binding nPmax}" Header="n Pmax" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nVmpColumn" Binding="{Binding nVmp}" Header="n Vmp" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nLmpColumn" Binding="{Binding nLmp}" Header="n Lmp" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nVocColumn" Binding="{Binding nVoc}" Header="n Voc" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nLscColumn" Binding="{Binding nLsc}" Header="n Lsc" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nWeight_kgColumn" Binding="{Binding nWeight_kg}" Header="n Weight kg" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nLength_mmColumn" Binding="{Binding nLength_mm}" Header="n Length mm" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nWidth_mmColumn" Binding="{Binding nWidth_mm}" Header="n Width mm" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nHeight_mmColumn" Binding="{Binding nHeight_mm}" Header="n Height mm" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cFrameColumn" Binding="{Binding cFrame}" Header="c Frame" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cVendorColumn" Binding="{Binding cVendor}" Header="c Vendor" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nPriceColumn" Binding="{Binding nPrice}" Header="n Price" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nTilt_degColumn" Binding="{Binding nTilt_deg}" Header="n Tilt deg" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nOrientation_degColumn" Binding="{Binding nOrientation_deg}" Header="n Orientation deg" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cURLColumn" Binding="{Binding cURL}" Header="c URL" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nQtyColumn1" Binding="{Binding nQty}" Header="n Qty" Width="SizeToHeader"/>
-                            <DataGridCheckBoxColumn x:Name="bDeletedColumn1" Binding="{Binding bDeleted}" Header="b Deleted" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nProjectsIDColumn1" Binding="{Binding nProjectsID}" Header="n Projects ID" Width="SizeToHeader"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
                     <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="SimpleButton" HorizontalAlignment="Left" Height="35" Margin="591,632,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="SimpleButtonSaveConfig_Click"/>
+                    <dxg:GridControl AutoGenerateColumns="AddNew" Grid.Column="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom"/>
+                        </dxg:GridControl.View>
+                    </dxg:GridControl>
 
 
                 </Grid>

@@ -656,27 +656,25 @@ namespace Net_Zero
 
         private void SimpleButtonSaveConfig_Click(object sender, RoutedEventArgs e)
         {
-            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
-
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
             int TransactID1 = 0;
-            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
-            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
-            System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
+            System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
 
 
 
-            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
-            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+            DataRowView drv = (DataRowView)getPVViewSource.View.CurrentItem;
+            //int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
-            int lineCurrent = 0;
+            //int lineCurrent = 0;
             int wasnull = 0;
-            wasnull = (uSP_getLineViewSource1.View == null ? 1 : 0);
+            wasnull = (getPVViewSource.View == null ? 1 : 0);
             if (wasnull == 1)
             {
 
                 // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning: uSP_getLineViewSource1 is null";
-                string caption = "CoolBlue";
+                string message = "Warning: getPVViewSource is null";
+                string caption = "Net-Zero";
 
                 MessageBoxButton buttons = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Information;
@@ -700,15 +698,15 @@ namespace Net_Zero
             }
             else
             {
-                DataRowView drv1 = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
-                lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+                DataRowView drv1 = (DataRowView)getPVViewSource.View.CurrentItem;
+                //lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
             }
 
 
 
 
 
-            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
             try
             {
 
@@ -716,8 +714,8 @@ namespace Net_Zero
                 {
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
-                    cmd3.CommandText = "dbo.USP_deleteSplit";
-                    cmd3.Parameters.AddWithValue("@nLine", lineCurrent);
+                    cmd3.CommandText = "dbo.USP_deletePV";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     //retval.Direction = ParameterDirection.Output;
@@ -732,7 +730,7 @@ namespace Net_Zero
             catch (Exception ex)
             {
                 //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
-                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                System.ArgumentException argEx = new System.ArgumentException("Save PV", "", ex);
                 throw argEx;
             }
             finally
@@ -782,42 +780,52 @@ namespace Net_Zero
             //}
 
             //while (go ==0)
-            if (uSP_getLineUSP_getSplitViewSource.View != null)
+            if (getPVViewSource.View != null)
 
             {
-                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
-                uSP_getLineUSP_getSplitViewSource.View.MoveCurrentToFirst();
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                getPVViewSource.View.MoveCurrentToFirst();
 
                 for (int i = 0; i - 1 < i++; i++)
                 {
-                    DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
-                    int ID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["ID"]) == true ? 0 : (int)drv3["ID"]);
+                    DataRowView drv3 = (DataRowView)getPVViewSource.View.CurrentItem;
+                    int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
                     //MessageBox.Show(ID.ToString());
 
-                    if (ID == 0)
+                    if (nID == 0)
                     {
                         break;
                     }
 
 
-                    decimal nAmnt = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount"]) == true ? 0 : (decimal)drv3["nAmount"]);
+                    decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
                     // MessageBox.Show(nAmnt.ToString());
 
-                    int nSubCatID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nSubCatID"]) == true ? 0 : (int)drv3["nSubCatID"]);
-                    int nXferAccountID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nXferAccountID"]) == true ? 0 : (int)drv3["nXferAccountID"]);
-                    Boolean bXfer = (drv3 == null ? false : DBNull.Value.Equals(drv3["bXfer"]) == true ? false : (bool)drv3["bXfer"]);
+                    int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
 
-                    int nVendorsID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVendorsID"]) == true ? 0 : (int)drv3["nVendorsID"]);
-                    string cMemo = (DBNull.Value.Equals(drv3["cMemo"]) == true ? "" : (string)drv3["cMemo"]);
-                    int nTagID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nTagID"]) == true ? 0 : (int)drv3["nTagID"]);
-                    int nClassID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nClassID"]) == true ? 0 : (int)drv3["nClassID"]);
-                    int nAccountID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID"]) == true ? 0 : (int)drv3["nAccountID"]);
-                    decimal nOriginalAmount = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nOriginalAmount"]) == true ? 0 : (decimal)drv3["nOriginalAmount"]);
-                    int nCurrencyID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCurrencyID"]) == true ? 0 : (int)drv3["nCurrencyID"]);
-                    int nAccountID_C = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID_C"]) == true ? 0 : (int)drv3["nAccountID_C"]);
-                    int nAccountID_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID_D"]) == true ? 0 : (int)drv3["nAccountID_D"]);
-                    decimal nAmount_C = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_C"]) == true ? 0 : (decimal)drv3["nAmount_C"]);
-                    decimal nAmount_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_D"]) == true ? 0 : (decimal)drv3["nAmount_D"]);
+                    string cURL = (DBNull.Value.Equals(drv3["cURL"]) == true ? "" : (string)drv3["cURL"]);
+                    string cVendor = (DBNull.Value.Equals(drv3["cVendor"]) == true ? "" : (string)drv3["cVendor"]);
+
+                    string cFrame = (DBNull.Value.Equals(drv3["cFrame"]) == true ? "" : (string)drv3["cFrame"]);
+                    string cBrand = (DBNull.Value.Equals(drv3["cBrand"]) == true ? "" : (string)drv3["cBrand"]);
+                    string cModel = (DBNull.Value.Equals(drv3["cModel"]) == true ? "" : (string)drv3["cModel"]);
+
+
+                    //Boolean bXfer = (drv3 == null ? false : DBNull.Value.Equals(drv3["bXfer"]) == true ? false : (bool)drv3["bXfer"]);
+
+
+                    decimal nPmax = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPmax"]) == true ? 0 : (decimal)drv3["nPmax"]);
+                    decimal nVmp = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVmp"]) == true ? 0 : (decimal)drv3["nVmp"]);
+                    decimal nLmp = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nLmp"]) == true ? 0 : (decimal)drv3["nLmp"]);
+                    decimal nVoc = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVoc"]) == true ? 0 : (decimal)drv3["nVoc"]);
+                    decimal nLsc = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nLsc"]) == true ? 0 : (decimal)drv3["nLsc"]);
+                    decimal nWeight_kg = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nWeight_kg"]) == true ? 0 : (decimal)drv3["nWeight_kg"]);
+                    decimal nLength_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nLength_mm"]) == true ? 0 : (decimal)drv3["nLength_mm"]);
+                    decimal nHeight_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nHeight_mm"]) == true ? 0 : (decimal)drv3["nHeight_mm"]);
+                    decimal nWidth_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nWidth_mm"]) == true ? 0 : (decimal)drv3["nWidth_mm"]);
+                    decimal nTilt_deg = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nTilt_deg"]) == true ? 0 : (decimal)drv3["nTilt_deg"]);
+                    decimal nOrientation_deg = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nOrientation_deg"]) == true ? 0 : (decimal)drv3["nOrientation_deg"]);
+                    
                     /////write new record to dbo.split
 
                     //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
@@ -828,23 +836,26 @@ namespace Net_Zero
                         {
                             //cmd3.Transaction = trans1;
                             cmd3.Parameters.Clear();
-                            cmd3.CommandText = "dbo.USP_insertSplit";
-                            cmd3.Parameters.AddWithValue("@lineID", lineCurrent);
-                            cmd3.Parameters.AddWithValue("@subCatID", nSubCatID);
-                            cmd3.Parameters.AddWithValue("@xferAccountID", nXferAccountID);
-                            cmd3.Parameters.AddWithValue("@bXfer", bXfer);
-                            cmd3.Parameters.AddWithValue("@amount", nAmnt);
-                            cmd3.Parameters.AddWithValue("@vendorsID", nVendorsID);
-                            cmd3.Parameters.AddWithValue("@memo", cMemo);
-                            cmd3.Parameters.AddWithValue("@tagID", nTagID);
-                            cmd3.Parameters.AddWithValue("@classID", nClassID);
-                            cmd3.Parameters.AddWithValue("@accountID", accountCurrent);
-                            cmd3.Parameters.AddWithValue("@originalAmount", nOriginalAmount);
-                            cmd3.Parameters.AddWithValue("@currencyID", nCurrencyID);
-                            cmd3.Parameters.AddWithValue("@nAccountID_C", nAccountID_C);
-                            cmd3.Parameters.AddWithValue("@nAccountID_D", nAccountID_D);
-                            cmd3.Parameters.AddWithValue("@nAmount_C", nAmount_C);
-                            cmd3.Parameters.AddWithValue("@nAmount_D", nAmount_D);
+                            cmd3.CommandText = "dbo.USP_insertPV";
+                            cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                            cmd3.Parameters.AddWithValue("@cModel", cModel);
+                            cmd3.Parameters.AddWithValue("@cBrand", cBrand);
+                            cmd3.Parameters.AddWithValue("@nPmax", nPmax);
+                            cmd3.Parameters.AddWithValue("@nVmp", nVmp);
+                            cmd3.Parameters.AddWithValue("@nLmp", nLmp);
+                            cmd3.Parameters.AddWithValue("@nVoc", nVoc);
+                            cmd3.Parameters.AddWithValue("@nLsc", nLsc);
+                            cmd3.Parameters.AddWithValue("@nWeight_kg", nWeight_kg);
+                            cmd3.Parameters.AddWithValue("@nLength_mm", nLength_mm);
+                            cmd3.Parameters.AddWithValue("@nHeight_mm", nHeight_mm);
+                            cmd3.Parameters.AddWithValue("@nWidth_mm", nWidth_mm);
+                            cmd3.Parameters.AddWithValue("@cFrame", cFrame);
+                            cmd3.Parameters.AddWithValue("@cVendor", cVendor);
+                            cmd3.Parameters.AddWithValue("@nPrice", nPrice);
+                            cmd3.Parameters.AddWithValue("@nTilt_deg", nTilt_deg);
+                            cmd3.Parameters.AddWithValue("@nOrientation_deg", nOrientation_deg);
+                            cmd3.Parameters.AddWithValue("@cURL", cURL);
+                            cmd3.Parameters.AddWithValue("@nQty", nQty);
 
 
 
@@ -914,7 +925,7 @@ namespace Net_Zero
 
 
 
-                    uSP_getLineUSP_getSplitViewSource.View.MoveCurrentToNext();
+                    getPVViewSource.View.MoveCurrentToNext();
                 }
             }
 
@@ -926,33 +937,33 @@ namespace Net_Zero
 
 
 
-            registerDataSet.EnforceConstraints = false;
+            // registerDataSet.EnforceConstraints = false;
 
-            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
-            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+            Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
             //registerDataSet.EnforceConstraints = true;
 
-            decimal sumDr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
+            //decimal sumDr = 0;
+            //foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            //{
 
-                sumDr += (decimal)dr["totalDr"];
+            //    sumDr += (decimal)dr["totalDr"];
 
-            }
+            //}
 
-            decimal sumCr = 0;
-            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
-            {
+            //decimal sumCr = 0;
+            //foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            //{
 
-                sumCr += (decimal)dr["totalCr"];
+            //    sumCr += (decimal)dr["totalCr"];
 
-            }
+            //}
 
-            decimal sumTotal = sumDr - sumCr;
+            //decimal sumTotal = sumDr - sumCr;
 
-            TextEditTotalDr.EditValue = sumDr;
-            TextEditTotalCr.EditValue = sumCr;
-            TextEditBalance.EditValue = sumTotal;
+            //TextEditTotalDr.EditValue = sumDr;
+            //TextEditTotalCr.EditValue = sumCr;
+            //TextEditBalance.EditValue = sumTotal;
 
 
         }
