@@ -485,17 +485,39 @@
             </dx:DXTabItem>
 
             <dx:DXTabItem Header="PV Configuration">
-                <Grid Background="#FFE1E1E1" Margin="10,20,-10,21" DataContext="{StaticResource getPVViewSource}">
+                <Grid Background="#FFE1E1E1" Margin="10,20,20,21" DataContext="{StaticResource getPVViewSource}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="261*"/>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="1466*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1800"/>
+
                     </Grid.ColumnDefinitions>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="SimpleButton" HorizontalAlignment="Left" Height="35" Margin="591,632,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="SimpleButtonSaveConfig_Click"/>
-                    <dxg:GridControl AutoGenerateColumns="AddNew" Grid.Column="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}">
+                    <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="SimpleButton" HorizontalAlignment="Left" Height="35" Margin="591,632,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="SimpleButtonSaveConfig_Click"/>
+                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0"/>
                         </dxg:GridControl.View>
+
+
+                        <dxg:GridColumn FieldName="cModel" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cBrand" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPmax" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nVmp" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nLmp" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nVoc" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nLsc" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nWeight_kg" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nLength_mm" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nWidth_mm" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nHeight_mm" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cFrame" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cVendor" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPrice" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nTilt_deg" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nOrientation_deg" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cURL" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nQty" IsSmart="True"/>
+
+
                     </dxg:GridControl>
 
 
