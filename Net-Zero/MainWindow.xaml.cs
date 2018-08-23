@@ -86,13 +86,21 @@ namespace Net_Zero
 
             Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter geographygetAllInsolationTableAdapter = new Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter();
             geographygetAllInsolationTableAdapter.Fill(geography.getAllInsolation);
-            
+
             Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
             TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
             TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+
+
+
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+            Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nCurrentProjectID);
+            System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
+            getPVViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -639,6 +647,314 @@ namespace Net_Zero
             
 
             InfoTDRLeadAcid1.ShowDialog();
+        }
+
+        private void DXTabControl_SelectionChanged(object sender, TabControlSelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void SimpleButtonSaveConfig_Click(object sender, RoutedEventArgs e)
+        {
+            coolBlue.RegisterDataSet registerDataSet = ((coolBlue.RegisterDataSet)(this.FindResource("registerDataSet")));
+
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource uSP_getLineViewSource1 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineViewSource1")));
+            System.Windows.Data.CollectionViewSource uSP_getAllAccountTypesUSP_getAllAccountsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getAllAccountTypesUSP_getAllAccountsViewSource")));
+            System.Windows.Data.CollectionViewSource uSP_getLineUSP_getSplitViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("uSP_getLineUSP_getSplitViewSource")));
+
+
+
+            DataRowView drv = (DataRowView)uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.CurrentItem;
+            int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+
+            int lineCurrent = 0;
+            int wasnull = 0;
+            wasnull = (uSP_getLineViewSource1.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: uSP_getLineViewSource1 is null";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv1 = (DataRowView)uSP_getLineViewSource1.View.CurrentItem;
+                lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+            }
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.USP_deleteSplit";
+                    cmd3.Parameters.AddWithValue("@nLine", lineCurrent);
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                //LocateNewLine(TransactID1);
+            }
+
+            //write new records in dbo.split
+            //int itwasnull = 0;
+            //itwasnull = (uSP_getSplitDataGrid.)== null ? 1 : 0;
+            //if (itwasnull == 0)
+
+
+            //var selectedRow = uSP_getSplitDataGrid.GetRow(0);
+
+            //var columnCell = uSP_getSplitDataGrid.GetCell(selectedRow, 0);
+
+            //string content = (uSP_getSplitDataGrid.SelectedCells[0].Column.GetCellContent(0) as TextBlock).Text;
+            //MessageBox.Show(content);
+            //foreach (DataRowView dv in uSP_getSplitDataGrid.Items)
+            //    {
+
+
+            //            MessageBox.Show(dv[3].ToString());
+
+            //    }
+            // foreach (DataRowView drv3 in uSP_getLineUSP_getSplitViewSource.View)
+            //{ 
+            //int go = 0;
+
+            // DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
+            //int ID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["ID"]) == true ? 0 : (int)drv3["ID"]);
+            //for (int i=0; i<5; i++)
+
+            //if (ID == 0)
+            //{
+            //    go = 1;
+            //}
+
+            //while (go ==0)
+            if (uSP_getLineUSP_getSplitViewSource.View != null)
+
+            {
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                uSP_getLineUSP_getSplitViewSource.View.MoveCurrentToFirst();
+
+                for (int i = 0; i - 1 < i++; i++)
+                {
+                    DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
+                    int ID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["ID"]) == true ? 0 : (int)drv3["ID"]);
+                    //MessageBox.Show(ID.ToString());
+
+                    if (ID == 0)
+                    {
+                        break;
+                    }
+
+
+                    decimal nAmnt = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount"]) == true ? 0 : (decimal)drv3["nAmount"]);
+                    // MessageBox.Show(nAmnt.ToString());
+
+                    int nSubCatID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nSubCatID"]) == true ? 0 : (int)drv3["nSubCatID"]);
+                    int nXferAccountID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nXferAccountID"]) == true ? 0 : (int)drv3["nXferAccountID"]);
+                    Boolean bXfer = (drv3 == null ? false : DBNull.Value.Equals(drv3["bXfer"]) == true ? false : (bool)drv3["bXfer"]);
+
+                    int nVendorsID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVendorsID"]) == true ? 0 : (int)drv3["nVendorsID"]);
+                    string cMemo = (DBNull.Value.Equals(drv3["cMemo"]) == true ? "" : (string)drv3["cMemo"]);
+                    int nTagID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nTagID"]) == true ? 0 : (int)drv3["nTagID"]);
+                    int nClassID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nClassID"]) == true ? 0 : (int)drv3["nClassID"]);
+                    int nAccountID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID"]) == true ? 0 : (int)drv3["nAccountID"]);
+                    decimal nOriginalAmount = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nOriginalAmount"]) == true ? 0 : (decimal)drv3["nOriginalAmount"]);
+                    int nCurrencyID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCurrencyID"]) == true ? 0 : (int)drv3["nCurrencyID"]);
+                    int nAccountID_C = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID_C"]) == true ? 0 : (int)drv3["nAccountID_C"]);
+                    int nAccountID_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAccountID_D"]) == true ? 0 : (int)drv3["nAccountID_D"]);
+                    decimal nAmount_C = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_C"]) == true ? 0 : (decimal)drv3["nAmount_C"]);
+                    decimal nAmount_D = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nAmount_D"]) == true ? 0 : (decimal)drv3["nAmount_D"]);
+                    /////write new record to dbo.split
+
+                    //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                    try
+                    {
+
+                        using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                        {
+                            //cmd3.Transaction = trans1;
+                            cmd3.Parameters.Clear();
+                            cmd3.CommandText = "dbo.USP_insertSplit";
+                            cmd3.Parameters.AddWithValue("@lineID", lineCurrent);
+                            cmd3.Parameters.AddWithValue("@subCatID", nSubCatID);
+                            cmd3.Parameters.AddWithValue("@xferAccountID", nXferAccountID);
+                            cmd3.Parameters.AddWithValue("@bXfer", bXfer);
+                            cmd3.Parameters.AddWithValue("@amount", nAmnt);
+                            cmd3.Parameters.AddWithValue("@vendorsID", nVendorsID);
+                            cmd3.Parameters.AddWithValue("@memo", cMemo);
+                            cmd3.Parameters.AddWithValue("@tagID", nTagID);
+                            cmd3.Parameters.AddWithValue("@classID", nClassID);
+                            cmd3.Parameters.AddWithValue("@accountID", accountCurrent);
+                            cmd3.Parameters.AddWithValue("@originalAmount", nOriginalAmount);
+                            cmd3.Parameters.AddWithValue("@currencyID", nCurrencyID);
+                            cmd3.Parameters.AddWithValue("@nAccountID_C", nAccountID_C);
+                            cmd3.Parameters.AddWithValue("@nAccountID_D", nAccountID_D);
+                            cmd3.Parameters.AddWithValue("@nAmount_C", nAmount_C);
+                            cmd3.Parameters.AddWithValue("@nAmount_D", nAmount_D);
+
+
+
+                            SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                            retval.Direction = ParameterDirection.Output;
+                            conn1.Open();
+                            cmd3.ExecuteNonQuery();
+                            TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                        }
+
+
+
+
+                    }
+
+
+                    catch (Exception ex)
+                    {
+                        //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                        System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                        throw argEx;
+                    }
+                    finally
+                    {
+                        if (conn1.State == ConnectionState.Open) conn1.Close();
+
+                        //registerDataSet.EnforceConstraints = false;
+
+                        //registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+                        //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+                        //registerDataSet.EnforceConstraints = true;
+
+                        ////uSP_getLineDataGrid.
+
+                        ////uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                        ////resetButtons();
+                        //LocateNewLine(TransactID1);
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    uSP_getLineUSP_getSplitViewSource.View.MoveCurrentToNext();
+                }
+            }
+
+
+
+
+
+
+
+
+
+            registerDataSet.EnforceConstraints = false;
+
+            registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+            registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+            //registerDataSet.EnforceConstraints = true;
+
+            decimal sumDr = 0;
+            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            {
+
+                sumDr += (decimal)dr["totalDr"];
+
+            }
+
+            decimal sumCr = 0;
+            foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            {
+
+                sumCr += (decimal)dr["totalCr"];
+
+            }
+
+            decimal sumTotal = sumDr - sumCr;
+
+            TextEditTotalDr.EditValue = sumDr;
+            TextEditTotalCr.EditValue = sumCr;
+            TextEditBalance.EditValue = sumTotal;
+
+
         }
     }
 }

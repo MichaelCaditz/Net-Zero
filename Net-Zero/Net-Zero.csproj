@@ -85,6 +85,11 @@
     <Compile Include="InfoTDRLeadAcid.xaml.cs">
       <DependentUpon>InfoTDRLeadAcid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PVDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SummaryDataSet.cs">
       <DependentUpon>SummaryDataSet.xsd</DependentUpon>
     </Compile>
@@ -161,6 +166,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="PVDataSet.xsc">
+      <DependentUpon>PVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PVDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PVDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PVDataSet.xss">
+      <DependentUpon>PVDataSet.xsd</DependentUpon>
+    </None>
     <None Include="SummaryDataSet.xsc">
       <DependentUpon>SummaryDataSet.xsd</DependentUpon>
     </None>
