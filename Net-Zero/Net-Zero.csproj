@@ -76,6 +76,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Battery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Battery.xsd</DependentUpon>
+    </Compile>
     <Compile Include="classes\ProgramSettings.cs" />
     <Compile Include="Geography.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -139,6 +144,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Battery.xsc">
+      <DependentUpon>Battery.xsd</DependentUpon>
+    </None>
+    <None Include="Battery.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Battery.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Battery.xss">
+      <DependentUpon>Battery.xsd</DependentUpon>
+    </None>
     <None Include="DemandDataSet.xsc">
       <DependentUpon>DemandDataSet.xsd</DependentUpon>
     </None>

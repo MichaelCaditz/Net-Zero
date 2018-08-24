@@ -28,6 +28,9 @@
         <CollectionViewSource x:Key="getProjectViewSource" Source="{Binding getProject, Source={StaticResource summaryDataSet}}"/>
         <local:PVDataSet x:Key="pVDataSet"/>
         <CollectionViewSource x:Key="getPVViewSource" Source="{Binding getPV, Source={StaticResource pVDataSet}}"/>
+        <local:Battery x:Key="battery"/>
+        <CollectionViewSource x:Key="getBatterySeriesStringViewSource" Source="{Binding getBatterySeriesString, Source={StaticResource battery}}"/>
+        <CollectionViewSource x:Key="getBatterySeriesStringgetBatteryViewSource" Source="{Binding getBatterySeriesString_getBattery, Source={StaticResource getBatterySeriesStringViewSource}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -524,6 +527,24 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Battery Configuration">
+                <Grid Background="#FFE1E1E1" Margin="10,20,20,21" DataContext="{StaticResource getPVViewSource}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1800"/>
+
+                    </Grid.ColumnDefinitions>
+                    <dxg:GridControl AutoGenerateColumns="AddNew" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                        </dxg:GridControl.View>
+                    </dxg:GridControl>
+                    <dxg:GridControl AutoGenerateColumns="AddNew" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn FieldName="cModel"/>
+                    </dxg:GridControl>
+                </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
 

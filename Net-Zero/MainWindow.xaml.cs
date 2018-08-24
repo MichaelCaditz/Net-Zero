@@ -101,6 +101,28 @@ namespace Net_Zero
             pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
             getPVViewSource.View.MoveCurrentToFirst();
+
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+       
+            Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nCurrentProjectID);
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
+            getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
+
+
+            // TODO: Add code here to load data into the table getBattery.
+            // This code could not be generated, because the batterygetBatteryTableAdapter.Fill method is missing, or has unrecognized parameters.
+            Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Fill(battery.getBattery, nCurrentProjectID);
+            //System.Windows.Data.CollectionViewSource getBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryViewSource")));
+
+
+
+
+
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringgetBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringgetBatteryViewSource")));
+            //getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
