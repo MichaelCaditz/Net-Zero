@@ -28,6 +28,8 @@
               <Mapping SourceColumn="cNote" DataSetColumn="cNote" />
               <Mapping SourceColumn="bDeleted" DataSetColumn="bDeleted" />
               <Mapping SourceColumn="nProjectsID" DataSetColumn="nProjectsID" />
+              <Mapping SourceColumn="nTotVolts" DataSetColumn="nTotVolts" />
+              <Mapping SourceColumn="nTotCapacity" DataSetColumn="nTotCapacity" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -72,7 +74,7 @@
   <xs:element name="Battery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Battery" msprop:Generator_UserDSName="Battery">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getBatterySeriesString" msprop:Generator_TableClassName="getBatterySeriesStringDataTable" msprop:Generator_TableVarName="tablegetBatterySeriesString" msprop:Generator_TablePropName="getBatterySeriesString" msprop:Generator_RowDeletingName="getBatterySeriesStringRowDeleting" msprop:Generator_RowChangingName="getBatterySeriesStringRowChanging" msprop:Generator_RowEvHandlerName="getBatterySeriesStringRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatterySeriesStringRowDeleted" msprop:Generator_UserTableName="getBatterySeriesString" msprop:Generator_RowChangedName="getBatterySeriesStringRowChanged" msprop:Generator_RowEvArgName="getBatterySeriesStringRowChangeEvent" msprop:Generator_RowClassName="getBatterySeriesStringRow">
+        <xs:element name="getBatterySeriesString" msprop:Generator_TableClassName="getBatterySeriesStringDataTable" msprop:Generator_TableVarName="tablegetBatterySeriesString" msprop:Generator_RowChangedName="getBatterySeriesStringRowChanged" msprop:Generator_TablePropName="getBatterySeriesString" msprop:Generator_RowDeletingName="getBatterySeriesStringRowDeleting" msprop:Generator_RowChangingName="getBatterySeriesStringRowChanging" msprop:Generator_RowEvHandlerName="getBatterySeriesStringRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatterySeriesStringRowDeleted" msprop:Generator_RowClassName="getBatterySeriesStringRow" msprop:Generator_UserTableName="getBatterySeriesString" msprop:Generator_RowEvArgName="getBatterySeriesStringRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -93,10 +95,12 @@
               </xs:element>
               <xs:element name="bDeleted" msprop:Generator_ColumnVarNameInTable="columnbDeleted" msprop:Generator_ColumnPropNameInRow="bDeleted" msprop:Generator_ColumnPropNameInTable="bDeletedColumn" msprop:Generator_UserColumnName="bDeleted" type="xs:boolean" minOccurs="0" />
               <xs:element name="nProjectsID" msprop:Generator_ColumnVarNameInTable="columnnProjectsID" msprop:Generator_ColumnPropNameInRow="nProjectsID" msprop:Generator_ColumnPropNameInTable="nProjectsIDColumn" msprop:Generator_UserColumnName="nProjectsID" type="xs:int" minOccurs="0" />
+              <xs:element name="nTotVolts" msprop:Generator_ColumnVarNameInTable="columnnTotVolts" msprop:Generator_ColumnPropNameInRow="nTotVolts" msprop:Generator_ColumnPropNameInTable="nTotVoltsColumn" msprop:Generator_UserColumnName="nTotVolts" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTotCapacity" msprop:Generator_ColumnVarNameInTable="columnnTotCapacity" msprop:Generator_ColumnPropNameInRow="nTotCapacity" msprop:Generator_ColumnPropNameInTable="nTotCapacityColumn" msprop:Generator_UserColumnName="nTotCapacity" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getBattery" msprop:Generator_TableClassName="getBatteryDataTable" msprop:Generator_TableVarName="tablegetBattery" msprop:Generator_TablePropName="getBattery" msprop:Generator_RowDeletingName="getBatteryRowDeleting" msprop:Generator_RowChangingName="getBatteryRowChanging" msprop:Generator_RowEvHandlerName="getBatteryRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryRowDeleted" msprop:Generator_UserTableName="getBattery" msprop:Generator_RowChangedName="getBatteryRowChanged" msprop:Generator_RowEvArgName="getBatteryRowChangeEvent" msprop:Generator_RowClassName="getBatteryRow">
+        <xs:element name="getBattery" msprop:Generator_TableClassName="getBatteryDataTable" msprop:Generator_TableVarName="tablegetBattery" msprop:Generator_RowChangedName="getBatteryRowChanged" msprop:Generator_TablePropName="getBattery" msprop:Generator_RowDeletingName="getBatteryRowDeleting" msprop:Generator_RowChangingName="getBatteryRowChanging" msprop:Generator_RowEvHandlerName="getBatteryRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryRowDeleted" msprop:Generator_RowClassName="getBatteryRow" msprop:Generator_UserTableName="getBattery" msprop:Generator_RowEvArgName="getBatteryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -160,7 +164,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="getBatterySeriesString_getBattery" msdata:parent="getBatterySeriesString" msdata:child="getBattery" msdata:parentkey="nID" msdata:childkey="nBatterySeriesStringID" msprop:Generator_UserChildTable="getBattery" msprop:Generator_ChildPropName="GetgetBatteryRows" msprop:Generator_UserRelationName="getBatterySeriesString_getBattery" msprop:Generator_ParentPropName="getBatterySeriesStringRow" msprop:Generator_RelationVarName="relationgetBatterySeriesString_getBattery" msprop:Generator_UserParentTable="getBatterySeriesString" />
+      <msdata:Relationship name="getBatterySeriesString_getBattery" msdata:parent="getBatterySeriesString" msdata:child="getBattery" msdata:parentkey="nID" msdata:childkey="nBatterySeriesStringID" msprop:Generator_UserChildTable="getBattery" msprop:Generator_ChildPropName="GetgetBatteryRows" msprop:Generator_UserRelationName="getBatterySeriesString_getBattery" msprop:Generator_RelationVarName="relationgetBatterySeriesString_getBattery" msprop:Generator_UserParentTable="getBatterySeriesString" msprop:Generator_ParentPropName="getBatterySeriesStringRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

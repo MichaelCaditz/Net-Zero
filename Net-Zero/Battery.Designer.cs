@@ -333,6 +333,10 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnProjectsID;
             
+            private global::System.Data.DataColumn columnnTotVolts;
+            
+            private global::System.Data.DataColumn columnnTotCapacity;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getBatterySeriesStringDataTable() {
@@ -416,6 +420,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTotVoltsColumn {
+                get {
+                    return this.columnnTotVolts;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTotCapacityColumn {
+                get {
+                    return this.columnnTotCapacity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -451,7 +471,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getBatterySeriesStringRow AddgetBatterySeriesStringRow(System.DateTime dtCreateDate, string cName, string cNote, bool bDeleted, int nProjectsID) {
+            public getBatterySeriesStringRow AddgetBatterySeriesStringRow(System.DateTime dtCreateDate, string cName, string cNote, bool bDeleted, int nProjectsID, decimal nTotVolts, decimal nTotCapacity) {
                 getBatterySeriesStringRow rowgetBatterySeriesStringRow = ((getBatterySeriesStringRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -459,7 +479,9 @@ namespace Net_Zero {
                         cName,
                         cNote,
                         bDeleted,
-                        nProjectsID};
+                        nProjectsID,
+                        nTotVolts,
+                        nTotCapacity};
                 rowgetBatterySeriesStringRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetBatterySeriesStringRow);
                 return rowgetBatterySeriesStringRow;
@@ -495,6 +517,8 @@ namespace Net_Zero {
                 this.columncNote = base.Columns["cNote"];
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnProjectsID = base.Columns["nProjectsID"];
+                this.columnnTotVolts = base.Columns["nTotVolts"];
+                this.columnnTotCapacity = base.Columns["nTotCapacity"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -512,6 +536,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnbDeleted);
                 this.columnnProjectsID = new global::System.Data.DataColumn("nProjectsID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnProjectsID);
+                this.columnnTotVolts = new global::System.Data.DataColumn("nTotVolts", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotVolts);
+                this.columnnTotCapacity = new global::System.Data.DataColumn("nTotCapacity", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotCapacity);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1221,6 +1249,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTotVolts {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetBatterySeriesString.nTotVoltsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotVolts\' in table \'getBatterySeriesString\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetBatterySeriesString.nTotVoltsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTotCapacity {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetBatterySeriesString.nTotCapacityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotCapacity\' in table \'getBatterySeriesString\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetBatterySeriesString.nTotCapacityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetBatterySeriesString.dtCreateDateColumn);
             }
@@ -1277,6 +1337,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnProjectsIDNull() {
                 this[this.tablegetBatterySeriesString.nProjectsIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTotVoltsNull() {
+                return this.IsNull(this.tablegetBatterySeriesString.nTotVoltsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTotVoltsNull() {
+                this[this.tablegetBatterySeriesString.nTotVoltsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTotCapacityNull() {
+                return this.IsNull(this.tablegetBatterySeriesString.nTotCapacityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTotCapacityNull() {
+                this[this.tablegetBatterySeriesString.nTotCapacityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1919,6 +2003,8 @@ namespace Net_Zero.BatteryTableAdapters {
             tableMapping.ColumnMappings.Add("cNote", "cNote");
             tableMapping.ColumnMappings.Add("bDeleted", "bDeleted");
             tableMapping.ColumnMappings.Add("nProjectsID", "nProjectsID");
+            tableMapping.ColumnMappings.Add("nTotVolts", "nTotVolts");
+            tableMapping.ColumnMappings.Add("nTotCapacity", "nTotCapacity");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
