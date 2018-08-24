@@ -122,18 +122,21 @@ namespace Net_Zero
             //getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToFirst();
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                        DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
-
+            SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
 
 
 
             LinearGauge1.Scales[0].StartValue = 0;
             LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
-
             LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
 
-
+            LinearGaugePV.Scales[0].StartValue = 0;
+            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
+            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
 
         }
 

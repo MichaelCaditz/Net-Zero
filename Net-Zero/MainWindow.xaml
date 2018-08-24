@@ -494,8 +494,8 @@
                         <ColumnDefinition Width="1800"/>
 
                     </Grid.ColumnDefinitions>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="SimpleButton" HorizontalAlignment="Left" Height="35" Margin="591,632,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="SimpleButtonSaveConfig_Click"/>
-                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="" HorizontalAlignment="Left" Margin="591,632,0,0" VerticalAlignment="Top" Grid.Column="1" Click="SimpleButtonSaveConfig_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save PV Configuration"/>
+                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,160,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0"/>
                         </dxg:GridControl.View>
@@ -522,6 +522,22 @@
 
 
                     </dxg:GridControl>
+                    <dxga:LinearGaugeControl x:Name="LinearGaugePV" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="670,15,0,0" VerticalAlignment="Top" Height="140" Width="503">
+                        <dxga:LinearGaugeControl.Scales>
+                            <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
+                                <dxga:LinearScale.LevelBars>
+                                    <dxga:LinearScaleLevelBar IsInteractive="True" Value="40"/>
+                                </dxga:LinearScale.LevelBars>
+                                <dxga:LinearScale.Layers>
+                                    <dxga:LinearScaleLayer/>
+                                </dxga:LinearScale.Layers>
+                            </dxga:LinearScale>
+                        </dxga:LinearGaugeControl.Scales>
+                    </dxga:LinearGaugeControl>
+                    <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenPVkW"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                    <dxe:SpinEdit x:Name="SpinEditnCapacityAchievedPVkW"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                    <Label Content="Achieved PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
 
 
                 </Grid>
