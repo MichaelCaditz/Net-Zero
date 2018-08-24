@@ -117,12 +117,24 @@ namespace Net_Zero
             getBatteryTableAdapter.Fill(battery.getBattery, nCurrentProjectID);
             //System.Windows.Data.CollectionViewSource getBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryViewSource")));
 
-
-
-
-
+            
             System.Windows.Data.CollectionViewSource getBatterySeriesStringgetBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringgetBatteryViewSource")));
             //getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToFirst();
+            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+
+            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+
+
+
+
+            LinearGauge1.Scales[0].StartValue = 0;
+            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
+
+            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
+
+
+
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)

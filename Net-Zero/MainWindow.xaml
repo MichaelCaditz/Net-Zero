@@ -5,7 +5,7 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" x:Class="Net_Zero.MainWindow"
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" x:Class="Net_Zero.MainWindow"
         Title="Net-Zero" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded" Background="#FF318387">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
@@ -564,6 +564,25 @@
                         <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
                     </dxg:GridControl>
+                    <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenBatteryCapacity"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                    <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                    <Label Content="Capacity Achieved" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <dxga:LinearGaugeControl x:Name="LinearGauge1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="632,80,0,0" VerticalAlignment="Top" Height="140" Width="503">
+                        <dxga:LinearGaugeControl.Scales>
+                            <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
+                                <dxga:LinearScale.LevelBars>
+                                    <dxga:LinearScaleLevelBar IsInteractive="True" Value="40"/>
+                                </dxga:LinearScale.LevelBars>
+                                <dxga:LinearScale.Layers>
+                                    <dxga:LinearScaleLayer/>
+                                </dxga:LinearScale.Layers>
+                                <dxga:LinearScale.Ranges>
+
+                                </dxga:LinearScale.Ranges>
+                            </dxga:LinearScale>
+                        </dxga:LinearGaugeControl.Scales>
+                    </dxga:LinearGaugeControl>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
