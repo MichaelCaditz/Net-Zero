@@ -553,13 +553,14 @@
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
                         </dxg:GridControl.View>
+                        <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" Width="60" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cName" Header="String Name" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nTotVolts" Header="String Voltage" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nTotCapacity" Header="String Capacity Ah" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="bDeleted" Visible=" False" IsSmart="True"/>
+
                         <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
                     </dxg:GridControl>
                     <dxg:GridControl x:Name="GridControlBattery" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}">
@@ -572,7 +573,7 @@
                         <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
-                        
+
                         <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
                         <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
@@ -585,7 +586,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnChosenBatteryCapacity"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <Label Content="Capacity Achieved" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    <dxga:LinearGaugeControl x:Name="LinearGauge1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="632,80,0,0" VerticalAlignment="Top" Height="140" Width="503">
+                    <dxga:LinearGaugeControl x:Name="LinearGauge1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="764,80,0,0" VerticalAlignment="Top" Height="140" Width="503">
                         <dxga:LinearGaugeControl.Scales>
                             <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
                                 <dxga:LinearScale.LevelBars>
@@ -600,9 +601,10 @@
                             </dxga:LinearScale>
                         </dxga:LinearGaugeControl.Scales>
                     </dxga:LinearGaugeControl>
-                    <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="540,153,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}"/>
+                    <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,142,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}"/>
                     <dx:SimpleButton x:Name="SimpleButtonNewBattery" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="1255,403,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveBattery" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="1255,464,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,195,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveString_Click"/>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
