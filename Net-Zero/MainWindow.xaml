@@ -491,34 +491,102 @@
                 <Grid Background="#FFE1E1E1" Margin="10,20,20,21" DataContext="{StaticResource getPVViewSource}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="1800"/>
+                        <ColumnDefinition Width="1800*"/>
 
                     </Grid.ColumnDefinitions>
                     <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="" HorizontalAlignment="Left" Margin="591,632,0,0" VerticalAlignment="Top" Grid.Column="1" Click="SimpleButtonSaveConfig_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save PV Configuration"/>
                     <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,160,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
 
+                        <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
+                            <dxg:GridColumn.EditTemplate>
+                                <ControlTemplate>
+                                    <dxe:TextEdit EditValue="{Binding Data.TransactionDate, Mode=OneWay}" 
+                                           
+                                                  />
+                                </ControlTemplate>
+                            </dxg:GridColumn.EditTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nTilt_deg" Header='Tilt Deg.' Width="100" IsSmart="True">
+                        <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nOrientation_deg" Header='Orientation Deg.' Width="160" IsSmart="True">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" />
+                        </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nQty" Header='Qty.' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nPrice" Header='Price Ea.' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
 
-                        <dxg:GridColumn FieldName="cModel" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="cBrand" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nPmax" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nVmp" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nLmp" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nVoc" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nLsc" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nWeight_kg" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nLength_mm" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nWidth_mm" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nHeight_mm" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="cFrame" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="cVendor" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nPrice" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nTilt_deg" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nOrientation_deg" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="cURL" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nQty" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nTotPrice" Header='Total' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nVmp" Header='Optimal Volts (Vmp)' Width="120" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nImp" Header='Optimal Current (Imp)' Width="140" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nVoc"  Header='Open Circuit Volt. (Voc)' Width="140" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nIsc"  Header='Short Curcuit Current (Isc)' Width="160" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nWeight_kg"  Header='Weight kG' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nLength_mm" Header='Length mm' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nWidth_mm" Header='Width mm' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nHeight_mm" Header='Height mm' Width="100" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True"/>
+                       
+                        <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
+                        
 
 
                     </dxg:GridControl>
@@ -538,6 +606,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnChosenPVkW"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnCapacityAchievedPVkW"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <Label Content="Achieved PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <dx:SimpleButton x:Name="SimpleButtonNewPV" Content="" HorizontalAlignment="Left" Margin="591,581,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Column="1" Click="SimpleButtonNewPV_Click"/>
 
 
                 </Grid>
@@ -551,7 +620,7 @@
                     </Grid.ColumnDefinitions>
                     <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}">
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" Width="60" IsSmart="True"/>
                         <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
@@ -565,7 +634,7 @@
                     </dxg:GridControl>
                     <dxg:GridControl x:Name="GridControlBattery" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,300,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}">
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" IsSmart="True" Width="60"/>
                         <dxg:GridColumn FieldName="cModel" Header="Model"/>

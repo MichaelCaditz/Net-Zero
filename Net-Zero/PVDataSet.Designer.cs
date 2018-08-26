@@ -37,6 +37,7 @@ namespace Net_Zero {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -48,6 +49,9 @@ namespace Net_Zero {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -68,6 +72,7 @@ namespace Net_Zero {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -129,6 +134,7 @@ namespace Net_Zero {
         public override global::System.Data.DataSet Clone() {
             PVDataSet cln = ((PVDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -204,7 +210,7 @@ namespace Net_Zero {
             this.Namespace = "http://tempuri.org/PVDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablegetPV = new getPVDataTable();
+            this.tablegetPV = new getPVDataTable(false);
             base.Tables.Add(this.tablegetPV);
         }
         
@@ -269,6 +275,12 @@ namespace Net_Zero {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitExpressions() {
+            this.getPV.nTotPriceColumn.Expression = "nQty*nPrice";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void getPVRowChangeEventHandler(object sender, getPVRowChangeEvent e);
         
@@ -291,11 +303,11 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnVmp;
             
-            private global::System.Data.DataColumn columnnLmp;
+            private global::System.Data.DataColumn columnnImp;
             
             private global::System.Data.DataColumn columnnVoc;
             
-            private global::System.Data.DataColumn columnnLsc;
+            private global::System.Data.DataColumn columnnIsc;
             
             private global::System.Data.DataColumn columnnWeight_kg;
             
@@ -323,12 +335,23 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnProjectsID;
             
+            private global::System.Data.DataColumn columnnTotPrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getPVDataTable() {
+            public getPVDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public getPVDataTable(bool initExpressions) {
                 this.TableName = "getPV";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -406,9 +429,9 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn nLmpColumn {
+            public global::System.Data.DataColumn nImpColumn {
                 get {
-                    return this.columnnLmp;
+                    return this.columnnImp;
                 }
             }
             
@@ -422,9 +445,9 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn nLscColumn {
+            public global::System.Data.DataColumn nIscColumn {
                 get {
-                    return this.columnnLsc;
+                    return this.columnnIsc;
                 }
             }
             
@@ -534,6 +557,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTotPriceColumn {
+                get {
+                    return this.columnnTotPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -575,9 +606,64 @@ namespace Net_Zero {
                         string cBrand, 
                         decimal nPmax, 
                         decimal nVmp, 
-                        decimal nLmp, 
+                        decimal nImp, 
                         decimal nVoc, 
-                        decimal nLsc, 
+                        decimal nIsc, 
+                        decimal nWeight_kg, 
+                        decimal nLength_mm, 
+                        decimal nWidth_mm, 
+                        decimal nHeight_mm, 
+                        string cFrame, 
+                        string cVendor, 
+                        decimal nPrice, 
+                        decimal nTilt_deg, 
+                        decimal nOrientation_deg, 
+                        string cURL, 
+                        int nQty, 
+                        bool bDeleted, 
+                        int nProjectsID, 
+                        decimal nTotPrice) {
+                getPVRow rowgetPVRow = ((getPVRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        dtCreateDate,
+                        cModel,
+                        cBrand,
+                        nPmax,
+                        nVmp,
+                        nImp,
+                        nVoc,
+                        nIsc,
+                        nWeight_kg,
+                        nLength_mm,
+                        nWidth_mm,
+                        nHeight_mm,
+                        cFrame,
+                        cVendor,
+                        nPrice,
+                        nTilt_deg,
+                        nOrientation_deg,
+                        cURL,
+                        nQty,
+                        bDeleted,
+                        nProjectsID,
+                        nTotPrice};
+                rowgetPVRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowgetPVRow);
+                return rowgetPVRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public getPVRow AddgetPVRow(
+                        System.DateTime dtCreateDate, 
+                        string cModel, 
+                        string cBrand, 
+                        decimal nPmax, 
+                        decimal nVmp, 
+                        decimal nImp, 
+                        decimal nVoc, 
+                        decimal nIsc, 
                         decimal nWeight_kg, 
                         decimal nLength_mm, 
                         decimal nWidth_mm, 
@@ -599,9 +685,9 @@ namespace Net_Zero {
                         cBrand,
                         nPmax,
                         nVmp,
-                        nLmp,
+                        nImp,
                         nVoc,
-                        nLsc,
+                        nIsc,
                         nWeight_kg,
                         nLength_mm,
                         nWidth_mm,
@@ -614,7 +700,8 @@ namespace Net_Zero {
                         cURL,
                         nQty,
                         bDeleted,
-                        nProjectsID};
+                        nProjectsID,
+                        null};
                 rowgetPVRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetPVRow);
                 return rowgetPVRow;
@@ -650,9 +737,9 @@ namespace Net_Zero {
                 this.columncBrand = base.Columns["cBrand"];
                 this.columnnPmax = base.Columns["nPmax"];
                 this.columnnVmp = base.Columns["nVmp"];
-                this.columnnLmp = base.Columns["nLmp"];
+                this.columnnImp = base.Columns["nImp"];
                 this.columnnVoc = base.Columns["nVoc"];
-                this.columnnLsc = base.Columns["nLsc"];
+                this.columnnIsc = base.Columns["nIsc"];
                 this.columnnWeight_kg = base.Columns["nWeight_kg"];
                 this.columnnLength_mm = base.Columns["nLength_mm"];
                 this.columnnWidth_mm = base.Columns["nWidth_mm"];
@@ -666,6 +753,7 @@ namespace Net_Zero {
                 this.columnnQty = base.Columns["nQty"];
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnProjectsID = base.Columns["nProjectsID"];
+                this.columnnTotPrice = base.Columns["nTotPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -683,12 +771,12 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnPmax);
                 this.columnnVmp = new global::System.Data.DataColumn("nVmp", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnVmp);
-                this.columnnLmp = new global::System.Data.DataColumn("nLmp", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnLmp);
+                this.columnnImp = new global::System.Data.DataColumn("nImp", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnImp);
                 this.columnnVoc = new global::System.Data.DataColumn("nVoc", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnVoc);
-                this.columnnLsc = new global::System.Data.DataColumn("nLsc", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnLsc);
+                this.columnnIsc = new global::System.Data.DataColumn("nIsc", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIsc);
                 this.columnnWeight_kg = new global::System.Data.DataColumn("nWeight_kg", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnWeight_kg);
                 this.columnnLength_mm = new global::System.Data.DataColumn("nLength_mm", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -715,6 +803,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnbDeleted);
                 this.columnnProjectsID = new global::System.Data.DataColumn("nProjectsID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnProjectsID);
+                this.columnnTotPrice = new global::System.Data.DataColumn("nTotPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotPrice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -728,6 +818,7 @@ namespace Net_Zero {
                 this.columncFrame.MaxLength = 50;
                 this.columncVendor.MaxLength = 50;
                 this.columncURL.MaxLength = 2147483647;
+                this.columnnTotPrice.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -746,6 +837,12 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(getPVRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.nTotPriceColumn.Expression = "nQty*nPrice";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -961,17 +1058,17 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal nLmp {
+            public decimal nImp {
                 get {
                     try {
-                        return ((decimal)(this[this.tablegetPV.nLmpColumn]));
+                        return ((decimal)(this[this.tablegetPV.nImpColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nLmp\' in table \'getPV\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nImp\' in table \'getPV\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegetPV.nLmpColumn] = value;
+                    this[this.tablegetPV.nImpColumn] = value;
                 }
             }
             
@@ -993,17 +1090,17 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal nLsc {
+            public decimal nIsc {
                 get {
                     try {
-                        return ((decimal)(this[this.tablegetPV.nLscColumn]));
+                        return ((decimal)(this[this.tablegetPV.nIscColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nLsc\' in table \'getPV\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIsc\' in table \'getPV\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegetPV.nLscColumn] = value;
+                    this[this.tablegetPV.nIscColumn] = value;
                 }
             }
             
@@ -1217,6 +1314,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTotPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetPV.nTotPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotPrice\' in table \'getPV\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetPV.nTotPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetPV.dtCreateDateColumn);
             }
@@ -1277,14 +1390,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsnLmpNull() {
-                return this.IsNull(this.tablegetPV.nLmpColumn);
+            public bool IsnImpNull() {
+                return this.IsNull(this.tablegetPV.nImpColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetnLmpNull() {
-                this[this.tablegetPV.nLmpColumn] = global::System.Convert.DBNull;
+            public void SetnImpNull() {
+                this[this.tablegetPV.nImpColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1301,14 +1414,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsnLscNull() {
-                return this.IsNull(this.tablegetPV.nLscColumn);
+            public bool IsnIscNull() {
+                return this.IsNull(this.tablegetPV.nIscColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetnLscNull() {
-                this[this.tablegetPV.nLscColumn] = global::System.Convert.DBNull;
+            public void SetnIscNull() {
+                this[this.tablegetPV.nIscColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1465,6 +1578,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnProjectsIDNull() {
                 this[this.tablegetPV.nProjectsIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTotPriceNull() {
+                return this.IsNull(this.tablegetPV.nTotPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTotPriceNull() {
+                this[this.tablegetPV.nTotPriceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1633,9 +1758,9 @@ namespace Net_Zero.PVDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cBrand", "cBrand");
             tableMapping.ColumnMappings.Add("nPmax", "nPmax");
             tableMapping.ColumnMappings.Add("nVmp", "nVmp");
-            tableMapping.ColumnMappings.Add("nLmp", "nLmp");
+            tableMapping.ColumnMappings.Add("nImp", "nImp");
             tableMapping.ColumnMappings.Add("nVoc", "nVoc");
-            tableMapping.ColumnMappings.Add("nLsc", "nLsc");
+            tableMapping.ColumnMappings.Add("nIsc", "nIsc");
             tableMapping.ColumnMappings.Add("nWeight_kg", "nWeight_kg");
             tableMapping.ColumnMappings.Add("nLength_mm", "nLength_mm");
             tableMapping.ColumnMappings.Add("nWidth_mm", "nWidth_mm");
@@ -1702,7 +1827,7 @@ namespace Net_Zero.PVDataSetTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            PVDataSet.getPVDataTable dataTable = new PVDataSet.getPVDataTable();
+            PVDataSet.getPVDataTable dataTable = new PVDataSet.getPVDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

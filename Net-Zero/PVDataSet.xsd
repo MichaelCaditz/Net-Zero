@@ -28,9 +28,9 @@
               <Mapping SourceColumn="cBrand" DataSetColumn="cBrand" />
               <Mapping SourceColumn="nPmax" DataSetColumn="nPmax" />
               <Mapping SourceColumn="nVmp" DataSetColumn="nVmp" />
-              <Mapping SourceColumn="nLmp" DataSetColumn="nLmp" />
+              <Mapping SourceColumn="nImp" DataSetColumn="nImp" />
               <Mapping SourceColumn="nVoc" DataSetColumn="nVoc" />
-              <Mapping SourceColumn="nLsc" DataSetColumn="nLsc" />
+              <Mapping SourceColumn="nIsc" DataSetColumn="nIsc" />
               <Mapping SourceColumn="nWeight_kg" DataSetColumn="nWeight_kg" />
               <Mapping SourceColumn="nLength_mm" DataSetColumn="nLength_mm" />
               <Mapping SourceColumn="nWidth_mm" DataSetColumn="nWidth_mm" />
@@ -55,7 +55,7 @@
   <xs:element name="PVDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PVDataSet" msprop:Generator_UserDSName="PVDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getPV" msprop:Generator_TableClassName="getPVDataTable" msprop:Generator_TableVarName="tablegetPV" msprop:Generator_TablePropName="getPV" msprop:Generator_RowDeletingName="getPVRowDeleting" msprop:Generator_RowChangingName="getPVRowChanging" msprop:Generator_RowEvHandlerName="getPVRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVRowDeleted" msprop:Generator_UserTableName="getPV" msprop:Generator_RowChangedName="getPVRowChanged" msprop:Generator_RowEvArgName="getPVRowChangeEvent" msprop:Generator_RowClassName="getPVRow">
+        <xs:element name="getPV" msprop:Generator_TableClassName="getPVDataTable" msprop:Generator_TableVarName="tablegetPV" msprop:Generator_RowChangedName="getPVRowChanged" msprop:Generator_TablePropName="getPV" msprop:Generator_RowDeletingName="getPVRowDeleting" msprop:Generator_RowChangingName="getPVRowChanging" msprop:Generator_RowEvHandlerName="getPVRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVRowDeleted" msprop:Generator_RowClassName="getPVRow" msprop:Generator_UserTableName="getPV" msprop:Generator_RowEvArgName="getPVRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -76,9 +76,9 @@
               </xs:element>
               <xs:element name="nPmax" msprop:Generator_ColumnVarNameInTable="columnnPmax" msprop:Generator_ColumnPropNameInRow="nPmax" msprop:Generator_ColumnPropNameInTable="nPmaxColumn" msprop:Generator_UserColumnName="nPmax" type="xs:decimal" minOccurs="0" />
               <xs:element name="nVmp" msprop:Generator_ColumnVarNameInTable="columnnVmp" msprop:Generator_ColumnPropNameInRow="nVmp" msprop:Generator_ColumnPropNameInTable="nVmpColumn" msprop:Generator_UserColumnName="nVmp" type="xs:decimal" minOccurs="0" />
-              <xs:element name="nLmp" msprop:Generator_ColumnVarNameInTable="columnnLmp" msprop:Generator_ColumnPropNameInRow="nLmp" msprop:Generator_ColumnPropNameInTable="nLmpColumn" msprop:Generator_UserColumnName="nLmp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nImp" msprop:Generator_ColumnVarNameInTable="columnnImp" msprop:Generator_ColumnPropNameInRow="nImp" msprop:Generator_ColumnPropNameInTable="nImpColumn" msprop:Generator_UserColumnName="nImp" type="xs:decimal" minOccurs="0" />
               <xs:element name="nVoc" msprop:Generator_ColumnVarNameInTable="columnnVoc" msprop:Generator_ColumnPropNameInRow="nVoc" msprop:Generator_ColumnPropNameInTable="nVocColumn" msprop:Generator_UserColumnName="nVoc" type="xs:decimal" minOccurs="0" />
-              <xs:element name="nLsc" msprop:Generator_ColumnVarNameInTable="columnnLsc" msprop:Generator_ColumnPropNameInRow="nLsc" msprop:Generator_ColumnPropNameInTable="nLscColumn" msprop:Generator_UserColumnName="nLsc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIsc" msprop:Generator_ColumnVarNameInTable="columnnIsc" msprop:Generator_ColumnPropNameInRow="nIsc" msprop:Generator_ColumnPropNameInTable="nIscColumn" msprop:Generator_UserColumnName="nIsc" type="xs:decimal" minOccurs="0" />
               <xs:element name="nWeight_kg" msprop:Generator_ColumnVarNameInTable="columnnWeight_kg" msprop:Generator_ColumnPropNameInRow="nWeight_kg" msprop:Generator_ColumnPropNameInTable="nWeight_kgColumn" msprop:Generator_UserColumnName="nWeight_kg" type="xs:decimal" minOccurs="0" />
               <xs:element name="nLength_mm" msprop:Generator_ColumnVarNameInTable="columnnLength_mm" msprop:Generator_ColumnPropNameInRow="nLength_mm" msprop:Generator_ColumnPropNameInTable="nLength_mmColumn" msprop:Generator_UserColumnName="nLength_mm" type="xs:decimal" minOccurs="0" />
               <xs:element name="nWidth_mm" msprop:Generator_ColumnVarNameInTable="columnnWidth_mm" msprop:Generator_ColumnPropNameInRow="nWidth_mm" msprop:Generator_ColumnPropNameInTable="nWidth_mmColumn" msprop:Generator_UserColumnName="nWidth_mm" type="xs:decimal" minOccurs="0" />
@@ -110,6 +110,7 @@
               <xs:element name="nQty" msprop:Generator_ColumnVarNameInTable="columnnQty" msprop:Generator_ColumnPropNameInRow="nQty" msprop:Generator_ColumnPropNameInTable="nQtyColumn" msprop:Generator_UserColumnName="nQty" type="xs:int" minOccurs="0" />
               <xs:element name="bDeleted" msprop:Generator_ColumnVarNameInTable="columnbDeleted" msprop:Generator_ColumnPropNameInRow="bDeleted" msprop:Generator_ColumnPropNameInTable="bDeletedColumn" msprop:Generator_UserColumnName="bDeleted" type="xs:boolean" minOccurs="0" />
               <xs:element name="nProjectsID" msprop:Generator_ColumnVarNameInTable="columnnProjectsID" msprop:Generator_ColumnPropNameInRow="nProjectsID" msprop:Generator_ColumnPropNameInTable="nProjectsIDColumn" msprop:Generator_UserColumnName="nProjectsID" type="xs:int" minOccurs="0" />
+              <xs:element name="nTotPrice" msdata:ReadOnly="true" msdata:Expression="nQty*nPrice" msprop:Generator_ColumnVarNameInTable="columnnTotPrice" msprop:Generator_ColumnPropNameInRow="nTotPrice" msprop:Generator_ColumnPropNameInTable="nTotPriceColumn" msprop:Generator_UserColumnName="nTotPrice" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
