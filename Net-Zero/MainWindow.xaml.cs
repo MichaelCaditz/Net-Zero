@@ -1004,5 +1004,520 @@ namespace Net_Zero
 
 
         }
+
+        private void SimpleButtonNewString_Click(object sender, RoutedEventArgs e)
+        {
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            int wasnull = 0;
+            wasnull = (getBatterySeriesStringViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: getBatterySeriesStringViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+                //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            }
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[USP_insertBatterySeriesString]";
+                    
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@cName", "Series String");
+
+                    SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                //registerDataSet.EnforceConstraints = false;
+                Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+
+                batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
+                //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+                // registerDataSet.EnforceConstraints = true;
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                LocateNewLineBatterySeriesString(TransactID1);
+            }
+
+        }
+        public void LocateNewLineBatterySeriesString(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)GridControlBatterySeriesString.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        GridControlBatterySeriesString.SelectedItem = drv;
+                        break;
+                    }
+            }
+        }
+
+        private void SimpleButtonNewBattery_Click(object sender, RoutedEventArgs e)
+        {
+
+            SaveBattery();
+
+
+
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            int stringCurrent = 0;
+
+            int wasnull = 0;
+            wasnull = (getBatterySeriesStringViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: getBatterySeriesStringViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+                stringCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            }
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[USP_insertBattery]";
+
+                    cmd3.Parameters.AddWithValue("@nBatterySeriesStringID", stringCurrent);
+                   // cmd3.Parameters.AddWithValue("@cName", "Series String");
+
+                    SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                //registerDataSet.EnforceConstraints = false;
+                Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+                getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
+                //resetButtons();
+                LocateNewLineBattery(TransactID1);
+            }
+
+        }
+        public void LocateNewLineBattery(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)GridControlBatterySeriesString.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        GridControlBattery.SelectedItem = drv;
+                        break;
+                    }
+            }
+        }
+
+        public void SaveBattery()
+        {
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
+
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringgetBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringgetBatteryViewSource")));
+
+
+
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+            int TransactID1 = 0;
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+            //DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+            // int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+
+            //int lineCurrent = 0;
+            int wasnull = 0;
+            wasnull = (getBatterySeriesStringViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: getBatterySeriesStringViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+                int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            }
+
+
+
+
+
+            //SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            //try
+            //{
+
+            //    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+            //    {
+            //        //cmd3.Transaction = trans1;
+            //        cmd3.Parameters.Clear();
+            //        cmd3.CommandText = "dbo.USP_deletePV";
+            //        cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+
+            //        //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+            //        //retval.Direction = ParameterDirection.Output;
+            //        conn.Open();
+            //        cmd3.ExecuteNonQuery();
+            //        //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+            //    }
+
+            //}
+
+
+            //catch (Exception ex)
+            //{
+            //    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+            //    System.ArgumentException argEx = new System.ArgumentException("Save PV", "", ex);
+            //    throw argEx;
+            //}
+            //finally
+            //{
+            //    if (conn.State == ConnectionState.Open) conn.Close();
+
+
+
+            //    //uSP_getLineDataGrid.
+
+            //    //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+            //    //resetButtons();
+            //    //LocateNewLine(TransactID1);
+            //}
+
+            ////write new records in dbo.split
+            ////int itwasnull = 0;
+            ////itwasnull = (uSP_getSplitDataGrid.)== null ? 1 : 0;
+            ////if (itwasnull == 0)
+
+
+            ////var selectedRow = uSP_getSplitDataGrid.GetRow(0);
+
+            ////var columnCell = uSP_getSplitDataGrid.GetCell(selectedRow, 0);
+
+            ////string content = (uSP_getSplitDataGrid.SelectedCells[0].Column.GetCellContent(0) as TextBlock).Text;
+            ////MessageBox.Show(content);
+            ////foreach (DataRowView dv in uSP_getSplitDataGrid.Items)
+            ////    {
+
+
+            ////            MessageBox.Show(dv[3].ToString());
+
+            ////    }
+            //// foreach (DataRowView drv3 in uSP_getLineUSP_getSplitViewSource.View)
+            ////{ 
+            ////int go = 0;
+
+            //// DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
+            ////int ID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["ID"]) == true ? 0 : (int)drv3["ID"]);
+            ////for (int i=0; i<5; i++)
+
+            ////if (ID == 0)
+            ////{
+            ////    go = 1;
+            ////}
+
+            ////while (go ==0)
+            if (getBatterySeriesStringgetBatteryViewSource.View != null)
+
+            {
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToFirst();
+
+                for (int i = 0; i - 1 < i++; i++)
+                {
+                    DataRowView drv3 = (DataRowView)getBatterySeriesStringgetBatteryViewSource.View.CurrentItem;
+                    int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+                    //MessageBox.Show(ID.ToString());
+
+                    if (nID == 0)
+                    {
+                        break;
+                    }
+
+
+                    decimal nPrice = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0m : (decimal)drv3["nPrice"]);
+                    // MessageBox.Show(nAmnt.ToString());
+
+                    int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
+                    int nBatterySeriesStringID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nBatterySeriesStringID"]) == true ? 0 : (int)drv3["nBatterySeriesStringID"]);
+
+                    string cURL = (DBNull.Value.Equals(drv3["cURL"]) == true ? "" : (string)drv3["cURL"]);
+                    string cNote = (DBNull.Value.Equals(drv3["cNote"]) == true ? "" : (string)drv3["cNote"]);
+                    string cVendor = (DBNull.Value.Equals(drv3["cVendor"]) == true ? "" : (string)drv3["cVendor"]);
+                    string cBrand = (DBNull.Value.Equals(drv3["cBrand"]) == true ? "" : (string)drv3["cBrand"]);
+                    string cModel = (DBNull.Value.Equals(drv3["cModel"]) == true ? "" : (string)drv3["cModel"]);
+                    Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    decimal nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
+                    decimal nCapacity_Ah = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCapacity_Ah"]) == true ? 0 : (decimal)drv3["nCapacity_Ah"]);
+
+
+                    /////write new record to dbo.split
+
+                    //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                    try
+                    {
+
+                        using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                        {
+                            //cmd3.Transaction = trans1;
+                            cmd3.Parameters.Clear();
+                            cmd3.CommandText = "[dbo].[USP_updateBattery]";
+                            cmd3.Parameters.AddWithValue("@nID", nID);
+                            cmd3.Parameters.AddWithValue("@nPrice", nPrice);
+                            cmd3.Parameters.AddWithValue("@nQty", nQty);
+                            cmd3.Parameters.AddWithValue("@cNote", cNote);
+                            cmd3.Parameters.AddWithValue("@cBrand", cBrand);
+                            cmd3.Parameters.AddWithValue("@nBatterySeriesStringID", nBatterySeriesStringID);
+                            cmd3.Parameters.AddWithValue("@bDeleted", bDeleted);
+                            cmd3.Parameters.AddWithValue("@cModel", cModel);
+                            cmd3.Parameters.AddWithValue("@nVolts", nVolts);
+                            cmd3.Parameters.AddWithValue("@nCapacity_Ah", nCapacity_Ah);
+
+                            cmd3.Parameters.AddWithValue("@cVendor", cVendor);
+                            cmd3.Parameters.AddWithValue("@cURL", cURL);
+
+
+                            // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                            //retval.Direction = ParameterDirection.Output;
+                            conn1.Open();
+                            cmd3.ExecuteNonQuery();
+                            //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                        }
+
+
+
+
+                    }
+
+
+                    catch (Exception ex)
+                    {
+                        //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                        System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                        throw argEx;
+                    }
+                    finally
+                    {
+                        if (conn1.State == ConnectionState.Open) conn1.Close();
+
+                        //registerDataSet.EnforceConstraints = false;
+
+                        //registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
+                        //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+                        //registerDataSet.EnforceConstraints = true;
+
+                        ////uSP_getLineDataGrid.
+
+                        ////uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                        ////resetButtons();
+                        //LocateNewLine(TransactID1);
+                    }
+
+
+
+
+                    getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToNext();
+                }
+            }
+
+
+
+
+        }
+
+        private void SimpleButtonSaveBattery_Click(object sender, RoutedEventArgs e)
+        {
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            SaveBattery();
+
+
+
+
+            // registerDataSet.EnforceConstraints = false;
+
+            Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
+            //registerDataSet.EnforceConstraints = true;
+
+            //decimal sumDr = 0;
+            //foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            //{
+
+            //    sumDr += (decimal)dr["totalDr"];
+
+            //}
+
+            //decimal sumCr = 0;
+            //foreach (DataRow dr in registerDataSet.USP_getLine.Rows)
+            //{
+
+            //    sumCr += (decimal)dr["totalCr"];
+
+            //}
+
+            //decimal sumTotal = sumDr - sumCr;
+
+            //TextEditTotalDr.EditValue = sumDr;
+            //TextEditTotalCr.EditValue = sumCr;
+            //TextEditBalance.EditValue = sumTotal;
+        }
     }
 }
