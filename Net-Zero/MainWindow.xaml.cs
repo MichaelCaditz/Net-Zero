@@ -1833,5 +1833,117 @@ namespace Net_Zero
                 
             }
         }
+
+        private void SimpleButtonNewDemand_Click(object sender, RoutedEventArgs e)
+        {
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
+
+
+
+            DataRowView drv = (DataRowView)demandItemsViewSource.View.CurrentItem;
+            //int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+
+            //int lineCurrent = 0;
+            int wasnull = 0;
+            wasnull = (demandItemsViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: demandItemsViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv1 = (DataRowView)demandItemsViewSource.View.CurrentItem;
+                //lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+            }
+
+
+
+            if (demandItemsViewSource.View != null)
+
+            {
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                //getPVViewSource.View.MoveCurrentToFirst();
+
+                try
+                {
+
+                    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                    {
+                        //cmd3.Transaction = trans1;
+                        cmd3.Parameters.Clear();
+                        cmd3.CommandText = "dbo.USP_insertDemandItem";
+                        cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                        cmd3.Parameters.AddWithValue("@cDesc", "Description");
+                        cmd3.Parameters.AddWithValue("@nQty" ,1);
+                        cmd3.Parameters.AddWithValue("@nHours", 24);
+                        cmd3.Parameters.AddWithValue("@nPowerW", 0);
+                        cmd3.Parameters.AddWithValue("@cNote", "Note");
+                        cmd3.Parameters.AddWithValue("@nOnOffFactor", 1);
+                        
+
+
+
+                        SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                        retval.Direction = ParameterDirection.Output;
+                        conn1.Open();
+                        cmd3.ExecuteNonQuery();
+                        TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    }
+
+
+
+
+                }
+
+
+                catch (Exception ex)
+                {
+                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                    throw argEx;
+                }
+                finally
+                {
+                    if (conn1.State == ConnectionState.Open) conn1.Close();
+
+                    Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
+                    demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems);
+
+                }
+
+
+
+
+
+                //getPVViewSource.View.MoveCurrentToNext();
+
+            }
+        }
     }
 }

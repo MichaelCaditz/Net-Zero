@@ -116,7 +116,7 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
   <xs:element name="DemandDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DemandDataSet" msprop:Generator_UserDSName="DemandDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="demandItems" msprop:Generator_TableClassName="demandItemsDataTable" msprop:Generator_TableVarName="tabledemandItems" msprop:Generator_TablePropName="demandItems" msprop:Generator_RowDeletingName="demandItemsRowDeleting" msprop:Generator_RowChangingName="demandItemsRowChanging" msprop:Generator_RowEvHandlerName="demandItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="demandItemsRowDeleted" msprop:Generator_UserTableName="demandItems" msprop:Generator_RowChangedName="demandItemsRowChanged" msprop:Generator_RowEvArgName="demandItemsRowChangeEvent" msprop:Generator_RowClassName="demandItemsRow">
+        <xs:element name="demandItems" msprop:Generator_TableClassName="demandItemsDataTable" msprop:Generator_TableVarName="tabledemandItems" msprop:Generator_RowChangedName="demandItemsRowChanged" msprop:Generator_TablePropName="demandItems" msprop:Generator_RowDeletingName="demandItemsRowDeleting" msprop:Generator_RowChangingName="demandItemsRowChanging" msprop:Generator_RowEvHandlerName="demandItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="demandItemsRowDeleted" msprop:Generator_RowClassName="demandItemsRow" msprop:Generator_UserTableName="demandItems" msprop:Generator_RowEvArgName="demandItemsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -129,13 +129,7 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
                 </xs:simpleType>
               </xs:element>
               <xs:element name="nQty" msprop:Generator_ColumnVarNameInTable="columnnQty" msprop:Generator_ColumnPropNameInRow="nQty" msprop:Generator_ColumnPropNameInTable="nQtyColumn" msprop:Generator_UserColumnName="nQty" type="xs:int" minOccurs="0" />
-              <xs:element name="nHours" msprop:Generator_ColumnVarNameInTable="columnnHours" msprop:Generator_ColumnPropNameInRow="nHours" msprop:Generator_ColumnPropNameInTable="nHoursColumn" msprop:Generator_UserColumnName="nHours" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="nHours" msprop:Generator_ColumnVarNameInTable="columnnHours" msprop:Generator_ColumnPropNameInRow="nHours" msprop:Generator_ColumnPropNameInTable="nHoursColumn" msprop:Generator_UserColumnName="nHours" type="xs:decimal" minOccurs="0" />
               <xs:element name="nPowerW" msprop:Generator_ColumnVarNameInTable="columnnPowerW" msprop:Generator_ColumnPropNameInRow="nPowerW" msprop:Generator_ColumnPropNameInTable="nPowerWColumn" msprop:Generator_UserColumnName="nPowerW" type="xs:decimal" minOccurs="0" />
               <xs:element name="cNote" msprop:Generator_ColumnVarNameInTable="columncNote" msprop:Generator_ColumnPropNameInRow="cNote" msprop:Generator_ColumnPropNameInTable="cNoteColumn" msprop:Generator_UserColumnName="cNote" minOccurs="0">
                 <xs:simpleType>

@@ -449,7 +449,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, string nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID) {
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -514,7 +514,7 @@ namespace Net_Zero {
                 base.Columns.Add(this.columncDesc);
                 this.columnnQty = new global::System.Data.DataColumn("nQty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnQty);
-                this.columnnHours = new global::System.Data.DataColumn("nHours", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnnHours = new global::System.Data.DataColumn("nHours", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnHours);
                 this.columnnPowerW = new global::System.Data.DataColumn("nPowerW", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnPowerW);
@@ -535,7 +535,6 @@ namespace Net_Zero {
                 this.columnnID.ReadOnly = true;
                 this.columnnID.Unique = true;
                 this.columncDesc.MaxLength = 50;
-                this.columnnHours.MaxLength = 10;
                 this.columncNote.MaxLength = 2147483647;
             }
             
@@ -738,10 +737,10 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string nHours {
+            public decimal nHours {
                 get {
                     try {
-                        return ((string)(this[this.tabledemandItems.nHoursColumn]));
+                        return ((decimal)(this[this.tabledemandItems.nHoursColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nHours\' in table \'demandItems\' is DBNull.", e);

@@ -77,7 +77,7 @@
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
-        <dx:DXTabControl Margin="32,12,0,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged">
+        <dx:DXTabControl Margin="20,12,20,20" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged">
             <dx:DXTabItem Header="Project Details" Background="#FF8D1111" >
                 <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,0,-10,0" Background="#FF5A5A5A" >
                     <Grid.ColumnDefinitions>
@@ -375,30 +375,32 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
-                <Grid Background="Transparent" DataContext="{StaticResource demandItemsViewSource}">
-                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="263,585,0,0" VerticalAlignment="Top" Width="75"/>
-                    <dxe:TextEdit x:Name="TextEditDemandTotal" HorizontalAlignment="Left" Margin="95,585,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DataGrid x:Name="demandItemsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,20,800,200" RowDetailsVisibilityMode="VisibleWhenSelected">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="nIDColumn" Binding="{Binding nID}" Header="n ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Hidden"/>
-                            <DataGridTemplateColumn x:Name="dtCreateDateColumn" Header="dt Create Date" Width="SizeToHeader" Visibility="Hidden">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <DatePicker SelectedDate="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn x:Name="cDescColumn" Binding="{Binding cDesc}" Header="c Desc" Width="200"/>
-                            <DataGridTextColumn x:Name="nQtyColumn" Binding="{Binding nQty}" Header="n Qty" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nHoursColumn" Binding="{Binding nHours}" Header="n Hours" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nPowerWColumn" Binding="{Binding nPowerW}" Header="n Power W" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="cNoteColumn" Binding="{Binding cNote}" Header="c Note" Width="200"/>
-                            <DataGridCheckBoxColumn x:Name="bDeletedColumn" Binding="{Binding bDeleted}" Header="b Deleted" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nOnOffFactorColumn" Binding="{Binding nOnOffFactor}" Header="n On Off Factor" Width="SizeToHeader"/>
-                            <DataGridTextColumn x:Name="nProjectsIDColumn" Binding="{Binding nProjectsID}" Header="n Projects ID" Width="SizeToHeader" Visibility="Hidden"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label Content="Demand Total kWh/d" HorizontalAlignment="Left" Margin="95,612,0,0" VerticalAlignment="Top"/>
+                <Grid Background="Transparent"  Margin="20">
+                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="758,542,0,0" VerticalAlignment="Top" Width="75"/>
+                    <dxe:TextEdit x:Name="TextEditDemandTotal" HorizontalAlignment="Left" Margin="590,542,0,0" VerticalAlignment="Top" Width="150"/>
+                    <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,200" >
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
+                        <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
+                        <dxg:GridColumn x:Name="dtCreateDateColumn" FieldName="dtCreateDate" Header="dt Create Date"  Visible="False"/>
+
+
+                        <dxg:GridColumn x:Name="cDescColumn" FieldName="cDesc" Header="Description" Width="200"/>
+                        <dxg:GridColumn x:Name="nQtyColumn" FieldName="nQty" Header="Qty." Width="60"/>
+                        <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80"/>
+                        <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140"/>
+
+
+                        <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120"/>
+                        <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>
+                        <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
+
+                    </dxg:GridControl>
+                    <Label Content="Demand Total kWh/d" HorizontalAlignment="Left" Margin="590,569,0,0" VerticalAlignment="Top"/>
+                    <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,529,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,582,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV Computation">
@@ -509,22 +511,22 @@
                                                   />
                                 </ControlTemplate>
                             </dxg:GridColumn.EditTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
                         <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="nTilt_deg" Header='Tilt Deg.' Width="100" IsSmart="True">
-                        <dxg:GridColumn.EditSettings>
+                            <dxg:GridColumn.EditSettings>
                                 <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="nOrientation_deg" Header='Orientation Deg.' Width="160" IsSmart="True">
-                        <dxg:GridColumn.EditSettings>
-                            <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" />
-                        </dxg:GridColumn.EditSettings>
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" />
+                            </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="nQty" Header='Qty.' Width="100" IsSmart="True">
                             <dxg:GridColumn.EditSettings>
@@ -584,9 +586,9 @@
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True"/>
-                       
+
                         <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
-                        
+
 
 
                     </dxg:GridControl>
