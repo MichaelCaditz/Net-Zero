@@ -1614,6 +1614,167 @@ namespace Net_Zero
 
 
         }
+        public void SaveDemand()
+        {
+            System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
+
+            //System.Windows.Data.CollectionViewSource getBatterySeriesStringgetBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringgetBatteryViewSource")));
+
+
+
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+            int TransactID1 = 0;
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+            Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+
+            //DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+            // int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+
+            //int lineCurrent = 0;
+            int wasnull = 0;
+            wasnull = (demandItemsViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: demandItemsViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)demandItemsViewSource.View.CurrentItem;
+                int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            }
+
+
+
+
+
+
+            if (demandItemsViewSource.View != null)
+
+            {
+                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                demandItemsViewSource.View.MoveCurrentToFirst();
+
+                //getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
+
+                for (int i = 0; i - 1 < i++; i++)
+                {
+                    DataRowView drv3 = (DataRowView)demandItemsViewSource.View.CurrentItem;
+                    int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+                    //MessageBox.Show(ID.ToString());
+
+                    if (nID == 0)
+                    {
+                        break;
+                    }
+                   
+                    //MessageBox.Show(ID.ToString());
+
+
+                    //decimal nPrice = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0m : (decimal)drv3["nPrice"]);
+                    // MessageBox.Show(nAmnt.ToString());
+
+                    //int nProjectsID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nProjectsID"]) == true ? 0 : (int)drv3["nProjectsID"]);
+                    int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
+                    //string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+                    string cNote = (DBNull.Value.Equals(drv3["cNote"]) == true ? "" : (string)drv3["cNote"]);
+                    string cDesc = (DBNull.Value.Equals(drv3["cDesc"]) == true ? "" : (string)drv3["cDesc"]);
+
+                    Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    decimal nPowerW = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPowerW"]) == true ? 0 : (decimal)drv3["nPowerW"]);
+                    decimal nHours = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nHours"]) == true ? 0 : (decimal)drv3["nHours"]);
+                    decimal nOnOffFactor = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nOnOffFactor"]) == true ? 0 : (decimal)drv3["nOnOffFactor"]);
+
+
+                    /////write new record to dbo.split
+
+                    //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
+                    try
+                    {
+
+                        using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                        {
+                            //cmd3.Transaction = trans1;
+                            cmd3.Parameters.Clear();
+                            cmd3.CommandText = "[dbo].[USP_updateDemand]";
+                            cmd3.Parameters.AddWithValue("@nID", nID);
+                            cmd3.Parameters.AddWithValue("@cDesc", cDesc);
+                            cmd3.Parameters.AddWithValue("@nQty", nQty);
+                            cmd3.Parameters.AddWithValue("@nHours", nQty);
+                            cmd3.Parameters.AddWithValue("@nPowerW", nPowerW);
+
+
+                            cmd3.Parameters.AddWithValue("@cNote", cNote);
+                            cmd3.Parameters.AddWithValue("@nOnOffFactor", nOnOffFactor);
+                            cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                            cmd3.Parameters.AddWithValue("@bDeleted", bDeleted);
+
+
+
+                            // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                            //retval.Direction = ParameterDirection.Output;
+                            conn1.Open();
+                            cmd3.ExecuteNonQuery();
+                            //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                        }
+
+
+
+
+                    }
+
+
+                    catch (Exception ex)
+                    {
+                        //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                        System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                        throw argEx;
+                    }
+                    finally
+                    {
+                        if (conn1.State == ConnectionState.Open) conn1.Close();
+
+
+                        //LocateNewLine(TransactID1);
+                    }
+
+
+
+
+                    demandItemsViewSource.View.MoveCurrentToNext();
+                }
+
+
+            }
+
+
+        }
 
 
         private void SimpleButtonSaveBattery_Click(object sender, RoutedEventArgs e)
@@ -1944,6 +2105,48 @@ namespace Net_Zero
                 //getPVViewSource.View.MoveCurrentToNext();
 
             }
+        }
+
+        private void SimpleButtonSaveDemand_Click(object sender, RoutedEventArgs e)
+        {
+            Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+            SaveDemand();
+
+
+
+
+            // registerDataSet.EnforceConstraints = false;
+
+            
+            Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
+            demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems);
+
+            Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                      DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+
+            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+            SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
+
+
+
+            LinearGauge1.Scales[0].StartValue = 0;
+            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
+            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
+
+            LinearGaugePV.Scales[0].StartValue = 0;
+            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
+            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
         }
     }
 }

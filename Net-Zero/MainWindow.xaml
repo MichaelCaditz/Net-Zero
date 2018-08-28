@@ -400,7 +400,7 @@
                     </dxg:GridControl>
                     <Label Content="Demand Total kWh/d" HorizontalAlignment="Left" Margin="590,569,0,0" VerticalAlignment="Top"/>
                     <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,529,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click"/>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,582,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,582,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveDemand_Click"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV Computation">
