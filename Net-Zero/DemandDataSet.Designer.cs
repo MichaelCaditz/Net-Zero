@@ -306,8 +306,6 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columncNote;
             
-            private global::System.Data.DataColumn columnbDeleted;
-            
             private global::System.Data.DataColumn columnnOnOffFactor;
             
             private global::System.Data.DataColumn columnnProjectsID;
@@ -315,6 +313,8 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnEnergyWh;
             
             private global::System.Data.DataColumn columnnEnergykWh;
+            
+            private global::System.Data.DataColumn columnbDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -416,14 +416,6 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn bDeletedColumn {
-                get {
-                    return this.columnbDeleted;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nOnOffFactorColumn {
                 get {
                     return this.columnnOnOffFactor;
@@ -451,6 +443,14 @@ namespace Net_Zero {
             public global::System.Data.DataColumn nEnergykWhColumn {
                 get {
                     return this.columnnEnergykWh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn bDeletedColumn {
+                get {
+                    return this.columnbDeleted;
                 }
             }
             
@@ -491,7 +491,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh) {
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh, bool bDeleted) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -501,11 +501,11 @@ namespace Net_Zero {
                         nHours,
                         nPowerW,
                         cNote,
-                        bDeleted,
                         nOnOffFactor,
                         nProjectsID,
                         nEnergyWh,
-                        nEnergykWh};
+                        nEnergykWh,
+                        bDeleted};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
                 return rowdemandItemsRow;
@@ -513,7 +513,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID) {
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, bool bDeleted) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -523,11 +523,11 @@ namespace Net_Zero {
                         nHours,
                         nPowerW,
                         cNote,
-                        bDeleted,
                         nOnOffFactor,
                         nProjectsID,
                         null,
-                        null};
+                        null,
+                        bDeleted};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
                 return rowdemandItemsRow;
@@ -564,11 +564,11 @@ namespace Net_Zero {
                 this.columnnHours = base.Columns["nHours"];
                 this.columnnPowerW = base.Columns["nPowerW"];
                 this.columncNote = base.Columns["cNote"];
-                this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnOnOffFactor = base.Columns["nOnOffFactor"];
                 this.columnnProjectsID = base.Columns["nProjectsID"];
                 this.columnnEnergyWh = base.Columns["nEnergyWh"];
                 this.columnnEnergykWh = base.Columns["nEnergykWh"];
+                this.columnbDeleted = base.Columns["bDeleted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -588,8 +588,6 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnPowerW);
                 this.columncNote = new global::System.Data.DataColumn("cNote", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncNote);
-                this.columnbDeleted = new global::System.Data.DataColumn("bDeleted", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbDeleted);
                 this.columnnOnOffFactor = new global::System.Data.DataColumn("nOnOffFactor", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnOnOffFactor);
                 this.columnnProjectsID = new global::System.Data.DataColumn("nProjectsID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -598,6 +596,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnEnergyWh);
                 this.columnnEnergykWh = new global::System.Data.DataColumn("nEnergykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnEnergykWh);
+                this.columnbDeleted = new global::System.Data.DataColumn("bDeleted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbDeleted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -866,22 +866,6 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool bDeleted {
-                get {
-                    try {
-                        return ((bool)(this[this.tabledemandItems.bDeletedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'bDeleted\' in table \'demandItems\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledemandItems.bDeletedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nOnOffFactor {
                 get {
                     try {
@@ -941,6 +925,22 @@ namespace Net_Zero {
                 }
                 set {
                     this[this.tabledemandItems.nEnergykWhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool bDeleted {
+                get {
+                    try {
+                        return ((bool)(this[this.tabledemandItems.bDeletedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bDeleted\' in table \'demandItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledemandItems.bDeletedColumn] = value;
                 }
             }
             
@@ -1018,18 +1018,6 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsbDeletedNull() {
-                return this.IsNull(this.tabledemandItems.bDeletedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetbDeletedNull() {
-                this[this.tabledemandItems.bDeletedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnOnOffFactorNull() {
                 return this.IsNull(this.tabledemandItems.nOnOffFactorColumn);
             }
@@ -1074,6 +1062,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnEnergykWhNull() {
                 this[this.tabledemandItems.nEnergykWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsbDeletedNull() {
+                return this.IsNull(this.tabledemandItems.bDeletedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetbDeletedNull() {
+                this[this.tabledemandItems.bDeletedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1243,77 +1243,10 @@ namespace Net_Zero.DemandDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nHours", "nHours");
             tableMapping.ColumnMappings.Add("nPowerW", "nPowerW");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
-            tableMapping.ColumnMappings.Add("bDeleted", "bDeleted");
             tableMapping.ColumnMappings.Add("nOnOffFactor", "nOnOffFactor");
             tableMapping.ColumnMappings.Add("nProjectsID", "nProjectsID");
+            tableMapping.ColumnMappings.Add("bDeleted", "bDeleted");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[demandItems] WHERE (([nID] = @Original_nID) AND ((@IsNull_dtCreateDate = 1 AND [dtCreateDate] IS NULL) OR ([dtCreateDate] = @Original_dtCreateDate)) AND ((@IsNull_cDesc = 1 AND [cDesc] IS NULL) OR ([cDesc] = @Original_cDesc)) AND ((@IsNull_nQty = 1 AND [nQty] IS NULL) OR ([nQty] = @Original_nQty)) AND ((@IsNull_nHours = 1 AND [nHours] IS NULL) OR ([nHours] = @Original_nHours)) AND ((@IsNull_nPowerW = 1 AND [nPowerW] IS NULL) OR ([nPowerW] = @Original_nPowerW)) AND ((@IsNull_bDeleted = 1 AND [bDeleted] IS NULL) OR ([bDeleted] = @Original_bDeleted)) AND ((@IsNull_nOnOffFactor = 1 AND [nOnOffFactor] IS NULL) OR ([nOnOffFactor] = @Original_nOnOffFactor)) AND ((@IsNull_nProjectsID = 1 AND [nProjectsID] IS NULL) OR ([nProjectsID] = @Original_nProjectsID)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dtCreateDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dtCreateDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cDesc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nHours", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nHours", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nPowerW", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nPowerW", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nPowerW", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 4, "nPowerW", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bDeleted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nOnOffFactor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nOnOffFactor", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nOnOffFactor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "nOnOffFactor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[demandItems] ([dtCreateDate], [cDesc], [nQty], [nHours], [nPowerW], [cNote], [bDeleted], [nOnOffFactor], [nProjectsID]) VALUES (@dtCreateDate, @cDesc, @nQty, @nHours, @nPowerW, @cNote, @bDeleted, @nOnOffFactor, @nProjectsID);
-SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffFactor, nProjectsID FROM demandItems WHERE (nID = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtCreateDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nHours", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nPowerW", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 4, "nPowerW", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cNote", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nOnOffFactor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "nOnOffFactor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[demandItems] SET [dtCreateDate] = @dtCreateDate, [cDesc] = @cDesc, [nQty] = @nQty, [nHours] = @nHours, [nPowerW] = @nPowerW, [cNote] = @cNote, [bDeleted] = @bDeleted, [nOnOffFactor] = @nOnOffFactor, [nProjectsID] = @nProjectsID WHERE (([nID] = @Original_nID) AND ((@IsNull_dtCreateDate = 1 AND [dtCreateDate] IS NULL) OR ([dtCreateDate] = @Original_dtCreateDate)) AND ((@IsNull_cDesc = 1 AND [cDesc] IS NULL) OR ([cDesc] = @Original_cDesc)) AND ((@IsNull_nQty = 1 AND [nQty] IS NULL) OR ([nQty] = @Original_nQty)) AND ((@IsNull_nHours = 1 AND [nHours] IS NULL) OR ([nHours] = @Original_nHours)) AND ((@IsNull_nPowerW = 1 AND [nPowerW] IS NULL) OR ([nPowerW] = @Original_nPowerW)) AND ((@IsNull_bDeleted = 1 AND [bDeleted] IS NULL) OR ([bDeleted] = @Original_bDeleted)) AND ((@IsNull_nOnOffFactor = 1 AND [nOnOffFactor] IS NULL) OR ([nOnOffFactor] = @Original_nOnOffFactor)) AND ((@IsNull_nProjectsID = 1 AND [nProjectsID] IS NULL) OR ([nProjectsID] = @Original_nProjectsID)));
-SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffFactor, nProjectsID FROM demandItems WHERE (nID = @nID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtCreateDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nHours", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nPowerW", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 4, "nPowerW", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cNote", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cNote", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nOnOffFactor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "nOnOffFactor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dtCreateDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dtCreateDate", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtCreateDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cDesc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nHours", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nHours", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nHours", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nPowerW", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nPowerW", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nPowerW", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 4, "nPowerW", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bDeleted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bDeleted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bDeleted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nOnOffFactor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nOnOffFactor", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nOnOffFactor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 6, "nOnOffFactor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nProjectsID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nProjectsID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1329,17 +1262,24 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffFa" +
-                "ctor, nProjectsID FROM dbo.demandItems";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.getDemandItems";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@projectsID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DemandDataSet.demandItemsDataTable dataTable) {
+        public virtual int Fill(DemandDataSet.demandItemsDataTable dataTable, global::System.Nullable<int> projectsID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((projectsID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(projectsID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1351,387 +1291,17 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DemandDataSet.demandItemsDataTable GetData() {
+        public virtual DemandDataSet.demandItemsDataTable GetData(global::System.Nullable<int> projectsID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((projectsID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(projectsID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             DemandDataSet.demandItemsDataTable dataTable = new DemandDataSet.demandItemsDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DemandDataSet.demandItemsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DemandDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "demandItems");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_nID, global::System.Nullable<global::System.DateTime> Original_dtCreateDate, string Original_cDesc, global::System.Nullable<int> Original_nQty, string Original_nHours, global::System.Nullable<decimal> Original_nPowerW, global::System.Nullable<bool> Original_bDeleted, global::System.Nullable<decimal> Original_nOnOffFactor, global::System.Nullable<int> Original_nProjectsID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_nID));
-            if ((Original_dtCreateDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_dtCreateDate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cDesc == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_cDesc));
-            }
-            if ((Original_nQty.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_nQty.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nHours == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_nHours));
-            }
-            if ((Original_nPowerW.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_nPowerW.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_bDeleted.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_bDeleted.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nOnOffFactor.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_nOnOffFactor.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nProjectsID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_nProjectsID.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> dtCreateDate, string cDesc, global::System.Nullable<int> nQty, string nHours, global::System.Nullable<decimal> nPowerW, string cNote, global::System.Nullable<bool> bDeleted, global::System.Nullable<decimal> nOnOffFactor, global::System.Nullable<int> nProjectsID) {
-            if ((dtCreateDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(dtCreateDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((cDesc == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(cDesc));
-            }
-            if ((nQty.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(nQty.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((nHours == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(nHours));
-            }
-            if ((nPowerW.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(nPowerW.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((cNote == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(cNote));
-            }
-            if ((bDeleted.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(bDeleted.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((nOnOffFactor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(nOnOffFactor.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((nProjectsID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(nProjectsID.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<global::System.DateTime> dtCreateDate, 
-                    string cDesc, 
-                    global::System.Nullable<int> nQty, 
-                    string nHours, 
-                    global::System.Nullable<decimal> nPowerW, 
-                    string cNote, 
-                    global::System.Nullable<bool> bDeleted, 
-                    global::System.Nullable<decimal> nOnOffFactor, 
-                    global::System.Nullable<int> nProjectsID, 
-                    int Original_nID, 
-                    global::System.Nullable<global::System.DateTime> Original_dtCreateDate, 
-                    string Original_cDesc, 
-                    global::System.Nullable<int> Original_nQty, 
-                    string Original_nHours, 
-                    global::System.Nullable<decimal> Original_nPowerW, 
-                    global::System.Nullable<bool> Original_bDeleted, 
-                    global::System.Nullable<decimal> Original_nOnOffFactor, 
-                    global::System.Nullable<int> Original_nProjectsID, 
-                    int nID) {
-            if ((dtCreateDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(dtCreateDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((cDesc == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(cDesc));
-            }
-            if ((nQty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(nQty.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((nHours == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(nHours));
-            }
-            if ((nPowerW.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(nPowerW.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((cNote == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(cNote));
-            }
-            if ((bDeleted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(bDeleted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((nOnOffFactor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(nOnOffFactor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((nProjectsID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(nProjectsID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_nID));
-            if ((Original_dtCreateDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_dtCreateDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((Original_cDesc == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_cDesc));
-            }
-            if ((Original_nQty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_nQty.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nHours == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_nHours));
-            }
-            if ((Original_nPowerW.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_nPowerW.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_bDeleted.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_bDeleted.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nOnOffFactor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(Original_nOnOffFactor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_nProjectsID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_nProjectsID.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(nID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    global::System.Nullable<global::System.DateTime> dtCreateDate, 
-                    string cDesc, 
-                    global::System.Nullable<int> nQty, 
-                    string nHours, 
-                    global::System.Nullable<decimal> nPowerW, 
-                    string cNote, 
-                    global::System.Nullable<bool> bDeleted, 
-                    global::System.Nullable<decimal> nOnOffFactor, 
-                    global::System.Nullable<int> nProjectsID, 
-                    int Original_nID, 
-                    global::System.Nullable<global::System.DateTime> Original_dtCreateDate, 
-                    string Original_cDesc, 
-                    global::System.Nullable<int> Original_nQty, 
-                    string Original_nHours, 
-                    global::System.Nullable<decimal> Original_nPowerW, 
-                    global::System.Nullable<bool> Original_bDeleted, 
-                    global::System.Nullable<decimal> Original_nOnOffFactor, 
-                    global::System.Nullable<int> Original_nProjectsID) {
-            return this.Update(dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffFactor, nProjectsID, Original_nID, Original_dtCreateDate, Original_cDesc, Original_nQty, Original_nHours, Original_nPowerW, Original_bDeleted, Original_nOnOffFactor, Original_nProjectsID, Original_nID);
         }
     }
     
@@ -1747,8 +1317,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         
         private UpdateOrderOption _updateOrder;
         
-        private demandItemsTableAdapter _demandItemsTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1761,20 +1329,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public demandItemsTableAdapter demandItemsTableAdapter {
-            get {
-                return this._demandItemsTableAdapter;
-            }
-            set {
-                this._demandItemsTableAdapter = value;
             }
         }
         
@@ -1797,10 +1351,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._demandItemsTableAdapter != null) 
-                            && (this._demandItemsTableAdapter.Connection != null))) {
-                    return this._demandItemsTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1814,9 +1364,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._demandItemsTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1828,15 +1375,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._demandItemsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.demandItems.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._demandItemsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1847,14 +1385,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._demandItemsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.demandItems.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._demandItemsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1865,14 +1395,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._demandItemsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.demandItems.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._demandItemsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1912,11 +1434,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._demandItemsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._demandItemsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -1949,15 +1466,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._demandItemsTableAdapter != null)) {
-                    revertConnections.Add(this._demandItemsTableAdapter, this._demandItemsTableAdapter.Connection);
-                    this._demandItemsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._demandItemsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._demandItemsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._demandItemsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._demandItemsTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -2015,10 +1523,6 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._demandItemsTableAdapter != null)) {
-                    this._demandItemsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._demandItemsTableAdapter]));
-                    this._demandItemsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

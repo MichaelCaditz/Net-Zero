@@ -83,6 +83,9 @@
       <DependentUpon>Battery.xsd</DependentUpon>
     </Compile>
     <Compile Include="classes\ProgramSettings.cs" />
+    <Compile Include="DemandDataSet.cs">
+      <DependentUpon>DemandDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Geography.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

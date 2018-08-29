@@ -49,7 +49,7 @@ namespace Net_Zero
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             // Load data into the table demandItems. You can modify this code as needed.
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
-            demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems);
+            demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
             demandItemsViewSource.View.MoveCurrentToFirst();
 
@@ -2373,7 +2373,7 @@ namespace Net_Zero
                     if (conn1.State == ConnectionState.Open) conn1.Close();
 
                     Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
-                    demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems);
+                    demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nProjectsID);
 
                 }
 
@@ -2403,7 +2403,7 @@ namespace Net_Zero
 
 
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
-            demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems);
+            demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nProjectsID);
 
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
             getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
