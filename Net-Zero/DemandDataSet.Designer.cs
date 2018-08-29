@@ -37,6 +37,7 @@ namespace Net_Zero {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -48,6 +49,9 @@ namespace Net_Zero {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -68,6 +72,7 @@ namespace Net_Zero {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -129,6 +134,7 @@ namespace Net_Zero {
         public override global::System.Data.DataSet Clone() {
             DemandDataSet cln = ((DemandDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -204,7 +210,7 @@ namespace Net_Zero {
             this.Namespace = "http://tempuri.org/DemandDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabledemandItems = new demandItemsDataTable();
+            this.tabledemandItems = new demandItemsDataTable(false);
             base.Tables.Add(this.tabledemandItems);
         }
         
@@ -269,6 +275,13 @@ namespace Net_Zero {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitExpressions() {
+            this.demandItems.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
+            this.demandItems.nEnergykWhColumn.Expression = "nEnergyWh/1000";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void demandItemsRowChangeEventHandler(object sender, demandItemsRowChangeEvent e);
         
@@ -299,12 +312,25 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnProjectsID;
             
+            private global::System.Data.DataColumn columnnEnergyWh;
+            
+            private global::System.Data.DataColumn columnnEnergykWh;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public demandItemsDataTable() {
+            public demandItemsDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public demandItemsDataTable(bool initExpressions) {
                 this.TableName = "demandItems";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -414,6 +440,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nEnergyWhColumn {
+                get {
+                    return this.columnnEnergyWh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nEnergykWhColumn {
+                get {
+                    return this.columnnEnergykWh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,6 +491,28 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh) {
+                demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        dtCreateDate,
+                        cDesc,
+                        nQty,
+                        nHours,
+                        nPowerW,
+                        cNote,
+                        bDeleted,
+                        nOnOffFactor,
+                        nProjectsID,
+                        nEnergyWh,
+                        nEnergykWh};
+                rowdemandItemsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdemandItemsRow);
+                return rowdemandItemsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, bool bDeleted, decimal nOnOffFactor, int nProjectsID) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -461,7 +525,9 @@ namespace Net_Zero {
                         cNote,
                         bDeleted,
                         nOnOffFactor,
-                        nProjectsID};
+                        nProjectsID,
+                        null,
+                        null};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
                 return rowdemandItemsRow;
@@ -501,6 +567,8 @@ namespace Net_Zero {
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnOnOffFactor = base.Columns["nOnOffFactor"];
                 this.columnnProjectsID = base.Columns["nProjectsID"];
+                this.columnnEnergyWh = base.Columns["nEnergyWh"];
+                this.columnnEnergykWh = base.Columns["nEnergykWh"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -526,6 +594,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnOnOffFactor);
                 this.columnnProjectsID = new global::System.Data.DataColumn("nProjectsID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnProjectsID);
+                this.columnnEnergyWh = new global::System.Data.DataColumn("nEnergyWh", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnEnergyWh);
+                this.columnnEnergykWh = new global::System.Data.DataColumn("nEnergykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnEnergykWh);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -536,6 +608,8 @@ namespace Net_Zero {
                 this.columnnID.Unique = true;
                 this.columncDesc.MaxLength = 50;
                 this.columncNote.MaxLength = 2147483647;
+                this.columnnEnergyWh.ReadOnly = true;
+                this.columnnEnergykWh.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -554,6 +628,13 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(demandItemsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
+                this.nEnergykWhColumn.Expression = "nEnergyWh/1000";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -833,6 +914,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nEnergyWh {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledemandItems.nEnergyWhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nEnergyWh\' in table \'demandItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledemandItems.nEnergyWhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nEnergykWh {
+                get {
+                    try {
+                        return ((decimal)(this[this.tabledemandItems.nEnergykWhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nEnergykWh\' in table \'demandItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledemandItems.nEnergykWhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tabledemandItems.dtCreateDateColumn);
             }
@@ -937,6 +1050,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnProjectsIDNull() {
                 this[this.tabledemandItems.nProjectsIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnEnergyWhNull() {
+                return this.IsNull(this.tabledemandItems.nEnergyWhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnEnergyWhNull() {
+                this[this.tabledemandItems.nEnergyWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnEnergykWhNull() {
+                return this.IsNull(this.tabledemandItems.nEnergykWhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnEnergykWhNull() {
+                this[this.tabledemandItems.nEnergykWhColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1216,7 +1353,7 @@ SELECT nID, dtCreateDate, cDesc, nQty, nHours, nPowerW, cNote, bDeleted, nOnOffF
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DemandDataSet.demandItemsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DemandDataSet.demandItemsDataTable dataTable = new DemandDataSet.demandItemsDataTable();
+            DemandDataSet.demandItemsDataTable dataTable = new DemandDataSet.demandItemsDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

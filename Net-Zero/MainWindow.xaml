@@ -108,7 +108,7 @@
                     <dxe:TextEdit IsReadOnly="True"  x:Name="nClientsIDTextBox" HorizontalAlignment="Left" Height="22" Margin="515,175,0,0" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="5,64,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                     <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="5,40,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
-                    <Label Content="Demand Total kWh/d" Grid.Column="1" HorizontalAlignment="Left" Margin="7,412,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                    <Label Content="Chosen Demand Total kWh/d" Grid.Column="1" HorizontalAlignment="Left" Margin="7,412,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                     <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="4,389,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="City ID" HorizontalAlignment="Left" Margin="515,255,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <dxe:TextEdit IsReadOnly="True" x:Name="nCityIDTextBox" HorizontalAlignment="Left" Height="23" Margin="515,232,0,0" Text="{Binding nCityID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
@@ -126,7 +126,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="4,340,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="14" Grid.Row="1" Grid.Column="1"/>
                     <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="5,144,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="4,122,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##" Panel.ZIndex="6" Grid.Row="1" Grid.Column="1"/>
-                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="Save Project Details" HorizontalAlignment="Left" Height="35" Margin="5,605,0,-29" VerticalAlignment="Top" Width="160" IsDefault="True" Click="ButtonSaveDerates_Click" Grid.Row="1" Grid.Column="1"/>
+                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="" HorizontalAlignment="Left" Margin="225,599,0,-19" IsDefault="True" Click="ButtonSaveDerates_Click" Grid.Row="1" Grid.Column="1" ToolTip="Save Project Details" Glyph="{dx:DXImage Image=Save_32x32.png}" RenderTransformOrigin="1.508,0.212"/>
                     <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="225,144,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="225,197,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="225,255,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
@@ -375,12 +375,12 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
-                <Grid Background="Transparent"  Margin="20">
-                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="758,542,0,0" VerticalAlignment="Top" Width="75"/>
-                    <dxe:TextEdit x:Name="TextEditDemandTotal" HorizontalAlignment="Left" Margin="590,542,0,0" VerticalAlignment="Top" Width="150"/>
+                <Grid Background="Transparent"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="908,552,0,0" VerticalAlignment="Top" Width="75"/>
+                    <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,499,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,200" >
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
                         <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
@@ -394,13 +394,18 @@
 
 
                         <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120"/>
+                        <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120"/>
+                        <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120"/>
                         <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>
                         <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
 
                     </dxg:GridControl>
-                    <Label Content="Demand Total kWh/d" HorizontalAlignment="Left" Margin="590,569,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Computed Demand Total kWh/d" HorizontalAlignment="Left" Margin="581,526,0,0" VerticalAlignment="Top"/>
                     <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,529,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,582,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveDemand_Click"/>
+                    <Label Content="Chosen Demand Total kWh/d" HorizontalAlignment="Left" Margin="585,630,0,0" VerticalAlignment="Top"/>
+                    <dxe:SpinEdit x:Name="SpinEditChosenDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="582,607,0,0" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="581,552,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value" Click="SimpleButton_Click_3"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV Computation">
