@@ -388,14 +388,39 @@
 
 
                         <dxg:GridColumn x:Name="cDescColumn" FieldName="cDesc" Header="Description" Width="200"/>
-                        <dxg:GridColumn x:Name="nQtyColumn" FieldName="nQty" Header="Qty." Width="60"/>
-                        <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80"/>
-                        <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140"/>
+                        <dxg:GridColumn x:Name="nQtyColumn" FieldName="nQty" Header="Qty." Width="60">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0"  DisplayFormat="###" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        
+                        <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
 
 
-                        <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120"/>
-                        <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120"/>
-                        <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120"/>
+                        <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.1" MaxValue="10000" MinValue="0"  DisplayFormat="###.#" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>
                         <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
 
@@ -633,8 +658,16 @@
                         <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="cName" Header="String Name" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nTotVolts" Header="String Voltage" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nTotCapacity" Header="String Capacity Ah" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nTotVolts" Header="String Voltage" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nTotCapacity" Header="String Capacity Ah" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
 
                         <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
@@ -651,11 +684,27 @@
                         <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
 
                         <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nQty" Header="Qty." IsSmart="True"/>
-                        <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nQty" Header="Qty." IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0"  DisplayFormat="###" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
                     </dxg:GridControl>
                     <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
