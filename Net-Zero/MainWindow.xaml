@@ -359,14 +359,14 @@
 
                     </dxg:TreeListControl>
 
-                    <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="680,40,0,0" VerticalAlignment="Top" Width="900" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                    <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="700,40,20,20" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
                         <dxg:TreeListControl.View>
-                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
+                            <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                         </dxg:TreeListControl.View>
                         <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
                         <dxg:TreeListColumn FieldName="nTilt0" Header="No Tilt" Width="110" />
                         <dxg:TreeListColumn FieldName="nTilt90" Header="90 deg Tilt" Width="110"  />
-                        <dxg:TreeListColumn FieldName="nTiltLatMinus15" Header="Latitude -15 deg Tilt" Width="110"  />
+                        <dxg:TreeListColumn FieldName="nTiltLatMinus15" Header="Latitude -15 deg Tilt" Width="110" SortOrder="Ascending" SortIndex="0"  />
                         <dxg:TreeListColumn FieldName="nTiltLat" Header="Latitude Tilt" Width="110"  />
                         <dxg:TreeListColumn FieldName="nTiltLatPlus15" Header="Latitude +15 deg Tilt" Width="110"  />
                         <dxg:TreeListColumn FieldName="n2Axis" Header="2-Axis Track" Width="110"  />
@@ -374,15 +374,52 @@
 
 
                     </dxg:TreeListControl>
-                    <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
-                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="670,471,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
-                    <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="670,396,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Increment="0.01"/>
+                    <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="410,581,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
+                    <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="410,506,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Increment="0.01"/>
 
 
-                    <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="670,419,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <Label Content="City" HorizontalAlignment="Left" Margin="118,414,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
+                    <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="410,529,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                     <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
-                    <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <dxc:ChartControl x:Name="InsolationChart" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <dxc:ChartControl.Legends>
+                            <dxc:Legend/>
+                        </dxc:ChartControl.Legends>
+                        <dxc:XYDiagram2D>
+                            <dxc:XYDiagram2D.AxisX>
+                                <dxc:AxisX2D/>
+                            </dxc:XYDiagram2D.AxisX>
+                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                            <dxc:LineSeries2D DisplayName="No Tilt" ArgumentDataMember="cMonthText" ValueDataMember="nTilt0"/>
+                            <dxc:LineSeries2D DisplayName="90 deg Tilt" ArgumentDataMember="cMonthText" ValueDataMember="nTilt90">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
+                            <dxc:LineSeries2D DisplayName="Latitude -15 deg Tilt" ArgumentDataMember="cMonthText" ValueDataMember="nTiltLatMinus15">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
+                            <dxc:LineSeries2D DisplayName="LatitudeTilt" ArgumentDataMember="cMonthText" ValueDataMember="nTiltLat">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
+                            <dxc:LineSeries2D DisplayName="Latitude +15 deg Tilt" ArgumentDataMember="cMonthText" ValueDataMember="nTiltLatPlus15">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
+                            <dxc:LineSeries2D DisplayName="2-Axis Track" ArgumentDataMember="cMonthText" ValueDataMember="n2Axis">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:LineSeries2D>
+                        </dxc:XYDiagram2D>
+                    </dxc:ChartControl>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
@@ -445,14 +482,14 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand Chart">
-            <Grid Background="#FF5A5A5A"  Margin="10,10,10,10">
+                <Grid Background="#FF5A5A5A"  Margin="10,10,10,10">
                     <dxc:ChartControl x:Name="SummaryChartDemand" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource demandItemsViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-                    <dxc:ChartControl.Legends>
-                        <dxc:Legend/>
-                    </dxc:ChartControl.Legends>
-                    <dxc:XYDiagram2D >
-                        <dxc:XYDiagram2D.AxisX>
-                            <dxc:AxisX2D>
+                        <dxc:ChartControl.Legends>
+                            <dxc:Legend/>
+                        </dxc:ChartControl.Legends>
+                        <dxc:XYDiagram2D >
+                            <dxc:XYDiagram2D.AxisX>
+                                <dxc:AxisX2D>
                                     <dxc:AxisX2D.Label>
                                         <dxc:AxisLabel Staggered="True"/>
                                     </dxc:AxisX2D.Label>
@@ -657,7 +694,7 @@
 
 
                     </dxg:GridControl>
-                    <dxga:LinearGaugeControl x:Name="LinearGaugePV" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="670,15,0,0" VerticalAlignment="Top" Height="140" Width="503">
+                    <dxga:LinearGaugeControl x:Name="LinearGaugePV"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448">
                         <dxga:LinearGaugeControl.Scales>
                             <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
                                 <dxga:LinearScale.LevelBars>
@@ -746,7 +783,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnChosenBatteryCapacity"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
                     <Label Content="Capacity Achieved" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    <dxga:LinearGaugeControl x:Name="LinearGauge1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="764,80,0,0" VerticalAlignment="Top" Height="140" Width="503">
+                    <dxga:LinearGaugeControl x:Name="LinearGauge1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448">
                         <dxga:LinearGaugeControl.Scales>
                             <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
                                 <dxga:LinearScale.LevelBars>
