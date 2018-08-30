@@ -2437,5 +2437,21 @@ namespace Net_Zero
         {
             SpinEditChosenDemandTotal.EditValue = SpinEditComputedDemandTotal.EditValue;
         }
+
+        private void BarButtonItemPVMasterList_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            PVMasterList PVMasterList1 = new PVMasterList();
+
+
+            PVMasterList1.ShowDialog();
+        }
+
+        private void BarButtonItemBatteryMasterList_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            BatteryMasterList BatteryMasterList1 = new BatteryMasterList();
+
+
+            BatteryMasterList1.ShowDialog();
+        }
     }
 }

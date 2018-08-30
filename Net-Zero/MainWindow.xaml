@@ -48,13 +48,19 @@
                     <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnOpen" Content="Open" Glyph="{dx:DXImage Image=Open_16x16.png}" ItemClick="btnOpen_ItemClick"/>
                     <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>
-                    <dxb:BarButtonItem Content="BarButtonItem"/>
-                    <dxb:BarButtonItem Content="BarButtonItem"/>
+                    
                 </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Edit">
                     <dxb:BarButtonItem x:Name="btnCut" Content="Cut" Glyph="{dx:DXImage Image=Cut_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnCopy" Content="Copy" Glyph="{dx:DXImage Image=Copy_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnPaste" Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}"/>
+                    
+                </dxb:BarSubItem>
+                <dxb:BarSubItem Content="Tools" ForceCursor="True" IsEnabled="True">
+                    <dxb:BarButtonItem x:Name="BarButtonItemPVMasterList" Content="PV Master List" ItemClick="BarButtonItemPVMasterList_ItemClick"  />
+                    <dxb:BarButtonItem x:Name="BarButtonItemBatteryMasterList" Content="Battery Master List" ItemClick="BarButtonItemBatteryMasterList_ItemClick"/>
+
+
                 </dxb:BarSubItem>
             </dxb:MainMenuControl>
             <dxb:ToolBarControl Caption="File" RotateWhenVertical="True">
