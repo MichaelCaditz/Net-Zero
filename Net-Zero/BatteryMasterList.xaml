@@ -1,12 +1,53 @@
 ﻿<dx:ThemedWindow
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" 
+       
     x:Class="Net_Zero.BatteryMasterList"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    Title="BatteryMasterList" Height="350" Width="525"
+    Title="BatteryMasterList" Height="800" Width="1999"
+    Loaded="ThemedWindow_Loaded"
     >
 
-    <Grid>
+    <dx:ThemedWindow.Resources>
+        <local:Masters x:Key="masters"/>
+        <CollectionViewSource x:Key="getBatteryMasterViewSource" Source="{Binding getBatteryMaster, Source={StaticResource masters}}"/>
+    </dx:ThemedWindow.Resources>
 
+    <Grid DataContext="{StaticResource getBatteryMasterViewSource}">
+        <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="41,87,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" IsSmart="True" Width="60"/>
+            <dxg:GridColumn FieldName="cModel" Header="Model"/>
+            <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
+            <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
+            <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
+            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
+
+            
+            <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
+            <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            
+            <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
+            <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
+        </dxg:GridControl>
     </Grid>
 </dx:ThemedWindow>

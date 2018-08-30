@@ -98,6 +98,11 @@
     <Compile Include="InfoTDRLeadAcid.xaml.cs">
       <DependentUpon>InfoTDRLeadAcid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Masters.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Masters.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PVDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +200,17 @@
     </None>
     <None Include="Geography.xss">
       <DependentUpon>Geography.xsd</DependentUpon>
+    </None>
+    <None Include="Masters.xsc">
+      <DependentUpon>Masters.xsd</DependentUpon>
+    </None>
+    <None Include="Masters.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Masters.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Masters.xss">
+      <DependentUpon>Masters.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
