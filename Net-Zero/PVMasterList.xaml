@@ -25,7 +25,7 @@
             </dxg:GridControl.View>
             <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
             <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
-                
+
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
@@ -33,15 +33,15 @@
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
-         
-           
+
+
             <dxg:GridColumn FieldName="nPrice" Header='Price Ea.' Width="100" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2"/>
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
 
-           
+
             <dxg:GridColumn FieldName="nVmp" Header='Optimal Volts (Vmp)' Width="120" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
@@ -87,5 +87,7 @@
 
             <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
         </dxg:GridControl>
+        <dx:SimpleButton x:Name="SimpleButtonNewPVMaster" Content="" HorizontalAlignment="Left" Margin="683,253,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert New PV" Click="SimpleButtonNewPVMaster_Click"/>
+        <dx:SimpleButton x:Name="SimpleButtonSavePVMaster" Content="" HorizontalAlignment="Left" Margin="683,306,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to PV Master List"/>
     </Grid>
 </dx:ThemedWindow>

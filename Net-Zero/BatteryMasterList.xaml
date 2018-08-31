@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" 
        
     x:Class="Net_Zero.BatteryMasterList"
-    Title="BatteryMasterList" Height="800" Width="1999"
+    Title="BatteryMasterList" Height="800" Width="1000"
     Loaded="ThemedWindow_Loaded"
     >
 
@@ -29,7 +29,7 @@
             <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
             <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
 
-            
+
             <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
@@ -41,7 +41,7 @@
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
-            
+
             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
@@ -49,5 +49,7 @@
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
         </dxg:GridControl>
+        <dx:SimpleButton x:Name="SimpleButtonNewBatteryMaster" Content="" HorizontalAlignment="Left" Margin="811,255,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert Mew Battery"/>
+        <dx:SimpleButton x:Name="SimpleButtonSaveBatteryMaster" Content="" HorizontalAlignment="Left" Margin="811,308,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Master List"/>
     </Grid>
 </dx:ThemedWindow>
