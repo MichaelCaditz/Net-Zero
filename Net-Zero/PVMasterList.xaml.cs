@@ -170,6 +170,7 @@ namespace Net_Zero
                 //getPVViewSource.View.MoveCurrentToNext();
 
             }
+            
         }
 
         private void SimpleButtonSavePVMaster_Click(object sender, RoutedEventArgs e)
@@ -188,8 +189,18 @@ namespace Net_Zero
 
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
 
+            string message20 = "Complete";
+            string caption20 = "Net-Zero";
 
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
+            // Displays the MessageBox.
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
         public void SavePVMaster()
         {
