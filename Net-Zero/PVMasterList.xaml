@@ -88,6 +88,6 @@
             <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
         </dxg:GridControl>
         <dx:SimpleButton x:Name="SimpleButtonNewPVMaster" Content="" HorizontalAlignment="Left" Margin="683,253,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert New PV" Click="SimpleButtonNewPVMaster_Click"/>
-        <dx:SimpleButton x:Name="SimpleButtonSavePVMaster" Content="" HorizontalAlignment="Left" Margin="683,306,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to PV Master List"/>
+        <dx:SimpleButton x:Name="SimpleButtonSavePVMaster" Content="" HorizontalAlignment="Left" Margin="683,306,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to PV Master List" Click="SimpleButtonSavePVMaster_Click"/>
     </Grid>
 </dx:ThemedWindow>
