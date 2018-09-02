@@ -412,6 +412,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnDaysRunFullChargeLocal;
             
+            private global::System.Data.DataColumn columnnRunningLoss;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -624,6 +626,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nRunningLossColumn {
+                get {
+                    return this.columnnRunningLoss;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -679,7 +689,8 @@ namespace Net_Zero {
                         decimal nDaysRunFullCharge, 
                         decimal nVoltage, 
                         decimal nChosenBattery, 
-                        decimal nDaysRunFullChargeLocal) {
+                        decimal nDaysRunFullChargeLocal, 
+                        decimal nRunningLoss) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -702,7 +713,8 @@ namespace Net_Zero {
                         nDaysRunFullCharge,
                         nVoltage,
                         nChosenBattery,
-                        nDaysRunFullChargeLocal};
+                        nDaysRunFullChargeLocal,
+                        nRunningLoss};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -710,7 +722,23 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getSummaryRow AddgetSummaryRow(System.DateTime dtCreateDate, int nProjectsID, string cNote, System.DateTime dtDate, decimal nInsolation, decimal nInsolationPredicted, decimal nDemandTotal, decimal nRequiredPV, decimal nChosenPV, decimal nMPPTFactor, decimal nBatteryEfficiency, decimal nInverterDerate, decimal nDaysRunFullCharge, decimal nVoltage, decimal nChosenBattery) {
+            public getSummaryRow AddgetSummaryRow(
+                        System.DateTime dtCreateDate, 
+                        int nProjectsID, 
+                        string cNote, 
+                        System.DateTime dtDate, 
+                        decimal nInsolation, 
+                        decimal nInsolationPredicted, 
+                        decimal nDemandTotal, 
+                        decimal nRequiredPV, 
+                        decimal nChosenPV, 
+                        decimal nMPPTFactor, 
+                        decimal nBatteryEfficiency, 
+                        decimal nInverterDerate, 
+                        decimal nDaysRunFullCharge, 
+                        decimal nVoltage, 
+                        decimal nChosenBattery, 
+                        decimal nRunningLoss) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -733,7 +761,8 @@ namespace Net_Zero {
                         nDaysRunFullCharge,
                         nVoltage,
                         nChosenBattery,
-                        null};
+                        null,
+                        nRunningLoss};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -784,6 +813,7 @@ namespace Net_Zero {
                 this.columnnVoltage = base.Columns["nVoltage"];
                 this.columnnChosenBattery = base.Columns["nChosenBattery"];
                 this.columnnDaysRunFullChargeLocal = base.Columns["nDaysRunFullChargeLocal"];
+                this.columnnRunningLoss = base.Columns["nRunningLoss"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -831,6 +861,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnChosenBattery);
                 this.columnnDaysRunFullChargeLocal = new global::System.Data.DataColumn("nDaysRunFullChargeLocal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnDaysRunFullChargeLocal);
+                this.columnnRunningLoss = new global::System.Data.DataColumn("nRunningLoss", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnRunningLoss);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2453,6 +2485,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nRunningLoss {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nRunningLossColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nRunningLoss\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nRunningLossColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -2689,6 +2737,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnDaysRunFullChargeLocalNull() {
                 this[this.tablegetSummary.nDaysRunFullChargeLocalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnRunningLossNull() {
+                return this.IsNull(this.tablegetSummary.nRunningLossColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnRunningLossNull() {
+                this[this.tablegetSummary.nRunningLossColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3939,6 +3999,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nDaysRunFullCharge", "nDaysRunFullCharge");
             tableMapping.ColumnMappings.Add("nVoltage", "nVoltage");
             tableMapping.ColumnMappings.Add("nChosenBattery", "nChosenBattery");
+            tableMapping.ColumnMappings.Add("nRunningLoss", "nRunningLoss");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

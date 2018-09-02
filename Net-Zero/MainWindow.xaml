@@ -239,6 +239,13 @@
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
 
+                        <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative battery Loss kWh" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        
+
                         <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True"  Width="130">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00"/>
