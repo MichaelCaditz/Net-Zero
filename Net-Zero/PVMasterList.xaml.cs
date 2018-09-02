@@ -189,7 +189,7 @@ namespace Net_Zero
 
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
 
-            string message20 = "Complete";
+            string message20 = "Update complete";
             string caption20 = "Net-Zero";
 
             MessageBoxButton buttons20 = MessageBoxButton.OK;
