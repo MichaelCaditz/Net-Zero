@@ -258,14 +258,17 @@ namespace Net_Zero
                 if (conn1.State == ConnectionState.Open) conn1.Close();
 
 
-                //Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+                string message20 = "Analysis complete";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-                //summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
-                //System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-                //getProjectViewSource.View.MoveCurrentToFirst();
-                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 
@@ -542,6 +545,17 @@ namespace Net_Zero
             finally
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
+                string message20 = "Update complete";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
 
             }
@@ -2450,6 +2464,18 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].StartValue = 0;
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
+
+            string message20 = "Update complete";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
 
         private void SimpleButton_Click_3(object sender, RoutedEventArgs e)
@@ -2471,6 +2497,11 @@ namespace Net_Zero
 
 
             BatteryMasterList1.ShowDialog();
+        }
+
+        private void SimpleButton_Click_4(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

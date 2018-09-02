@@ -48,13 +48,13 @@
                     <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnOpen" Content="Open" Glyph="{dx:DXImage Image=Open_16x16.png}" ItemClick="btnOpen_ItemClick"/>
                     <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>
-                    
+
                 </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Edit">
                     <dxb:BarButtonItem x:Name="btnCut" Content="Cut" Glyph="{dx:DXImage Image=Cut_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnCopy" Content="Copy" Glyph="{dx:DXImage Image=Copy_16x16.png}"/>
                     <dxb:BarButtonItem x:Name="btnPaste" Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}"/>
-                    
+
                 </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Tools" ForceCursor="True" IsEnabled="True">
                     <dxb:BarButtonItem x:Name="BarButtonItemPVMasterList" Content="PV Master List" ItemClick="BarButtonItemPVMasterList_ItemClick"  />
@@ -183,7 +183,7 @@
 
                     </Grid.RowDefinitions>
 
-                    <dx:SimpleButton Content="Generate" HorizontalAlignment="Left" Height="22" Margin="541,22,0,0" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click"/>
+                    <dx:SimpleButton HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
                     <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
                     <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2">
@@ -371,8 +371,8 @@
                         </dxg:TreeListControl.View>
                         <dxg:TreeListColumn FieldName="nMonth" Header=" " Width="30"/>
                         <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
-                        
-                        
+
+
                         <dxg:TreeListColumn FieldName="nTilt0" Header="No Tilt" Width="110" ReadOnly="True">
                             <dxg:TreeListColumn.EditSettings>
                                 <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00" />
@@ -460,10 +460,14 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand">
-                <Grid Background="#FF5A5A5A"  Margin="10,10,10,10">
-                    <dx:SimpleButton Content="Override" HorizontalAlignment="Left" Height="22" Margin="908,552,0,0" VerticalAlignment="Top" Width="75"/>
-                    <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,499,0,0" VerticalAlignment="Top" Width="150"/>
-                    <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,200" >
+                <Grid Background="#FF5A5A5A"  Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition Height="280*"/>
+                        <RowDefinition Height="89*"/>
+                    </Grid.RowDefinitions>
+                    <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,7,0,0" VerticalAlignment="Top" Width="150" Grid.Row="2"/>
+                    <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20" Grid.RowSpan="2" >
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </dxg:GridControl.View>
@@ -510,12 +514,12 @@
                         <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
 
                     </dxg:GridControl>
-                    <Label Content="Computed Demand Total kWh/d" HorizontalAlignment="Left" Margin="581,526,0,0" VerticalAlignment="Top" Foreground="White" />
-                    <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,529,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click"/>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,582,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveDemand_Click"/>
-                    <Label Content="Chosen Demand Total kWh/d" HorizontalAlignment="Left" Margin="585,630,0,0" VerticalAlignment="Top"/>
-                    <dxe:SpinEdit x:Name="SpinEditChosenDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="582,607,0,0" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16"/>
-                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="581,552,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value" Click="SimpleButton_Click_3"/>
+                    <Label Content="Computed Demand Total kWh/d" HorizontalAlignment="Left" Margin="581,29,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2" />
+                    <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,20,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click" ToolTip="Add New Demand Item" Grid.Row="2"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveDemand" Content="" HorizontalAlignment="Left" Margin="110,79,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Demand Table" Click="SimpleButtonSaveDemand_Click" Grid.Row="2"/>
+                    <Label Content="Chosen Demand Total kWh/d" HorizontalAlignment="Left" Margin="581,127,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
+                    <dxe:SpinEdit x:Name="SpinEditChosenDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="581,104,0,0" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="2"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="581,56,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value" Click="SimpleButton_Click_3" Grid.Row="2"/>
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Demand Chart">
