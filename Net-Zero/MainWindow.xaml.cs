@@ -431,6 +431,7 @@ namespace Net_Zero
 
             decimal nChosenInsolation = 0m;
             decimal nChosenBattery = 0m;
+            decimal nChosenPV = 0m;
             decimal nDemandTotal = 0m;
 
             string cName = "";
@@ -458,6 +459,7 @@ namespace Net_Zero
 
             nChosenInsolation = (SpinEditnChosenInsolation.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenInsolation.EditValue) == true ? 0m : (decimal)SpinEditnChosenInsolation.EditValue);
             nChosenBattery = (SpinEditnChosenBattery.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenBattery.EditValue) == true ? 0m : (decimal)SpinEditnChosenBattery.EditValue);
+            nChosenPV = (SpinEditnChosenPV.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenPV.EditValue) == true ? 0m : (decimal)SpinEditnChosenPV.EditValue);
 
             nDemandTotal = (SpinEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDemandTotal.EditValue) == true ? 0m : (decimal)SpinEditnDemandTotal.EditValue);
 
@@ -503,6 +505,7 @@ namespace Net_Zero
 
                     cmd3.Parameters.AddWithValue("@nChosenInsolation", nChosenInsolation);
                     cmd3.Parameters.AddWithValue("@nChosenBattery", nChosenBattery);
+                    cmd3.Parameters.AddWithValue("@nChosenPV", nChosenPV);
                     cmd3.Parameters.AddWithValue("@nDemandTotal", nDemandTotal);
                     cmd3.Parameters.AddWithValue("@cName", cName);
                     cmd3.Parameters.AddWithValue("@cDesc", cDesc);
@@ -2502,6 +2505,20 @@ namespace Net_Zero
         private void SimpleButton_Click_4(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TableView_RowUpdated(object sender, DevExpress.Xpf.Grid.RowEventArgs e)
+        {
+            Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+
+
+            decimal nSumPDemand = (demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null) == null ? 0m :
+                       DBNull.Value.Equals(demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null)) == true ? 0m : (decimal)demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null));
+
+            SpinEditComputedDemandTotal.EditValue = nSumPDemand;
+
+
+            
         }
     }
 }

@@ -238,15 +238,38 @@
                                 <dxe:TextEditSettings DisplayFormat="P" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-
-                        <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative battery Loss kWh" IsSmart="True"  Width="130">
+                        <dxg:GridColumn FieldName="nChosenBattery" Header="Chosen Bat. Cap. Ah" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nVoltage" Header="System Voltage" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nChosenBatterykWh" Header="Chosen Bat. Cap. kWh" IsSmart="True"  Width="130">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative battery Loss kWh" IsSmart="True"  Width="180" SortOrder="Ascending" SortIndex="0">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        
+                        <dxg:GridColumn FieldName="nBatteryRemainingkWh" Header="Bat. Remaining kWh" IsSmart="True"  Width="180" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nPercentBatteryRemaining" Header="Bat. Remaining %" IsSmart="True"  Width="180" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.00"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
 
-                        <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True"  Width="130">
+                        <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True"  Width="160">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00"/>
                             </dxg:GridColumn.EditSettings>
@@ -473,10 +496,10 @@
                         <RowDefinition Height="280*"/>
                         <RowDefinition Height="89*"/>
                     </Grid.RowDefinitions>
-                    <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,7,0,0" VerticalAlignment="Top" Width="150" Grid.Row="2"/>
+                    <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,7,0,0" VerticalAlignment="Top" Width="150" Grid.Row="2" IsReadOnly="True" DisplayFormatString="###.00"/>
                     <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20" Grid.RowSpan="2" >
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
                         <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
@@ -491,13 +514,13 @@
                         </dxg:GridColumn>
                         <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80">
                             <dxg:GridColumn.EditSettings>
-                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
 
                         <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140">
                             <dxg:GridColumn.EditSettings>
-                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
 
@@ -509,12 +532,12 @@
                         </dxg:GridColumn>
                         <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120">
                             <dxg:GridColumn.EditSettings>
-                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="###.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
                             <dxg:GridColumn.EditSettings>
-                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>

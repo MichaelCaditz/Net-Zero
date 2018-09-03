@@ -347,6 +347,9 @@ namespace Net_Zero {
             this.getSummary.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
             this.getSummary.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
             this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
+            this.getSummary.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
+            this.getSummary.nBatteryRemainingkWhColumn.Expression = "nChosenBatterykWh-nRunningLoss";
+            this.getSummary.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
             this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
@@ -413,6 +416,12 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnDaysRunFullChargeLocal;
             
             private global::System.Data.DataColumn columnnRunningLoss;
+            
+            private global::System.Data.DataColumn columnnChosenBatterykWh;
+            
+            private global::System.Data.DataColumn columnnBatteryRemainingkWh;
+            
+            private global::System.Data.DataColumn columnnPercentBatteryRemaining;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -634,6 +643,30 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenBatterykWhColumn {
+                get {
+                    return this.columnnChosenBatterykWh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nBatteryRemainingkWhColumn {
+                get {
+                    return this.columnnBatteryRemainingkWh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nPercentBatteryRemainingColumn {
+                get {
+                    return this.columnnPercentBatteryRemaining;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -690,7 +723,10 @@ namespace Net_Zero {
                         decimal nVoltage, 
                         decimal nChosenBattery, 
                         decimal nDaysRunFullChargeLocal, 
-                        decimal nRunningLoss) {
+                        decimal nRunningLoss, 
+                        decimal nChosenBatterykWh, 
+                        decimal nBatteryRemainingkWh, 
+                        decimal nPercentBatteryRemaining) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -714,7 +750,10 @@ namespace Net_Zero {
                         nVoltage,
                         nChosenBattery,
                         nDaysRunFullChargeLocal,
-                        nRunningLoss};
+                        nRunningLoss,
+                        nChosenBatterykWh,
+                        nBatteryRemainingkWh,
+                        nPercentBatteryRemaining};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -762,7 +801,10 @@ namespace Net_Zero {
                         nVoltage,
                         nChosenBattery,
                         null,
-                        nRunningLoss};
+                        nRunningLoss,
+                        null,
+                        null,
+                        null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -814,6 +856,9 @@ namespace Net_Zero {
                 this.columnnChosenBattery = base.Columns["nChosenBattery"];
                 this.columnnDaysRunFullChargeLocal = base.Columns["nDaysRunFullChargeLocal"];
                 this.columnnRunningLoss = base.Columns["nRunningLoss"];
+                this.columnnChosenBatterykWh = base.Columns["nChosenBatterykWh"];
+                this.columnnBatteryRemainingkWh = base.Columns["nBatteryRemainingkWh"];
+                this.columnnPercentBatteryRemaining = base.Columns["nPercentBatteryRemaining"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,6 +908,12 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnDaysRunFullChargeLocal);
                 this.columnnRunningLoss = new global::System.Data.DataColumn("nRunningLoss", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnRunningLoss);
+                this.columnnChosenBatterykWh = new global::System.Data.DataColumn("nChosenBatterykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenBatterykWh);
+                this.columnnBatteryRemainingkWh = new global::System.Data.DataColumn("nBatteryRemainingkWh", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBatteryRemainingkWh);
+                this.columnnPercentBatteryRemaining = new global::System.Data.DataColumn("nPercentBatteryRemaining", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnPercentBatteryRemaining);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -877,6 +928,9 @@ namespace Net_Zero {
                 this.columnnExcessLoadSupplied.ReadOnly = true;
                 this.columnnPercentLoadSupplied.ReadOnly = true;
                 this.columnnDaysRunFullChargeLocal.ReadOnly = true;
+                this.columnnChosenBatterykWh.ReadOnly = true;
+                this.columnnBatteryRemainingkWh.ReadOnly = true;
+                this.columnnPercentBatteryRemaining.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -905,6 +959,9 @@ namespace Net_Zero {
                 this.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
                 this.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
                 this.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
+                this.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
+                this.nBatteryRemainingkWhColumn.Expression = "nChosenBatterykWh-nRunningLoss";
+                this.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2501,6 +2558,54 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenBatterykWh {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nChosenBatterykWhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenBatterykWh\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nChosenBatterykWhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nBatteryRemainingkWh {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nBatteryRemainingkWhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBatteryRemainingkWh\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nBatteryRemainingkWhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nPercentBatteryRemaining {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nPercentBatteryRemainingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nPercentBatteryRemaining\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nPercentBatteryRemainingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -2749,6 +2854,42 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnRunningLossNull() {
                 this[this.tablegetSummary.nRunningLossColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenBatterykWhNull() {
+                return this.IsNull(this.tablegetSummary.nChosenBatterykWhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenBatterykWhNull() {
+                this[this.tablegetSummary.nChosenBatterykWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnBatteryRemainingkWhNull() {
+                return this.IsNull(this.tablegetSummary.nBatteryRemainingkWhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnBatteryRemainingkWhNull() {
+                this[this.tablegetSummary.nBatteryRemainingkWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnPercentBatteryRemainingNull() {
+                return this.IsNull(this.tablegetSummary.nPercentBatteryRemainingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnPercentBatteryRemainingNull() {
+                this[this.tablegetSummary.nPercentBatteryRemainingColumn] = global::System.Convert.DBNull;
             }
         }
         
