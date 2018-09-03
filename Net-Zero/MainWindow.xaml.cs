@@ -140,7 +140,14 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].StartValue = 0;
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
+            Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
+            Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
 
+
+            mastersgetPVMasterTableAdapter.Fill(masters.getPVMaster);
+
+            System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
+            getPVMasterViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -2196,18 +2203,48 @@ namespace Net_Zero
             System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
 
 
+            Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
+            //Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
 
-            DataRowView drv = (DataRowView)getPVViewSource.View.CurrentItem;
+
+            
+
+            System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
+
+            string cModel = "Model";
+            string cBrand = "Brand";
+           decimal nPmax = 0m;
+            decimal nVmp = 0m;
+            decimal nImp = 0m;
+            decimal nVoc = 0m;
+            decimal nIsc = 0m;
+            decimal nWeight_kg = 0m;
+            decimal nLength_mm = 0m;
+            decimal nHeight_mm = 0m;
+            decimal nWidth_mm = 0m;
+            string cFrame = "";
+            string cVendor = "";
+            decimal nPrice = 0m;
+            decimal nTilt_deg = 0m;
+            decimal nOrientation_deg = 0m;
+            string cURL = "";
+            int nQty = 1;
+
+
+
+
+
+            DataRowView drv = (DataRowView)getPVMasterViewSource.View.CurrentItem;
             //int accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
 
             //int lineCurrent = 0;
             int wasnull = 0;
-            wasnull = (getPVViewSource.View == null ? 1 : 0);
+            wasnull = (getPVMasterViewSource.View == null ? 1 : 0);
             if (wasnull == 1)
             {
 
                 // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning: getPVViewSource is null";
+                string message = "Warning: getPVMasterViewSource is null";
                 string caption = "Net-Zero";
 
                 MessageBoxButton buttons = MessageBoxButton.OK;
@@ -2232,8 +2269,8 @@ namespace Net_Zero
             }
             else
             {
-                DataRowView drv1 = (DataRowView)getPVViewSource.View.CurrentItem;
-                //lineCurrent = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["ID"]) == true ? 0 : (int)drv1["ID"]);
+
+               
             }
 
             
@@ -2241,6 +2278,39 @@ namespace Net_Zero
             if (getPVViewSource.View != null)
 
             {
+
+                if (CheckEditAddBlankPV.EditValue is false)
+
+                {
+
+
+                    DataRowView drv1 = (DataRowView)getPVMasterViewSource.View.CurrentItem;
+
+                    cModel = (DBNull.Value.Equals(drv1["cModel"]) == true ? "" : (string)drv1["cModel"]);
+                    cBrand = (DBNull.Value.Equals(drv1["cBrand"]) == true ? "" : (string)drv1["cBrand"]);
+                    cVendor = (DBNull.Value.Equals(drv1["cVendor"]) == true ? "" : (string)drv1["cVendor"]);
+                    cFrame = (DBNull.Value.Equals(drv1["cFrame"]) == true ? "" : (string)drv1["cFrame"]);
+                    cURL = (DBNull.Value.Equals(drv1["cURL"]) == true ? "" : (string)drv1["cURL"]);
+                    nPmax = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nPmax"]) == true ? 0 : (decimal)drv1["nPmax"]);
+                    nVmp = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nVmp"]) == true ? 0 : (decimal)drv1["nVmp"]);
+                    nImp = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nImp"]) == true ? 0 : (decimal)drv1["nImp"]);
+                    nVoc = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nVoc"]) == true ? 0 : (decimal)drv1["nVoc"]);
+                    nIsc = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nIsc"]) == true ? 0 : (decimal)drv1["nIsc"]);
+                    nWeight_kg = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nWeight_kg"]) == true ? 0 : (decimal)drv1["nWeight_kg"]);
+                    nLength_mm = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nLength_mm"]) == true ? 0 : (decimal)drv1["nLength_mm"]);
+                    nHeight_mm = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nHeight_mm"]) == true ? 0 : (decimal)drv1["nHeight_mm"]);
+                    nWidth_mm = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nWidth_mm"]) == true ? 0 : (decimal)drv1["nWidth_mm"]);
+                    nPrice = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nPrice"]) == true ? 0 : (decimal)drv1["nPrice"]);
+                   // nTilt_deg = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nTilt_deg"]) == true ? 0 : (decimal)drv1["nTilt_deg"]);
+
+                   // nOrientation_deg = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nOrientation_deg"]) == true ? 0 : (decimal)drv1["nOrientation_deg"]);
+
+                    
+
+                   // nQty = (drv1 == null ? 0 : DBNull.Value.Equals(drv1["nQty"]) == true ? 0 : (int)drv1["ID"]);
+                }
+
+                
                 SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
                 //getPVViewSource.View.MoveCurrentToFirst();
  
@@ -2253,24 +2323,24 @@ namespace Net_Zero
                             cmd3.Parameters.Clear();
                             cmd3.CommandText = "dbo.USP_insertPV";
                             cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
-                            cmd3.Parameters.AddWithValue("@cModel", "Model");
-                            cmd3.Parameters.AddWithValue("@cBrand", "Brand");
-                            cmd3.Parameters.AddWithValue("@nPmax", 0);
-                            cmd3.Parameters.AddWithValue("@nVmp", 0);
-                            cmd3.Parameters.AddWithValue("@nImp", 0);
-                            cmd3.Parameters.AddWithValue("@nVoc", 0);
-                            cmd3.Parameters.AddWithValue("@nIsc", 0);
-                            cmd3.Parameters.AddWithValue("@nWeight_kg", 0);
-                            cmd3.Parameters.AddWithValue("@nLength_mm", 0);
-                            cmd3.Parameters.AddWithValue("@nHeight_mm", 0);
-                            cmd3.Parameters.AddWithValue("@nWidth_mm", 0);
-                            cmd3.Parameters.AddWithValue("@cFrame", "");
-                            cmd3.Parameters.AddWithValue("@cVendor", "");
-                            cmd3.Parameters.AddWithValue("@nPrice", 0);
-                            cmd3.Parameters.AddWithValue("@nTilt_deg", 0);
-                            cmd3.Parameters.AddWithValue("@nOrientation_deg", 0);
-                            cmd3.Parameters.AddWithValue("@cURL", "");
-                            cmd3.Parameters.AddWithValue("@nQty", 0);
+                            cmd3.Parameters.AddWithValue("@cModel", cModel);
+                            cmd3.Parameters.AddWithValue("@cBrand", cBrand);
+                            cmd3.Parameters.AddWithValue("@nPmax", nPmax);
+                            cmd3.Parameters.AddWithValue("@nVmp", nVmp);
+                            cmd3.Parameters.AddWithValue("@nImp", nImp);
+                            cmd3.Parameters.AddWithValue("@nVoc", nVoc);
+                            cmd3.Parameters.AddWithValue("@nIsc", nIsc);
+                            cmd3.Parameters.AddWithValue("@nWeight_kg", nWeight_kg);
+                            cmd3.Parameters.AddWithValue("@nLength_mm", nLength_mm);
+                            cmd3.Parameters.AddWithValue("@nHeight_mm", nHeight_mm);
+                            cmd3.Parameters.AddWithValue("@nWidth_mm", nWidth_mm);
+                            cmd3.Parameters.AddWithValue("@cFrame", cFrame);
+                            cmd3.Parameters.AddWithValue("@cVendor", cVendor);
+                            cmd3.Parameters.AddWithValue("@nPrice", nPrice);
+                            cmd3.Parameters.AddWithValue("@nTilt_deg", nTilt_deg);
+                            cmd3.Parameters.AddWithValue("@nOrientation_deg", nOrientation_deg);
+                            cmd3.Parameters.AddWithValue("@cURL", cURL);
+                            cmd3.Parameters.AddWithValue("@nQty", nQty);
 
 
 
