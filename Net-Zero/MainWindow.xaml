@@ -811,8 +811,8 @@
                         </dxga:LinearGaugeControl.Scales>
                     </dxga:LinearGaugeControl>
                     <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    <dxe:SpinEdit x:Name="SpinEditnChosenPVkW"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
-                    <dxe:SpinEdit x:Name="SpinEditnCapacityAchievedPVkW"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                    <dxe:SpinEdit x:Name="SpinEditnChosenPVkW"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1" IsReadOnly="True"/>
+                    <dxe:SpinEdit x:Name="SpinEditnCapacityAchievedPVkW"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1" IsReadOnly="True"/>
                     <Label Content="Achieved PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveConfig" Content="" HorizontalAlignment="Left" Margin="675,10,0,0" VerticalAlignment="Top" Grid.Column="1" Click="SimpleButtonSaveConfig_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save PV Configuration" Grid.Row="2"/>
 
@@ -826,9 +826,9 @@
                             </TransformGroup>
                         </dx:SimpleButton.RenderTransform>
                     </dx:SimpleButton>
-                    <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="3">
+                    <dxg:GridControl AutoGenerateColumns="None"     EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="3">
                         <dxg:GridControl.View>
-                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="None" AllowEditing="False"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
                         <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
@@ -894,16 +894,17 @@
 
                         <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
                     </dxg:GridControl>
-                    <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="97"/>
+                    <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank"/>
 
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="Battery Configuration">
                 <Grid Background="#FF5A5A5A" Margin="10,10,10,10" DataContext="{StaticResource getPVViewSource}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="140"/>
                         <RowDefinition Height="160"/>
-                        <RowDefinition Height="240"/>
+                        <RowDefinition Height="210"/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition Height="100*"/>
 
 
@@ -989,9 +990,10 @@
                         </dxga:LinearGaugeControl.Scales>
                     </dxga:LinearGaugeControl>
                     <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Row="1" Grid.Column="1"/>
-                    <dx:SimpleButton x:Name="SimpleButtonNewBattery" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click" Grid.Column="1" Grid.Row="3"/>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveBattery" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,60,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click" Grid.Row="3" Grid.Column="1"/>
+                    <dx:SimpleButton x:Name="SimpleButtonNewBattery" Content="" HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click" Grid.Column="1" Grid.Row="3"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveBattery" HorizontalAlignment="Left" Margin="663,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click" Grid.Row="3" Grid.Column="1"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveString" Content="" HorizontalAlignment="Left" Margin="635,80,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveString_Click" Grid.Column="1" Grid.Row="1"/>
+                    <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Grid.ColumnSpan="2" Margin="581,29,0,0" Grid.Row="3"/>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
