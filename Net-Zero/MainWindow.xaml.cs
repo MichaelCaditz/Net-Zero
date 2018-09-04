@@ -1172,7 +1172,7 @@ namespace Net_Zero
             {
                 if (CheckEditAddBlankBattery.EditValue is false)
                 {
-                    DataRowView drv3 = (DataRowView)getBatteryMasterViewSource.View.CurrentItem;
+                    DataRowView drv3 = (DataRowView)getBatteryMasterViewSource.View.CurrentItem;  
                     nPrice = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0m : (decimal)drv3["nPrice"]);
                     // MessageBox.Show(nAmnt.ToString());
 
