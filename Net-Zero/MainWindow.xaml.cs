@@ -148,6 +148,10 @@ namespace Net_Zero
 
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
             getPVMasterViewSource.View.MoveCurrentToFirst();
+            Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter mastersgetBatteryMasterTableAdapter = new Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter();
+            mastersgetBatteryMasterTableAdapter.Fill(masters.getBatteryMaster);
+            System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
+            getBatteryMasterViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -1075,7 +1079,18 @@ namespace Net_Zero
 
             SaveBattery();
 
+            decimal nPrice = 0m;
+            // MessageBox.Show(nAmnt.ToString());
 
+
+            string cURL = "";
+            string cNote = "";
+            string cVendor = "";
+            string cBrand = "Brand";
+            string cModel = "Model";
+            //Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+            decimal nVolts = 0m;
+            decimal nCapacity_Ah = 0m;
 
             int TransactID1 = 0;
             System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
@@ -1121,6 +1136,59 @@ namespace Net_Zero
                 stringCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
             }
 
+            System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
+
+
+            int wasnull1 = 0;
+            wasnull1 = (getBatteryMasterViewSource.View == null ? 1 : 0);
+            if (wasnull1 == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: getBatteryMasterViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                if (CheckEditAddBlankBattery.EditValue is false)
+                {
+                    DataRowView drv3 = (DataRowView)getBatteryMasterViewSource.View.CurrentItem;
+                    nPrice = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0m : (decimal)drv3["nPrice"]);
+                    // MessageBox.Show(nAmnt.ToString());
+
+
+                    cURL = (DBNull.Value.Equals(drv3["cURL"]) == true ? "" : (string)drv3["cURL"]);
+                    cNote = (DBNull.Value.Equals(drv3["cNote"]) == true ? "" : (string)drv3["cNote"]);
+                    cVendor = (DBNull.Value.Equals(drv3["cVendor"]) == true ? "" : (string)drv3["cVendor"]);
+                    cBrand = (DBNull.Value.Equals(drv3["cBrand"]) == true ? "" : (string)drv3["cBrand"]);
+                    cModel = (DBNull.Value.Equals(drv3["cModel"]) == true ? "" : (string)drv3["cModel"]);
+                    // bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
+                    nCapacity_Ah = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCapacity_Ah"]) == true ? 0 : (decimal)drv3["nCapacity_Ah"]);
+                }
+            }
+
+
 
 
 
@@ -1132,12 +1200,25 @@ namespace Net_Zero
 
                 using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
                 {
+
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "[dbo].[USP_insertBattery]";
 
                     cmd3.Parameters.AddWithValue("@nBatterySeriesStringID", stringCurrent);
-                    // cmd3.Parameters.AddWithValue("@cName", "Series String");
+                    cmd3.Parameters.AddWithValue("@nPrice", nPrice);
+
+                    cmd3.Parameters.AddWithValue("@cNote", cNote);
+                    cmd3.Parameters.AddWithValue("@cBrand", cBrand);
+                    cmd3.Parameters.AddWithValue("@nQty", 1);
+
+                    cmd3.Parameters.AddWithValue("@cModel", cModel);
+                    cmd3.Parameters.AddWithValue("@nVolts", nVolts);
+                    cmd3.Parameters.AddWithValue("@nCapacity_Ah", nCapacity_Ah);
+
+                    cmd3.Parameters.AddWithValue("@cVendor", cVendor);
+                    cmd3.Parameters.AddWithValue("@cURL", cURL);
+
 
                     SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     retval.Direction = ParameterDirection.Output;

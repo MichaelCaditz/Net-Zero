@@ -33,6 +33,7 @@
         <CollectionViewSource x:Key="getBatterySeriesStringgetBatteryViewSource" Source="{Binding getBatterySeriesString_getBattery, Source={StaticResource getBatterySeriesStringViewSource}}"/>
         <local:Masters x:Key="masters"/>
         <CollectionViewSource x:Key="getPVMasterViewSource" Source="{Binding getPVMaster, Source={StaticResource masters}}"/>
+        <CollectionViewSource x:Key="getBatteryMasterViewSource" Source="{Binding getBatteryMaster, Source={StaticResource masters}}"/>
 
 
     </dx:ThemedWindow.Resources>
@@ -993,7 +994,39 @@
                     <dx:SimpleButton x:Name="SimpleButtonNewBattery" Content="" HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click" Grid.Column="1" Grid.Row="3"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveBattery" HorizontalAlignment="Left" Margin="663,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click" Grid.Row="3" Grid.Column="1"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveString" Content="" HorizontalAlignment="Left" Margin="635,80,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveString_Click" Grid.Column="1" Grid.Row="1"/>
-                    <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Grid.ColumnSpan="2" Margin="581,29,0,0" Grid.Row="3"/>
+                    <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Margin="581,29,0,0" Grid.Row="3" Grid.Column="1"/>
+
+                    <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}" Grid.Column="1" Grid.Row="4">
+                        <dxg:GridControl.View>
+                            <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible="False" IsSmart="True" Width="60" />
+                        <dxg:GridColumn FieldName="cModel" Header="Model"/>
+                        <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
+
+
+                        <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+
+                        <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
+                    </dxg:GridControl>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
