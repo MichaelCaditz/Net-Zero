@@ -704,7 +704,7 @@
                         <ColumnDefinition Width="1800*"/>
 
                     </Grid.ColumnDefinitions>
-                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,-28,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
@@ -827,7 +827,7 @@
                             </TransformGroup>
                         </dx:SimpleButton.RenderTransform>
                     </dx:SimpleButton>
-                    <dxg:GridControl AutoGenerateColumns="None"     EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="3">
+                    <dxg:GridControl AutoGenerateColumns="None"     EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,10,10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="3">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="None" AllowEditing="False"/>
                         </dxg:GridControl.View>
@@ -896,6 +896,8 @@
                         <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
                     </dxg:GridControl>
                     <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank"/>
+                    <Label Content="PV panels this project:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
+                    <Label Content="PV panels master list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="3"/>
 
                 </Grid>
             </dx:DXTabItem>
@@ -914,7 +916,7 @@
                         <ColumnDefinition Width="5*"/>
                         <ColumnDefinition Width="1800"/>
                     </Grid.ColumnDefinitions>
-                    <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}" Grid.Row="1">
+                    <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}" Grid.Row="1">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
@@ -936,7 +938,7 @@
 
                         <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
                     </dxg:GridControl>
-                    <dxg:GridControl x:Name="GridControlBattery" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}" Grid.Row="2">
+                    <dxg:GridControl x:Name="GridControlBattery" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}" Grid.Row="2">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
@@ -996,7 +998,7 @@
                     <dx:SimpleButton x:Name="SimpleButtonSaveString" Content="" HorizontalAlignment="Left" Margin="635,80,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveString_Click" Grid.Column="1" Grid.Row="1"/>
                     <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Margin="581,29,0,0" Grid.Row="3" Grid.Column="1"/>
 
-                    <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}" Grid.Column="1" Grid.Row="4">
+                    <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}" Grid.Column="1" Grid.Row="4">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
@@ -1027,6 +1029,9 @@
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
                     </dxg:GridControl>
+                    <Label Content="Battery series strings this project - connected in parallel:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.RowSpan="2" Grid.Row="1"/>
+                    <Label Content="Batteries in the string:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
+                    <Label Content="Master battery list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="4"/>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
