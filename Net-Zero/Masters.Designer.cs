@@ -350,6 +350,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnbDeleted;
             
+            private global::System.Data.DataColumn columnnPriority;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getPVMasterDataTable() {
@@ -529,6 +531,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nPriorityColumn {
+                get {
+                    return this.columnnPriority;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -581,7 +591,8 @@ namespace Net_Zero {
                         string cVendor, 
                         decimal nPrice, 
                         string cURL, 
-                        bool bDeleted) {
+                        bool bDeleted, 
+                        decimal nPriority) {
                 getPVMasterRow rowgetPVMasterRow = ((getPVMasterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -601,7 +612,8 @@ namespace Net_Zero {
                         cVendor,
                         nPrice,
                         cURL,
-                        bDeleted};
+                        bDeleted,
+                        nPriority};
                 rowgetPVMasterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetPVMasterRow);
                 return rowgetPVMasterRow;
@@ -649,6 +661,7 @@ namespace Net_Zero {
                 this.columnnPrice = base.Columns["nPrice"];
                 this.columncURL = base.Columns["cURL"];
                 this.columnbDeleted = base.Columns["bDeleted"];
+                this.columnnPriority = base.Columns["nPriority"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -690,6 +703,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columncURL);
                 this.columnbDeleted = new global::System.Data.DataColumn("bDeleted", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbDeleted);
+                this.columnnPriority = new global::System.Data.DataColumn("nPriority", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnPriority);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -860,6 +875,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnVolts;
             
+            private global::System.Data.DataColumn columnnPriority;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getBatteryMasterDataTable() {
@@ -991,6 +1008,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nPriorityColumn {
+                get {
+                    return this.columnnPriority;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1026,7 +1051,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getBatteryMasterRow AddgetBatteryMasterRow(System.DateTime dtCreateDate, string cModel, string cNote, bool bDeleted, System.DateTime dtDateDeleted, string cBrand, decimal nCapacity_Ah, string cVendor, decimal nPrice, string cURL, decimal nVolts) {
+            public getBatteryMasterRow AddgetBatteryMasterRow(System.DateTime dtCreateDate, string cModel, string cNote, bool bDeleted, System.DateTime dtDateDeleted, string cBrand, decimal nCapacity_Ah, string cVendor, decimal nPrice, string cURL, decimal nVolts, decimal nPriority) {
                 getBatteryMasterRow rowgetBatteryMasterRow = ((getBatteryMasterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1040,7 +1065,8 @@ namespace Net_Zero {
                         cVendor,
                         nPrice,
                         cURL,
-                        nVolts};
+                        nVolts,
+                        nPriority};
                 rowgetBatteryMasterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetBatteryMasterRow);
                 return rowgetBatteryMasterRow;
@@ -1082,6 +1108,7 @@ namespace Net_Zero {
                 this.columnnPrice = base.Columns["nPrice"];
                 this.columncURL = base.Columns["cURL"];
                 this.columnnVolts = base.Columns["nVolts"];
+                this.columnnPriority = base.Columns["nPriority"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1111,6 +1138,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columncURL);
                 this.columnnVolts = new global::System.Data.DataColumn("nVolts", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnVolts);
+                this.columnnPriority = new global::System.Data.DataColumn("nPriority", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnPriority);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1549,6 +1578,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nPriority {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetPVMaster.nPriorityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nPriority\' in table \'getPVMaster\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetPVMaster.nPriorityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetPVMaster.dtCreateDateColumn);
             }
@@ -1749,6 +1794,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetbDeletedNull() {
                 this[this.tablegetPVMaster.bDeletedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnPriorityNull() {
+                return this.IsNull(this.tablegetPVMaster.nPriorityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnPriorityNull() {
+                this[this.tablegetPVMaster.nPriorityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1955,6 +2012,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nPriority {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetBatteryMaster.nPriorityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nPriority\' in table \'getBatteryMaster\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetBatteryMaster.nPriorityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetBatteryMaster.dtCreateDateColumn);
             }
@@ -2083,6 +2156,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnVoltsNull() {
                 this[this.tablegetBatteryMaster.nVoltsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnPriorityNull() {
+                return this.IsNull(this.tablegetBatteryMaster.nPriorityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnPriorityNull() {
+                this[this.tablegetBatteryMaster.nPriorityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2297,6 +2382,7 @@ namespace Net_Zero.MastersTableAdapters {
             tableMapping.ColumnMappings.Add("nPrice", "nPrice");
             tableMapping.ColumnMappings.Add("cURL", "cURL");
             tableMapping.ColumnMappings.Add("bDeleted", "bDeleted");
+            tableMapping.ColumnMappings.Add("nPriority", "nPriority");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2476,6 +2562,7 @@ namespace Net_Zero.MastersTableAdapters {
             tableMapping.ColumnMappings.Add("nPrice", "nPrice");
             tableMapping.ColumnMappings.Add("cURL", "cURL");
             tableMapping.ColumnMappings.Add("nVolts", "nVolts");
+            tableMapping.ColumnMappings.Add("nPriority", "nPriority");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

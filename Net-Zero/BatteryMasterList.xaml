@@ -23,6 +23,11 @@
                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
             </dxg:GridControl.View>
             <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" IsSmart="True" Width="60"/>
+            <dxg:GridColumn FieldName="nPriority" Header="Priority" IsSmart="True" Width="60" Visible="True">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
             <dxg:GridColumn FieldName="cModel" Header="Model"/>
             <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
             <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
@@ -38,13 +43,13 @@
             <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
             <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
 
             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>

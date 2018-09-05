@@ -704,7 +704,7 @@
                         <ColumnDefinition Width="1800*"/>
 
                     </Grid.ColumnDefinitions>
-                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,-28,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                    <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                         <dxg:GridControl.View>
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
@@ -832,6 +832,11 @@
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="None" AllowEditing="False"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
+                        <dxg:GridColumn FieldName="nPriority" Header="Priority" IsSmart="True" AllowEditing="False" Width="60" Visible="True">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
 
                         </dxg:GridColumn>
@@ -1004,6 +1009,11 @@
                             <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                         </dxg:GridControl.View>
                         <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible="False" IsSmart="True" Width="60" />
+                        <dxg:GridColumn FieldName="nPriority" Header="Priority" IsSmart="True" AllowEditing="False" Width="50" AllowConditionalFormattingMenu="False">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
                         <dxg:GridColumn FieldName="cModel" Header="Model"/>
                         <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
                         <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>

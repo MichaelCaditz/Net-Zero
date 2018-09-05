@@ -39,6 +39,7 @@
               <Mapping SourceColumn="nPrice" DataSetColumn="nPrice" />
               <Mapping SourceColumn="cURL" DataSetColumn="cURL" />
               <Mapping SourceColumn="bDeleted" DataSetColumn="bDeleted" />
+              <Mapping SourceColumn="nPriority" DataSetColumn="nPriority" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -68,6 +69,7 @@
               <Mapping SourceColumn="nPrice" DataSetColumn="nPrice" />
               <Mapping SourceColumn="cURL" DataSetColumn="cURL" />
               <Mapping SourceColumn="nVolts" DataSetColumn="nVolts" />
+              <Mapping SourceColumn="nPriority" DataSetColumn="nPriority" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -79,7 +81,7 @@
   <xs:element name="Masters" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Masters" msprop:Generator_UserDSName="Masters">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getPVMaster" msprop:Generator_TableClassName="getPVMasterDataTable" msprop:Generator_TableVarName="tablegetPVMaster" msprop:Generator_TablePropName="getPVMaster" msprop:Generator_RowDeletingName="getPVMasterRowDeleting" msprop:Generator_RowChangingName="getPVMasterRowChanging" msprop:Generator_RowEvHandlerName="getPVMasterRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVMasterRowDeleted" msprop:Generator_UserTableName="getPVMaster" msprop:Generator_RowChangedName="getPVMasterRowChanged" msprop:Generator_RowEvArgName="getPVMasterRowChangeEvent" msprop:Generator_RowClassName="getPVMasterRow">
+        <xs:element name="getPVMaster" msprop:Generator_TableClassName="getPVMasterDataTable" msprop:Generator_TableVarName="tablegetPVMaster" msprop:Generator_RowChangedName="getPVMasterRowChanged" msprop:Generator_TablePropName="getPVMaster" msprop:Generator_RowDeletingName="getPVMasterRowDeleting" msprop:Generator_RowChangingName="getPVMasterRowChanging" msprop:Generator_RowEvHandlerName="getPVMasterRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVMasterRowDeleted" msprop:Generator_RowClassName="getPVMasterRow" msprop:Generator_UserTableName="getPVMaster" msprop:Generator_RowEvArgName="getPVMasterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -130,10 +132,11 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="bDeleted" msprop:Generator_ColumnVarNameInTable="columnbDeleted" msprop:Generator_ColumnPropNameInRow="bDeleted" msprop:Generator_ColumnPropNameInTable="bDeletedColumn" msprop:Generator_UserColumnName="bDeleted" type="xs:boolean" minOccurs="0" />
+              <xs:element name="nPriority" msprop:Generator_ColumnVarNameInTable="columnnPriority" msprop:Generator_ColumnPropNameInRow="nPriority" msprop:Generator_ColumnPropNameInTable="nPriorityColumn" msprop:Generator_UserColumnName="nPriority" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getBatteryMaster" msprop:Generator_TableClassName="getBatteryMasterDataTable" msprop:Generator_TableVarName="tablegetBatteryMaster" msprop:Generator_TablePropName="getBatteryMaster" msprop:Generator_RowDeletingName="getBatteryMasterRowDeleting" msprop:Generator_RowChangingName="getBatteryMasterRowChanging" msprop:Generator_RowEvHandlerName="getBatteryMasterRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryMasterRowDeleted" msprop:Generator_UserTableName="getBatteryMaster" msprop:Generator_RowChangedName="getBatteryMasterRowChanged" msprop:Generator_RowEvArgName="getBatteryMasterRowChangeEvent" msprop:Generator_RowClassName="getBatteryMasterRow">
+        <xs:element name="getBatteryMaster" msprop:Generator_TableClassName="getBatteryMasterDataTable" msprop:Generator_TableVarName="tablegetBatteryMaster" msprop:Generator_RowChangedName="getBatteryMasterRowChanged" msprop:Generator_TablePropName="getBatteryMaster" msprop:Generator_RowDeletingName="getBatteryMasterRowDeleting" msprop:Generator_RowChangingName="getBatteryMasterRowChanging" msprop:Generator_RowEvHandlerName="getBatteryMasterRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryMasterRowDeleted" msprop:Generator_RowClassName="getBatteryMasterRow" msprop:Generator_UserTableName="getBatteryMaster" msprop:Generator_RowEvArgName="getBatteryMasterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -178,6 +181,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="nVolts" msprop:Generator_ColumnVarNameInTable="columnnVolts" msprop:Generator_ColumnPropNameInRow="nVolts" msprop:Generator_ColumnPropNameInTable="nVoltsColumn" msprop:Generator_UserColumnName="nVolts" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nPriority" msprop:Generator_ColumnVarNameInTable="columnnPriority" msprop:Generator_ColumnPropNameInRow="nPriority" msprop:Generator_ColumnPropNameInTable="nPriorityColumn" msprop:Generator_UserColumnName="nPriority" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

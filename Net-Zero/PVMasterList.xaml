@@ -24,13 +24,18 @@
                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
             </dxg:GridControl.View>
             <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
+            <dxg:GridColumn FieldName="nPriority" Header="Priority" IsSmart="True" Width="60">
+                <dxg:GridColumn.EditSettings>
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                </dxg:GridColumn.EditSettings>
+            </dxg:GridColumn>
             <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
 
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
 
@@ -44,42 +49,42 @@
 
             <dxg:GridColumn FieldName="nVmp" Header='Optimal Volts (Vmp)' Width="120" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nImp" Header='Optimal Current (Imp)' Width="140" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nVoc"  Header='Open Circuit Volt. (Voc)' Width="140" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nIsc"  Header='Short Curcuit Current (Isc)' Width="160" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nWeight_kg"  Header='Weight kG' Width="100" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nLength_mm" Header='Length mm' Width="100" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nWidth_mm" Header='Width mm' Width="100" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="nHeight_mm" Header='Height mm' Width="100" IsSmart="True">
                 <dxg:GridColumn.EditSettings>
-                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                 </dxg:GridColumn.EditSettings>
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>

@@ -248,6 +248,7 @@ namespace Net_Zero
                     Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
                     decimal nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
                     decimal nCapacity_Ah = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCapacity_Ah"]) == true ? 0 : (decimal)drv3["nCapacity_Ah"]);
+                    decimal nPriority = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPriority"]) == true ? 0 : (decimal)drv3["nPriority"]);
 
                     /////write new record to dbo.split
 
@@ -270,6 +271,7 @@ namespace Net_Zero
                             cmd3.Parameters.AddWithValue("@cModel", cModel);
                             cmd3.Parameters.AddWithValue("@nVolts", nVolts);
                             cmd3.Parameters.AddWithValue("@nCapacity_Ah", nCapacity_Ah);
+                            cmd3.Parameters.AddWithValue("@nPriority", nPriority);
 
                             cmd3.Parameters.AddWithValue("@cVendor", cVendor);
                             cmd3.Parameters.AddWithValue("@cURL", cURL);

@@ -2701,6 +2701,13 @@ namespace Net_Zero
             SavePV(true);
 
 
+
+
+
+
+
+
+
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));

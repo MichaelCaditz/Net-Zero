@@ -130,7 +130,8 @@ namespace Net_Zero
                         cmd3.Parameters.AddWithValue("@cFrame", "");
                         cmd3.Parameters.AddWithValue("@cVendor", "");
                         cmd3.Parameters.AddWithValue("@nPrice", 0);
-                        
+                        cmd3.Parameters.AddWithValue("@nPriority", 0);
+
                         cmd3.Parameters.AddWithValue("@cURL", "");
                        
 
@@ -293,6 +294,7 @@ namespace Net_Zero
                     decimal nLength_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nLength_mm"]) == true ? 0 : (decimal)drv3["nLength_mm"]);
                     decimal nHeight_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nHeight_mm"]) == true ? 0 : (decimal)drv3["nHeight_mm"]);
                     decimal nWidth_mm = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nWidth_mm"]) == true ? 0 : (decimal)drv3["nWidth_mm"]);
+                    decimal nPriority = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPriority"]) == true ? 0 : (decimal)drv3["nPriority"]);
 
                     /////write new record to dbo.split
 
@@ -321,7 +323,7 @@ namespace Net_Zero
                             cmd3.Parameters.AddWithValue("@cFrame", cFrame);
                             cmd3.Parameters.AddWithValue("@cVendor", cVendor);
                             cmd3.Parameters.AddWithValue("@nPrice", nPrice);
-
+                            cmd3.Parameters.AddWithValue("@nPriority", nPriority);
                             cmd3.Parameters.AddWithValue("@cURL", cURL);
 
                             cmd3.Parameters.AddWithValue("@bDeleted", bDeleted);
