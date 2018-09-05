@@ -898,6 +898,7 @@
                     <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank"/>
                     <Label Content="PV panels this project:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
                     <Label Content="PV panels master list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="3"/>
+                    <dx:SimpleButton x:Name="SimpleButtonAutoConfigurePV" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="826,10,0,0" Grid.Row="2" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure PV" Click="SimpleButtonAutoConfigurePV_Click"/>
 
                 </Grid>
             </dx:DXTabItem>

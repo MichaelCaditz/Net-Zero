@@ -724,7 +724,7 @@ namespace Net_Zero
 
         }
 
-        public void SavePV()
+        public void SavePV(bool deleteFlag)
         {
 
             System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
@@ -793,7 +793,7 @@ namespace Net_Zero
                     // MessageBox.Show(nAmnt.ToString());
 
                     int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
-
+                    bool bDeleted = true;
                     string cURL = (DBNull.Value.Equals(drv3["cURL"]) == true ? "" : (string)drv3["cURL"]);
                     string cVendor = (DBNull.Value.Equals(drv3["cVendor"]) == true ? "" : (string)drv3["cVendor"]);
 
@@ -802,7 +802,8 @@ namespace Net_Zero
                     string cModel = (DBNull.Value.Equals(drv3["cModel"]) == true ? "" : (string)drv3["cModel"]);
 
 
-                    Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    if (deleteFlag == false)
+                    {bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]); }
 
 
                     decimal nPmax = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPmax"]) == true ? 0 : (decimal)drv3["nPmax"]);
@@ -903,7 +904,7 @@ namespace Net_Zero
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
-            SavePV();
+            SavePV(false);
 
 
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
@@ -2670,6 +2671,84 @@ namespace Net_Zero
 
 
             
+        }
+
+        private void SimpleButtonAutoConfigurePV_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Warning: This will delete all PVs currently in project list above and replace with automatically configured list. Do you want to proceed?";
+            string caption = "Net-Zero";
+
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult defaultResult = MessageBoxResult.No;
+            MessageBoxOptions options = MessageBoxOptions.None;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result1 = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            if (result1 == MessageBoxResult.No)
+            {
+
+                return;
+
+            }
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            SavePV(true);
+
+
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+
+            // registerDataSet.EnforceConstraints = false;
+
+            Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
+            //registerDataSet.EnforceConstraints = true;
+
+            Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
+
+
+            //Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                      DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+
+            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+            SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
+
+
+
+            LinearGauge1.Scales[0].StartValue = 0;
+            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
+            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
+
+            LinearGaugePV.Scales[0].StartValue = 0;
+            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
+            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
+
+            string message20 = "Auto-configure complete";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+
         }
     }
 }
