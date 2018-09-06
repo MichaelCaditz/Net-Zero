@@ -140,12 +140,10 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].StartValue = 0;
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
+
             Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
             Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
-
-
             mastersgetPVMasterTableAdapter.Fill(masters.getPVMaster);
-
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
             getPVMasterViewSource.View.MoveCurrentToFirst();
             Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter mastersgetBatteryMasterTableAdapter = new Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter();
@@ -1078,7 +1076,7 @@ namespace Net_Zero
         private void SimpleButtonNewBattery_Click(object sender, RoutedEventArgs e)
         {
 
-            SaveBattery();
+            SaveBattery(false);
 
             decimal nPrice = 0m;
             // MessageBox.Show(nAmnt.ToString());
@@ -1268,7 +1266,7 @@ namespace Net_Zero
             }
         }
 
-        public void SaveBattery()
+        public void SaveBattery(bool deleteFlag)
         {
             System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
 
@@ -1282,7 +1280,7 @@ namespace Net_Zero
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
             int TransactID1 = 0;
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
-
+            Boolean bDeleted = true;
 
             //DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
             // int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
@@ -1430,7 +1428,8 @@ namespace Net_Zero
                     string cVendor = (DBNull.Value.Equals(drv3["cVendor"]) == true ? "" : (string)drv3["cVendor"]);
                     string cBrand = (DBNull.Value.Equals(drv3["cBrand"]) == true ? "" : (string)drv3["cBrand"]);
                     string cModel = (DBNull.Value.Equals(drv3["cModel"]) == true ? "" : (string)drv3["cModel"]);
-                    Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    if (deleteFlag == false)
+                    { bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]); }
                     decimal nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
                     decimal nCapacity_Ah = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCapacity_Ah"]) == true ? 0 : (decimal)drv3["nCapacity_Ah"]);
 
@@ -1510,7 +1509,7 @@ namespace Net_Zero
 
         }
 
-        public void SaveString()
+        public void SaveString(bool deleteFlag)
         {
             System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
 
@@ -1525,7 +1524,7 @@ namespace Net_Zero
             int TransactID1 = 0;
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
 
-
+            Boolean bDeleted = true;
             //DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
             // int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
 
@@ -1669,7 +1668,8 @@ namespace Net_Zero
                     string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
                     string cNote = (DBNull.Value.Equals(drv3["cNote"]) == true ? "" : (string)drv3["cNote"]);
 
-                    Boolean bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]);
+                    if (deleteFlag == false)
+                    { bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]); }
                     //decimal nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
 
 
@@ -2184,7 +2184,7 @@ namespace Net_Zero
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
-            SaveBattery();
+            SaveBattery(false);
 
 
 
@@ -2231,7 +2231,7 @@ namespace Net_Zero
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
-            SaveString();
+            SaveString(false);
 
 
 
@@ -2644,6 +2644,12 @@ namespace Net_Zero
 
 
             PVMasterList1.ShowDialog();
+            Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
+            Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
+            mastersgetPVMasterTableAdapter.Fill(masters.getPVMaster);
+            System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
+            getPVMasterViewSource.View.MoveCurrentToFirst();
+           
         }
 
         private void BarButtonItemBatteryMasterList_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -2652,6 +2658,12 @@ namespace Net_Zero
 
 
             BatteryMasterList1.ShowDialog();
+            Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
+          
+            Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter mastersgetBatteryMasterTableAdapter = new Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter();
+            mastersgetBatteryMasterTableAdapter.Fill(masters.getBatteryMaster);
+            System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
+            getBatteryMasterViewSource.View.MoveCurrentToFirst();
         }
 
         private void SimpleButton_Click_4(object sender, RoutedEventArgs e)
@@ -2744,7 +2756,7 @@ namespace Net_Zero
             
 
 
-Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
 
@@ -2792,6 +2804,139 @@ Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSe
             // Displays the MessageBox.
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
+        }
+
+        private void SimpleButtonAutoConfigureBattery_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "Warning: This will delete all batteries currently in project list above and replace with automatically configured list. Do you want to proceed?";
+            string caption = "Net-Zero";
+
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult defaultResult = MessageBoxResult.No;
+            MessageBoxOptions options = MessageBoxOptions.None;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result1 = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            if (result1 == MessageBoxResult.No)
+            {
+
+                return;
+
+            }
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            SaveBattery(true);
+            SaveString(true);
+
+            SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[USP_autoBattery]";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+
+
+
+
+
+                    // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn1.Open();
+                    cmd3.ExecuteNonQuery();
+                    // TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn1.State == ConnectionState.Open) conn1.Close();
+
+
+            }
+
+
+
+
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+
+            // registerDataSet.EnforceConstraints = false;
+
+            //Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+           // pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
+            //registerDataSet.EnforceConstraints = true;
+
+            Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
+            Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
+           // Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+           // decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                      //DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            //decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                      // DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
+
+            //SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+            //SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
+
+
+
+            //Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                      DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
+
+            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+            //SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
+
+
+
+            LinearGauge1.Scales[0].StartValue = 0;
+            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
+            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
+
+            LinearGaugePV.Scales[0].StartValue = 0;
+            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
+            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
+
+            string message20 = "Auto-configure battery complete";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            // Show message box
+            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            // Displays the MessageBox.
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
     }
 }

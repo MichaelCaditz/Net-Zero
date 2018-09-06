@@ -1000,7 +1000,7 @@
                     </dxga:LinearGaugeControl>
                     <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Row="1" Grid.Column="1"/>
                     <dx:SimpleButton x:Name="SimpleButtonNewBattery" Content="" HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click" Grid.Column="1" Grid.Row="3"/>
-                    <dx:SimpleButton x:Name="SimpleButtonSaveBattery" HorizontalAlignment="Left" Margin="663,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click" Grid.Row="3" Grid.Column="1"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveBattery" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveBattery_Click" Grid.Row="3" Grid.Column="1"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveString" Content="" HorizontalAlignment="Left" Margin="635,80,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Table" Click="SimpleButtonSaveString_Click" Grid.Column="1" Grid.Row="1"/>
                     <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Margin="581,29,0,0" Grid.Row="3" Grid.Column="1"/>
 
@@ -1043,6 +1043,7 @@
                     <Label Content="Battery series strings this project - connected in parallel:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.RowSpan="2" Grid.Row="1"/>
                     <Label Content="Batteries in the string:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
                     <Label Content="Master battery list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="4"/>
+                    <dx:SimpleButton x:Name="SimpleButtonAutoConfigureBattery" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="543,19,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure Batteries" Click="SimpleButtonAutoConfigureBattery_Click"/>
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
