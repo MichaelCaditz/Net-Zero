@@ -279,6 +279,7 @@ namespace Net_Zero {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.getPV.nTotPriceColumn.Expression = "nQty*nPrice";
+            this.getPV.nTotPmaxColumn.Expression = "nPmax*nQty";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -336,6 +337,8 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnProjectsID;
             
             private global::System.Data.DataColumn columnnTotPrice;
+            
+            private global::System.Data.DataColumn columnnTotPmax;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -565,6 +568,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTotPmaxColumn {
+                get {
+                    return this.columnnTotPmax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -622,7 +633,8 @@ namespace Net_Zero {
                         int nQty, 
                         bool bDeleted, 
                         int nProjectsID, 
-                        decimal nTotPrice) {
+                        decimal nTotPrice, 
+                        decimal nTotPmax) {
                 getPVRow rowgetPVRow = ((getPVRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -647,7 +659,8 @@ namespace Net_Zero {
                         nQty,
                         bDeleted,
                         nProjectsID,
-                        nTotPrice};
+                        nTotPrice,
+                        nTotPmax};
                 rowgetPVRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetPVRow);
                 return rowgetPVRow;
@@ -701,6 +714,7 @@ namespace Net_Zero {
                         nQty,
                         bDeleted,
                         nProjectsID,
+                        null,
                         null};
                 rowgetPVRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetPVRow);
@@ -754,6 +768,7 @@ namespace Net_Zero {
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnProjectsID = base.Columns["nProjectsID"];
                 this.columnnTotPrice = base.Columns["nTotPrice"];
+                this.columnnTotPmax = base.Columns["nTotPmax"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -805,6 +820,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnProjectsID);
                 this.columnnTotPrice = new global::System.Data.DataColumn("nTotPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnTotPrice);
+                this.columnnTotPmax = new global::System.Data.DataColumn("nTotPmax", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotPmax);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -819,6 +836,7 @@ namespace Net_Zero {
                 this.columncVendor.MaxLength = 50;
                 this.columncURL.MaxLength = 2147483647;
                 this.columnnTotPrice.ReadOnly = true;
+                this.columnnTotPmax.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -843,6 +861,7 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
                 this.nTotPriceColumn.Expression = "nQty*nPrice";
+                this.nTotPmaxColumn.Expression = "nPmax*nQty";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1330,6 +1349,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTotPmax {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetPV.nTotPmaxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotPmax\' in table \'getPV\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetPV.nTotPmaxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetPV.dtCreateDateColumn);
             }
@@ -1590,6 +1625,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnTotPriceNull() {
                 this[this.tablegetPV.nTotPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTotPmaxNull() {
+                return this.IsNull(this.tablegetPV.nTotPmaxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTotPmaxNull() {
+                this[this.tablegetPV.nTotPmaxColumn] = global::System.Convert.DBNull;
             }
         }
         

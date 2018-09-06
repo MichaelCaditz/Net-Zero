@@ -122,8 +122,8 @@ namespace Net_Zero
             //getBatterySeriesStringgetBatteryViewSource.View.MoveCurrentToFirst();
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                        DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
             decimal nSumPDemand = (demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null) == null ? 0m :
                        DBNull.Value.Equals(demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null)) == true ? 0m : (decimal)demandDataSet.demandItems.Compute("Sum(nEnergykWh)", null));
 
@@ -927,8 +927,8 @@ namespace Net_Zero
 
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
@@ -2197,8 +2197,8 @@ namespace Net_Zero
 
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
@@ -2246,8 +2246,8 @@ namespace Net_Zero
 
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
@@ -2604,8 +2604,8 @@ namespace Net_Zero
 
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
@@ -2700,15 +2700,51 @@ namespace Net_Zero
 
             SavePV(true);
 
+            SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
+            {
+                //cmd3.Transaction = trans1;
+                cmd3.Parameters.Clear();
+                cmd3.CommandText = "[dbo].[USP_autoPV]";
+                cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+               
 
 
 
 
+               // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                //retval.Direction = ParameterDirection.Output;
+                conn1.Open();
+                cmd3.ExecuteNonQuery();
+               // TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+            }
 
 
 
 
-            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+        }
+
+
+                catch (Exception ex)
+                {
+                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                    throw argEx;
+                }
+                finally
+                {
+                    if (conn1.State == ConnectionState.Open) conn1.Close();
+
+                   
+                }
+
+            
+
+
+Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
 
@@ -2728,8 +2764,8 @@ namespace Net_Zero
 
             decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
                       DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nPmax)/1000", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;

@@ -55,7 +55,7 @@
   <xs:element name="PVDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PVDataSet" msprop:Generator_UserDSName="PVDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getPV" msprop:Generator_TableClassName="getPVDataTable" msprop:Generator_TableVarName="tablegetPV" msprop:Generator_RowChangedName="getPVRowChanged" msprop:Generator_TablePropName="getPV" msprop:Generator_RowDeletingName="getPVRowDeleting" msprop:Generator_RowChangingName="getPVRowChanging" msprop:Generator_RowEvHandlerName="getPVRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVRowDeleted" msprop:Generator_RowClassName="getPVRow" msprop:Generator_UserTableName="getPV" msprop:Generator_RowEvArgName="getPVRowChangeEvent">
+        <xs:element name="getPV" msprop:Generator_TableClassName="getPVDataTable" msprop:Generator_TableVarName="tablegetPV" msprop:Generator_TablePropName="getPV" msprop:Generator_RowDeletingName="getPVRowDeleting" msprop:Generator_RowChangingName="getPVRowChanging" msprop:Generator_RowEvHandlerName="getPVRowChangeEventHandler" msprop:Generator_RowDeletedName="getPVRowDeleted" msprop:Generator_UserTableName="getPV" msprop:Generator_RowChangedName="getPVRowChanged" msprop:Generator_RowEvArgName="getPVRowChangeEvent" msprop:Generator_RowClassName="getPVRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -111,6 +111,7 @@
               <xs:element name="bDeleted" msprop:Generator_ColumnVarNameInTable="columnbDeleted" msprop:Generator_ColumnPropNameInRow="bDeleted" msprop:Generator_ColumnPropNameInTable="bDeletedColumn" msprop:Generator_UserColumnName="bDeleted" type="xs:boolean" minOccurs="0" />
               <xs:element name="nProjectsID" msprop:Generator_ColumnVarNameInTable="columnnProjectsID" msprop:Generator_ColumnPropNameInRow="nProjectsID" msprop:Generator_ColumnPropNameInTable="nProjectsIDColumn" msprop:Generator_UserColumnName="nProjectsID" type="xs:int" minOccurs="0" />
               <xs:element name="nTotPrice" msdata:ReadOnly="true" msdata:Expression="nQty*nPrice" msprop:Generator_ColumnVarNameInTable="columnnTotPrice" msprop:Generator_ColumnPropNameInRow="nTotPrice" msprop:Generator_ColumnPropNameInTable="nTotPriceColumn" msprop:Generator_UserColumnName="nTotPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTotPmax" msdata:ReadOnly="true" msdata:Expression="nPmax*nQty" msprop:Generator_ColumnVarNameInTable="columnnTotPmax" msprop:Generator_ColumnPropNameInRow="nTotPmax" msprop:Generator_ColumnPropNameInTable="nTotPmaxColumn" msprop:Generator_UserColumnName="nTotPmax" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
