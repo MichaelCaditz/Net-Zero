@@ -1091,6 +1091,10 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columncNote;
             
+            private global::System.Data.DataColumn columnnLong;
+            
+            private global::System.Data.DataColumn columnnLat;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getAllCityDataTable() {
@@ -1166,6 +1170,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLongColumn {
+                get {
+                    return this.columnnLong;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLatColumn {
+                get {
+                    return this.columnnLat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1201,14 +1221,16 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public getAllCityRow AddgetAllCityRow(System.DateTime dtCreateDate, string cName, getAllStateProvinceRow parentgetAllStateProvinceRowBygetAllStateProvince_getAllCity, string cNote) {
+            public getAllCityRow AddgetAllCityRow(System.DateTime dtCreateDate, string cName, getAllStateProvinceRow parentgetAllStateProvinceRowBygetAllStateProvince_getAllCity, string cNote, decimal nLong, decimal nLat) {
                 getAllCityRow rowgetAllCityRow = ((getAllCityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         dtCreateDate,
                         cName,
                         null,
-                        cNote};
+                        cNote,
+                        nLong,
+                        nLat};
                 if ((parentgetAllStateProvinceRowBygetAllStateProvince_getAllCity != null)) {
                     columnValuesArray[3] = parentgetAllStateProvinceRowBygetAllStateProvince_getAllCity[0];
                 }
@@ -1246,6 +1268,8 @@ namespace Net_Zero {
                 this.columncName = base.Columns["cName"];
                 this.columnnStateProvinceID = base.Columns["nStateProvinceID"];
                 this.columncNote = base.Columns["cNote"];
+                this.columnnLong = base.Columns["nLong"];
+                this.columnnLat = base.Columns["nLat"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1261,6 +1285,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnStateProvinceID);
                 this.columncNote = new global::System.Data.DataColumn("cNote", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncNote);
+                this.columnnLong = new global::System.Data.DataColumn("nLong", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLong);
+                this.columnnLat = new global::System.Data.DataColumn("nLat", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLat);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2275,6 +2303,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLong {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetAllCity.nLongColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLong\' in table \'getAllCity\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetAllCity.nLongColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLat {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetAllCity.nLatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLat\' in table \'getAllCity\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetAllCity.nLatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getAllStateProvinceRow getAllStateProvinceRow {
                 get {
                     return ((getAllStateProvinceRow)(this.GetParentRow(this.Table.ParentRelations["getAllStateProvince_getAllCity"])));
@@ -2330,6 +2390,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcNoteNull() {
                 this[this.tablegetAllCity.cNoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLongNull() {
+                return this.IsNull(this.tablegetAllCity.nLongColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLongNull() {
+                this[this.tablegetAllCity.nLongColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLatNull() {
+                return this.IsNull(this.tablegetAllCity.nLatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLatNull() {
+                this[this.tablegetAllCity.nLatColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3301,6 +3385,8 @@ namespace Net_Zero.GeographyTableAdapters {
             tableMapping.ColumnMappings.Add("cName", "cName");
             tableMapping.ColumnMappings.Add("nStateProvinceID", "nStateProvinceID");
             tableMapping.ColumnMappings.Add("cNote", "cNote");
+            tableMapping.ColumnMappings.Add("nLong", "nLong");
+            tableMapping.ColumnMappings.Add("nLat", "nLat");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

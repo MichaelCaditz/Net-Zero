@@ -423,6 +423,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnPercentBatteryRemaining;
             
+            private global::System.Data.DataColumn columnnLat;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -667,6 +669,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLatColumn {
+                get {
+                    return this.columnnLat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -726,7 +736,8 @@ namespace Net_Zero {
                         decimal nRunningLoss, 
                         decimal nChosenBatterykWh, 
                         decimal nBatteryRemainingkWh, 
-                        decimal nPercentBatteryRemaining) {
+                        decimal nPercentBatteryRemaining, 
+                        decimal nLat) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -753,7 +764,8 @@ namespace Net_Zero {
                         nRunningLoss,
                         nChosenBatterykWh,
                         nBatteryRemainingkWh,
-                        nPercentBatteryRemaining};
+                        nPercentBatteryRemaining,
+                        nLat};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -777,7 +789,8 @@ namespace Net_Zero {
                         decimal nDaysRunFullCharge, 
                         decimal nVoltage, 
                         decimal nChosenBattery, 
-                        decimal nRunningLoss) {
+                        decimal nRunningLoss, 
+                        decimal nLat) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -804,7 +817,8 @@ namespace Net_Zero {
                         nRunningLoss,
                         null,
                         null,
-                        null};
+                        null,
+                        nLat};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -859,6 +873,7 @@ namespace Net_Zero {
                 this.columnnChosenBatterykWh = base.Columns["nChosenBatterykWh"];
                 this.columnnBatteryRemainingkWh = base.Columns["nBatteryRemainingkWh"];
                 this.columnnPercentBatteryRemaining = base.Columns["nPercentBatteryRemaining"];
+                this.columnnLat = base.Columns["nLat"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -914,6 +929,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnBatteryRemainingkWh);
                 this.columnnPercentBatteryRemaining = new global::System.Data.DataColumn("nPercentBatteryRemaining", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnPercentBatteryRemaining);
+                this.columnnLat = new global::System.Data.DataColumn("nLat", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLat);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1475,6 +1492,14 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columncCityDemand;
             
+            private global::System.Data.DataColumn columnnLat;
+            
+            private global::System.Data.DataColumn columnnLatDemand;
+            
+            private global::System.Data.DataColumn columnnLong;
+            
+            private global::System.Data.DataColumn columnnLongDemand;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1775,6 +1800,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLatColumn {
+                get {
+                    return this.columnnLat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLatDemandColumn {
+                get {
+                    return this.columnnLatDemand;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLongColumn {
+                get {
+                    return this.columnnLong;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nLongDemandColumn {
+                get {
+                    return this.columnnLongDemand;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1841,7 +1898,11 @@ namespace Net_Zero {
                         System.DateTime dtSummaryStartDate, 
                         System.DateTime dtSummaryEndDate, 
                         int nCityIDDemand, 
-                        string cCityDemand) {
+                        string cCityDemand, 
+                        decimal nLat, 
+                        decimal nLatDemand, 
+                        decimal nLong, 
+                        decimal nLongDemand) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1875,7 +1936,11 @@ namespace Net_Zero {
                         dtSummaryStartDate,
                         dtSummaryEndDate,
                         nCityIDDemand,
-                        cCityDemand};
+                        cCityDemand,
+                        nLat,
+                        nLatDemand,
+                        nLong,
+                        nLongDemand};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -1909,7 +1974,11 @@ namespace Net_Zero {
                         System.DateTime dtSummaryStartDate, 
                         System.DateTime dtSummaryEndDate, 
                         int nCityIDDemand, 
-                        string cCityDemand) {
+                        string cCityDemand, 
+                        decimal nLat, 
+                        decimal nLatDemand, 
+                        decimal nLong, 
+                        decimal nLongDemand) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1943,7 +2012,11 @@ namespace Net_Zero {
                         dtSummaryStartDate,
                         dtSummaryEndDate,
                         nCityIDDemand,
-                        cCityDemand};
+                        cCityDemand,
+                        nLat,
+                        nLatDemand,
+                        nLong,
+                        nLongDemand};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2005,6 +2078,10 @@ namespace Net_Zero {
                 this.columndtSummaryEndDate = base.Columns["dtSummaryEndDate"];
                 this.columnnCityIDDemand = base.Columns["nCityIDDemand"];
                 this.columncCityDemand = base.Columns["cCityDemand"];
+                this.columnnLat = base.Columns["nLat"];
+                this.columnnLatDemand = base.Columns["nLatDemand"];
+                this.columnnLong = base.Columns["nLong"];
+                this.columnnLongDemand = base.Columns["nLongDemand"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2074,6 +2151,14 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnCityIDDemand);
                 this.columncCityDemand = new global::System.Data.DataColumn("cCityDemand", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncCityDemand);
+                this.columnnLat = new global::System.Data.DataColumn("nLat", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLat);
+                this.columnnLatDemand = new global::System.Data.DataColumn("nLatDemand", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLatDemand);
+                this.columnnLong = new global::System.Data.DataColumn("nLong", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLong);
+                this.columnnLongDemand = new global::System.Data.DataColumn("nLongDemand", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnLongDemand);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2640,6 +2725,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLat {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nLatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLat\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nLatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -2924,6 +3025,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnPercentBatteryRemainingNull() {
                 this[this.tablegetSummary.nPercentBatteryRemainingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLatNull() {
+                return this.IsNull(this.tablegetSummary.nLatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLatNull() {
+                this[this.tablegetSummary.nLatColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3616,6 +3729,70 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLat {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nLatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLat\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nLatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLatDemand {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nLatDemandColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLatDemand\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nLatDemandColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLong {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nLongColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLong\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nLongColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nLongDemand {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nLongDemandColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nLongDemand\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nLongDemandColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -3985,6 +4162,54 @@ namespace Net_Zero {
             public void SetcCityDemandNull() {
                 this[this.tablegetProject.cCityDemandColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLatNull() {
+                return this.IsNull(this.tablegetProject.nLatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLatNull() {
+                this[this.tablegetProject.nLatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLatDemandNull() {
+                return this.IsNull(this.tablegetProject.nLatDemandColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLatDemandNull() {
+                this[this.tablegetProject.nLatDemandColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLongNull() {
+                return this.IsNull(this.tablegetProject.nLongColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLongNull() {
+                this[this.tablegetProject.nLongColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnLongDemandNull() {
+                return this.IsNull(this.tablegetProject.nLongDemandColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnLongDemandNull() {
+                this[this.tablegetProject.nLongDemandColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -4231,6 +4456,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nVoltage", "nVoltage");
             tableMapping.ColumnMappings.Add("nChosenBattery", "nChosenBattery");
             tableMapping.ColumnMappings.Add("nRunningLoss", "nRunningLoss");
+            tableMapping.ColumnMappings.Add("nLat", "nLat");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4901,6 +5127,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("dtSummaryEndDate", "dtSummaryEndDate");
             tableMapping.ColumnMappings.Add("nCityIDDemand", "nCityIDDemand");
             tableMapping.ColumnMappings.Add("cCityDemand", "cCityDemand");
+            tableMapping.ColumnMappings.Add("nLat", "nLat");
+            tableMapping.ColumnMappings.Add("nLatDemand", "nLatDemand");
+            tableMapping.ColumnMappings.Add("nLong", "nLong");
+            tableMapping.ColumnMappings.Add("nLongDemand", "nLongDemand");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

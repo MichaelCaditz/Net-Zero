@@ -153,6 +153,22 @@ namespace Net_Zero
             mastersgetBatteryMasterTableAdapter.Fill(masters.getBatteryMaster);
             System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
             getBatteryMasterViewSource.View.MoveCurrentToFirst();
+
+
+
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+           
+           // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
+            // MessageBox.Show(nAmnt.ToString());
+
+            //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
+            //bool bDeleted = true;
+            string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+            string predictedHeader= "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt + "; Az: South";
+            GridColumnPredictedInsolation.Header = predictedHeader;
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)

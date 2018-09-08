@@ -95,6 +95,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nVoltage" DataSetColumn="nVoltage" />
               <Mapping SourceColumn="nChosenBattery" DataSetColumn="nChosenBattery" />
               <Mapping SourceColumn="nRunningLoss" DataSetColumn="nRunningLoss" />
+              <Mapping SourceColumn="nLat" DataSetColumn="nLat" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -163,6 +164,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="dtSummaryEndDate" DataSetColumn="dtSummaryEndDate" />
               <Mapping SourceColumn="nCityIDDemand" DataSetColumn="nCityIDDemand" />
               <Mapping SourceColumn="cCityDemand" DataSetColumn="cCityDemand" />
+              <Mapping SourceColumn="nLat" DataSetColumn="nLat" />
+              <Mapping SourceColumn="nLatDemand" DataSetColumn="nLatDemand" />
+              <Mapping SourceColumn="nLong" DataSetColumn="nLong" />
+              <Mapping SourceColumn="nLongDemand" DataSetColumn="nLongDemand" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -208,6 +213,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nChosenBatterykWh" msdata:ReadOnly="true" msdata:Expression="(nChosenBattery*nVoltage)/1000" msprop:Generator_ColumnVarNameInTable="columnnChosenBatterykWh" msprop:Generator_ColumnPropNameInRow="nChosenBatterykWh" msprop:Generator_ColumnPropNameInTable="nChosenBatterykWhColumn" msprop:Generator_UserColumnName="nChosenBatterykWh" type="xs:decimal" minOccurs="0" />
               <xs:element name="nBatteryRemainingkWh" msdata:ReadOnly="true" msdata:Expression="nChosenBatterykWh-nRunningLoss" msprop:Generator_ColumnVarNameInTable="columnnBatteryRemainingkWh" msprop:Generator_ColumnPropNameInRow="nBatteryRemainingkWh" msprop:Generator_ColumnPropNameInTable="nBatteryRemainingkWhColumn" msprop:Generator_UserColumnName="nBatteryRemainingkWh" type="xs:decimal" minOccurs="0" />
               <xs:element name="nPercentBatteryRemaining" msdata:ReadOnly="true" msdata:Expression="(nBatteryRemainingkWh*100)/nChosenBatterykWh" msprop:Generator_ColumnVarNameInTable="columnnPercentBatteryRemaining" msprop:Generator_ColumnPropNameInRow="nPercentBatteryRemaining" msprop:Generator_ColumnPropNameInTable="nPercentBatteryRemainingColumn" msprop:Generator_UserColumnName="nPercentBatteryRemaining" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nLat" msprop:Generator_ColumnVarNameInTable="columnnLat" msprop:Generator_ColumnPropNameInRow="nLat" msprop:Generator_ColumnPropNameInTable="nLatColumn" msprop:Generator_UserColumnName="nLat" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -300,6 +306,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="dtSummaryEndDate" msprop:Generator_ColumnVarNameInTable="columndtSummaryEndDate" msprop:Generator_ColumnPropNameInRow="dtSummaryEndDate" msprop:Generator_ColumnPropNameInTable="dtSummaryEndDateColumn" msprop:Generator_UserColumnName="dtSummaryEndDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="nCityIDDemand" msprop:Generator_ColumnVarNameInTable="columnnCityIDDemand" msprop:Generator_ColumnPropNameInRow="nCityIDDemand" msprop:Generator_ColumnPropNameInTable="nCityIDDemandColumn" msprop:Generator_UserColumnName="nCityIDDemand" type="xs:int" minOccurs="0" />
               <xs:element name="cCityDemand" msprop:Generator_ColumnVarNameInTable="columncCityDemand" msprop:Generator_ColumnPropNameInRow="cCityDemand" msprop:Generator_ColumnPropNameInTable="cCityDemandColumn" msprop:Generator_UserColumnName="cCityDemand" type="xs:string" minOccurs="0" />
+              <xs:element name="nLat" msprop:Generator_ColumnVarNameInTable="columnnLat" msprop:Generator_ColumnPropNameInRow="nLat" msprop:Generator_ColumnPropNameInTable="nLatColumn" msprop:Generator_UserColumnName="nLat" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nLatDemand" msprop:Generator_ColumnVarNameInTable="columnnLatDemand" msprop:Generator_ColumnPropNameInRow="nLatDemand" msprop:Generator_ColumnPropNameInTable="nLatDemandColumn" msprop:Generator_UserColumnName="nLatDemand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nLong" msprop:Generator_ColumnVarNameInTable="columnnLong" msprop:Generator_ColumnPropNameInRow="nLong" msprop:Generator_ColumnPropNameInTable="nLongColumn" msprop:Generator_UserColumnName="nLong" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nLongDemand" msprop:Generator_ColumnVarNameInTable="columnnLongDemand" msprop:Generator_ColumnPropNameInRow="nLongDemand" msprop:Generator_ColumnPropNameInTable="nLongDemandColumn" msprop:Generator_UserColumnName="nLongDemand" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
