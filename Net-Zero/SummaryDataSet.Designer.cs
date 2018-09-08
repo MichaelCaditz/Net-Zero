@@ -425,6 +425,14 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnLat;
             
+            private global::System.Data.DataColumn columncChosenTilt;
+            
+            private global::System.Data.DataColumn columnnSunAltitude;
+            
+            private global::System.Data.DataColumn columnnSunAzimuth;
+            
+            private global::System.Data.DataColumn columnnDeclination;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -677,6 +685,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn cChosenTiltColumn {
+                get {
+                    return this.columncChosenTilt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nSunAltitudeColumn {
+                get {
+                    return this.columnnSunAltitude;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nSunAzimuthColumn {
+                get {
+                    return this.columnnSunAzimuth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDeclinationColumn {
+                get {
+                    return this.columnnDeclination;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -737,7 +777,11 @@ namespace Net_Zero {
                         decimal nChosenBatterykWh, 
                         decimal nBatteryRemainingkWh, 
                         decimal nPercentBatteryRemaining, 
-                        decimal nLat) {
+                        decimal nLat, 
+                        string cChosenTilt, 
+                        decimal nSunAltitude, 
+                        decimal nSunAzimuth, 
+                        decimal nDeclination) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -765,7 +809,11 @@ namespace Net_Zero {
                         nChosenBatterykWh,
                         nBatteryRemainingkWh,
                         nPercentBatteryRemaining,
-                        nLat};
+                        nLat,
+                        cChosenTilt,
+                        nSunAltitude,
+                        nSunAzimuth,
+                        nDeclination};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -790,7 +838,11 @@ namespace Net_Zero {
                         decimal nVoltage, 
                         decimal nChosenBattery, 
                         decimal nRunningLoss, 
-                        decimal nLat) {
+                        decimal nLat, 
+                        string cChosenTilt, 
+                        decimal nSunAltitude, 
+                        decimal nSunAzimuth, 
+                        decimal nDeclination) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -818,7 +870,11 @@ namespace Net_Zero {
                         null,
                         null,
                         null,
-                        nLat};
+                        nLat,
+                        cChosenTilt,
+                        nSunAltitude,
+                        nSunAzimuth,
+                        nDeclination};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -874,6 +930,10 @@ namespace Net_Zero {
                 this.columnnBatteryRemainingkWh = base.Columns["nBatteryRemainingkWh"];
                 this.columnnPercentBatteryRemaining = base.Columns["nPercentBatteryRemaining"];
                 this.columnnLat = base.Columns["nLat"];
+                this.columncChosenTilt = base.Columns["cChosenTilt"];
+                this.columnnSunAltitude = base.Columns["nSunAltitude"];
+                this.columnnSunAzimuth = base.Columns["nSunAzimuth"];
+                this.columnnDeclination = base.Columns["nDeclination"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -931,6 +991,14 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnPercentBatteryRemaining);
                 this.columnnLat = new global::System.Data.DataColumn("nLat", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnLat);
+                this.columncChosenTilt = new global::System.Data.DataColumn("cChosenTilt", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncChosenTilt);
+                this.columnnSunAltitude = new global::System.Data.DataColumn("nSunAltitude", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnSunAltitude);
+                this.columnnSunAzimuth = new global::System.Data.DataColumn("nSunAzimuth", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnSunAzimuth);
+                this.columnnDeclination = new global::System.Data.DataColumn("nDeclination", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDeclination);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2741,6 +2809,70 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string cChosenTilt {
+                get {
+                    try {
+                        return ((string)(this[this.tablegetSummary.cChosenTiltColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cChosenTilt\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.cChosenTiltColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nSunAltitude {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nSunAltitudeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nSunAltitude\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nSunAltitudeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nSunAzimuth {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nSunAzimuthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nSunAzimuth\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nSunAzimuthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDeclination {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDeclinationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDeclination\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDeclinationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -3037,6 +3169,54 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnLatNull() {
                 this[this.tablegetSummary.nLatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscChosenTiltNull() {
+                return this.IsNull(this.tablegetSummary.cChosenTiltColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcChosenTiltNull() {
+                this[this.tablegetSummary.cChosenTiltColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnSunAltitudeNull() {
+                return this.IsNull(this.tablegetSummary.nSunAltitudeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnSunAltitudeNull() {
+                this[this.tablegetSummary.nSunAltitudeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnSunAzimuthNull() {
+                return this.IsNull(this.tablegetSummary.nSunAzimuthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnSunAzimuthNull() {
+                this[this.tablegetSummary.nSunAzimuthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDeclinationNull() {
+                return this.IsNull(this.tablegetSummary.nDeclinationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDeclinationNull() {
+                this[this.tablegetSummary.nDeclinationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4457,6 +4637,8 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nChosenBattery", "nChosenBattery");
             tableMapping.ColumnMappings.Add("nRunningLoss", "nRunningLoss");
             tableMapping.ColumnMappings.Add("nLat", "nLat");
+            tableMapping.ColumnMappings.Add("cChosenTilt", "cChosenTilt");
+            tableMapping.ColumnMappings.Add("nDeclination", "nDeclination");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

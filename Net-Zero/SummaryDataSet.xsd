@@ -96,6 +96,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nChosenBattery" DataSetColumn="nChosenBattery" />
               <Mapping SourceColumn="nRunningLoss" DataSetColumn="nRunningLoss" />
               <Mapping SourceColumn="nLat" DataSetColumn="nLat" />
+              <Mapping SourceColumn="cChosenTilt" DataSetColumn="cChosenTilt" />
+              <Mapping SourceColumn="nDeclination" DataSetColumn="nDeclination" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -214,6 +216,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nBatteryRemainingkWh" msdata:ReadOnly="true" msdata:Expression="nChosenBatterykWh-nRunningLoss" msprop:Generator_ColumnVarNameInTable="columnnBatteryRemainingkWh" msprop:Generator_ColumnPropNameInRow="nBatteryRemainingkWh" msprop:Generator_ColumnPropNameInTable="nBatteryRemainingkWhColumn" msprop:Generator_UserColumnName="nBatteryRemainingkWh" type="xs:decimal" minOccurs="0" />
               <xs:element name="nPercentBatteryRemaining" msdata:ReadOnly="true" msdata:Expression="(nBatteryRemainingkWh*100)/nChosenBatterykWh" msprop:Generator_ColumnVarNameInTable="columnnPercentBatteryRemaining" msprop:Generator_ColumnPropNameInRow="nPercentBatteryRemaining" msprop:Generator_ColumnPropNameInTable="nPercentBatteryRemainingColumn" msprop:Generator_UserColumnName="nPercentBatteryRemaining" type="xs:decimal" minOccurs="0" />
               <xs:element name="nLat" msprop:Generator_ColumnVarNameInTable="columnnLat" msprop:Generator_ColumnPropNameInRow="nLat" msprop:Generator_ColumnPropNameInTable="nLatColumn" msprop:Generator_UserColumnName="nLat" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cChosenTilt" msprop:Generator_ColumnVarNameInTable="columncChosenTilt" msprop:Generator_ColumnPropNameInRow="cChosenTilt" msprop:Generator_ColumnPropNameInTable="cChosenTiltColumn" msprop:Generator_UserColumnName="cChosenTilt" type="xs:string" minOccurs="0" />
+              <xs:element name="nSunAltitude" msprop:Generator_ColumnVarNameInTable="columnnSunAltitude" msprop:Generator_ColumnPropNameInRow="nSunAltitude" msprop:Generator_ColumnPropNameInTable="nSunAltitudeColumn" msprop:Generator_UserColumnName="nSunAltitude" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nSunAzimuth" msprop:Generator_ColumnVarNameInTable="columnnSunAzimuth" msprop:Generator_ColumnPropNameInRow="nSunAzimuth" msprop:Generator_ColumnPropNameInTable="nSunAzimuthColumn" msprop:Generator_UserColumnName="nSunAzimuth" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDeclination" msprop:Generator_ColumnVarNameInTable="columnnDeclination" msprop:Generator_ColumnPropNameInRow="nDeclination" msprop:Generator_ColumnPropNameInTable="nDeclinationColumn" msprop:Generator_UserColumnName="nDeclination" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

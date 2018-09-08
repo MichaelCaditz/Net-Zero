@@ -209,9 +209,29 @@
                                 <dxe:TextEditSettings DisplayFormat="##.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nLat" Header="Latitude"     IsSmart="True" Width="120">
+                        <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt Deg."    IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings  />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nLat" Header="Latitude"     IsSmart="True" Width="100">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00000" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nDeclination" Header="Solar Declination Deg."     IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.0000" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg."     IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.0000" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg."     IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings DisplayFormat="##.0000" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" IsSmart="True"  Width="260" AllowConditionalFormattingMenu="False">
