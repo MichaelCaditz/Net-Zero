@@ -91,9 +91,12 @@ namespace Net_Zero
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
-            TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-            TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
-
+            //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+            //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+            TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+               Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+            TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+              Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
 
 
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
