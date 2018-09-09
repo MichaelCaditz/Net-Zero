@@ -358,7 +358,7 @@
                                 </dxc:ChartControl>
                             </Grid>
                         </dx:DXTabItem>
-                        <dx:DXTabItem Header="PV" Height="22" VerticalAlignment="Top">
+                        <dx:DXTabItem Header="PV Power" Height="22" VerticalAlignment="Top">
                             <Grid Background="Transparent">
 
                                 <dxc:ChartControl x:Name="PVChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -373,6 +373,34 @@
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
                                         <dxc:LineSeries2D DisplayName="Chosen PV" ArgumentDataMember="dtDate" ValueDataMember="nChosenPV"/>
                                         <dxc:LineSeries2D DisplayName="Required PV" ArgumentDataMember="dtDate" ValueDataMember="nRequiredPV">
+                                            <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                    </dxc:XYDiagram2D>
+                                </dxc:ChartControl>
+
+                            </Grid>
+                        </dx:DXTabItem>
+                        <dx:DXTabItem Header="PV Tilt" Height="22" VerticalAlignment="Top">
+                            <Grid Background="Transparent">
+
+                                <dxc:ChartControl x:Name="PVTiltChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                    <dxc:ChartControl.Legends>
+                                        <dxc:Legend/>
+                                    </dxc:ChartControl.Legends>
+                                    <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D.AxisX>
+                                            <dxc:AxisX2D/>
+                                        </dxc:XYDiagram2D.AxisX>
+                                        <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                        <dxc:LineSeries2D DisplayName="Chosen Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nChosenTiltDeg">
+                                        <dxc:LineSeries2D.LineStyle>
+                                            <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
+                                        </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                        <dxc:LineSeries2D DisplayName="Optimum Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nSunAltitude">
                                             <dxc:LineSeries2D.LineStyle>
                                                 <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                             </dxc:LineSeries2D.LineStyle>
