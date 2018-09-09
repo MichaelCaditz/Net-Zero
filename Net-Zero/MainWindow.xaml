@@ -224,12 +224,12 @@
                                 <dxe:TextEditSettings DisplayFormat="##.0000" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg."     IsSmart="True" Width="140">
+                        <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg. Noon"     IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.0000" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg."     IsSmart="True" Width="140">
+                        <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg.Noon"     IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.0000" />
                             </dxg:GridColumn.EditSettings>
