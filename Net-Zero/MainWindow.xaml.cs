@@ -655,6 +655,18 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
                 TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+
+                string message20 = "Update complete";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 
@@ -722,6 +734,18 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
                 TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+
+                string message20 = "Update complete";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 

@@ -299,7 +299,7 @@
                                 <dxe:TextEditSettings DisplayFormat="##.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative battery Loss kWh" IsSmart="True"  Width="180" SortOrder="Ascending" SortIndex="0">
+                        <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True"  Width="180" SortOrder="Ascending" SortIndex="0">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00"/>
                             </dxg:GridColumn.EditSettings>
@@ -423,8 +423,12 @@
                                         </dxc:XYDiagram2D.AxisX>
                                         <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                                        <dxc:LineSeries2D DisplayName="Battery Remaining %" ArgumentDataMember="dtDate" ValueDataMember="nPercentBatteryRemaining">
-
+                                        <dxc:LineSeries2D DisplayName="Battery Remaining kWh" ArgumentDataMember="dtDate" ValueDataMember="nBatteryRemainingkWh">
+                                               <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
+                                        </dxc:LineSeries2D>
+                                        <dxc:LineSeries2D DisplayName="Battery Loss kWh" ArgumentDataMember="dtDate" ValueDataMember="nRunningLoss">
                                             <dxc:LineSeries2D.LineStyle>
                                                 <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                             </dxc:LineSeries2D.LineStyle>
