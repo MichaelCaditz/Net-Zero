@@ -47,7 +47,6 @@ namespace Net_Zero
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
-            // Load data into the table demandItems. You can modify this code as needed.
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
             demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
@@ -56,19 +55,13 @@ namespace Net_Zero
 
 
             Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
-            // TODO: Add code here to load data into the table getSummary.
-            // This code could not be generated, because the summaryDataSetgetSummaryTableAdapter.Fill method is missing, or has unrecognized parameters.
-
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
             summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
-
-
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
             getSummaryViewSource.View.MoveCurrentToFirst();
 
 
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
-
             Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter geographygetAllCountriesTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter();
             geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
             System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
@@ -550,14 +543,7 @@ namespace Net_Zero
                     conn.Open();
                     cmd3.ExecuteNonQuery();
                     //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
-                    Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
-
-                    Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-                    summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
-                    System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-                    getProjectViewSource.View.MoveCurrentToFirst();
-                    TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                    TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                   
 
                 }
 
@@ -576,6 +562,22 @@ namespace Net_Zero
             finally
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
+
+                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+
+                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                getProjectViewSource.View.MoveCurrentToFirst();
+
+
+                DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
+                decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
+                TextEditnPVRequired.EditValue = nPVRequired;
+                TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+               Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+                TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+                  Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
                 string message20 = "Update complete";
                 string caption20 = "Net-Zero";
                 MessageBoxButton buttons20 = MessageBoxButton.OK;

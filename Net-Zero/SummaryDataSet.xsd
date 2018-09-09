@@ -98,6 +98,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nLat" DataSetColumn="nLat" />
               <Mapping SourceColumn="cChosenTilt" DataSetColumn="cChosenTilt" />
               <Mapping SourceColumn="nDeclination" DataSetColumn="nDeclination" />
+              <Mapping SourceColumn="nChosenTiltDeg" DataSetColumn="nChosenTiltDeg" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -220,6 +221,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nSunAltitude" msprop:Generator_ColumnVarNameInTable="columnnSunAltitude" msprop:Generator_ColumnPropNameInRow="nSunAltitude" msprop:Generator_ColumnPropNameInTable="nSunAltitudeColumn" msprop:Generator_UserColumnName="nSunAltitude" type="xs:decimal" minOccurs="0" />
               <xs:element name="nSunAzimuth" msprop:Generator_ColumnVarNameInTable="columnnSunAzimuth" msprop:Generator_ColumnPropNameInRow="nSunAzimuth" msprop:Generator_ColumnPropNameInTable="nSunAzimuthColumn" msprop:Generator_UserColumnName="nSunAzimuth" type="xs:decimal" minOccurs="0" />
               <xs:element name="nDeclination" msprop:Generator_ColumnVarNameInTable="columnnDeclination" msprop:Generator_ColumnPropNameInRow="nDeclination" msprop:Generator_ColumnPropNameInTable="nDeclinationColumn" msprop:Generator_UserColumnName="nDeclination" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nChosenTiltDeg" msprop:Generator_ColumnVarNameInTable="columnnChosenTiltDeg" msprop:Generator_ColumnPropNameInRow="nChosenTiltDeg" msprop:Generator_ColumnPropNameInTable="nChosenTiltDegColumn" msprop:Generator_UserColumnName="nChosenTiltDeg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTiltError" msdata:ReadOnly="true" msdata:Expression="nChosenTiltDeg-nSunAltitude" msprop:Generator_ColumnVarNameInTable="columnnTiltError" msprop:Generator_ColumnPropNameInRow="nTiltError" msprop:Generator_ColumnPropNameInTable="nTiltErrorColumn" msprop:Generator_UserColumnName="nTiltError" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

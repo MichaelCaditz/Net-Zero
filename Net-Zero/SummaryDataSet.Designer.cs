@@ -350,6 +350,7 @@ namespace Net_Zero {
             this.getSummary.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
             this.getSummary.nBatteryRemainingkWhColumn.Expression = "nChosenBatterykWh-nRunningLoss";
             this.getSummary.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
+            this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-nSunAltitude";
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
             this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
@@ -432,6 +433,10 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnSunAzimuth;
             
             private global::System.Data.DataColumn columnnDeclination;
+            
+            private global::System.Data.DataColumn columnnChosenTiltDeg;
+            
+            private global::System.Data.DataColumn columnnTiltError;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -717,6 +722,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nChosenTiltDegColumn {
+                get {
+                    return this.columnnChosenTiltDeg;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTiltErrorColumn {
+                get {
+                    return this.columnnTiltError;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -781,7 +802,9 @@ namespace Net_Zero {
                         string cChosenTilt, 
                         decimal nSunAltitude, 
                         decimal nSunAzimuth, 
-                        decimal nDeclination) {
+                        decimal nDeclination, 
+                        decimal nChosenTiltDeg, 
+                        decimal nTiltError) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -813,7 +836,9 @@ namespace Net_Zero {
                         cChosenTilt,
                         nSunAltitude,
                         nSunAzimuth,
-                        nDeclination};
+                        nDeclination,
+                        nChosenTiltDeg,
+                        nTiltError};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -842,7 +867,8 @@ namespace Net_Zero {
                         string cChosenTilt, 
                         decimal nSunAltitude, 
                         decimal nSunAzimuth, 
-                        decimal nDeclination) {
+                        decimal nDeclination, 
+                        decimal nChosenTiltDeg) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -874,7 +900,9 @@ namespace Net_Zero {
                         cChosenTilt,
                         nSunAltitude,
                         nSunAzimuth,
-                        nDeclination};
+                        nDeclination,
+                        nChosenTiltDeg,
+                        null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -934,6 +962,8 @@ namespace Net_Zero {
                 this.columnnSunAltitude = base.Columns["nSunAltitude"];
                 this.columnnSunAzimuth = base.Columns["nSunAzimuth"];
                 this.columnnDeclination = base.Columns["nDeclination"];
+                this.columnnChosenTiltDeg = base.Columns["nChosenTiltDeg"];
+                this.columnnTiltError = base.Columns["nTiltError"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -999,6 +1029,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnSunAzimuth);
                 this.columnnDeclination = new global::System.Data.DataColumn("nDeclination", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnDeclination);
+                this.columnnChosenTiltDeg = new global::System.Data.DataColumn("nChosenTiltDeg", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnChosenTiltDeg);
+                this.columnnTiltError = new global::System.Data.DataColumn("nTiltError", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTiltError);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1016,6 +1050,7 @@ namespace Net_Zero {
                 this.columnnChosenBatterykWh.ReadOnly = true;
                 this.columnnBatteryRemainingkWh.ReadOnly = true;
                 this.columnnPercentBatteryRemaining.ReadOnly = true;
+                this.columnnTiltError.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1047,6 +1082,7 @@ namespace Net_Zero {
                 this.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
                 this.nBatteryRemainingkWhColumn.Expression = "nChosenBatterykWh-nRunningLoss";
                 this.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
+                this.nTiltErrorColumn.Expression = "nChosenTiltDeg-nSunAltitude";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2873,6 +2909,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nChosenTiltDeg {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nChosenTiltDegColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nChosenTiltDeg\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nChosenTiltDegColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTiltError {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTiltErrorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTiltError\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTiltErrorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -3217,6 +3285,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnDeclinationNull() {
                 this[this.tablegetSummary.nDeclinationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnChosenTiltDegNull() {
+                return this.IsNull(this.tablegetSummary.nChosenTiltDegColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnChosenTiltDegNull() {
+                this[this.tablegetSummary.nChosenTiltDegColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTiltErrorNull() {
+                return this.IsNull(this.tablegetSummary.nTiltErrorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTiltErrorNull() {
+                this[this.tablegetSummary.nTiltErrorColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4639,6 +4731,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nLat", "nLat");
             tableMapping.ColumnMappings.Add("cChosenTilt", "cChosenTilt");
             tableMapping.ColumnMappings.Add("nDeclination", "nDeclination");
+            tableMapping.ColumnMappings.Add("nChosenTiltDeg", "nChosenTiltDeg");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

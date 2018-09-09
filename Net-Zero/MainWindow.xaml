@@ -209,7 +209,7 @@
                                 <dxe:TextEditSettings DisplayFormat="##.00" />
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt Deg."    IsSmart="True" Width="140">
+                        <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"    IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings  />
                             </dxg:GridColumn.EditSettings>
@@ -227,6 +227,16 @@
                         <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg. Noon"     IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.0000" />
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Chosen Tilt Deg."    IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings  DisplayFormat="##.0000"/>
+                            </dxg:GridColumn.EditSettings>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error Deg."    IsSmart="True" Width="140">
+                            <dxg:GridColumn.EditSettings>
+                                <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
                         <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg.Noon"     IsSmart="True" Width="140">
@@ -778,8 +788,8 @@
                     <Label Content="= " HorizontalAlignment="Left" Margin="169,237,0,0" VerticalAlignment="Top" Width="18" RenderTransformOrigin="-17.389,-1.636"/>
                     <Label Content="kW" HorizontalAlignment="Left" Margin="255,237,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
                     <Label Content="h/d" HorizontalAlignment="Left" Margin="472,159,0,0" VerticalAlignment="Top" Width="47" Foreground="White"/>
-                    <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="00.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White"/>
-                    <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                    <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="00.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White"/>
+                    <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                     <dx:SimpleButton x:Name="SimpleButtonSaveChosenPV" Content="" HorizontalAlignment="Left" Margin="196,392,0,0" VerticalAlignment="Top" IsDefault="True" Click="SimpleButtonSaveChosenPV_Click" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Chosen PV to Project File"/>
                     <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="179,327,0,0" VerticalAlignment="Top" Width="100" Mask="######.##" MaskType="Numeric" MaxValue="10000" MinValue="0.01" Increment="0.01" FontWeight="Bold"/>
                     <Label Content="Chosen PV Power" HorizontalAlignment="Left" Margin="180,349,0,0" VerticalAlignment="Top" Foreground="White"/>
