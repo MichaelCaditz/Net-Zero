@@ -1638,6 +1638,14 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnLongDemand;
             
+            private global::System.Data.DataColumn columnnStateProvinceID;
+            
+            private global::System.Data.DataColumn columnnCountryID;
+            
+            private global::System.Data.DataColumn columnnStateProvinceIDDemand;
+            
+            private global::System.Data.DataColumn columnnCountryIDDemand;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -1970,6 +1978,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nStateProvinceIDColumn {
+                get {
+                    return this.columnnStateProvinceID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nCountryIDColumn {
+                get {
+                    return this.columnnCountryID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nStateProvinceIDDemandColumn {
+                get {
+                    return this.columnnStateProvinceIDDemand;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nCountryIDDemandColumn {
+                get {
+                    return this.columnnCountryIDDemand;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2040,7 +2080,11 @@ namespace Net_Zero {
                         decimal nLat, 
                         decimal nLatDemand, 
                         decimal nLong, 
-                        decimal nLongDemand) {
+                        decimal nLongDemand, 
+                        int nStateProvinceID, 
+                        int nCountryID, 
+                        int nStateProvinceIDDemand, 
+                        int nCountryIDDemand) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2078,7 +2122,11 @@ namespace Net_Zero {
                         nLat,
                         nLatDemand,
                         nLong,
-                        nLongDemand};
+                        nLongDemand,
+                        nStateProvinceID,
+                        nCountryID,
+                        nStateProvinceIDDemand,
+                        nCountryIDDemand};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2116,7 +2164,11 @@ namespace Net_Zero {
                         decimal nLat, 
                         decimal nLatDemand, 
                         decimal nLong, 
-                        decimal nLongDemand) {
+                        decimal nLongDemand, 
+                        int nStateProvinceID, 
+                        int nCountryID, 
+                        int nStateProvinceIDDemand, 
+                        int nCountryIDDemand) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2154,7 +2206,11 @@ namespace Net_Zero {
                         nLat,
                         nLatDemand,
                         nLong,
-                        nLongDemand};
+                        nLongDemand,
+                        nStateProvinceID,
+                        nCountryID,
+                        nStateProvinceIDDemand,
+                        nCountryIDDemand};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2220,6 +2276,10 @@ namespace Net_Zero {
                 this.columnnLatDemand = base.Columns["nLatDemand"];
                 this.columnnLong = base.Columns["nLong"];
                 this.columnnLongDemand = base.Columns["nLongDemand"];
+                this.columnnStateProvinceID = base.Columns["nStateProvinceID"];
+                this.columnnCountryID = base.Columns["nCountryID"];
+                this.columnnStateProvinceIDDemand = base.Columns["nStateProvinceIDDemand"];
+                this.columnnCountryIDDemand = base.Columns["nCountryIDDemand"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2297,6 +2357,14 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnLong);
                 this.columnnLongDemand = new global::System.Data.DataColumn("nLongDemand", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnLongDemand);
+                this.columnnStateProvinceID = new global::System.Data.DataColumn("nStateProvinceID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnStateProvinceID);
+                this.columnnCountryID = new global::System.Data.DataColumn("nCountryID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCountryID);
+                this.columnnStateProvinceIDDemand = new global::System.Data.DataColumn("nStateProvinceIDDemand", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnStateProvinceIDDemand);
+                this.columnnCountryIDDemand = new global::System.Data.DataColumn("nCountryIDDemand", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCountryIDDemand);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -4156,6 +4224,70 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nStateProvinceID {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nStateProvinceIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nStateProvinceID\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nStateProvinceIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nCountryID {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nCountryIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCountryID\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nCountryIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nStateProvinceIDDemand {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nStateProvinceIDDemandColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nStateProvinceIDDemand\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nStateProvinceIDDemandColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nCountryIDDemand {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nCountryIDDemandColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCountryIDDemand\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nCountryIDDemandColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -4572,6 +4704,54 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnLongDemandNull() {
                 this[this.tablegetProject.nLongDemandColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnStateProvinceIDNull() {
+                return this.IsNull(this.tablegetProject.nStateProvinceIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnStateProvinceIDNull() {
+                this[this.tablegetProject.nStateProvinceIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnCountryIDNull() {
+                return this.IsNull(this.tablegetProject.nCountryIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnCountryIDNull() {
+                this[this.tablegetProject.nCountryIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnStateProvinceIDDemandNull() {
+                return this.IsNull(this.tablegetProject.nStateProvinceIDDemandColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnStateProvinceIDDemandNull() {
+                this[this.tablegetProject.nStateProvinceIDDemandColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnCountryIDDemandNull() {
+                return this.IsNull(this.tablegetProject.nCountryIDDemandColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnCountryIDDemandNull() {
+                this[this.tablegetProject.nCountryIDDemandColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5499,6 +5679,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nLatDemand", "nLatDemand");
             tableMapping.ColumnMappings.Add("nLong", "nLong");
             tableMapping.ColumnMappings.Add("nLongDemand", "nLongDemand");
+            tableMapping.ColumnMappings.Add("nStateProvinceID", "nStateProvinceID");
+            tableMapping.ColumnMappings.Add("nCountryID", "nCountryID");
+            tableMapping.ColumnMappings.Add("nStateProvinceIDDemand", "nStateProvinceIDDemand");
+            tableMapping.ColumnMappings.Add("nCountryIDDemand", "nCountryIDDemand");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

@@ -3125,6 +3125,178 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
                 //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+
+                string message20 = "Demand location saved";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+            }
+        }
+
+        private void DXTabItem_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+
+            // Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
+            //  Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter geographygetAllCountriesTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter();
+            // geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
+            //System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
+
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nCountryID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCountryID"]) == true ? 0 : (int)drv3["nCountryID"]);
+            LocateNewLineCountry(nCountryID);
+            int nStateProvinceID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nStateProvinceID"]) == true ? 0 : (int)drv3["nStateProvinceID"]);
+            LocateNewLineStateProvince(nStateProvinceID);
+            int nCityID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCityID"]) == true ? 0 : (int)drv3["nCityID"]);
+            LocateNewLineCity(nCityID);
+
+
+            //getAllCountriesViewSource.View.MoveCurrentToPosition(40);
+
+
+            //Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter geographygetAllStateProvinceTableAdapter = new Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter();
+            //geographygetAllStateProvinceTableAdapter.Fill(geography.getAllStateProvince);
+            //System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvinceViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvinceViewSource")));
+            //getAllCountriesgetAllStateProvinceViewSource.View.MoveCurrentToFirst();
+
+
+            //Net_Zero.GeographyTableAdapters.getAllCityTableAdapter geographygetAllCityTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCityTableAdapter();
+            //geographygetAllCityTableAdapter.Fill(geography.getAllCity);
+            //System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCityViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCityViewSource")));
+            //getAllCountriesgetAllStateProvincegetAllCityViewSource.View.MoveCurrentToFirst();
+
+            //Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter geographygetAllInsolationTableAdapter = new Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter();
+            //geographygetAllInsolationTableAdapter.Fill(geography.getAllInsolation);
+
+
+            //string message20 = "PV location";
+            //string caption20 = "Net-Zero";
+            //MessageBoxButton buttons20 = MessageBoxButton.OK;
+            //MessageBoxImage icon20 = MessageBoxImage.Information;
+            //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            //// Show message box
+            //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+            //// Displays the MessageBox.
+            //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+        }
+        public void LocateNewLineCountry(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView) TreeListControlCountry.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlCountry.SelectedItem = drv;
+                        TreeListControlCountry.CurrentItem = drv;
+                        break;
+                    }
+            }
+        }
+        public void LocateNewLineStateProvince(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlStateProvince.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlStateProvince.SelectedItem = drv;
+                        TreeListControlStateProvince.CurrentItem = drv;
+                        break;
+                    }
+            }
+        }
+        public void LocateNewLineCity(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCity.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlCity.SelectedItem = drv;
+                        TreeListControlCity.CurrentItem = drv;
+                        break;
+                    }
+            }
+        }
+
+        private void DXTabItemDemandLocation_GotFocus(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nCountryIDDemand = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCountryIDDemand"]) == true ? 0 : (int)drv3["nCountryIDDemand"]);
+            LocateNewLineCountryDemand(nCountryIDDemand);
+            int nStateProvinceIDDemand = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nStateProvinceIDDemand"]) == true ? 0 : (int)drv3["nStateProvinceIDDemand"]);
+            LocateNewLineStateProvinceDemand(nStateProvinceIDDemand);
+            int nCityIDDemand = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCityIDDemand"]) == true ? 0 : (int)drv3["nCityIDDemand"]);
+            LocateNewLineCityDemand(nCityIDDemand);
+        }
+        public void LocateNewLineCountryDemand(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCountryDemand.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlCountryDemand.SelectedItem = drv;
+                        TreeListControlCountryDemand.CurrentItem = drv;
+                        break;
+                    }
+            }
+        }
+        public void LocateNewLineStateProvinceDemand(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlStateProvinceDemand.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlStateProvinceDemand.SelectedItem = drv;
+                        TreeListControlStateProvinceDemand.CurrentItem = drv;
+                        break;
+                    }
+            }
+        }
+        public void LocateNewLineCityDemand(int IDToFind)
+        {
+            //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
+
+            if (IDToFind > -1)
+            {
+                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCityDemand.ItemsSource)
+                    if ((int)drv["nID"] == IDToFind)
+                    {
+                        // This is the data row view record you want...
+                        TreeListControlCityDemand.SelectedItem = drv;
+                        TreeListControlCityDemand.CurrentItem = drv;
+                        break;
+                    }
             }
         }
     }

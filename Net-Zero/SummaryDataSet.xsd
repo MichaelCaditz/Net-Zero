@@ -173,6 +173,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nLatDemand" DataSetColumn="nLatDemand" />
               <Mapping SourceColumn="nLong" DataSetColumn="nLong" />
               <Mapping SourceColumn="nLongDemand" DataSetColumn="nLongDemand" />
+              <Mapping SourceColumn="nStateProvinceID" DataSetColumn="nStateProvinceID" />
+              <Mapping SourceColumn="nCountryID" DataSetColumn="nCountryID" />
+              <Mapping SourceColumn="nStateProvinceIDDemand" DataSetColumn="nStateProvinceIDDemand" />
+              <Mapping SourceColumn="nCountryIDDemand" DataSetColumn="nCountryIDDemand" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -323,6 +327,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nLatDemand" msprop:Generator_ColumnVarNameInTable="columnnLatDemand" msprop:Generator_ColumnPropNameInRow="nLatDemand" msprop:Generator_ColumnPropNameInTable="nLatDemandColumn" msprop:Generator_UserColumnName="nLatDemand" type="xs:decimal" minOccurs="0" />
               <xs:element name="nLong" msprop:Generator_ColumnVarNameInTable="columnnLong" msprop:Generator_ColumnPropNameInRow="nLong" msprop:Generator_ColumnPropNameInTable="nLongColumn" msprop:Generator_UserColumnName="nLong" type="xs:decimal" minOccurs="0" />
               <xs:element name="nLongDemand" msprop:Generator_ColumnVarNameInTable="columnnLongDemand" msprop:Generator_ColumnPropNameInRow="nLongDemand" msprop:Generator_ColumnPropNameInTable="nLongDemandColumn" msprop:Generator_UserColumnName="nLongDemand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nStateProvinceID" msprop:Generator_ColumnVarNameInTable="columnnStateProvinceID" msprop:Generator_ColumnPropNameInRow="nStateProvinceID" msprop:Generator_ColumnPropNameInTable="nStateProvinceIDColumn" msprop:Generator_UserColumnName="nStateProvinceID" type="xs:int" minOccurs="0" />
+              <xs:element name="nCountryID" msprop:Generator_ColumnVarNameInTable="columnnCountryID" msprop:Generator_ColumnPropNameInRow="nCountryID" msprop:Generator_ColumnPropNameInTable="nCountryIDColumn" msprop:Generator_UserColumnName="nCountryID" type="xs:int" minOccurs="0" />
+              <xs:element name="nStateProvinceIDDemand" msprop:Generator_ColumnVarNameInTable="columnnStateProvinceIDDemand" msprop:Generator_ColumnPropNameInRow="nStateProvinceIDDemand" msprop:Generator_ColumnPropNameInTable="nStateProvinceIDDemandColumn" msprop:Generator_UserColumnName="nStateProvinceIDDemand" type="xs:int" minOccurs="0" />
+              <xs:element name="nCountryIDDemand" msprop:Generator_ColumnVarNameInTable="columnnCountryIDDemand" msprop:Generator_ColumnPropNameInRow="nCountryIDDemand" msprop:Generator_ColumnPropNameInTable="nCountryIDDemandColumn" msprop:Generator_UserColumnName="nCountryIDDemand" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
