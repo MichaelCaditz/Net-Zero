@@ -396,9 +396,9 @@
                                         <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
                                         <dxc:LineSeries2D DisplayName="Chosen Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nChosenTiltDeg">
-                                        <dxc:LineSeries2D.LineStyle>
-                                            <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
-                                        </dxc:LineSeries2D.LineStyle>
+                                            <dxc:LineSeries2D.LineStyle>
+                                                <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
+                                            </dxc:LineSeries2D.LineStyle>
                                         </dxc:LineSeries2D>
                                         <dxc:LineSeries2D DisplayName="Optimum Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nSunAltitude">
                                             <dxc:LineSeries2D.LineStyle>
@@ -424,7 +424,7 @@
                                         <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
                                         <dxc:LineSeries2D DisplayName="Battery Remaining kWh" ArgumentDataMember="dtDate" ValueDataMember="nBatteryRemainingkWh">
-                                               <dxc:LineSeries2D.LineStyle>
+                                            <dxc:LineSeries2D.LineStyle>
                                                 <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                             </dxc:LineSeries2D.LineStyle>
                                         </dxc:LineSeries2D>
@@ -543,11 +543,11 @@
 
                     </dxg:TreeListControl>
                     <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
-                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="410,581,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
-                    <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="410,506,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Increment="0.01"/>
+                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="826,5,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
+                    <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="669,5,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Increment="0.01"/>
 
 
-                    <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="410,529,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                    <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="669,28,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                     <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
                     <dxc:ChartControl x:Name="InsolationChart" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -591,7 +591,7 @@
                     <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
                 </Grid>
             </dx:DXTabItem>
-            <dx:DXTabItem Header="Storage Location" Height="22" VerticalAlignment="Top">
+            <dx:DXTabItem Header="Demand Location" Height="22" VerticalAlignment="Top">
                 <Grid Margin="10,10,10,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
@@ -669,11 +669,7 @@
 
                     </dxg:TreeListControl>
                     <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
-                    <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="410,581,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_1" IsDefault="True" Grid.Row="1" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day"/>
-                    <dxe:SpinEdit x:Name="TextEditInsolation1" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="410,506,0,0" EditValue="{Binding nChosenInsolation, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Increment="0.01"/>
-
-
-                    <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="410,529,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                    <dx:SimpleButton x:Name="SimpleButtonSaveDemandLocation" Content="" HorizontalAlignment="Left" Margin="826,5,0,0" VerticalAlignment="Top" IsDefault="True" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save City &amp; Sun Hours/day" Click="SimpleButtonSaveDemandLocation_Click"/>
                     <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy11" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCityDemand, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                     <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
                     <dxc:ChartControl x:Name="InsolationChart1" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">

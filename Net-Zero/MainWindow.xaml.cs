@@ -2983,5 +2983,149 @@ namespace Net_Zero
             // Displays the MessageBox.
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
+
+        private void SimpleButtonSaveDemandLocation_Click(object sender, RoutedEventArgs e)
+        {
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+            int nCityID = 0;
+            decimal nInsolation = 0;
+            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+
+            //string notes = "";
+            //string account_no = "";
+            //string address1 = "";
+            //string address2 = "";
+            //string city = "";
+            //string state = "";
+            //string state_other = "";
+            //string zip = "";
+            //string country = "";
+            //string postal_code = "";
+            //string areacode = "";
+            //string phone = "";
+            //string email = "";
+            //string website = "";
+            //string rep = "";
+            //string name = "";
+            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
+            Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
+
+
+            //int accountCurrent = 0;
+            int wasnull = 0;
+            wasnull = (getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
+                string caption = "CoolBlue";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+
+
+                DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
+                //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
+                nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
+                nInsolation = (TextEditInsolation.EditValue == null ? 0 : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
+                //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
+                //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
+
+            }
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "dbo.updateCityDemand";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@nCityID", nCityID);
+                   // cmd3.Parameters.AddWithValue("@nInsolation", nInsolation);
+                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
+                    //cmd3.Parameters.AddWithValue("@address1", address1);
+                    //cmd3.Parameters.AddWithValue("@address2", address2);
+                    //cmd3.Parameters.AddWithValue("@city", city);
+
+
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                //VendorDataSet.EnforceConstraints = false;
+
+                //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
+
+
+                //vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
+
+                //VendorDataSet.EnforceConstraints = true;
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                // LocateNewLine(TransactID1);
+                //this.Close();
+                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+
+                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                getProjectViewSource.View.MoveCurrentToFirst();
+                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+            }
+        }
     }
 }
