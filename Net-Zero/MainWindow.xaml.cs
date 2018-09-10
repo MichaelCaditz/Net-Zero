@@ -42,6 +42,7 @@ namespace Net_Zero
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Title = "Net - Zero     Autonomous and Backup PV System Design     " + ProgramSettings.net_zeroconnectionStringPublic;
             Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
             int nLastProjectID = Settings.Default.nLastProjectID;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;

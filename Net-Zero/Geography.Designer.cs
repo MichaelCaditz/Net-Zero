@@ -3048,7 +3048,7 @@ namespace Net_Zero.GeographyTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionString;
+            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3220,7 +3220,7 @@ namespace Net_Zero.GeographyTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionString;
+            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3394,7 +3394,7 @@ namespace Net_Zero.GeographyTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionString;
+            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3573,7 +3573,7 @@ namespace Net_Zero.GeographyTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionString;
+            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

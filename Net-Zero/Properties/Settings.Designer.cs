@@ -12,7 +12,7 @@ namespace Net_Zero.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,10 +26,11 @@ namespace Net_Zero.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SAGER10;Initial Catalog=Net-Zero;Integrated Security=True")]
-        public string Net_ZeroConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tcp:s14.winhost.com;Initial Catalog=DB_80510_netzero;User ID=DB_80510" +
+            "_netzero_user;Password=NZ8965!!;Integrated Security=False")]
+        public string Net_ZeroConnectionStringWinhost {
             get {
-                return ((string)(this["Net_ZeroConnectionString"]));
+                return ((string)(this["Net_ZeroConnectionStringWinhost"]));
             }
         }
         
@@ -54,6 +55,15 @@ namespace Net_Zero.Properties {
             }
             set {
                 this["nCurrentProjectID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SAGER10;Initial Catalog=Net-Zero;Integrated Security=True")]
+        public string Net_ZeroConnectionStringLocal {
+            get {
+                return ((string)(this["Net_ZeroConnectionStringLocal"]));
             }
         }
     }
