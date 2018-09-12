@@ -84,6 +84,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Mvvm.v17.2" />
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Colorful.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

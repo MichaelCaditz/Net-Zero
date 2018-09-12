@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" x:Name="ThemedWindowMain" x:Class="Net_Zero.MainWindow"
-        Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded" Background="#FF318387">
+        Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="CenterScreen" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" VerticalAlignment="Top" HorizontalAlignment="Left">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
         <CollectionViewSource x:Key="demandItemsViewSource" Source="{Binding demandItems, Source={StaticResource demandDataSet}}"/>
@@ -37,6 +37,8 @@
 
 
     </dx:ThemedWindow.Resources>
+    <!--<ScrollViewer Margin="304,-5,0,0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -86,7 +88,8 @@
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
-        <dx:DXTabControl Margin="20,12,20,20" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged">
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60">
+        <dx:DXTabControl Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
             <dx:DXTabItem Header="Project Details" Background="#FF8D1111" >
                 <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" >
                     <Grid.ColumnDefinitions>
@@ -141,7 +144,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="85,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="14" Grid.Row="1" Grid.Column="2"/>
                     <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="766,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="766,194,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##" Panel.ZIndex="6" Grid.Row="1" Grid.Column="1"/>
-                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="" HorizontalAlignment="Left" Margin="572,621,0,-41" IsDefault="True" Click="ButtonSaveDerates_Click" Grid.Row="1" Grid.Column="1" ToolTip="Save Project Details" Glyph="{dx:DXImage Image=Save_32x32.png}" RenderTransformOrigin="1.508,0.212"/>
+                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="" HorizontalAlignment="Left" Margin="85,78,0,502" IsDefault="True" Click="ButtonSaveDerates_Click" Grid.Row="1" Grid.Column="2" ToolTip="Save Project Details" Glyph="{dx:DXImage Image=Save_32x32.png}" RenderTransformOrigin="1.508,0.212"/>
                     <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="251,517,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="249,467,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="932,349,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White" Grid.ColumnSpan="2" Width="151"/>
@@ -1244,6 +1247,8 @@
                 </Grid>
             </dx:DXTabItem>
         </dx:DXTabControl>
+        </ScrollViewer>
 
     </Grid>
+    <!--</ScrollViewer>-->
 </dx:ThemedWindow>
