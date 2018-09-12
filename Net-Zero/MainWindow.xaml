@@ -55,7 +55,7 @@
                     <dxb:BarItemLinkSeparator />
                     <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>
                     <dxb:BarItemLinkSeparator />
-                    <dxb:BarButtonItem x:Name="btnSave" Content="Save" Glyph="{dx:DXImage Image=Save_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="btnSave" Content="Save" Glyph="{dx:DXImage Image=Save_16x16.png}" ItemClick="btnSave_ItemClick"/>
                     <dxb:BarItemLinkSeparator />
                     <dxb:BarButtonItem x:Name="btnExit" Content="Exit"  Glyph="{dx:DXImageGrayscale Image=Close_16x16.png}" ItemClick="bnExit_ItemClick"/>
 
@@ -95,9 +95,9 @@
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
-        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60">
-        <dx:DXTabControl Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-            <dx:DXTabItem Header="Project Details" Background="#FF8D1111" >
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60" Width="1600" Height="800">
+        <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+            <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Background="#FF8D1111" >
                 <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="20"/>
@@ -151,8 +151,7 @@
                     <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="85,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="14" Grid.Row="1" Grid.Column="2"/>
                     <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="766,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="766,194,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##" Panel.ZIndex="6" Grid.Row="1" Grid.Column="1"/>
-                    <dx:SimpleButton x:Name="ButtonSaveDerates" Content="" HorizontalAlignment="Left" Margin="85,78,0,502" IsDefault="True" Click="ButtonSaveDerates_Click" Grid.Row="1" Grid.Column="2" ToolTip="Save Project Details" Glyph="{dx:DXImage Image=Save_32x32.png}" RenderTransformOrigin="1.508,0.212"/>
-                    <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="251,517,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+                        <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="251,517,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="249,467,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                     <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="932,349,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White" Grid.ColumnSpan="2" Width="151"/>
                     <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" DisplayFormatString="###.00"  EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
@@ -195,7 +194,7 @@
                     <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </dx:DXTabItem>
-            <dx:DXTabItem Header="Energy Summary">
+            <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Energy Summary">
                 <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
@@ -476,7 +475,7 @@
                 </Grid>
             </dx:DXTabItem>
             <dx:DXTabItem Header="PV Location" GotFocus="DXTabItem_GotFocus">
-                <Grid Margin="10,10,10,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" >
+                <Grid Margin="10,10,10,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="472*"/>

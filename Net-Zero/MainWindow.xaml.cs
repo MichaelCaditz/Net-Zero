@@ -296,27 +296,22 @@ namespace Net_Zero
 
         private void SimpleButton_Click_1(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void ButtonSaveDerates_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        public void savePVLocation()
+        {
             int nProjectsID = Settings.Default.nCurrentProjectID;
             int nCityID = 0;
             decimal nInsolation = 0;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
-            //string notes = "";
-            //string account_no = "";
-            //string address1 = "";
-            //string address2 = "";
-            //string city = "";
-            //string state = "";
-            //string state_other = "";
-            //string zip = "";
-            //string country = "";
-            //string postal_code = "";
-            //string areacode = "";
-            //string phone = "";
-            //string email = "";
-            //string website = "";
-            //string rep = "";
-            //string name = "";
+
             System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
 
@@ -365,10 +360,6 @@ namespace Net_Zero
             }
 
 
-
-
-
-
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
             try
             {
@@ -381,10 +372,6 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
                     cmd3.Parameters.AddWithValue("@nCityID", nCityID);
                     cmd3.Parameters.AddWithValue("@nInsolation", nInsolation);
-                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
-                    //cmd3.Parameters.AddWithValue("@address1", address1);
-                    //cmd3.Parameters.AddWithValue("@address2", address2);
-                    //cmd3.Parameters.AddWithValue("@city", city);
 
 
 
@@ -394,7 +381,6 @@ namespace Net_Zero
                     cmd3.ExecuteNonQuery();
                     //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
                 }
-
 
 
 
@@ -411,22 +397,8 @@ namespace Net_Zero
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
 
-                //VendorDataSet.EnforceConstraints = false;
-
-                //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
 
 
-                //vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
-
-                //VendorDataSet.EnforceConstraints = true;
-
-                //uSP_getLineDataGrid.
-
-                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
-
-                //resetButtons();
-                // LocateNewLine(TransactID1);
-                //this.Close();
                 Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
                 Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
@@ -438,7 +410,7 @@ namespace Net_Zero
             }
         }
 
-        private void ButtonSaveDerates_Click(object sender, RoutedEventArgs e)
+        public void saveProjectDetails()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
             //int nCityID = 0;
@@ -500,12 +472,7 @@ namespace Net_Zero
 
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
-
-
-
-
-
-
+            
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
             try
             {
@@ -544,7 +511,7 @@ namespace Net_Zero
                     conn.Open();
                     cmd3.ExecuteNonQuery();
                     //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
-                   
+
 
                 }
 
@@ -579,23 +546,21 @@ namespace Net_Zero
                Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
                 TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
                   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
-                string message20 = "Update complete";
-                string caption20 = "Net-Zero";
-                MessageBoxButton buttons20 = MessageBoxButton.OK;
-                MessageBoxImage icon20 = MessageBoxImage.Information;
-                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //string message20 = "Update complete";
+                //string caption20 = "Net-Zero";
+                //MessageBoxButton buttons20 = MessageBoxButton.OK;
+                //MessageBoxImage icon20 = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
 
             }
         }
-
-
 
         private void SimpleButtonSaveChosenPV_Click(object sender, RoutedEventArgs e)
         {
@@ -3309,6 +3274,43 @@ namespace Net_Zero
         private void btnClose_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+            string message20 = "";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                
+            switch (DXTabControlMain.SelectedContainer.Header.ToString())
+                {
+
+                case "Project Details":
+                    saveProjectDetails();
+
+
+
+                   message20 = "Project Details saved.";
+
+                  
+
+                   
+                    break;
+                case "PV Location":
+                    saveProjectDetails();
+
+                    message20 = "PV location information saved.";
+
+                    break;
+                case "":
+                   
+                    break;
+            }
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
     }
 }
