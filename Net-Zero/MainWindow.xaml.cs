@@ -3300,5 +3300,15 @@ namespace Net_Zero
                     }
             }
         }
+
+        private void bnExit_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void btnClose_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
