@@ -294,15 +294,7 @@ namespace Net_Zero
             }
         }
 
-        private void SimpleButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void ButtonSaveDerates_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
 
         public void savePVLocation()
         {
