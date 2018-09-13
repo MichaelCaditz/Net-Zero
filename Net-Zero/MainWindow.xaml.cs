@@ -85,8 +85,7 @@ namespace Net_Zero
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
-            //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-            //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+           
             TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
                Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
             TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
@@ -314,28 +313,28 @@ namespace Net_Zero
             if (wasnull == 1)
             {
 
-                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
-                string caption = "CoolBlue";
+                //// MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                //string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
+                //string caption = "CoolBlue";
 
-                MessageBoxButton buttons = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBoxResult defaultResult = MessageBoxResult.OK;
-                MessageBoxOptions options = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //MessageBoxButton buttons = MessageBoxButton.OK;
+                //MessageBoxImage icon = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult = MessageBoxResult.OK;
+                //MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                if (result == MessageBoxResult.OK)
-                {
+                //if (result == MessageBoxResult.OK)
+                //{
 
-                    // Closes the parent form.
+                //    // Closes the parent form.
 
-                    //this.Close();
+                //    //this.Close();
 
-                }
+                //}
                 return;
             }
             else
@@ -2853,28 +2852,28 @@ namespace Net_Zero
             if (wasnull == 1)
             {
 
-                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
-                string caption = "CoolBlue";
+                //// MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                //string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
+                //string caption = "CoolBlue";
 
-                MessageBoxButton buttons = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBoxResult defaultResult = MessageBoxResult.OK;
-                MessageBoxOptions options = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //MessageBoxButton buttons = MessageBoxButton.OK;
+                //MessageBoxImage icon = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult = MessageBoxResult.OK;
+                //MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                if (result == MessageBoxResult.OK)
-                {
+                //if (result == MessageBoxResult.OK)
+                //{
 
-                    // Closes the parent form.
+                //    // Closes the parent form.
 
-                    //this.Close();
+                //    //this.Close();
 
-                }
+                //}
                 return;
             }
             else
@@ -3011,7 +3010,7 @@ namespace Net_Zero
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
 
-            if (IDToFind > -1)
+            if (IDToFind > 0)
             {
                 foreach (DataRowView drv in (BindingListCollectionView) TreeListControlCountry.ItemsSource)
                     if ((int)drv["nID"] == IDToFind)
@@ -3027,7 +3026,7 @@ namespace Net_Zero
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
 
-            if (IDToFind > -1)
+            if (IDToFind > 0)
             {
                 foreach (DataRowView drv in (BindingListCollectionView)TreeListControlStateProvince.ItemsSource)
                     if ((int)drv["nID"] == IDToFind)
@@ -3043,7 +3042,7 @@ namespace Net_Zero
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
 
-            if (IDToFind > -1)
+            if (IDToFind > 0)
             {
                 foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCity.ItemsSource)
                     if ((int)drv["nID"] == IDToFind)
@@ -3202,11 +3201,39 @@ namespace Net_Zero
                     break;
 
 
-                case "":
-                   
+                default:
+                    message20 = "No data to sace on this tab.";
                     break;
             }
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+        }
+
+        private void btnSaveProject_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+            saveAll();
+
+            string message20 = "Project saved.";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.OK;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+
+
+        }
+        public void saveAll()
+        {
+            saveProjectDetails();
+            savePVLocation();
+            saveDemandLocation();
+            saveDemand();
+            savePVComputation();
+            saveBatteryComputation();
+            savePVConfiguration();
+            saveBatterySeriesConfiguration();
+            saveBatteryConfiguration();
         }
     }
 }

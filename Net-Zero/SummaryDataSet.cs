@@ -4,6 +4,10 @@
 
     public partial class SummaryDataSet
     {
+        partial class getProjectDataTable
+        {
+        }
+
         partial class getSummaryDataTable
         {
         }

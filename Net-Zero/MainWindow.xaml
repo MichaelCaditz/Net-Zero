@@ -55,7 +55,8 @@
                     <dxb:BarItemLinkSeparator />
                     <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>
                     <dxb:BarItemLinkSeparator />
-                    <dxb:BarButtonItem x:Name="btnSave" Content="Save" Glyph="{dx:DXImage Image=Save_16x16.png}" ItemClick="btnSave_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="btnSaveTab" Content="Save Tab" Glyph="{dx:DXImage Image=Save_16x16.png}" ItemClick="btnSave_ItemClick"/>
+                    <dxb:BarButtonItem x:Name="btnSaveProject" Content="Save Project" Glyph="{dx:DXImage Image=Save_16x16.png}" ItemClick="btnSaveProject_ItemClick" />
                     <dxb:BarItemLinkSeparator />
                     <dxb:BarButtonItem x:Name="btnExit" Content="Exit"  Glyph="{dx:DXImageGrayscale Image=Close_16x16.png}" ItemClick="bnExit_ItemClick"/>
 
@@ -77,7 +78,7 @@
                 <dxb:BarButtonItemLink BarItemName="btnNew"/>
                 <dxb:BarButtonItemLink BarItemName="btnOpen"/>
                 <dxb:BarButtonItemLink BarItemName="btnClose"/>
-                <dxb:BarButtonItemLink BarItemName="btnSave"/>
+                <dxb:BarButtonItemLink BarItemName="btnSaveProject"/>
                 <dxb:BarButtonItemLink BarItemName="btnExit"/>
             </dxb:ToolBarControl>
             <dxb:ToolBarControl Caption="Edit" RotateWhenVertical="True">
