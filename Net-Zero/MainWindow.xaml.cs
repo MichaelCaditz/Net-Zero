@@ -3134,7 +3134,7 @@ namespace Net_Zero
             MessageBoxButton buttons20 = MessageBoxButton.OK;
             MessageBoxImage icon20 = MessageBoxImage.Information;
             MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            MessageBoxOptions options20 = MessageBoxOptions.None;
                 
             switch (DXTabControlMain.SelectedContainer.Header.ToString())
                 {
@@ -3218,7 +3218,7 @@ namespace Net_Zero
             MessageBoxButton buttons20 = MessageBoxButton.OK;
             MessageBoxImage icon20 = MessageBoxImage.Information;
             MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            MessageBoxOptions options20 = MessageBoxOptions.None;
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
 
@@ -3234,6 +3234,49 @@ namespace Net_Zero
             savePVConfiguration();
             saveBatterySeriesConfiguration();
             saveBatteryConfiguration();
+        }
+
+        private void ThemedWindowMain_Closing(object sender, CancelEventArgs e)
+        {
+            string message20 = "Do you want to save the project?";
+            string caption20 = "Net-Zero";
+            MessageBoxButton buttons20 = MessageBoxButton.YesNoCancel;
+            MessageBoxImage icon20 = MessageBoxImage.Information;
+            MessageBoxResult defaultResult20 = MessageBoxResult.Yes;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20);
+
+            switch (result)
+
+            {
+                case MessageBoxResult.Yes:
+
+                    saveAll();
+                    string message30 = "Project saved.";
+                    string caption30 = "Net-Zero";
+                    MessageBoxButton buttons30 = MessageBoxButton.OK;
+                    MessageBoxImage icon30 = MessageBoxImage.Information;
+                    MessageBoxResult defaultResult30 = MessageBoxResult.OK;
+                    MessageBoxOptions options30 = MessageBoxOptions.None;
+                    MessageBoxResult result30 = MessageBox.Show(message30, caption30, buttons30, icon30, defaultResult30, options30);
+
+                    break;
+
+                case MessageBoxResult.No:
+
+                   
+
+                    break;
+
+                case MessageBoxResult.Cancel:
+
+                    e.Cancel = true;
+
+                    break;
+
+
+
+            }
         }
     }
 }

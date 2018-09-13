@@ -6,7 +6,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" x:Name="ThemedWindowMain" x:Class="Net_Zero.MainWindow"
-        Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="Manual" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" VerticalAlignment="Top" HorizontalAlignment="Left" WindowState="Maximized">
+        Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="Manual" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" VerticalAlignment="Top" HorizontalAlignment="Left" WindowState="Maximized" Closing="ThemedWindowMain_Closing">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
         <CollectionViewSource x:Key="demandItemsViewSource" Source="{Binding demandItems, Source={StaticResource demandDataSet}}"/>
