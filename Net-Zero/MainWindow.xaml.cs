@@ -554,7 +554,7 @@ namespace Net_Zero
             }
         }
 
-        private void SimpleButtonSaveChosenPV_Click(object sender, RoutedEventArgs e)
+        public void savePVComputation()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
@@ -614,17 +614,17 @@ namespace Net_Zero
                 TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
-                string message20 = "Update complete";
-                string caption20 = "Net-Zero";
-                MessageBoxButton buttons20 = MessageBoxButton.OK;
-                MessageBoxImage icon20 = MessageBoxImage.Information;
-                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //string message20 = "Update complete";
+                //string caption20 = "Net-Zero";
+                //MessageBoxButton buttons20 = MessageBoxButton.OK;
+                //MessageBoxImage icon20 = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 
@@ -633,7 +633,7 @@ namespace Net_Zero
             SpinEditnChosenPV_1.EditValue = TextEditnPVRequired.EditValue;
         }
 
-        private void SimpleButtonSaveChosenBattery_Click(object sender, RoutedEventArgs e)
+        public void saveBatteryComputation()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
@@ -693,17 +693,17 @@ namespace Net_Zero
                 TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
-                string message20 = "Update complete";
-                string caption20 = "Net-Zero";
-                MessageBoxButton buttons20 = MessageBoxButton.OK;
-                MessageBoxImage icon20 = MessageBoxImage.Information;
-                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //string message20 = "Update complete";
+                //string caption20 = "Net-Zero";
+                //MessageBoxButton buttons20 = MessageBoxButton.OK;
+                //MessageBoxImage icon20 = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 
@@ -901,7 +901,7 @@ namespace Net_Zero
 
 
 
-        private void SimpleButtonSaveConfig_Click(object sender, RoutedEventArgs e)
+        public void savePVConfiguration()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
 
@@ -944,21 +944,21 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
 
-            string message20 = "Update complete";
-            string caption20 = "Net-Zero";
-            MessageBoxButton buttons20 = MessageBoxButton.OK;
-            MessageBoxImage icon20 = MessageBoxImage.Information;
-            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-            // Show message box
-            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+            //string message20 = "Update complete";
+            //string caption20 = "Net-Zero";
+            //MessageBoxButton buttons20 = MessageBoxButton.OK;
+            //MessageBoxImage icon20 = MessageBoxImage.Information;
+            //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            //// Show message box
+            //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-            // Displays the MessageBox.
-            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+            //// Displays the MessageBox.
+            //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
         }
 
-        private void SimpleButtonNewString_Click(object sender, RoutedEventArgs e)
+        public void saveBatterySeriesConfiguration()
         {
             int TransactID1 = 0;
             System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
@@ -1074,6 +1074,109 @@ namespace Net_Zero
                         break;
                     }
             }
+        }
+
+        private void SimpleButtonNewString_Click(object sender, RoutedEventArgs e)
+        {
+            int TransactID1 = 0;
+            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
+
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+
+
+            int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            int wasnull = 0;
+            wasnull = (getBatterySeriesStringViewSource.View == null ? 1 : 0);
+            if (wasnull == 1)
+            {
+
+                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
+                string message = "Warning: getBatterySeriesStringViewSource is null";
+                string caption = "Net-Zero";
+
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult defaultResult = MessageBoxResult.OK;
+                MessageBoxOptions options = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                if (result == MessageBoxResult.OK)
+                {
+
+                    // Closes the parent form.
+
+                    //this.Close();
+
+                }
+                return;
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
+                //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            }
+
+
+
+
+
+
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[USP_insertBatterySeriesString]";
+
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+                    cmd3.Parameters.AddWithValue("@cName", "Series String");
+
+                    SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                //registerDataSet.EnforceConstraints = false;
+                Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+
+                batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
+                //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+                // registerDataSet.EnforceConstraints = true;
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                LocateNewLineBatterySeriesString(TransactID1);
+            }
+
         }
 
         private void SimpleButtonNewBattery_Click(object sender, RoutedEventArgs e)
@@ -1514,241 +1617,61 @@ namespace Net_Zero
 
         public void SaveString(bool deleteFlag)
         {
-            System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
-
-            //System.Windows.Data.CollectionViewSource getBatterySeriesStringgetBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringgetBatteryViewSource")));
-
-
-
-
-
-            int nProjectsID = Settings.Default.nCurrentProjectID;
-            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
-            int TransactID1 = 0;
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+            int nProjectsID = Settings.Default.nCurrentProjectID;
 
-            Boolean bDeleted = true;
-            //DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
-            // int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
+            SaveString(false);
 
-            //int lineCurrent = 0;
-            int wasnull = 0;
-            wasnull = (getBatterySeriesStringViewSource.View == null ? 1 : 0);
-            if (wasnull == 1)
-            {
 
-                // MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                string message = "Warning: getBatterySeriesStringViewSource is null";
-                string caption = "Net-Zero";
 
-                MessageBoxButton buttons = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBoxResult defaultResult = MessageBoxResult.OK;
-                MessageBoxOptions options = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+            // registerDataSet.EnforceConstraints = false;
 
-                if (result == MessageBoxResult.OK)
-                {
+            Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
 
-                    // Closes the parent form.
 
-                    //this.Close();
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
-                }
-                return;
-            }
-            else
-            {
-                DataRowView drv = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
-                int seriesCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["nID"]) == true ? 0 : (int)drv["nID"]);
-            }
+            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+                      DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
+                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
+            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
+            SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
 
 
 
+            LinearGauge1.Scales[0].StartValue = 0;
+            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
+            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
 
-            //SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
-            //try
-            //{
+            LinearGaugePV.Scales[0].StartValue = 0;
+            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
+            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
 
-            //    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
-            //    {
-            //        //cmd3.Transaction = trans1;
-            //        cmd3.Parameters.Clear();
-            //        cmd3.CommandText = "dbo.USP_deletePV";
-            //        cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
+            //string message20 = "Update complete";
+            //string caption20 = "Net-Zero";
 
-            //        //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
-            //        //retval.Direction = ParameterDirection.Output;
-            //        conn.Open();
-            //        cmd3.ExecuteNonQuery();
-            //        //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
-            //    }
+            //MessageBoxButton buttons20 = MessageBoxButton.OK;
+            //MessageBoxImage icon20 = MessageBoxImage.Information;
+            //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            //// Show message box
+            //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-            //}
-
-
-            //catch (Exception ex)
-            //{
-            //    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
-            //    System.ArgumentException argEx = new System.ArgumentException("Save PV", "", ex);
-            //    throw argEx;
-            //}
-            //finally
-            //{
-            //    if (conn.State == ConnectionState.Open) conn.Close();
-
-
-
-            //    //uSP_getLineDataGrid.
-
-            //    //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
-
-            //    //resetButtons();
-            //    //LocateNewLine(TransactID1);
-            //}
-
-            ////write new records in dbo.split
-            ////int itwasnull = 0;
-            ////itwasnull = (uSP_getSplitDataGrid.)== null ? 1 : 0;
-            ////if (itwasnull == 0)
-
-
-            ////var selectedRow = uSP_getSplitDataGrid.GetRow(0);
-
-            ////var columnCell = uSP_getSplitDataGrid.GetCell(selectedRow, 0);
-
-            ////string content = (uSP_getSplitDataGrid.SelectedCells[0].Column.GetCellContent(0) as TextBlock).Text;
-            ////MessageBox.Show(content);
-            ////foreach (DataRowView dv in uSP_getSplitDataGrid.Items)
-            ////    {
-
-
-            ////            MessageBox.Show(dv[3].ToString());
-
-            ////    }
-            //// foreach (DataRowView drv3 in uSP_getLineUSP_getSplitViewSource.View)
-            ////{ 
-            ////int go = 0;
-
-            //// DataRowView drv3 = (DataRowView)uSP_getLineUSP_getSplitViewSource.View.CurrentItem;
-            ////int ID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["ID"]) == true ? 0 : (int)drv3["ID"]);
-            ////for (int i=0; i<5; i++)
-
-            ////if (ID == 0)
-            ////{
-            ////    go = 1;
-            ////}
-
-            ////while (go ==0)
-            if (getBatterySeriesStringViewSource.View != null)
-
-            {
-                SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
-                getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
-
-                for (int i = 0; i - 1 < i++; i++)
-                {
-                    DataRowView drv3 = (DataRowView)getBatterySeriesStringViewSource.View.CurrentItem;
-                    int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
-                    //MessageBox.Show(ID.ToString());
-
-                    if (nID == 0)
-                    {
-                        break;
-                    }
-
-
-                    //decimal nPrice = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0m : (decimal)drv3["nPrice"]);
-                    // MessageBox.Show(nAmnt.ToString());
-
-                    // int nProjectsID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nProjectsID"]) == true ? 0 : (int)drv3["nProjectsID"]);
-
-                    string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-                    string cNote = (DBNull.Value.Equals(drv3["cNote"]) == true ? "" : (string)drv3["cNote"]);
-
-                    if (deleteFlag == false)
-                    { bDeleted = (drv3 == null ? false : DBNull.Value.Equals(drv3["bDeleted"]) == true ? false : (bool)drv3["bDeleted"]); }
-                    //decimal nVolts = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nVolts"]) == true ? 0 : (decimal)drv3["nVolts"]);
-
-
-                    /////write new record to dbo.split
-
-                    //SqlConnection conn1 = new SqlConnection() { ConnectionString = ProgramSettings.coolblueconnectionString };
-                    try
-                    {
-
-                        using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
-                        {
-                            //cmd3.Transaction = trans1;
-                            cmd3.Parameters.Clear();
-                            cmd3.CommandText = "[dbo].[USP_updateBatterySeriesString]";
-                            cmd3.Parameters.AddWithValue("@nID", nID);
-
-
-                            cmd3.Parameters.AddWithValue("@cNote", cNote);
-                            cmd3.Parameters.AddWithValue("@cName", cName);
-                            cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
-                            cmd3.Parameters.AddWithValue("@bDeleted", bDeleted);
-
-
-
-                            // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
-                            //retval.Direction = ParameterDirection.Output;
-                            conn1.Open();
-                            cmd3.ExecuteNonQuery();
-                            //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
-                        }
-
-
-
-
-                    }
-
-
-                    catch (Exception ex)
-                    {
-                        //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
-                        System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
-                        throw argEx;
-                    }
-                    finally
-                    {
-                        if (conn1.State == ConnectionState.Open) conn1.Close();
-
-                        //registerDataSet.EnforceConstraints = false;
-
-                        //registerDataSetUSP_getSplitTableAdapter.Fill(registerDataSet.USP_getSplit, accountCurrent);
-                        //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
-                        //registerDataSet.EnforceConstraints = true;
-
-                        ////uSP_getLineDataGrid.
-
-                        ////uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
-
-                        ////resetButtons();
-                        //LocateNewLine(TransactID1);
-                    }
-
-
-
-
-                    getBatterySeriesStringViewSource.View.MoveCurrentToNext();
-                }
-            }
+            //// Displays the MessageBox.
+            //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
 
 
 
 
 
         }
-    
-        
-    public void SaveChosenDemand()
+
+
+        public void SaveChosenDemand()
         {
 
             int nProjectsID = Settings.Default.nCurrentProjectID;
@@ -2182,7 +2105,7 @@ namespace Net_Zero
         }
 
 
-        private void SimpleButtonSaveBattery_Click(object sender, RoutedEventArgs e)
+       public void saveBatteryConfiguration()
         {
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
             int nProjectsID = Settings.Default.nCurrentProjectID;
@@ -2216,67 +2139,22 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
 
-            string message20 = "Update complete";
-            string caption20 = "Net-Zero";
-            MessageBoxButton buttons20 = MessageBoxButton.OK;
-            MessageBoxImage icon20 = MessageBoxImage.Information;
-            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-            // Show message box
-            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+            //string message20 = "Update complete";
+            //string caption20 = "Net-Zero";
+            //MessageBoxButton buttons20 = MessageBoxButton.OK;
+            //MessageBoxImage icon20 = MessageBoxImage.Information;
+            //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            //// Show message box
+            //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-            // Displays the MessageBox.
-            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+            //// Displays the MessageBox.
+            //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
 
         private void SimpleButtonSaveString_Click(object sender, RoutedEventArgs e)
         {
-            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
-            int nProjectsID = Settings.Default.nCurrentProjectID;
-
-            SaveString(false);
-
-
-
-
-            // registerDataSet.EnforceConstraints = false;
-
-            Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
-            batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
-
-
-            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
-
-            decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
-                      DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
-            decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
-                       DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
-
-            SpinEditnCapacityAchieved.EditValue = nSumCapacity;
-            SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
-
-
-
-            LinearGauge1.Scales[0].StartValue = 0;
-            LinearGauge1.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumCapacity);
-            LinearGauge1.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenBatteryCapacity.EditValue);
-
-            LinearGaugePV.Scales[0].StartValue = 0;
-            LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
-            LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
-
-            string message20 = "Update complete";
-            string caption20 = "Net-Zero";
-
-            MessageBoxButton buttons20 = MessageBoxButton.OK;
-            MessageBoxImage icon20 = MessageBoxImage.Information;
-            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-            // Show message box
-            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-            // Displays the MessageBox.
-            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+            
 
         }
 
@@ -2577,7 +2455,7 @@ namespace Net_Zero
             }
         }
 
-        private void SimpleButtonSaveDemand_Click(object sender, RoutedEventArgs e)
+       public void saveDemand()
         {
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             int nProjectsID = Settings.Default.nCurrentProjectID;
@@ -2623,17 +2501,17 @@ namespace Net_Zero
             LinearGaugePV.Scales[0].LevelBars[0].Value = Convert.ToDouble(nSumPVkW);
             LinearGaugePV.Scales[0].EndValue = Convert.ToDouble(SpinEditnChosenPVkW.EditValue);
 
-            string message20 = "Update complete";
-            string caption20 = "Net-Zero";
-            MessageBoxButton buttons20 = MessageBoxButton.OK;
-            MessageBoxImage icon20 = MessageBoxImage.Information;
-            MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-            MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-            // Show message box
-            // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+            //string message20 = "Update complete";
+            //string caption20 = "Net-Zero";
+            //MessageBoxButton buttons20 = MessageBoxButton.OK;
+            //MessageBoxImage icon20 = MessageBoxImage.Information;
+            //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+            //// Show message box
+            //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-            // Displays the MessageBox.
-            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+            //// Displays the MessageBox.
+            //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
 
         private void SimpleButton_Click_3(object sender, RoutedEventArgs e)
@@ -2942,7 +2820,7 @@ namespace Net_Zero
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
         }
 
-        private void SimpleButtonSaveDemandLocation_Click(object sender, RoutedEventArgs e)
+        public void saveDemandLocation()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
             int nCityID = 0;
@@ -3029,11 +2907,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
                     cmd3.Parameters.AddWithValue("@nCityID", nCityID);
                    // cmd3.Parameters.AddWithValue("@nInsolation", nInsolation);
-                    //cmd3.Parameters.AddWithValue("@account_no", account_no);
-                    //cmd3.Parameters.AddWithValue("@address1", address1);
-                    //cmd3.Parameters.AddWithValue("@address2", address2);
-                    //cmd3.Parameters.AddWithValue("@city", city);
-
+                  
 
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
@@ -3059,22 +2933,7 @@ namespace Net_Zero
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
 
-                //VendorDataSet.EnforceConstraints = false;
-
-                //coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter vendorDataSetUSP_getOneVendorTableAdapter = new coolBlue.vendorDataSetTableAdapters.USP_getOneVendorTableAdapter();
-
-
-                //vendorDataSetUSP_getOneVendorTableAdapter.Fill(VendorDataSet.USP_getOneVendor, nVendorID);
-
-                //VendorDataSet.EnforceConstraints = true;
-
-                //uSP_getLineDataGrid.
-
-                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
-
-                //resetButtons();
-                // LocateNewLine(TransactID1);
-                //this.Close();
+              
                 Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
                 Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
@@ -3084,17 +2943,17 @@ namespace Net_Zero
                 //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
-                string message20 = "Demand location saved";
-                string caption20 = "Net-Zero";
-                MessageBoxButton buttons20 = MessageBoxButton.OK;
-                MessageBoxImage icon20 = MessageBoxImage.Information;
-                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                // Show message box
-                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+                //string message20 = "Demand location saved";
+                //string caption20 = "Net-Zero";
+                //MessageBoxButton buttons20 = MessageBoxButton.OK;
+                //MessageBoxImage icon20 = MessageBoxImage.Information;
+                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                //// Show message box
+                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
 
-                // Displays the MessageBox.
-                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+                //// Displays the MessageBox.
+                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
 
@@ -3293,11 +3152,56 @@ namespace Net_Zero
                    
                     break;
                 case "PV Location":
-                    saveProjectDetails();
+                    savePVLocation();
 
                     message20 = "PV location information saved.";
 
                     break;
+
+                case "Demand Location":
+                    saveDemandLocation();
+
+                    message20 = "Demand location information saved.";
+
+                    break;
+
+                case "Demand":
+                    saveDemand();
+
+                    message20 = "Demand information saved.";
+
+                    break;
+
+                case "PV Computation":
+                    savePVComputation();
+
+                    message20 = "PV computation information saved.";
+
+                    break;
+
+                case "Battery Computation":
+                    saveBatteryComputation();
+
+                    message20 = "Battery computation information saved.";
+
+                    break;
+
+                case "PV Configuration":
+                    savePVConfiguration();
+
+                    message20 = "PV configuration saved.";
+
+                    break;
+
+                case "Battery Configuration":
+                    saveBatterySeriesConfiguration();
+                    saveBatteryConfiguration();
+
+                    message20 = "Battery configuration saved.";
+
+                    break;
+
+
                 case "":
                    
                     break;
