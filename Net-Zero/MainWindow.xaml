@@ -95,8 +95,8 @@
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
-        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60" Width="1600" Height="800">
-        <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60,0,30">
+        <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="900" Width="1780">
             <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Background="#FF8D1111" >
                 <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" >
                     <Grid.ColumnDefinitions>
