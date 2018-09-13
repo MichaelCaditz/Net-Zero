@@ -243,7 +243,12 @@
                                 <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                             </dxg:GridColumn.EditSettings>
                         </dxg:GridColumn>
-                        <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error Deg."    IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt Deg."    IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings  DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error Deg."    IsSmart="True" Width="140">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                             </dxg:GridColumn.EditSettings>
@@ -409,7 +414,7 @@
                                                 <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
                                             </dxc:LineSeries2D.LineStyle>
                                         </dxc:LineSeries2D>
-                                        <dxc:LineSeries2D DisplayName="Optimum Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nSunAltitude">
+                                        <dxc:LineSeries2D DisplayName="Optimum Tilt Deg." ArgumentDataMember="dtDate" ValueDataMember="nOptimumTilt">
                                             <dxc:LineSeries2D.LineStyle>
                                                 <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                             </dxc:LineSeries2D.LineStyle>

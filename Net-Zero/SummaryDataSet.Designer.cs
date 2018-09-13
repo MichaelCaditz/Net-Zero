@@ -350,7 +350,8 @@ namespace Net_Zero {
             this.getSummary.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
             this.getSummary.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
             this.getSummary.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
-            this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-nSunAltitude";
+            this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
+            this.getSummary.nOptimumTiltColumn.Expression = "90-nSunAltitude";
             this.getProject.nPVRequiredColumn.Expression = "nDemandTotal/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation)";
             this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "nDemandTotalWH/(nInverterDerate*nControllerEfficiency)";
@@ -441,6 +442,8 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnChosenBatterykWh;
             
             private global::System.Data.DataColumn columnnBatteryRemainingkWh;
+            
+            private global::System.Data.DataColumn columnnOptimumTilt;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -758,6 +761,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nOptimumTiltColumn {
+                get {
+                    return this.columnnOptimumTilt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -826,7 +837,8 @@ namespace Net_Zero {
                         decimal nChosenTiltDeg, 
                         decimal nTiltError, 
                         decimal nChosenBatterykWh, 
-                        decimal nBatteryRemainingkWh) {
+                        decimal nBatteryRemainingkWh, 
+                        decimal nOptimumTilt) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -862,7 +874,8 @@ namespace Net_Zero {
                         nChosenTiltDeg,
                         nTiltError,
                         nChosenBatterykWh,
-                        nBatteryRemainingkWh};
+                        nBatteryRemainingkWh,
+                        nOptimumTilt};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -930,7 +943,8 @@ namespace Net_Zero {
                         nChosenTiltDeg,
                         null,
                         nChosenBatterykWh,
-                        nBatteryRemainingkWh};
+                        nBatteryRemainingkWh,
+                        null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -994,6 +1008,7 @@ namespace Net_Zero {
                 this.columnnTiltError = base.Columns["nTiltError"];
                 this.columnnChosenBatterykWh = base.Columns["nChosenBatterykWh"];
                 this.columnnBatteryRemainingkWh = base.Columns["nBatteryRemainingkWh"];
+                this.columnnOptimumTilt = base.Columns["nOptimumTilt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1067,6 +1082,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnChosenBatterykWh);
                 this.columnnBatteryRemainingkWh = new global::System.Data.DataColumn("nBatteryRemainingkWh", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnBatteryRemainingkWh);
+                this.columnnOptimumTilt = new global::System.Data.DataColumn("nOptimumTilt", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnOptimumTilt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1085,6 +1102,7 @@ namespace Net_Zero {
                 this.columnnBatteryRemainingkWhLocal.ReadOnly = true;
                 this.columnnPercentBatteryRemaining.ReadOnly = true;
                 this.columnnTiltError.ReadOnly = true;
+                this.columnnOptimumTilt.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1116,7 +1134,8 @@ namespace Net_Zero {
                 this.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
                 this.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
                 this.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
-                this.nTiltErrorColumn.Expression = "nChosenTiltDeg-nSunAltitude";
+                this.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
+                this.nOptimumTiltColumn.Expression = "90-nSunAltitude";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3076,6 +3095,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nOptimumTilt {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nOptimumTiltColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nOptimumTilt\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nOptimumTiltColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -3468,6 +3503,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnBatteryRemainingkWhNull() {
                 this[this.tablegetSummary.nBatteryRemainingkWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnOptimumTiltNull() {
+                return this.IsNull(this.tablegetSummary.nOptimumTiltColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnOptimumTiltNull() {
+                this[this.tablegetSummary.nOptimumTiltColumn] = global::System.Convert.DBNull;
             }
         }
         
