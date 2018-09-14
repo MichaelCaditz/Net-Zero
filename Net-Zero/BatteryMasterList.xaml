@@ -9,7 +9,7 @@
        
     x:Class="Net_Zero.BatteryMasterList"
     Title="BatteryMasterList" Height="800" Width="1000"
-    Loaded="ThemedWindow_Loaded"
+    Loaded="ThemedWindow_Loaded" WindowState="Maximized"
     >
 
     <dx:ThemedWindow.Resources>
@@ -54,7 +54,7 @@
             </dxg:GridColumn>
             <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
         </dxg:GridControl>
-        <dx:SimpleButton x:Name="SimpleButtonNewBatteryMaster" Content="" HorizontalAlignment="Left" Margin="811,255,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert Mew Battery" Click="SimpleButtonNewBatteryMaster_Click"/>
-        <dx:SimpleButton x:Name="SimpleButtonSaveBatteryMaster" Content="" HorizontalAlignment="Left" Margin="811,308,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Master List" Click="SimpleButtonSaveBatteryMaster_Click"/>
+        <dx:SimpleButton x:Name="SimpleButtonNewBatteryMaster" Content="" HorizontalAlignment="Left" Margin="41,30,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert Mew Battery" Click="SimpleButtonNewBatteryMaster_Click"/>
+        <dx:SimpleButton x:Name="SimpleButtonSaveBatteryMaster" Content="" HorizontalAlignment="Left" Margin="126,30,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to Battery Master List" Click="SimpleButtonSaveBatteryMaster_Click"/>
     </Grid>
 </dx:ThemedWindow>

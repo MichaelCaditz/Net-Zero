@@ -3238,7 +3238,7 @@ namespace Net_Zero
 
         private void ThemedWindowMain_Closing(object sender, CancelEventArgs e)
         {
-            string message20 = "Do you want to save the project?";
+            string message20 = "Do you want to save changes to the project before closing?";
             string caption20 = "Net-Zero";
             MessageBoxButton buttons20 = MessageBoxButton.YesNoCancel;
             MessageBoxImage icon20 = MessageBoxImage.Information;

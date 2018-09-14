@@ -10,7 +10,7 @@
   
     x:Class="Net_Zero.PVMasterList"
     Title="PVMasterList" Height="800" Width="1000"
-    Loaded="ThemedWindow_Loaded"
+    Loaded="ThemedWindow_Loaded" WindowState="Maximized"
     >
 
     <dx:ThemedWindow.Resources>
@@ -92,7 +92,7 @@
 
             <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
         </dxg:GridControl>
-        <dx:SimpleButton x:Name="SimpleButtonNewPVMaster" Content="" HorizontalAlignment="Left" Margin="683,253,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert New PV" Click="SimpleButtonNewPVMaster_Click"/>
-        <dx:SimpleButton x:Name="SimpleButtonSavePVMaster" Content="" HorizontalAlignment="Left" Margin="683,306,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to PV Master List" Click="SimpleButtonSavePVMaster_Click"/>
+        <dx:SimpleButton x:Name="SimpleButtonNewPVMaster" Content="" HorizontalAlignment="Left" Margin="46,34,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" ToolTip="Insert New PV" Click="SimpleButtonNewPVMaster_Click" RenderTransformOrigin="-7.29,-4.083"/>
+        <dx:SimpleButton x:Name="SimpleButtonSavePVMaster" Content="" HorizontalAlignment="Left" Margin="150,34,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Save Changes to PV Master List" Click="SimpleButtonSavePVMaster_Click"/>
     </Grid>
 </dx:ThemedWindow>
