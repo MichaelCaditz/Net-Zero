@@ -193,7 +193,6 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLong" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="606,193,0,0" Text="{Binding nLong, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Long" HorizontalAlignment="Left" Margin="607,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
-                        <dx:SimpleButton Content="SimpleButton" Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="248,18,-20,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click_1"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Energy Summary">
@@ -235,7 +234,18 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg. Noon"     IsSmart="True" Width="140">
+                            
+                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="Solar Altitude Deg. 0800"     IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAltitude" Header="Solar Altitude Deg. 1200"     IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="Solar Altitude Deg. 1600"     IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -255,7 +265,18 @@
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg.Noon"     IsSmart="True" Width="140">
+                            
+                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="Solar Azimuth Deg. 0800"     IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="Solar Azimuth Deg. 1200"     IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="Solar Azimuth Deg. 1600"     IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
