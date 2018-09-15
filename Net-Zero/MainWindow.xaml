@@ -18,7 +18,7 @@
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
         <local:Geography x:Key="geography"/>
-        <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries,  Source={StaticResource geography}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvinceViewSource" Source="{Binding getAllCountries_getAllStateProvince, Source={StaticResource getAllCountriesViewSource}}"/>
         <CollectionViewSource x:Key="getAllStateProvinceViewSource" Source="{Binding getAllStateProvince, Source={StaticResource geography}}"/>
         <CollectionViewSource x:Key="getAllStateProvincegetAllCityViewSource" Source="{Binding getAllStateProvince_getAllCity, Source={StaticResource getAllStateProvinceViewSource}}"/>
@@ -135,29 +135,29 @@
                         <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="21,78,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Demand Total kWh/d" Grid.Column="1" HorizontalAlignment="Left" Margin="21,366,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,344,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,344,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1" MinValue="0" MaxValue="10000000" Mask="####.00"/>
                         <Label Content="Lat" HorizontalAlignment="Left" Margin="481,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLat" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="481,193,0,0" Text="{Binding nLat, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Insolation" Grid.Column="1" HorizontalAlignment="Left" Margin="21,468,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenInsolation" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,445,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="1" Mask="######.##" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenInsolation" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,445,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="10000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
                         <Label Content="Chosen Array Tilt" Grid.Column="1" HorizontalAlignment="Left" Margin="21,517,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
 
                         <Label Content="Days Autonomy" HorizontalAlignment="Left" Margin="85,266,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnDaysAutonomy"  DisplayFormatString="###.00" EditValue="{Binding nDaysAutonomy, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="86,244,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="365" MinValue="0" Mask="###.00" Panel.ZIndex="8" Grid.Row="1" Grid.Column="2" IsTextEditable="True"/>
                         <Label Content="System Voltage" HorizontalAlignment="Left" Margin="88,349,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnVoltage"  DisplayFormatString="###.00" EditValue="{Binding nVoltage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="88,327,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="10" Grid.Row="1" Grid.Column="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnVoltage"  DisplayFormatString="###.00" EditValue="{Binding nVoltage, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="88,327,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="10" Grid.Row="1" Grid.Column="2"/>
                         <Label Content="MDoD" HorizontalAlignment="Left" Margin="933,266,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnMDoD"  DisplayFormatString="###.00" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="932,244,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="12" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnMDoD"  DisplayFormatString="###.00" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="932,244,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="12" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <Label Content="TDR" HorizontalAlignment="Left" Margin="85,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="85,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="14" Grid.Row="1" Grid.Column="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnTDR"  DisplayFormatString="###.00" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="85,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="14" Grid.Row="1" Grid.Column="2"/>
                         <Label Content="Controller Efficiency" HorizontalAlignment="Left" Margin="766,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="766,194,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##" Panel.ZIndex="6" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnControllerEfficiency"  DisplayFormatString="###.00" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="766,194,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.00" Panel.ZIndex="6" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Battery Efficiency" HorizontalAlignment="Left" Margin="251,517,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <Label Content="MPPT Factor" HorizontalAlignment="Left" Margin="249,467,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <Label Content="Inverter/Dirt/Wiring Derate" HorizontalAlignment="Left" Margin="932,349,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White" Grid.ColumnSpan="2" Width="151"/>
-                        <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" DisplayFormatString="###.00"  EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.##" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
-                        <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" DisplayFormatString="###.00"  EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,446,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.##" Panel.ZIndex="9" Grid.Row="1" Grid.Column="1"/>
-                        <dxe:SpinEdit x:Name="SpinEditnInverterDerate"  DisplayFormatString="###.00" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="932,327,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.##" Panel.ZIndex="11" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnBatteryEfficiency" DisplayFormatString="###.00"  EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="1" Mask="######.00" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnMPPTFactor" DisplayFormatString="###.00"  EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,446,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="2" MinValue="0" Mask="######.00" Panel.ZIndex="9" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnInverterDerate"  DisplayFormatString="###.00" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="932,327,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="1" MinValue="0" Mask="######.00" Panel.ZIndex="11" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <dxe:ComboBoxEdit x:Name="ComboBoxcChosenTilt" EditValue="{Binding cChosenTilt, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,495,0,0" VerticalAlignment="Top" Width="150" Panel.ZIndex="15" Grid.Row="1" Grid.Column="1">
                             <dxe:ComboBoxEditItem Content="No Tilt"/>
                             <dxe:ComboBoxEditItem Content="90 Deg"/>
@@ -167,11 +167,11 @@
                             <dxe:ComboBoxEditItem Content="2 Axis Track"/>
                         </dxe:ComboBoxEdit>
                         <Label Content="PV City" HorizontalAlignment="Left" Margin="21,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-                        <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="21,193,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="21,193,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="21,567,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,545,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,545,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="933,216,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="##0.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="933,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="##0.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="933,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <dx:SimpleButton x:Name="SimpleButtonInfoTDRLeadAcid" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="255,193,0,0" Grid.Row="1" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Info_16x16.png}" Click="SimpleButtonInfoTDRLeadAcid_Click">
                             <dx:SimpleButton.OpacityMask>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -188,11 +188,12 @@
                         <Label Content="Lat" HorizontalAlignment="Left" Margin="482,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLatDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="482,253,0,0" Text="{Binding nLatDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Demand City" HorizontalAlignment="Left" Margin="22,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-                        <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity_Copy3" HorizontalAlignment="Left" Height="23" Margin="22,253,0,0" Text="{Binding cCityDemand, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity_Copy3" HorizontalAlignment="Left" Height="23" Margin="22,253,0,0" Text="{Binding cCityDemand, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Long" HorizontalAlignment="Left" Margin="606,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLong" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="606,193,0,0" Text="{Binding nLong, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Long" HorizontalAlignment="Left" Margin="607,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                        <dx:SimpleButton Content="SimpleButton" Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="248,18,-20,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="SimpleButton_Click_1"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Energy Summary">
@@ -349,7 +350,7 @@
                         <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="125,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
+                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
                         <dx:DXTabControl Margin="20,10,20,20" Grid.Row="1">
                             <dx:DXTabItem Header="Insolation" HorizontalAlignment="Right" Width="70">
                                 <Grid Background="Transparent">
@@ -562,7 +563,7 @@
 
 
                         <Label Content="Chosen Hours/day" HorizontalAlignment="Left" Margin="669,28,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
+                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                         <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
                         <dxc:ChartControl x:Name="InsolationChart" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <dxc:ChartControl.Legends>
@@ -602,7 +603,7 @@
                                 </dxc:LineSeries2D>
                             </dxc:XYDiagram2D>
                         </dxc:ChartControl>
-                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
+                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabItemDemandLocation" Header="Demand Location" Height="22" VerticalAlignment="Top" GotFocus="DXTabItemDemandLocation_GotFocus">
@@ -683,7 +684,7 @@
 
                         </dxg:TreeListControl>
                         <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
-                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy11" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCityDemand, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
+                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy11" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCityDemand, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                         <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
                         <dxc:ChartControl x:Name="InsolationChart1" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <dxc:ChartControl.Legends>
@@ -723,7 +724,7 @@
                                 </dxc:LineSeries2D>
                             </dxc:XYDiagram2D>
                         </dxc:ChartControl>
-                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy21" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
+                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy21" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="Demand">
@@ -736,7 +737,7 @@
                         <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,572,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" IsReadOnly="True" DisplayFormatString="###.00"/>
                         <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,60" Grid.RowSpan="2" >
                             <dxg:GridControl.View>
-                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
+                                <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
                             </dxg:GridControl.View>
                             <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
                             <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
@@ -821,15 +822,15 @@
                         <Label Content="= " HorizontalAlignment="Left" Margin="169,99,0,0" VerticalAlignment="Top" Width="18"/>
                         <Rectangle Fill="White"  HorizontalAlignment="Left" Height="2" Margin="205,137,0,0" Stroke="White" VerticalAlignment="Top" Width="319"/>
                         <Label Content="kWh/day" HorizontalAlignment="Left" Margin="411,102,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextBoxnBatteryEfficiency" DisplayFormatString="####.00"  Mask="######.##" HorizontalAlignment="Left" Margin="200,162,0,0" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
-                        <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy" DisplayFormatString="####.##"  HorizontalAlignment="Left" Margin="274,162,0,0" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
-                        <dxe:TextEdit x:Name="nInverterDerateTextBox_Copy" DisplayFormatString="####.##" HorizontalAlignment="Left" Margin="351,162,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
-                        <dxe:TextEdit x:Name="nChosenInsolationTextBox_Copy" DisplayFormatString="####.##"  HorizontalAlignment="Left" Margin="424,162,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.517,0" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextBoxnBatteryEfficiency" DisplayFormatString="####.00"  Mask="######.00" HorizontalAlignment="Left" Margin="200,162,0,0" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy" DisplayFormatString="####.00"  HorizontalAlignment="Left" Margin="274,162,0,0" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="nInverterDerateTextBox_Copy" DisplayFormatString="####.00" HorizontalAlignment="Left" Margin="351,162,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="nChosenInsolationTextBox_Copy" DisplayFormatString="####.00"  HorizontalAlignment="Left" Margin="424,162,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.517,0" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="169,237,0,0" VerticalAlignment="Top" Width="18" RenderTransformOrigin="-17.389,-1.636"/>
                         <Label Content="kW" HorizontalAlignment="Left" Margin="255,237,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
                         <Label Content="h/d" HorizontalAlignment="Left" Margin="472,159,0,0" VerticalAlignment="Top" Width="47" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="00.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="###.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="179,327,0,0" VerticalAlignment="Top" Width="100" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0.0" Increment="0.01" FontWeight="Bold"/>
                         <Label Content="Chosen PV Power" HorizontalAlignment="Left" Margin="180,349,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="196,277,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_2" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value"/>
@@ -853,8 +854,8 @@
                         <dxe:TextEdit x:Name="TextBoxnMDoD" DisplayFormatString="###.00"   HorizontalAlignment="Left" Margin="592,376,0,0" EditValue="{Binding nMDoD, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextBoxnTDR" DisplayFormatString="###.00"  HorizontalAlignment="Left" Margin="696,376,0,0" EditValue="{Binding nTDR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="Ah" HorizontalAlignment="Left" Margin="669,413,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnBatteryCapacityFinal" DisplayFormatString="###.00"  EditValue="{Binding nBatteryCapacityFinal, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="579,416,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnUsableStorage_1" DisplayFormatString="###.00"  EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="637,342,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnBatteryCapacityFinal" DisplayFormatString="###.00"  EditValue="{Binding nBatteryCapacityFinal, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="579,416,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnUsableStorage_1" DisplayFormatString="###.00"  EditValue="{Binding nUsableStorage, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="637,342,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="527,342,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="527,413,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="Usable Storage Required = " HorizontalAlignment="Left" Margin="612,40,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
@@ -864,13 +865,13 @@
                         <Label Content="= " HorizontalAlignment="Left" Margin="748,118,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="816,139,0,0" Stroke="White" VerticalAlignment="Top" Width="213"/>
                         <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="901,112,0,0" VerticalAlignment="Top" Width="50" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextBoxnDaysAutonomy" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="966,118,0,0" EditValue="{Binding nDaysAutonomy, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextBoxnVoltage" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="857,146,0,0" EditValue="{Binding nVoltage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextBoxnDaysAutonomy" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="966,118,0,0" EditValue="{Binding nDaysAutonomy, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextBoxnVoltage" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="857,146,0,0" EditValue="{Binding nVoltage, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="60" ShowBorder="False" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="748,191,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="Ah" HorizontalAlignment="Left" Margin="892,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
                         <Label Content="V" HorizontalAlignment="Left" Margin="934,142,0,0" VerticalAlignment="Top" Width="47" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnUsableStorage" DisplayFormatString="###.00" EditValue="{Binding nUsableStorage, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="807,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH_1" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="816,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnUsableStorage" DisplayFormatString="###.00" EditValue="{Binding nUsableStorage, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="807,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH_1" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="816,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="Days" HorizontalAlignment="Left" Margin="1030,112,0,0" VerticalAlignment="Top" Width="39" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="951,112,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="Ah" HorizontalAlignment="Left" Margin="722,342,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
@@ -883,8 +884,8 @@
                         <dxe:TextEdit x:Name="TextBoxnControllerEfficiency" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="219,146,0,0" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextBoxnInverterDerate" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="153,146,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
                         <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="234,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneTime, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="207,142,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="111,191,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="######.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0" Increment="0.01"/>
@@ -1049,7 +1050,7 @@
                             <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
                             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
 
@@ -1063,42 +1064,42 @@
 
                             <dxg:GridColumn FieldName="nVmp" Header='Optimal Volts (Vmp)' Width="120" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nImp" Header='Optimal Current (Imp)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVoc"  Header='Open Circuit Volt. (Voc)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nIsc"  Header='Short Curcuit Current (Isc)' Width="160" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWeight_kg"  Header='Weight kG' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nLength_mm" Header='Length mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWidth_mm" Header='Width mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nHeight_mm" Header='Height mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>
@@ -1138,12 +1139,12 @@
                             <dxg:GridColumn FieldName="cName" Header="String Name" IsSmart="True"/>
                             <dxg:GridColumn FieldName="nTotVolts" Header="String Voltage" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nTotCapacity" Header="String Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
@@ -1164,13 +1165,13 @@
                             <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
                             <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
                             <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nQty" Header="Qty." IsSmart="True">
@@ -1180,14 +1181,14 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
                         </dxg:GridControl>
                         <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenBatteryCapacity"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Column="1"/>
-                        <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.##" Panel.ZIndex="17" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Column="1"/>
                         <Label Content="Capacity Achieved" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxga:LinearGaugeControl x:Name="LinearGauge1" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448" Grid.Column="1">
                             <dxga:LinearGaugeControl.Scales>
@@ -1227,19 +1228,19 @@
 
                             <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
                             <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.##" />
+                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>

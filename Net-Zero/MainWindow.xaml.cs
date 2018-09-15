@@ -56,6 +56,7 @@ namespace Net_Zero
 
 
             Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+           
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
             summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
@@ -86,10 +87,10 @@ namespace Net_Zero
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
            
-            TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
-               Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
-            TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
-              Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
+            //TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+            //   Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+            //TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+            //  Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
 
 
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
@@ -396,8 +397,8 @@ namespace Net_Zero
                 summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                 System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                 getProjectViewSource.View.MoveCurrentToFirst();
-                TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
             }
         }
 
@@ -530,25 +531,14 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
 
 
-                DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
-                decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
-                TextEditnPVRequired.EditValue = nPVRequired;
-                TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
-               Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
-                TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
-                  Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
-                //string message20 = "Update complete";
-                //string caption20 = "Net-Zero";
-                //MessageBoxButton buttons20 = MessageBoxButton.OK;
-                //MessageBoxImage icon20 = MessageBoxImage.Information;
-                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                //// Show message box
-                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                //// Displays the MessageBox.
-                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
-
+               // DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
+               // decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
+               // TextEditnPVRequired.EditValue = nPVRequired;
+               // TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+               //Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+               // TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+               //   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
+               
 
             }
         }
@@ -610,20 +600,10 @@ namespace Net_Zero
                 summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                 System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                 getProjectViewSource.View.MoveCurrentToFirst();
-                TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
-                //string message20 = "Update complete";
-                //string caption20 = "Net-Zero";
-                //MessageBoxButton buttons20 = MessageBoxButton.OK;
-                //MessageBoxImage icon20 = MessageBoxImage.Information;
-                //MessageBoxResult defaultResult20 = MessageBoxResult.OK;
-                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-                //// Show message box
-                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                //// Displays the MessageBox.
-                //MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+                
             }
         }
 
@@ -689,8 +669,8 @@ namespace Net_Zero
                 summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                 System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                 getProjectViewSource.View.MoveCurrentToFirst();
-                TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
                 //string message20 = "Update complete";
                 //string caption20 = "Net-Zero";
@@ -1777,8 +1757,8 @@ namespace Net_Zero
                     summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                     System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                     getProjectViewSource.View.MoveCurrentToFirst();
-                    TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                    TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                    //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                    //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
                 }
 
@@ -3236,47 +3216,216 @@ namespace Net_Zero
             saveBatteryConfiguration();
         }
 
-        private void ThemedWindowMain_Closing(object sender, CancelEventArgs e)
+        public bool datasetWasChanged(DataSet dataSet)
         {
-            string message20 = "Do you want to save changes to the project before closing?";
-            string caption20 = "Net-Zero";
-            MessageBoxButton buttons20 = MessageBoxButton.YesNoCancel;
-            MessageBoxImage icon20 = MessageBoxImage.Information;
-            MessageBoxResult defaultResult20 = MessageBoxResult.Yes;
-            //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
-            MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20);
-
-            switch (result)
+           bool returnValue = false;
+            if (dataSet.HasChanges())
 
             {
-                case MessageBoxResult.Yes:
-
-                    saveAll();
-                    string message30 = "Project saved.";
-                    string caption30 = "Net-Zero";
-                    MessageBoxButton buttons30 = MessageBoxButton.OK;
-                    MessageBoxImage icon30 = MessageBoxImage.Information;
-                    MessageBoxResult defaultResult30 = MessageBoxResult.OK;
-                    MessageBoxOptions options30 = MessageBoxOptions.None;
-                    MessageBoxResult result30 = MessageBox.Show(message30, caption30, buttons30, icon30, defaultResult30, options30);
-
-                    break;
-
-                case MessageBoxResult.No:
-
-                   
-
-                    break;
-
-                case MessageBoxResult.Cancel:
-
-                    e.Cancel = true;
-
-                    break;
-
-
+                returnValue = true;
 
             }
+            return returnValue;
+
+
+
         }
+
+        private void ThemedWindowMain_Closing(object sender, CancelEventArgs e)
+        {
+            //SummaryDataSet testSummaryDataSet = new SummaryDataSet();
+
+
+
+            //if (testSummaryDataSet.HasChanges())
+            // SummaryDataSet testSummaryDataSet = new SummaryDataSet();
+            //testSummaryDataSet.AcceptChanges();
+            // Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+
+            //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+            //summaryDataSetgetProjectTableAdapter.Update(summaryDataSet.getProject);
+            // System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+
+            //getProjectViewSource.
+            //getProjectViewSource.View.MoveCurrentToFirst();
+            Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+            Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+            Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+            Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+
+
+
+            if (datasetWasChanged(summaryDataSet)
+                
+                ||
+
+                    datasetWasChanged(demandDataSet)
+
+
+                    ||
+
+
+                datasetWasChanged(battery)
+
+
+                ||
+
+                datasetWasChanged(pVDataSet)
+
+                
+
+                )
+
+            {
+
+
+
+
+
+
+
+
+
+
+                string message20 = "Do you want to save changes to the project before closing?";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.Yes;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20);
+
+                switch (result)
+
+                {
+                    case MessageBoxResult.Yes:
+
+                        saveAll();
+                        string message30 = "Project saved.";
+                        string caption30 = "Net-Zero";
+                        MessageBoxButton buttons30 = MessageBoxButton.OK;
+                        MessageBoxImage icon30 = MessageBoxImage.Information;
+                        MessageBoxResult defaultResult30 = MessageBoxResult.OK;
+                        MessageBoxOptions options30 = MessageBoxOptions.None;
+                        MessageBoxResult result30 = MessageBox.Show(message30, caption30, buttons30, icon30, defaultResult30, options30);
+
+                        break;
+
+                    case MessageBoxResult.No:
+
+
+
+                        break;
+
+                    case MessageBoxResult.Cancel:
+
+                        e.Cancel = true;
+
+                        break;
+
+                }
+            }
+
+            
+        }
+
+        private void SimpleButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+            DataTable testProject = summaryDataSet.Tables["getProject"];
+
+
+           System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+            getProjectViewSource.View.Refresh();
+
+            //DataSet testSummary = new SummaryDataSet();
+            // DataTable testProject = testSummary.Tables["getProject"]; ;
+
+
+            if (testProject.Rows.Count > 0)
+            {
+                DataRow testRow = testProject.Rows[0];
+
+                //testProject = testSummary.Tables["getProject"];
+                //decimal nTDR = Convert.ToDecimal(testProject.Rows[1]["nTDR"]);
+
+                //decimal nTDR = Convert.ToDecimal(testSummary.Tables[0].Rows[0]["nTDR"]);
+
+                var value = testRow["nTDR"];
+                var value1 = testRow["nPVRequired"];
+
+
+
+
+                MessageBox.Show(value.ToString());
+                MessageBox.Show(value1.ToString());
+
+            }
+
+            if (datasetWasChanged(summaryDataSet))
+
+            {
+                MessageBox.Show("SummaryDataSet has changes");
+            }
+            else
+            {
+                MessageBox.Show("SummaryDataSet has NO changes");
+            }
+
+            //string customerIDValue = PVDataSet.getProject[0].cName;
+
+
+            // DataRow[] rows = SummaryDataSet.getProjectDataTable.Select("Status = 'Active'");
+
+
+            //        DataRow[] currentRows = testProject.Select(
+            //null, null, DataViewRowState.CurrentRows);
+
+            //        if (currentRows.Length < 1)
+            //            Debug.WriteLine("No Current Rows Found");
+            //        else
+            //        {
+            //            foreach (DataColumn column in testProject.Columns)
+            //                Debug.Write("\t{0}", column.ColumnName);
+
+            //            Debug.WriteLine("\tRowState");
+
+            //            foreach (DataRow row in currentRows)
+            //            {
+            //                foreach (DataColumn column in testProject.Columns)
+            //                    Debug.WriteLine("\t{0}", row[column]);
+
+            //                Debug.WriteLine("\t" + row.RowState);
+
+            //            }
+            //        }
+
+
+            //var query = from o in SummaryDataSet.getProjectDataTable
+            //                //where o.bDeleted == true
+            //            select new
+            //            {
+            //                o.nTDR,
+            //                o.nMDoD,
+            //                o.nPVRequired
+            //            };
+
+            //foreach (var order in query)
+            //{
+            //    Console.WriteLine("{0}\t{1:d}\t{2}",
+            //      order.nTDR,
+            //      order.nMDoD,
+            //      order.nPVRequired);
+            //}
+
+
+
+
+
+        }
+
+       
     }
 }
