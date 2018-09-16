@@ -83,6 +83,9 @@
                 <dxb:BarSubItem Content="Tools" ForceCursor="True" IsEnabled="True">
                     <dxb:BarButtonItem x:Name="BarButtonItemPVMasterList" Content="PV Master List" ItemClick="BarButtonItemPVMasterList_ItemClick"  />
                     <dxb:BarButtonItem x:Name="BarButtonItemBatteryMasterList" Content="Battery Master List" ItemClick="BarButtonItemBatteryMasterList_ItemClick"/>
+                    <dxb:BarItemLinkSeparator />
+                    <dxb:BarButtonItem x:Name="BarButtonItemAutoConfigurePV" Content="Auto-configure PV" ItemClick="BarButtonItemAutoConfigurePV_ItemClick"   />
+                    <dxb:BarButtonItem x:Name="BarButtonItemAutoConfigureBatteries" Content="Auto-configure Batteries" ItemClick="BarButtonItemAutoConfigureBatteries_ItemClick" />
 
 
                 </dxb:BarSubItem>

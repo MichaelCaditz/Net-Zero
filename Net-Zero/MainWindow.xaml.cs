@@ -2764,6 +2764,12 @@ namespace Net_Zero
 
         private void SimpleButtonAutoConfigurePV_Click(object sender, RoutedEventArgs e)
         {
+
+            autoConfigurePV();
+        }
+
+        private void autoConfigurePV()
+        {
             string message = "Warning: This will delete all PVs currently in project list above and replace with automatically configured list. Do you want to proceed?";
             string caption = "Net-Zero";
 
@@ -2794,43 +2800,43 @@ namespace Net_Zero
             {
 
                 using (SqlCommand cmd3 = new SqlCommand() { Connection = conn1, CommandType = CommandType.StoredProcedure })
-            {
-                //cmd3.Transaction = trans1;
-                cmd3.Parameters.Clear();
-                cmd3.CommandText = "[dbo].[USP_autoPV]";
-                cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
-               
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[USP_autoPV]";
+                    cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
 
 
 
 
-               // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
-                //retval.Direction = ParameterDirection.Output;
-                conn1.Open();
-                cmd3.ExecuteNonQuery();
-               // TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+
+                    // SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn1.Open();
+                    cmd3.ExecuteNonQuery();
+                    // TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
             }
 
 
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn1.State == ConnectionState.Open) conn1.Close();
 
 
-        }
+            }
 
 
-                catch (Exception ex)
-                {
-                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
-                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
-                    throw argEx;
-                }
-                finally
-                {
-                    if (conn1.State == ConnectionState.Open) conn1.Close();
-
-                   
-                }
-
-            
 
 
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
@@ -2885,6 +2891,12 @@ namespace Net_Zero
 
         private void SimpleButtonAutoConfigureBattery_Click(object sender, RoutedEventArgs e)
         {
+            autoConfigureBattery();
+        }
+
+        private void autoConfigureBattery()
+        {
+
             string message = "Warning: This will delete all batteries currently in project list above and replace with automatically configured list. Do you want to proceed?";
             string caption = "Net-Zero";
 
@@ -2906,7 +2918,7 @@ namespace Net_Zero
             }
 
 
-            
+
 
             SaveBattery(true);
             SaveString(true);
@@ -2964,19 +2976,19 @@ namespace Net_Zero
             // registerDataSet.EnforceConstraints = false;
 
             //Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
-           // pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
+            // pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
             //registerDataSet.EnforceConstraints = true;
 
             Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
             batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, Settings.Default.nCurrentProjectID);
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
             getBatteryTableAdapter.Fill(battery.getBattery, Settings.Default.nCurrentProjectID);
-           // Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+            // Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
-           // decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
-                      //DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
+            // decimal nSumCapacity = (battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null) == null ? 0m :
+            //DBNull.Value.Equals(battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null)) == true ? 0m : (decimal)battery.getBatterySeriesString.Compute("Sum(nTotCapacity)", null));
             //decimal nSumPVkW = (pVDataSet.getPV.Compute("Sum(nTotPmax)", null) == null ? 0m :
-                      // DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
+            // DBNull.Value.Equals(pVDataSet.getPV.Compute("Sum(nTotPmax)", null)) == true ? 0m : (decimal)pVDataSet.getPV.Compute("Sum(nTotPmax)/1000", null));
 
             //SpinEditnCapacityAchieved.EditValue = nSumCapacity;
             //SpinEditnCapacityAchievedPVkW.EditValue = nSumPVkW;
@@ -3014,6 +3026,8 @@ namespace Net_Zero
 
             // Displays the MessageBox.
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
+
+
         }
 
         public void saveDemandLocation()
@@ -3643,6 +3657,14 @@ namespace Net_Zero
 
         }
 
-       
+        private void BarButtonItemAutoConfigurePV_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            autoConfigurePV();
+        }
+
+        private void BarButtonItemAutoConfigureBatteries_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            autoConfigureBattery();
+        }
     }
 }
