@@ -68,12 +68,16 @@ namespace Net_Zero
             geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
             System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
             getAllCountriesViewSource.View.MoveCurrentToFirst();
+            System.Windows.Data.CollectionViewSource getAllCountriesViewSourceDemand = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSourceDemand")));
+            getAllCountriesViewSourceDemand.View.MoveCurrentToFirst();
 
 
             Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter geographygetAllStateProvinceTableAdapter = new Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter();
             geographygetAllStateProvinceTableAdapter.Fill(geography.getAllStateProvince);
             System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvinceViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvinceViewSource")));
             getAllCountriesgetAllStateProvinceViewSource.View.MoveCurrentToFirst();
+            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvinceViewSourceDemand = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvinceViewSourceDemand")));
+            getAllCountriesgetAllStateProvinceViewSourceDemand.View.MoveCurrentToFirst();
 
 
             Net_Zero.GeographyTableAdapters.getAllCityTableAdapter geographygetAllCityTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCityTableAdapter();
@@ -2822,13 +2826,13 @@ namespace Net_Zero
             //string website = "";
             //string rep = "";
             //string name = "";
-            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
+            System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand")));
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
 
 
             //int accountCurrent = 0;
             int wasnull = 0;
-            wasnull = (getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View == null ? 1 : 0);
+            wasnull = (getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand.View == null ? 1 : 0);
             if (wasnull == 1)
             {
 
@@ -2860,7 +2864,7 @@ namespace Net_Zero
             {
 
 
-                DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
+                DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
                 nInsolation = (TextEditInsolation.EditValue == null ? 0 : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
