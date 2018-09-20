@@ -305,6 +305,9 @@ namespace Net_Zero
             int nProjectsID = Settings.Default.nCurrentProjectID;
             int nCityID = 0;
             decimal nInsolation = 0;
+            decimal nManualLat = 0;
+            decimal nManualLong = 0;
+            bool bUserSpecifiedCoordinates = false;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
 
@@ -349,7 +352,13 @@ namespace Net_Zero
                 DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
-                nInsolation = (TextEditInsolation.EditValue == null ? 0 : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
+                nInsolation = (TextEditInsolation.EditValue == null ? 0m : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
+
+                nManualLat = (SpinEditnManualLat.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnManualLat.EditValue) == true ? 0m : (decimal)SpinEditnManualLat.EditValue);
+
+                nManualLong = (SpinEditnManualLong.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnManualLong.EditValue) == true ? 0m : (decimal)SpinEditnManualLong.EditValue);
+                bUserSpecifiedCoordinates = (CheckEditbUserSpecifiedCoordinates.EditValue == null ? false : DBNull.Value.Equals(CheckEditbUserSpecifiedCoordinates.EditValue) == true ? false : (bool)CheckEditbUserSpecifiedCoordinates.EditValue);
+
                 //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
                 //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
 
@@ -368,6 +377,9 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
                     cmd3.Parameters.AddWithValue("@nCityID", nCityID);
                     cmd3.Parameters.AddWithValue("@nInsolation", nInsolation);
+                    cmd3.Parameters.AddWithValue("@nManualLat", nManualLat);
+                    cmd3.Parameters.AddWithValue("@nManualLong", nManualLong);
+                    cmd3.Parameters.AddWithValue("@bUserSpecifiedCoordinates", bUserSpecifiedCoordinates);
 
 
 
