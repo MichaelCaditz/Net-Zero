@@ -467,6 +467,20 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnIB;
             
+            private global::System.Data.DataColumn columnnIncidence;
+            
+            private global::System.Data.DataColumn columnnBeamCollector;
+            
+            private global::System.Data.DataColumn columnnSkyDiffuseFactor;
+            
+            private global::System.Data.DataColumn columnnDiffuseCollector;
+            
+            private global::System.Data.DataColumn columnnReflectedCollector;
+            
+            private global::System.Data.DataColumn columnnBeamCollectorHorizontal;
+            
+            private global::System.Data.DataColumn columnnDiffuseCollectorHorizontal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -871,6 +885,62 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIncidenceColumn {
+                get {
+                    return this.columnnIncidence;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nBeamCollectorColumn {
+                get {
+                    return this.columnnBeamCollector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nSkyDiffuseFactorColumn {
+                get {
+                    return this.columnnSkyDiffuseFactor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDiffuseCollectorColumn {
+                get {
+                    return this.columnnDiffuseCollector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nReflectedCollectorColumn {
+                get {
+                    return this.columnnReflectedCollector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nBeamCollectorHorizontalColumn {
+                get {
+                    return this.columnnBeamCollectorHorizontal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDiffuseCollectorHorizontalColumn {
+                get {
+                    return this.columnnDiffuseCollectorHorizontal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -950,7 +1020,14 @@ namespace Net_Zero {
                         int nDayOfYear, 
                         decimal nASHRAE_A, 
                         decimal nASHRAE_k, 
-                        decimal nIB) {
+                        decimal nIB, 
+                        decimal nIncidence, 
+                        decimal nBeamCollector, 
+                        decimal nSkyDiffuseFactor, 
+                        decimal nDiffuseCollector, 
+                        decimal nReflectedCollector, 
+                        decimal nBeamCollectorHorizontal, 
+                        decimal nDiffuseCollectorHorizontal) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -997,7 +1074,14 @@ namespace Net_Zero {
                         nDayOfYear,
                         nASHRAE_A,
                         nASHRAE_k,
-                        nIB};
+                        nIB,
+                        nIncidence,
+                        nBeamCollector,
+                        nSkyDiffuseFactor,
+                        nDiffuseCollector,
+                        nReflectedCollector,
+                        nBeamCollectorHorizontal,
+                        nDiffuseCollectorHorizontal};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1039,7 +1123,14 @@ namespace Net_Zero {
                         int nDayOfYear, 
                         decimal nASHRAE_A, 
                         decimal nASHRAE_k, 
-                        decimal nIB) {
+                        decimal nIB, 
+                        decimal nIncidence, 
+                        decimal nBeamCollector, 
+                        decimal nSkyDiffuseFactor, 
+                        decimal nDiffuseCollector, 
+                        decimal nReflectedCollector, 
+                        decimal nBeamCollectorHorizontal, 
+                        decimal nDiffuseCollectorHorizontal) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1086,7 +1177,14 @@ namespace Net_Zero {
                         nDayOfYear,
                         nASHRAE_A,
                         nASHRAE_k,
-                        nIB};
+                        nIB,
+                        nIncidence,
+                        nBeamCollector,
+                        nSkyDiffuseFactor,
+                        nDiffuseCollector,
+                        nReflectedCollector,
+                        nBeamCollectorHorizontal,
+                        nDiffuseCollectorHorizontal};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1161,6 +1259,13 @@ namespace Net_Zero {
                 this.columnnASHRAE_A = base.Columns["nASHRAE_A"];
                 this.columnnASHRAE_k = base.Columns["nASHRAE_k"];
                 this.columnnIB = base.Columns["nIB"];
+                this.columnnIncidence = base.Columns["nIncidence"];
+                this.columnnBeamCollector = base.Columns["nBeamCollector"];
+                this.columnnSkyDiffuseFactor = base.Columns["nSkyDiffuseFactor"];
+                this.columnnDiffuseCollector = base.Columns["nDiffuseCollector"];
+                this.columnnReflectedCollector = base.Columns["nReflectedCollector"];
+                this.columnnBeamCollectorHorizontal = base.Columns["nBeamCollectorHorizontal"];
+                this.columnnDiffuseCollectorHorizontal = base.Columns["nDiffuseCollectorHorizontal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1256,6 +1361,20 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnASHRAE_k);
                 this.columnnIB = new global::System.Data.DataColumn("nIB", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnIB);
+                this.columnnIncidence = new global::System.Data.DataColumn("nIncidence", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIncidence);
+                this.columnnBeamCollector = new global::System.Data.DataColumn("nBeamCollector", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBeamCollector);
+                this.columnnSkyDiffuseFactor = new global::System.Data.DataColumn("nSkyDiffuseFactor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnSkyDiffuseFactor);
+                this.columnnDiffuseCollector = new global::System.Data.DataColumn("nDiffuseCollector", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDiffuseCollector);
+                this.columnnReflectedCollector = new global::System.Data.DataColumn("nReflectedCollector", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnReflectedCollector);
+                this.columnnBeamCollectorHorizontal = new global::System.Data.DataColumn("nBeamCollectorHorizontal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnBeamCollectorHorizontal);
+                this.columnnDiffuseCollectorHorizontal = new global::System.Data.DataColumn("nDiffuseCollectorHorizontal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDiffuseCollectorHorizontal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1837,6 +1956,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnCountryIDDemand;
             
+            private global::System.Data.DataColumn columnnReflectance;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -2201,6 +2322,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nReflectanceColumn {
+                get {
+                    return this.columnnReflectance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2275,7 +2404,8 @@ namespace Net_Zero {
                         int nStateProvinceID, 
                         int nCountryID, 
                         int nStateProvinceIDDemand, 
-                        int nCountryIDDemand) {
+                        int nCountryIDDemand, 
+                        decimal nReflectance) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2317,7 +2447,8 @@ namespace Net_Zero {
                         nStateProvinceID,
                         nCountryID,
                         nStateProvinceIDDemand,
-                        nCountryIDDemand};
+                        nCountryIDDemand,
+                        nReflectance};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2359,7 +2490,8 @@ namespace Net_Zero {
                         int nStateProvinceID, 
                         int nCountryID, 
                         int nStateProvinceIDDemand, 
-                        int nCountryIDDemand) {
+                        int nCountryIDDemand, 
+                        decimal nReflectance) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2401,7 +2533,8 @@ namespace Net_Zero {
                         nStateProvinceID,
                         nCountryID,
                         nStateProvinceIDDemand,
-                        nCountryIDDemand};
+                        nCountryIDDemand,
+                        nReflectance};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2471,6 +2604,7 @@ namespace Net_Zero {
                 this.columnnCountryID = base.Columns["nCountryID"];
                 this.columnnStateProvinceIDDemand = base.Columns["nStateProvinceIDDemand"];
                 this.columnnCountryIDDemand = base.Columns["nCountryIDDemand"];
+                this.columnnReflectance = base.Columns["nReflectance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2556,6 +2690,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnStateProvinceIDDemand);
                 this.columnnCountryIDDemand = new global::System.Data.DataColumn("nCountryIDDemand", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnCountryIDDemand);
+                this.columnnReflectance = new global::System.Data.DataColumn("nReflectance", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnReflectance);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -3445,6 +3581,119 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIncidence {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIncidenceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIncidence\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIncidenceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nBeamCollector {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nBeamCollectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBeamCollector\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nBeamCollectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nSkyDiffuseFactor {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nSkyDiffuseFactorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nSkyDiffuseFactor\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nSkyDiffuseFactorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDiffuseCollector {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDiffuseCollectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDiffuseCollector\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDiffuseCollectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nReflectedCollector {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nReflectedCollectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nReflectedCollector\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nReflectedCollectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nBeamCollectorHorizontal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nBeamCollectorHorizontalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nBeamCollectorHorizontal\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nBeamCollectorHorizontalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDiffuseCollectorHorizontal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDiffuseCollectorHorizontalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDiffuseCollectorHorizontal\' in table \'getSummary\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDiffuseCollectorHorizontalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -3969,6 +4218,90 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnIBNull() {
                 this[this.tablegetSummary.nIBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIncidenceNull() {
+                return this.IsNull(this.tablegetSummary.nIncidenceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIncidenceNull() {
+                this[this.tablegetSummary.nIncidenceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnBeamCollectorNull() {
+                return this.IsNull(this.tablegetSummary.nBeamCollectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnBeamCollectorNull() {
+                this[this.tablegetSummary.nBeamCollectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnSkyDiffuseFactorNull() {
+                return this.IsNull(this.tablegetSummary.nSkyDiffuseFactorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnSkyDiffuseFactorNull() {
+                this[this.tablegetSummary.nSkyDiffuseFactorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDiffuseCollectorNull() {
+                return this.IsNull(this.tablegetSummary.nDiffuseCollectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDiffuseCollectorNull() {
+                this[this.tablegetSummary.nDiffuseCollectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnReflectedCollectorNull() {
+                return this.IsNull(this.tablegetSummary.nReflectedCollectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnReflectedCollectorNull() {
+                this[this.tablegetSummary.nReflectedCollectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnBeamCollectorHorizontalNull() {
+                return this.IsNull(this.tablegetSummary.nBeamCollectorHorizontalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnBeamCollectorHorizontalNull() {
+                this[this.tablegetSummary.nBeamCollectorHorizontalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDiffuseCollectorHorizontalNull() {
+                return this.IsNull(this.tablegetSummary.nDiffuseCollectorHorizontalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDiffuseCollectorHorizontalNull() {
+                this[this.tablegetSummary.nDiffuseCollectorHorizontalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4789,6 +5122,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nReflectance {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nReflectanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nReflectance\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nReflectanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -5254,6 +5603,18 @@ namespace Net_Zero {
             public void SetnCountryIDDemandNull() {
                 this[this.tablegetProject.nCountryIDDemandColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnReflectanceNull() {
+                return this.IsNull(this.tablegetProject.nReflectanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnReflectanceNull() {
+                this[this.tablegetProject.nReflectanceColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -5515,6 +5876,13 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nASHRAE_A", "nASHRAE_A");
             tableMapping.ColumnMappings.Add("nASHRAE_k", "nASHRAE_k");
             tableMapping.ColumnMappings.Add("nIB", "nIB");
+            tableMapping.ColumnMappings.Add("nIncidence", "nIncidence");
+            tableMapping.ColumnMappings.Add("nBeamCollector", "nBeamCollector");
+            tableMapping.ColumnMappings.Add("nSkyDiffuseFactor", "nSkyDiffuseFactor");
+            tableMapping.ColumnMappings.Add("nDiffuseCollector", "nDiffuseCollector");
+            tableMapping.ColumnMappings.Add("nReflectedCollector", "nReflectedCollector");
+            tableMapping.ColumnMappings.Add("nBeamCollectorHorizontal", "nBeamCollectorHorizontal");
+            tableMapping.ColumnMappings.Add("nDiffuseCollectorHorizontal", "nDiffuseCollectorHorizontal");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -6193,6 +6561,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nCountryID", "nCountryID");
             tableMapping.ColumnMappings.Add("nStateProvinceIDDemand", "nStateProvinceIDDemand");
             tableMapping.ColumnMappings.Add("nCountryIDDemand", "nCountryIDDemand");
+            tableMapping.ColumnMappings.Add("nReflectance", "nReflectance");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

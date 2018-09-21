@@ -110,6 +110,13 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nASHRAE_A" DataSetColumn="nASHRAE_A" />
               <Mapping SourceColumn="nASHRAE_k" DataSetColumn="nASHRAE_k" />
               <Mapping SourceColumn="nIB" DataSetColumn="nIB" />
+              <Mapping SourceColumn="nIncidence" DataSetColumn="nIncidence" />
+              <Mapping SourceColumn="nBeamCollector" DataSetColumn="nBeamCollector" />
+              <Mapping SourceColumn="nSkyDiffuseFactor" DataSetColumn="nSkyDiffuseFactor" />
+              <Mapping SourceColumn="nDiffuseCollector" DataSetColumn="nDiffuseCollector" />
+              <Mapping SourceColumn="nReflectedCollector" DataSetColumn="nReflectedCollector" />
+              <Mapping SourceColumn="nBeamCollectorHorizontal" DataSetColumn="nBeamCollectorHorizontal" />
+              <Mapping SourceColumn="nDiffuseCollectorHorizontal" DataSetColumn="nDiffuseCollectorHorizontal" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -186,6 +193,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nCountryID" DataSetColumn="nCountryID" />
               <Mapping SourceColumn="nStateProvinceIDDemand" DataSetColumn="nStateProvinceIDDemand" />
               <Mapping SourceColumn="nCountryIDDemand" DataSetColumn="nCountryIDDemand" />
+              <Mapping SourceColumn="nReflectance" DataSetColumn="nReflectance" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -251,6 +259,13 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nASHRAE_A" msprop:Generator_ColumnVarNameInTable="columnnASHRAE_A" msprop:Generator_ColumnPropNameInRow="nASHRAE_A" msprop:Generator_ColumnPropNameInTable="nASHRAE_AColumn" msprop:Generator_UserColumnName="nASHRAE_A" type="xs:decimal" minOccurs="0" />
               <xs:element name="nASHRAE_k" msprop:Generator_ColumnVarNameInTable="columnnASHRAE_k" msprop:Generator_ColumnPropNameInRow="nASHRAE_k" msprop:Generator_ColumnPropNameInTable="nASHRAE_kColumn" msprop:Generator_UserColumnName="nASHRAE_k" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIB" msprop:Generator_ColumnVarNameInTable="columnnIB" msprop:Generator_ColumnPropNameInRow="nIB" msprop:Generator_ColumnPropNameInTable="nIBColumn" msprop:Generator_UserColumnName="nIB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIncidence" msprop:Generator_ColumnVarNameInTable="columnnIncidence" msprop:Generator_ColumnPropNameInRow="nIncidence" msprop:Generator_ColumnPropNameInTable="nIncidenceColumn" msprop:Generator_UserColumnName="nIncidence" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nBeamCollector" msprop:Generator_ColumnVarNameInTable="columnnBeamCollector" msprop:Generator_ColumnPropNameInRow="nBeamCollector" msprop:Generator_ColumnPropNameInTable="nBeamCollectorColumn" msprop:Generator_UserColumnName="nBeamCollector" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nSkyDiffuseFactor" msprop:Generator_ColumnVarNameInTable="columnnSkyDiffuseFactor" msprop:Generator_ColumnPropNameInRow="nSkyDiffuseFactor" msprop:Generator_ColumnPropNameInTable="nSkyDiffuseFactorColumn" msprop:Generator_UserColumnName="nSkyDiffuseFactor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDiffuseCollector" msprop:Generator_ColumnVarNameInTable="columnnDiffuseCollector" msprop:Generator_ColumnPropNameInRow="nDiffuseCollector" msprop:Generator_ColumnPropNameInTable="nDiffuseCollectorColumn" msprop:Generator_UserColumnName="nDiffuseCollector" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nReflectedCollector" msprop:Generator_ColumnVarNameInTable="columnnReflectedCollector" msprop:Generator_ColumnPropNameInRow="nReflectedCollector" msprop:Generator_ColumnPropNameInTable="nReflectedCollectorColumn" msprop:Generator_UserColumnName="nReflectedCollector" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nBeamCollectorHorizontal" msprop:Generator_ColumnVarNameInTable="columnnBeamCollectorHorizontal" msprop:Generator_ColumnPropNameInRow="nBeamCollectorHorizontal" msprop:Generator_ColumnPropNameInTable="nBeamCollectorHorizontalColumn" msprop:Generator_UserColumnName="nBeamCollectorHorizontal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDiffuseCollectorHorizontal" msprop:Generator_ColumnVarNameInTable="columnnDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInRow="nDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInTable="nDiffuseCollectorHorizontalColumn" msprop:Generator_UserColumnName="nDiffuseCollectorHorizontal" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -351,6 +366,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nCountryID" msprop:Generator_ColumnVarNameInTable="columnnCountryID" msprop:Generator_ColumnPropNameInRow="nCountryID" msprop:Generator_ColumnPropNameInTable="nCountryIDColumn" msprop:Generator_UserColumnName="nCountryID" type="xs:int" minOccurs="0" />
               <xs:element name="nStateProvinceIDDemand" msprop:Generator_ColumnVarNameInTable="columnnStateProvinceIDDemand" msprop:Generator_ColumnPropNameInRow="nStateProvinceIDDemand" msprop:Generator_ColumnPropNameInTable="nStateProvinceIDDemandColumn" msprop:Generator_UserColumnName="nStateProvinceIDDemand" type="xs:int" minOccurs="0" />
               <xs:element name="nCountryIDDemand" msprop:Generator_ColumnVarNameInTable="columnnCountryIDDemand" msprop:Generator_ColumnPropNameInRow="nCountryIDDemand" msprop:Generator_ColumnPropNameInTable="nCountryIDDemandColumn" msprop:Generator_UserColumnName="nCountryIDDemand" type="xs:int" minOccurs="0" />
+              <xs:element name="nReflectance" msprop:Generator_ColumnVarNameInTable="columnnReflectance" msprop:Generator_ColumnPropNameInRow="nReflectance" msprop:Generator_ColumnPropNameInTable="nReflectanceColumn" msprop:Generator_UserColumnName="nReflectance" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

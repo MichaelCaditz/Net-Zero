@@ -386,7 +386,7 @@
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                           
+
                             <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio 1200" IsSmart="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -403,6 +403,41 @@
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nIB" Header="Clear Sky Beam W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nBeamCollector" Header="Beam on Collector W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nBeamCollectorHorizontal" Header="Beam on Horizontal Collector W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSkyDiffuseFactor" Header="Sky Diffuse Factor" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nDiffuseCollector" Header="Diffuse on Collector W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nReflectedCollector" Header="Reflected on Collector W/m^2" IsSmart="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -630,10 +665,10 @@
                         </dxg:TreeListControl>
                         <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="TextEditInsolation" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="700,5,0,0" EditValue="{Binding nChosenInsolation, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="13" Increment="0.01"/>
-                        <Label Content="Latitude ⁰ (user)" HorizontalAlignment="Left" Margin="1124,28,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnManualLat" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.0000"  HorizontalAlignment="Left" Height="23" Margin="1124,5,0,0" EditValue="{Binding nManualLat, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="######.0000" Panel.ZIndex="13" Increment="0.01"/>
-                        <Label Content="Longitude ⁰ (user)" HorizontalAlignment="Left" Margin="1270,28,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnManualLong" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.0000"  HorizontalAlignment="Left" Height="23" Margin="1270,5,0,0" EditValue="{Binding nManualLong, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="######.0000" Panel.ZIndex="13" Increment="0.01"/>
+                        <Label Content="Latitude ⁰ (user)" HorizontalAlignment="Left" Margin="1188,28,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnManualLat" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.0000"  HorizontalAlignment="Left" Height="23" Margin="1188,5,0,0" EditValue="{Binding nManualLat, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="######.0000" Panel.ZIndex="13" Increment="0.01"/>
+                        <Label Content="Longitude ⁰ (user)" HorizontalAlignment="Left" Margin="1334,28,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnManualLong" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.0000"  HorizontalAlignment="Left" Height="23" Margin="1334,5,0,0" EditValue="{Binding nManualLong, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="######.0000" Panel.ZIndex="13" Increment="0.01"/>
                         <Label Content="Chosen Sun Hours/day" HorizontalAlignment="Left" Margin="700,28,0,0" VerticalAlignment="Top" Foreground="White"/>
 
 
@@ -680,7 +715,9 @@
                             </dxc:XYDiagram2D>
                         </dxc:ChartControl>
                         <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
-                        <dxe:CheckEdit x:Name="CheckEditbUserSpecifiedCoordinates" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bUserSpecifiedCoordinates, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="937,10,0,0" VerticalAlignment="Top" Width="180" Content="User-Specified Coordinates:" Foreground="White"/>
+                        <dxe:CheckEdit x:Name="CheckEditbUserSpecifiedCoordinates" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bUserSpecifiedCoordinates, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="1001,10,0,0" VerticalAlignment="Top" Width="180" Content="User-Specified Coordinates:" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnReflectance" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="846,5,0,0" EditValue="{Binding nReflectance, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="13" Increment="0.01"/>
+                        <Label Content="Ground Refelectance" HorizontalAlignment="Left" Margin="846,28,0,0" VerticalAlignment="Top" Foreground="White"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabItemDemandLocation" Header="Demand Location" Height="22" VerticalAlignment="Top" GotFocus="DXTabItemDemandLocation_GotFocus">
