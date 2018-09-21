@@ -457,6 +457,16 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnLong;
             
+            private global::System.Data.DataColumn columnnAirMassRatio;
+            
+            private global::System.Data.DataColumn columnnDayOfYear;
+            
+            private global::System.Data.DataColumn columnnASHRAE_A;
+            
+            private global::System.Data.DataColumn columnnASHRAE_k;
+            
+            private global::System.Data.DataColumn columnnIB;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -821,6 +831,46 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nAirMassRatioColumn {
+                get {
+                    return this.columnnAirMassRatio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDayOfYearColumn {
+                get {
+                    return this.columnnDayOfYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nASHRAE_AColumn {
+                get {
+                    return this.columnnASHRAE_A;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nASHRAE_kColumn {
+                get {
+                    return this.columnnASHRAE_k;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIBColumn {
+                get {
+                    return this.columnnIB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -895,7 +945,12 @@ namespace Net_Zero {
                         decimal nSunAzimuth1600, 
                         decimal nSunAltitude0800, 
                         decimal nSunAltitude1600, 
-                        decimal nLong) {
+                        decimal nLong, 
+                        decimal nAirMassRatio, 
+                        int nDayOfYear, 
+                        decimal nASHRAE_A, 
+                        decimal nASHRAE_k, 
+                        decimal nIB) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -937,7 +992,12 @@ namespace Net_Zero {
                         nSunAzimuth1600,
                         nSunAltitude0800,
                         nSunAltitude1600,
-                        nLong};
+                        nLong,
+                        nAirMassRatio,
+                        nDayOfYear,
+                        nASHRAE_A,
+                        nASHRAE_k,
+                        nIB};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -974,7 +1034,12 @@ namespace Net_Zero {
                         decimal nSunAzimuth1600, 
                         decimal nSunAltitude0800, 
                         decimal nSunAltitude1600, 
-                        decimal nLong) {
+                        decimal nLong, 
+                        decimal nAirMassRatio, 
+                        int nDayOfYear, 
+                        decimal nASHRAE_A, 
+                        decimal nASHRAE_k, 
+                        decimal nIB) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1016,7 +1081,12 @@ namespace Net_Zero {
                         nSunAzimuth1600,
                         nSunAltitude0800,
                         nSunAltitude1600,
-                        nLong};
+                        nLong,
+                        nAirMassRatio,
+                        nDayOfYear,
+                        nASHRAE_A,
+                        nASHRAE_k,
+                        nIB};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1086,6 +1156,11 @@ namespace Net_Zero {
                 this.columnnSunAltitude0800 = base.Columns["nSunAltitude0800"];
                 this.columnnSunAltitude1600 = base.Columns["nSunAltitude1600"];
                 this.columnnLong = base.Columns["nLong"];
+                this.columnnAirMassRatio = base.Columns["nAirMassRatio"];
+                this.columnnDayOfYear = base.Columns["nDayOfYear"];
+                this.columnnASHRAE_A = base.Columns["nASHRAE_A"];
+                this.columnnASHRAE_k = base.Columns["nASHRAE_k"];
+                this.columnnIB = base.Columns["nIB"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1171,6 +1246,16 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnSunAltitude1600);
                 this.columnnLong = new global::System.Data.DataColumn("nLong", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnLong);
+                this.columnnAirMassRatio = new global::System.Data.DataColumn("nAirMassRatio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAirMassRatio);
+                this.columnnDayOfYear = new global::System.Data.DataColumn("nDayOfYear", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDayOfYear);
+                this.columnnASHRAE_A = new global::System.Data.DataColumn("nASHRAE_A", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnASHRAE_A);
+                this.columnnASHRAE_k = new global::System.Data.DataColumn("nASHRAE_k", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnASHRAE_k);
+                this.columnnIB = new global::System.Data.DataColumn("nIB", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIB);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -3280,6 +3365,86 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nAirMassRatio {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nAirMassRatioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAirMassRatio\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nAirMassRatioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nDayOfYear {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetSummary.nDayOfYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDayOfYear\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDayOfYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nASHRAE_A {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nASHRAE_AColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nASHRAE_A\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nASHRAE_AColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nASHRAE_k {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nASHRAE_kColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nASHRAE_k\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nASHRAE_kColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIB {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIBColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIB\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIBColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -3744,6 +3909,66 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnLongNull() {
                 this[this.tablegetSummary.nLongColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnAirMassRatioNull() {
+                return this.IsNull(this.tablegetSummary.nAirMassRatioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnAirMassRatioNull() {
+                this[this.tablegetSummary.nAirMassRatioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDayOfYearNull() {
+                return this.IsNull(this.tablegetSummary.nDayOfYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDayOfYearNull() {
+                this[this.tablegetSummary.nDayOfYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnASHRAE_ANull() {
+                return this.IsNull(this.tablegetSummary.nASHRAE_AColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnASHRAE_ANull() {
+                this[this.tablegetSummary.nASHRAE_AColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnASHRAE_kNull() {
+                return this.IsNull(this.tablegetSummary.nASHRAE_kColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnASHRAE_kNull() {
+                this[this.tablegetSummary.nASHRAE_kColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIBNull() {
+                return this.IsNull(this.tablegetSummary.nIBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIBNull() {
+                this[this.tablegetSummary.nIBColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5286,6 +5511,10 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nSunAltitude0800", "nSunAltitude0800");
             tableMapping.ColumnMappings.Add("nSunAltitude1600", "nSunAltitude1600");
             tableMapping.ColumnMappings.Add("nLong", "nLong");
+            tableMapping.ColumnMappings.Add("nAirMassRatio", "nAirMassRatio");
+            tableMapping.ColumnMappings.Add("nASHRAE_A", "nASHRAE_A");
+            tableMapping.ColumnMappings.Add("nASHRAE_k", "nASHRAE_k");
+            tableMapping.ColumnMappings.Add("nIB", "nIB");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

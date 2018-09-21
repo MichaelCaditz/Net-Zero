@@ -106,6 +106,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nSunAltitude0800" DataSetColumn="nSunAltitude0800" />
               <Mapping SourceColumn="nSunAltitude1600" DataSetColumn="nSunAltitude1600" />
               <Mapping SourceColumn="nLong" DataSetColumn="nLong" />
+              <Mapping SourceColumn="nAirMassRatio" DataSetColumn="nAirMassRatio" />
+              <Mapping SourceColumn="nASHRAE_A" DataSetColumn="nASHRAE_A" />
+              <Mapping SourceColumn="nASHRAE_k" DataSetColumn="nASHRAE_k" />
+              <Mapping SourceColumn="nIB" DataSetColumn="nIB" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -242,6 +246,11 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nSunAltitude0800" msprop:Generator_ColumnVarNameInTable="columnnSunAltitude0800" msprop:Generator_ColumnPropNameInRow="nSunAltitude0800" msprop:Generator_ColumnPropNameInTable="nSunAltitude0800Column" msprop:Generator_UserColumnName="nSunAltitude0800" type="xs:decimal" minOccurs="0" />
               <xs:element name="nSunAltitude1600" msprop:Generator_ColumnVarNameInTable="columnnSunAltitude1600" msprop:Generator_ColumnPropNameInRow="nSunAltitude1600" msprop:Generator_ColumnPropNameInTable="nSunAltitude1600Column" msprop:Generator_UserColumnName="nSunAltitude1600" type="xs:decimal" minOccurs="0" />
               <xs:element name="nLong" msprop:Generator_ColumnVarNameInTable="columnnLong" msprop:Generator_ColumnPropNameInRow="nLong" msprop:Generator_ColumnPropNameInTable="nLongColumn" msprop:Generator_UserColumnName="nLong" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nAirMassRatio" msprop:Generator_ColumnVarNameInTable="columnnAirMassRatio" msprop:Generator_ColumnPropNameInRow="nAirMassRatio" msprop:Generator_ColumnPropNameInTable="nAirMassRatioColumn" msprop:Generator_UserColumnName="nAirMassRatio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDayOfYear" msprop:Generator_ColumnVarNameInTable="columnnDayOfYear" msprop:Generator_ColumnPropNameInRow="nDayOfYear" msprop:Generator_ColumnPropNameInTable="nDayOfYearColumn" msprop:Generator_UserColumnName="nDayOfYear" type="xs:int" minOccurs="0" />
+              <xs:element name="nASHRAE_A" msprop:Generator_ColumnVarNameInTable="columnnASHRAE_A" msprop:Generator_ColumnPropNameInRow="nASHRAE_A" msprop:Generator_ColumnPropNameInTable="nASHRAE_AColumn" msprop:Generator_UserColumnName="nASHRAE_A" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nASHRAE_k" msprop:Generator_ColumnVarNameInTable="columnnASHRAE_k" msprop:Generator_ColumnPropNameInRow="nASHRAE_k" msprop:Generator_ColumnPropNameInTable="nASHRAE_kColumn" msprop:Generator_UserColumnName="nASHRAE_k" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIB" msprop:Generator_ColumnVarNameInTable="columnnIB" msprop:Generator_ColumnPropNameInRow="nIB" msprop:Generator_ColumnPropNameInTable="nIBColumn" msprop:Generator_UserColumnName="nIB" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -233,6 +233,11 @@
 
 
                             <dxg:GridColumn FieldName="dtDate" Header="Date"  IsSmart="True"  Width="90"/>
+                            <dxg:GridColumn FieldName="nDayOfYear" Header="n Day of Year" IsSmart="True"  Width="80">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="###"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation kWh/m2"     IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
@@ -381,7 +386,27 @@
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-
+                           
+                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio 1200" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nIB" Header="Clear Sky Beam W/m^2" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
                             <!--<dxg:GridColumn FieldName="nDaysRunFullChargeLocal" Header="Days run from full charge local" IsSmart="True"  Width="130">
                             <dxg:GridColumn.EditSettings>
                                 <dxe:TextEditSettings DisplayFormat="##.00"/>
