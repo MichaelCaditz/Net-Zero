@@ -587,6 +587,40 @@
 
                                 </Grid>
                             </dx:DXTabItem>
+                            <dx:DXTabItem Header="Solar Radiation">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="RadiationChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D>
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D/>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="IB Clear Sky Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
+                                            <dxc:LineSeries2D DisplayName="IBC Beam on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nBeamCollector">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IDC Diffuse on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDiffuseCollector">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IRC Reflected on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nReflectedCollector">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
+
+                                </Grid>
+                            </dx:DXTabItem>
                         </dx:DXTabControl>
                     </Grid>
                 </dx:DXTabItem>
