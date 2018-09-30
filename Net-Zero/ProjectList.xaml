@@ -1,0 +1,26 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:local="clr-namespace:Net_Zero"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    x:Class="Net_Zero.ProjectList"
+    Title="ProjectList" Height="350" Width="525"
+    Loaded="ThemedWindow_Loaded"
+    >
+
+    <dx:ThemedWindow.Resources>
+        <local:AllProjectsDataSet x:Key="allProjectsDataSet"/>
+        <CollectionViewSource x:Key="getAllProjectViewSource" Source="{Binding getAllProject, Source={StaticResource allProjectsDataSet}}"/>
+    </dx:ThemedWindow.Resources>
+
+    <Grid DataContext="{StaticResource getAllProjectViewSource}">
+
+        <dxg:GridControl AutoGenerateColumns="AddNew"  EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="2,2,2,20" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getAllProjectViewSource}}">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+    </Grid>
+</dx:ThemedWindow>

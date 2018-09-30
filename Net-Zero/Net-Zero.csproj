@@ -111,6 +111,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AllProjectsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllProjectsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Battery.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +140,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Masters.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectList.xaml.cs">
+      <DependentUpon>ProjectList.xaml</DependentUpon>
     </Compile>
     <Compile Include="PVDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -177,6 +185,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProjectList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PVMasterList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +213,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="AllProjectsDataSet.xsc">
+      <DependentUpon>AllProjectsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AllProjectsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AllProjectsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AllProjectsDataSet.xss">
+      <DependentUpon>AllProjectsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Battery.xsc">
       <DependentUpon>Battery.xsd</DependentUpon>
     </None>

@@ -37,7 +37,10 @@ namespace Net_Zero
 
         private void btnOpen_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-            //TextEditDemandTotal.EditValue = 198.66;
+            ProjectList ProjectList1 = new ProjectList();
+
+
+            ProjectList1.ShowDialog();
         }
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
@@ -112,8 +115,7 @@ namespace Net_Zero
             getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
 
 
-            // TODO: Add code here to load data into the table getBattery.
-            // This code could not be generated, because the batterygetBatteryTableAdapter.Fill method is missing, or has unrecognized parameters.
+           
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
             getBatteryTableAdapter.Fill(battery.getBattery, nCurrentProjectID);
             //System.Windows.Data.CollectionViewSource getBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryViewSource")));
