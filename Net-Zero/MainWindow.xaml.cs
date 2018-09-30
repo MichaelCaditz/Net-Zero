@@ -110,13 +110,15 @@ namespace Net_Zero
                     }
                 }
                 // MessageBox.Show(ProjectList1.nProjectID.ToString());
+               Settings.Default.nLastProjectID= Settings.Default.nCurrentProjectID;
+               Settings.Default.nCurrentProjectID= ProjectList1.nProjectID;
                 // MessageBox.Show("User clicked OK button");
             }
             else
             { 
                // MessageBox.Show("User clicked Cancel button");
             }
-            //return;
+            openProjectRoutine();
 
             
         }
@@ -125,6 +127,13 @@ namespace Net_Zero
         {
             this.Title = "Net - Zero     Autonomous and Backup PV System Design     " + ProgramSettings.net_zeroconnectionStringPublic;
             Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
+            
+
+            openProjectRoutine();
+        }
+
+        private void openProjectRoutine()
+        {
             int nLastProjectID = Settings.Default.nLastProjectID;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
@@ -137,7 +146,7 @@ namespace Net_Zero
 
 
             Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
-           
+
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
             summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
@@ -171,7 +180,7 @@ namespace Net_Zero
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
-           
+
             //TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
             //   Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
             //TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
@@ -193,7 +202,7 @@ namespace Net_Zero
             getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
 
 
-           
+
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
             getBatteryTableAdapter.Fill(battery.getBattery, nCurrentProjectID);
             //System.Windows.Data.CollectionViewSource getBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryViewSource")));
@@ -237,15 +246,15 @@ namespace Net_Zero
 
             DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
-           
-           // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
+
+            // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
             // MessageBox.Show(nAmnt.ToString());
 
             //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
             //bool bDeleted = true;
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader= "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt + "; Az: South";
+            string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt + "; Az: South";
             GridColumnPredictedInsolation.Header = predictedHeader;
         }
 
