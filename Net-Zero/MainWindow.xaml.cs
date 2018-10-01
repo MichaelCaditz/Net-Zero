@@ -3889,9 +3889,25 @@ namespace Net_Zero
                 //Settings.Default.nCurrentProjectID = ProjectList1.nProjectID;
                 // MessageBox.Show("User clicked OK button");
             }
-           
-           
 
         
+
+        private void BarButtonItemMetrics_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            reportViewer reportViewer1 = new reportViewer();
+
+
+            Net_Zero.Reports.MetricsReport1 rpt = new Net_Zero.Reports.MetricsReport1();
+            //Mouse.OverrideCursor = Cursors.Wait;
+            //PrintHelper.ShowPrintPreview(this, rpt);
+            reportViewer1.documentPreview1.DocumentSource = rpt;
+            
+            rpt.Parameters["@projectsID"].Value = Settings.Default.nCurrentProjectID;
+           
+
+
+            reportViewer1.Show();
+            rpt.CreateDocument();
+        }
     }
 }

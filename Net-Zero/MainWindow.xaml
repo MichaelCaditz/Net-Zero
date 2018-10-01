@@ -86,6 +86,11 @@
                     <dxb:BarButtonItem x:Name="btnPaste" Content="Paste" Glyph="{dx:DXImage Image=Paste_16x16.png}"/>
 
                 </dxb:BarSubItem>
+                <dxb:BarSubItem Content="Reports" ForceCursor="True" IsEnabled="True">
+                    <dxb:BarButtonItem x:Name="BarButtonItemMetrics" Content="Metrics" ItemClick="BarButtonItemMetrics_ItemClick"   />
+                    
+
+                </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Tools" ForceCursor="True" IsEnabled="True">
                     <dxb:BarButtonItem x:Name="BarButtonItemPVMasterList" Content="PV Master List" ItemClick="BarButtonItemPVMasterList_ItemClick"  />
                     <dxb:BarButtonItem x:Name="BarButtonItemBatteryMasterList" Content="Battery Master List" ItemClick="BarButtonItemBatteryMasterList_ItemClick"/>
@@ -217,7 +222,7 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Energy Summary">
+                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics">
                     <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
