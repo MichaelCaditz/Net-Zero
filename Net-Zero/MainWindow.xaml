@@ -69,7 +69,7 @@
         <dxb:BarContainerControl ContainerType="Top" Grid.Row="0">
             <dxb:MainMenuControl Caption="Main Menu" Background="#FFB2BCCF">
                 <dxb:BarSubItem Content="File">
-                    <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}"/>
+                    <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}" ItemClick="btnNew_ItemClick"/>
                     <dxb:BarButtonItem x:Name="btnOpen" Content="Open" Glyph="{dx:DXImage Image=Open_16x16.png}" ItemClick="btnOpen_ItemClick"/>
                     <dxb:BarItemLinkSeparator />
                     <dxb:BarButtonItem x:Name="btnClose" Content="Close" Glyph="{dx:DXImage Image=Close_16x16.png}"/>

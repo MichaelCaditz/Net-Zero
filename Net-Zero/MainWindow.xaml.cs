@@ -3770,5 +3770,128 @@ namespace Net_Zero
         {
             autoConfigureBattery();
         }
+
+        private void btnNew_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            int nNewID = 0;
+
+                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+                Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
+                Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
+                Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
+
+
+            if (datasetWasChanged(summaryDataSet)
+
+                ||
+
+                datasetWasChanged(demandDataSet)
+
+                ||
+
+                datasetWasChanged(battery)
+
+                ||
+
+                datasetWasChanged(pVDataSet)
+
+                )
+
+            {
+
+
+                string message20 = "Do you want to save changes to the project before closing?";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.YesNoCancel;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.Yes;
+                //MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20);
+
+                switch (result)
+
+                {
+                    case MessageBoxResult.Yes:
+
+                        saveAll();
+                        string message30 = "Project saved.";
+                        string caption30 = "Net-Zero";
+                        MessageBoxButton buttons30 = MessageBoxButton.OK;
+                        MessageBoxImage icon30 = MessageBoxImage.Information;
+                        MessageBoxResult defaultResult30 = MessageBoxResult.OK;
+                        MessageBoxOptions options30 = MessageBoxOptions.None;
+                        MessageBoxResult result30 = MessageBox.Show(message30, caption30, buttons30, icon30, defaultResult30, options30);
+
+                        break;
+
+                    case MessageBoxResult.No:
+
+
+
+                        break;
+
+                    case MessageBoxResult.Cancel:
+
+                        return;
+
+                        break;
+
+                }
+            }
+
+                SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                try
+                {
+
+                    using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                    {
+
+                        //cmd3.Transaction = trans1;
+                        cmd3.Parameters.Clear();
+                        cmd3.CommandText = "[dbo].[USP_insertProject]";
+                        
+
+
+                        SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                        retval.Direction = ParameterDirection.Output;
+                        conn.Open();
+                        cmd3.ExecuteNonQuery();
+                        nNewID = (int)cmd3.Parameters["@transactIdentity"].Value;
+                    }
+
+
+
+
+                }
+
+
+                catch (Exception ex)
+                {
+                    //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                    System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                    throw argEx;
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open) conn.Close();
+                    Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
+                    Settings.Default.nCurrentProjectID = nNewID;
+                    openProjectRoutine();
+
+                    //registerDataSet.EnforceConstraints = false;
+                    Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+                    //getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
+                    //resetButtons();
+                    //LocateNewLineBattery(TransactID1);
+                }
+                // MessageBox.Show(ProjectList1.nProjectID.ToString());
+                // Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
+                //Settings.Default.nCurrentProjectID = ProjectList1.nProjectID;
+                // MessageBox.Show("User clicked OK button");
+            }
+           
+           
+
+        
     }
 }
