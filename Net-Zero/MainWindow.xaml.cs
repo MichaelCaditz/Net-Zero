@@ -3894,16 +3894,31 @@ namespace Net_Zero
 
         private void BarButtonItemMetrics_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nCountryID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCountryID"]) == true ? 0 : (int)drv3["nCountryID"]);
+            
+            int nStateProvinceID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nStateProvinceID"]) == true ? 0 : (int)drv3["nStateProvinceID"]);
+           
+            int nCityID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nCityID"]) == true ? 0 : (int)drv3["nCityID"]);
+            decimal nLat = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]);
+            decimal nLong = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLong"]) == true ? 0m : (decimal)drv3["nLong"]);
+            decimal nMPPTFactor = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nMPPTFactor"]) == true ? 0m : (decimal)drv3["nMPPTFactor"]);
+
             reportViewer reportViewer1 = new reportViewer();
 
-
+            
             Net_Zero.Reports.MetricsReport1 rpt = new Net_Zero.Reports.MetricsReport1();
             //Mouse.OverrideCursor = Cursors.Wait;
             //PrintHelper.ShowPrintPreview(this, rpt);
             reportViewer1.documentPreview1.DocumentSource = rpt;
             
             rpt.Parameters["@projectsID"].Value = Settings.Default.nCurrentProjectID;
-           
+            rpt.FindControl("xrLabelLatitude",true).Text = "PV Location Latitude: "+ nLat.ToString();
+            rpt.FindControl("xrLabelLongitude", true).Text = "PV Location Longitude: " + nLong.ToString();
+            rpt.FindControl("xrLabelnMPPTFactor", true).Text = "MPPT Factor: " + nMPPTFactor.ToString();
 
 
             reportViewer1.Show();
