@@ -3906,6 +3906,18 @@ namespace Net_Zero
             decimal nLat = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]);
             decimal nLong = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLong"]) == true ? 0m : (decimal)drv3["nLong"]);
             decimal nMPPTFactor = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nMPPTFactor"]) == true ? 0m : (decimal)drv3["nMPPTFactor"]);
+            decimal nChosenPV = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nChosenPV"]) == true ? 0m : (decimal)drv3["nChosenPV"]);
+            decimal nInverterDerate= (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nInverterDerate"]) == true ? 0m : (decimal)drv3["nInverterDerate"]);
+            decimal nChosenBatterykWh = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nChosenBatterykWh"]) == true ? 0m : (decimal)drv3["nChosenBatterykWh"]);
+            string cChosenTilt = (drv3 == null ? "" : DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            decimal nChosenBattery = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nChosenBattery"]) == true ? 0m : (decimal)drv3["nChosenBattery"]);
+            decimal nVoltage = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nVoltage"]) == true ? 0m : (decimal)drv3["nVoltage"]);
+            decimal nChosenInsolation = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nChosenInsolation"]) == true ? 0m : (decimal)drv3["nChosenInsolation"]);
+            decimal nBatteryEfficiency = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nBatteryEfficiency"]) == true ? 0m : (decimal)drv3["nBatteryEfficiency"]);
+            string cName = (drv3 == null ? "" : DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+
+
+
 
             reportViewer reportViewer1 = new reportViewer();
 
@@ -3919,6 +3931,15 @@ namespace Net_Zero
             rpt.FindControl("xrLabelLatitude",true).Text = "PV Location Latitude: "+ nLat.ToString();
             rpt.FindControl("xrLabelLongitude", true).Text = "PV Location Longitude: " + nLong.ToString();
             rpt.FindControl("xrLabelnMPPTFactor", true).Text = "MPPT Factor: " + nMPPTFactor.ToString();
+            rpt.FindControl("xrLabelnChosenPV", true).Text = "Chosen PV Capacity: " + nChosenPV.ToString();
+            rpt.FindControl("xrLabelnInverterDerate", true).Text = "Inverter Derate: " + nInverterDerate.ToString();
+            rpt.FindControl("xrLabelnChosenBatterykWh", true).Text = "Chosen Battery Capacity kWh: " + nChosenBatterykWh.ToString();
+            rpt.FindControl("xrLabelcChosenTilt", true).Text = "Chosen PV Tilt: " + cChosenTilt;
+            rpt.FindControl("xrLabelnChosenBattery", true).Text = "Chosen Battery Ah: " + nChosenBattery.ToString();
+            rpt.FindControl("xrLabelnVoltage", true).Text = "System Voltage: " + nVoltage.ToString();
+            rpt.FindControl("xrLabelnChosenInsolation", true).Text = "Chosen Insolation: " + nChosenInsolation.ToString();
+            rpt.FindControl("xrLabelnBatteryEfficiency", true).Text = "Battery Efficiency: " + nBatteryEfficiency.ToString();
+            rpt.FindControl("xrLabelcName", true).Text = cName;
 
 
             reportViewer1.Show();

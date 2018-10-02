@@ -4,17 +4,18 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
     x:Class="Net_Zero.reportViewer"
-    Title="reportViewer" Height="900" Width="1800"
+    Title="reportViewer" Height="900" Width="1800" WindowStartupLocation="CenterScreen" WindowState="Maximized"
     >
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="199*"/>
             <ColumnDefinition Width="18*"/>
-            <ColumnDefinition Width="679*"/>
+            <ColumnDefinition Width="408*"/>
+            <ColumnDefinition Width="271*"/>
         </Grid.ColumnDefinitions>
 
-        <dxp:DocumentPreviewControl x:Name="documentPreview1"  Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <dxp:DocumentPreviewControl x:Name="documentPreview1"  Grid.ColumnSpan="4" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
     </Grid>
 </dx:ThemedWindow>
