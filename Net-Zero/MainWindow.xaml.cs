@@ -3915,7 +3915,10 @@ namespace Net_Zero
             decimal nChosenInsolation = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nChosenInsolation"]) == true ? 0m : (decimal)drv3["nChosenInsolation"]);
             decimal nBatteryEfficiency = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nBatteryEfficiency"]) == true ? 0m : (decimal)drv3["nBatteryEfficiency"]);
             string cName = (drv3 == null ? "" : DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-
+            string cCity = (drv3 == null ? "" : DBNull.Value.Equals(drv3["cCity"]) == true ? "" : (string)drv3["cCity"]);
+            string cCityDemand = (drv3 == null ? "" : DBNull.Value.Equals(drv3["cCityDemand"]) == true ? "" : (string)drv3["cCityDemand"]);
+            decimal nLatDemand = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLatDemand"]) == true ? 0m : (decimal)drv3["nLatDemand"]);
+            decimal nLongDemand = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nLongDemand"]) == true ? 0m : (decimal)drv3["nLongDemand"]);
 
 
 
@@ -3928,8 +3931,8 @@ namespace Net_Zero
             reportViewer1.documentPreview1.DocumentSource = rpt;
             
             rpt.Parameters["@projectsID"].Value = Settings.Default.nCurrentProjectID;
-            rpt.FindControl("xrLabelLatitude",true).Text = "PV Location Latitude: "+ nLat.ToString();
-            rpt.FindControl("xrLabelLongitude", true).Text = "PV Location Longitude: " + nLong.ToString();
+            rpt.FindControl("xrLabelLatitude",true).Text = "Latitude: "+ nLat.ToString();
+            rpt.FindControl("xrLabelLongitude", true).Text = "Longitude: " + nLong.ToString();
             rpt.FindControl("xrLabelnMPPTFactor", true).Text = "MPPT Factor: " + nMPPTFactor.ToString();
             rpt.FindControl("xrLabelnChosenPV", true).Text = "Chosen PV Capacity: " + nChosenPV.ToString();
             rpt.FindControl("xrLabelnInverterDerate", true).Text = "Inverter Derate: " + nInverterDerate.ToString();
@@ -3940,6 +3943,10 @@ namespace Net_Zero
             rpt.FindControl("xrLabelnChosenInsolation", true).Text = "Chosen Insolation: " + nChosenInsolation.ToString();
             rpt.FindControl("xrLabelnBatteryEfficiency", true).Text = "Battery Efficiency: " + nBatteryEfficiency.ToString();
             rpt.FindControl("xrLabelcName", true).Text = cName;
+            rpt.FindControl("xrLabelcCity", true).Text = "PV City: "+cCity;
+            rpt.FindControl("xrLabelcCityDemand", true).Text = "Demand City: "+cCityDemand;
+            rpt.FindControl("xrLabelLatDemand", true).Text = "Latitude: " + nLatDemand.ToString();
+            rpt.FindControl("xrLabelLongDemand", true).Text = "Longitude: " + nLongDemand.ToString();
 
 
             reportViewer1.Show();
