@@ -1,5 +1,9 @@
 ﻿<!--α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
-     Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω-->
+     Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω
+    
+    ⁰
+    
+    -->
     
     
     
@@ -222,7 +226,7 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics">
+                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Height="22" VerticalAlignment="Top">
                     <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
@@ -287,8 +291,7 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ 
-                                            Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>

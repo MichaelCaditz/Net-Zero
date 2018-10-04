@@ -349,7 +349,7 @@ namespace Net_Zero {
             this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
             this.getSummary.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
             this.getSummary.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
-            this.getSummary.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
+            this.getSummary.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
             this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
             this.getSummary.nOptimumTiltColumn.Expression = "90-nSunAltitude";
             this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,nDemandTot" +
@@ -1425,7 +1425,7 @@ namespace Net_Zero {
                 this.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
                 this.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
                 this.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
-                this.nPercentBatteryRemainingColumn.Expression = "(nBatteryRemainingkWh*100)/nChosenBatterykWh";
+                this.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
                 this.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
                 this.nOptimumTiltColumn.Expression = "90-nSunAltitude";
             }

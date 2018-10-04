@@ -3931,22 +3931,23 @@ namespace Net_Zero
             reportViewer1.documentPreview1.DocumentSource = rpt;
             
             rpt.Parameters["@projectsID"].Value = Settings.Default.nCurrentProjectID;
-            rpt.FindControl("xrLabelLatitude",true).Text = "Latitude: "+ nLat.ToString();
-            rpt.FindControl("xrLabelLongitude", true).Text = "Longitude: " + nLong.ToString();
-            rpt.FindControl("xrLabelnMPPTFactor", true).Text = "MPPT Factor: " + nMPPTFactor.ToString();
-            rpt.FindControl("xrLabelnChosenPV", true).Text = "Chosen PV Capacity: " + nChosenPV.ToString();
-            rpt.FindControl("xrLabelnInverterDerate", true).Text = "Inverter Derate: " + nInverterDerate.ToString();
-            rpt.FindControl("xrLabelnChosenBatterykWh", true).Text = "Chosen Battery Capacity kWh: " + nChosenBatterykWh.ToString();
-            rpt.FindControl("xrLabelcChosenTilt", true).Text = "Chosen PV Tilt: " + cChosenTilt;
-            rpt.FindControl("xrLabelnChosenBattery", true).Text = "Chosen Battery Ah: " + nChosenBattery.ToString();
-            rpt.FindControl("xrLabelnVoltage", true).Text = "System Voltage: " + nVoltage.ToString();
-            rpt.FindControl("xrLabelnChosenInsolation", true).Text = "Chosen Insolation: " + nChosenInsolation.ToString();
-            rpt.FindControl("xrLabelnBatteryEfficiency", true).Text = "Battery Efficiency: " + nBatteryEfficiency.ToString();
+            rpt.FindControl("xrLabelLatitude",true).Text = "Latitude: "+ nLat.ToString() + " ⁰"; ;
+            rpt.FindControl("xrLabelLongitude", true).Text = "Longitude: " + nLong.ToString() + " ⁰"; ;
+            rpt.FindControl("xrLabelnMPPTFactor", true).Text = "MPPT Factor: " + nMPPTFactor.ToString("0.00");
+            rpt.FindControl("xrLabelnChosenPV", true).Text = "Chosen PV Capacity: " + nChosenPV.ToString("0.00") +" kW";
+            rpt.FindControl("xrLabelnInverterDerate", true).Text = "Inverter Derate: " + nInverterDerate.ToString("0.00");
+            rpt.FindControl("xrLabelnChosenBatterykWh", true).Text = "Chosen Battery Capacity: " + nChosenBatterykWh.ToString("0.00") + " kWh";
+
+            rpt.FindControl("xrLabelcChosenTilt", true).Text = "Chosen PV Tilt: " + cChosenTilt + " ⁰";
+            rpt.FindControl("xrLabelnChosenBattery", true).Text = "Chosen Battery: " + nChosenBattery.ToString("0.00") + " Ah"; ;
+            rpt.FindControl("xrLabelnVoltage", true).Text = "System Voltage: " + nVoltage.ToString("0.00") +"V";
+            rpt.FindControl("xrLabelnChosenInsolation", true).Text = "Chosen Insolation: " + nChosenInsolation.ToString("0.00") +"kWh/m^2";
+            rpt.FindControl("xrLabelnBatteryEfficiency", true).Text = "Battery Efficiency: " + nBatteryEfficiency.ToString("0.00");
             rpt.FindControl("xrLabelcName", true).Text = cName;
             rpt.FindControl("xrLabelcCity", true).Text = "PV City: "+cCity;
             rpt.FindControl("xrLabelcCityDemand", true).Text = "Demand City: "+cCityDemand;
-            rpt.FindControl("xrLabelLatDemand", true).Text = "Latitude: " + nLatDemand.ToString();
-            rpt.FindControl("xrLabelLongDemand", true).Text = "Longitude: " + nLongDemand.ToString();
+            rpt.FindControl("xrLabelLatDemand", true).Text = "Latitude: " + nLatDemand.ToString()+ " ⁰"; 
+            rpt.FindControl("xrLabelLongDemand", true).Text = "Longitude: " + nLongDemand.ToString()+ " ⁰"; 
 
 
             reportViewer1.Show();
