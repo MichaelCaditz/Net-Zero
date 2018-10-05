@@ -4,9 +4,9 @@
     ⁰
     
     -->
-    
-    
-    
+
+
+
 
 <dx:ThemedWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -15,7 +15,7 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" x:Name="ThemedWindowMain" x:Class="Net_Zero.MainWindow"
+        xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" xmlns:dxm="http://schemas.devexpress.com/winfx/2008/xaml/map" x:Name="ThemedWindowMain" x:Class="Net_Zero.MainWindow"
         Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="Manual" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" VerticalAlignment="Top" HorizontalAlignment="Left" WindowState="Maximized" Closing="ThemedWindowMain_Closing">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
@@ -28,8 +28,8 @@
             </dx:DesignDataManager.DesignData>
         </dx:TypedSimpleSource>
         <local:Geography x:Key="geography"/>
-        <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries,  Source={StaticResource geography}}"/>
-        <CollectionViewSource x:Key="getAllCountriesViewSourceDemand" Source="{Binding getAllCountries,  Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllCountriesViewSource" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
+        <CollectionViewSource x:Key="getAllCountriesViewSourceDemand" Source="{Binding getAllCountries, Source={StaticResource geography}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvinceViewSource" Source="{Binding getAllCountries_getAllStateProvince, Source={StaticResource getAllCountriesViewSource}}"/>
         <CollectionViewSource x:Key="getAllCountriesgetAllStateProvinceViewSourceDemand" Source="{Binding getAllCountries_getAllStateProvince, Source={StaticResource getAllCountriesViewSourceDemand}}"/>
 
@@ -65,8 +65,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="472*"/>
-            <RowDefinition Height="323*"/>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="323*"/>-->
 
         </Grid.RowDefinitions>
 
@@ -92,7 +92,7 @@
                 </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Reports" ForceCursor="True" IsEnabled="True">
                     <dxb:BarButtonItem x:Name="BarButtonItemMetrics" Content="Metrics" ItemClick="BarButtonItemMetrics_ItemClick"   />
-                    
+
 
                 </dxb:BarSubItem>
                 <dxb:BarSubItem Content="Tools" ForceCursor="True" IsEnabled="True">
@@ -128,7 +128,7 @@
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60,0,30">
-            <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="2" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="900" Width="1780">
+            <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="1" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="900" Width="1780">
                 <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Background="#FF8D1111" >
                     <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" >
                         <Grid.ColumnDefinitions>
@@ -154,7 +154,9 @@
                         <Label Content="Create Date" HorizontalAlignment="Left" Margin="766,517,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:DateEdit  x:Name="dtCreateDateDatePicker" EditValue="{Binding dtCreateDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True"  HorizontalAlignment="Left" Margin="766,495,0,0"  VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Project Name" Grid.Column="1" HorizontalAlignment="Left" Margin="21,44,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditcName" HorizontalAlignment="Left" Height="23" Margin="21,20,0,0" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="341" Panel.ZIndex="1" Grid.Column="1" Grid.Row="1"/>
+                        <dxe:TextEdit x:Name="TextEditcName" HorizontalAlignment="Left" Height="23" Margin="21,20,0,0" Text="{Binding cName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="341" Panel.ZIndex="1" Grid.Column="1" Grid.Row="1">
+                            <dxm:MapControl Height="100" Width="100"/>
+                        </dxe:TextEdit>
                         <Label Content="Description" Grid.Column="1" HorizontalAlignment="Left" Margin="382,44,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextEditcDesc" HorizontalAlignment="Left" Height="23" Margin="382,20,0,0" Text="{Binding cDesc, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="694" Panel.ZIndex="2" Grid.Column="1" Grid.Row="1"/>
                         <Label Content="Note 1" Grid.Column="1" HorizontalAlignment="Left" Margin="382,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
@@ -1204,9 +1206,7 @@
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
-
-                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True"/>
                             <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
                             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
@@ -1359,9 +1359,6 @@
                                     <dxga:LinearScale.Layers>
                                         <dxga:LinearScaleLayer/>
                                     </dxga:LinearScale.Layers>
-                                    <dxga:LinearScale.Ranges>
-
-                                    </dxga:LinearScale.Ranges>
                                 </dxga:LinearScale>
                             </dxga:LinearGaugeControl.Scales>
                         </dxga:LinearGaugeControl>
@@ -1409,6 +1406,33 @@
                         <Label Content="Batteries in the string:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
                         <Label Content="Master battery list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="4"/>
                         <dx:SimpleButton x:Name="SimpleButtonAutoConfigureBattery" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="543,19,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure Batteries" Click="SimpleButtonAutoConfigureBattery_Click"/>
+                    </Grid>
+                </dx:DXTabItem>
+                <dx:DXTabItem Header="Shadow">
+                    <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1721*"/>
+                            <ColumnDefinition Width="13*"/>
+                        </Grid.ColumnDefinitions>-->
+                        <dxm:MapControl x:Name="MapControl1" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="8" OverridesDefaultStyle="True">
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>
+                            <dxm:ImageLayer>
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                     </Grid>
                 </dx:DXTabItem>
             </dx:DXTabControl>

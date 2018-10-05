@@ -21,6 +21,7 @@ using Net_Zero.classes;
 using System.ComponentModel;
 using System.Drawing;
 using Net_Zero.Properties;
+using DevExpress.Xpf.Map;
 
 namespace Net_Zero
 {
@@ -181,6 +182,8 @@ namespace Net_Zero
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
 
+            
+
             //TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
             //   Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
             //TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
@@ -255,7 +258,13 @@ namespace Net_Zero
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
             string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt + "; Az: South";
+            double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+            double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
             GridColumnPredictedInsolation.Header = predictedHeader;
+
+
+            MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+            
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -507,6 +516,17 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
                 //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+                int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+                string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+                string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+                string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
+                double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+                double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+                GridColumnPredictedInsolation.Header = predictedHeader;
+
+
+                MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
             }
         }
 
@@ -639,14 +659,32 @@ namespace Net_Zero
                 getProjectViewSource.View.MoveCurrentToFirst();
 
 
-               // DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
-               // decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
-               // TextEditnPVRequired.EditValue = nPVRequired;
-               // TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
-               //Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
-               // TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
-               //   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
-               
+                // DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
+                // decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
+                // TextEditnPVRequired.EditValue = nPVRequired;
+                // TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+                //Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+                // TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+                //   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
+
+                DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+                int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+
+                // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
+                // MessageBox.Show(nAmnt.ToString());
+
+                //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
+                //bool bDeleted = true;
+                string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+                string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+                string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
+                double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+                double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+                GridColumnPredictedInsolation.Header = predictedHeader;
+
+
+               MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+
 
             }
         }
