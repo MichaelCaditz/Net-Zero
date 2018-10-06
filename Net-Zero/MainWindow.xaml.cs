@@ -257,13 +257,21 @@ namespace Net_Zero
             //bool bDeleted = true;
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt + "; Az: South";
+            string predictedHeader = "Expected Insol. kWh/m"+"\x00B2"+" for Tilt=" + cChosenTilt + "; Az: South";
             double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
             double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
             GridColumnPredictedInsolation.Header = predictedHeader;
+            GridColumnnIB.Header = "IB Clear Sky Beam W/m" + "\x00B2";
+            GridColumnnBeamCollector.Header = "IBC Beam on Collector 1200 W/m" + "\x00B2";
+            GridColumnnBeamCollectorHorizontal.Header = "IBH Beam on Horizontal Collector 1200 W/m" + "\x00B2";
+            GridColumnnDiffuseCollector.Header = "IDC Diffuse on Collector 1200 W/m" + "\x00B2";
+            GridColumnnDiffuseCollectorHorizontal.Header = "Diffuse on Horizontal Collector 1200 W/m" + "\x00B2";
+            GridColumnnReflectedCollector.Header = "IRC Reflected on Collector 1200 W/m" + "\x00B2";
+            GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
 
 
             MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+
             
         }
 
@@ -527,6 +535,8 @@ namespace Net_Zero
 
 
                 MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+
+                
             }
         }
 

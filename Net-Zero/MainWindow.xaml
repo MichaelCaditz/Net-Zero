@@ -267,7 +267,7 @@
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="140">
+                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -414,12 +414,12 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="170">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="170">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -429,12 +429,12 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="170">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nBeamCollectorHorizontal" Header="IBH Beam on Horizontal Collector 1200 W/m^2" IsSmart="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal" Header="IBH Beam on Horizontal Collector 1200 W/m^2" IsSmart="True"  Width="170" FixedWidth="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -444,17 +444,17 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
