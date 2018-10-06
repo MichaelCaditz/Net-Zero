@@ -252,7 +252,27 @@
                                     <dxe:TextEditSettings DisplayFormat="###"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nLat" Header="PV Latitude ⁰"  ReadOnly="True"  IsSmart="True" Width="100">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.00000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nLong" Header="PV Longitude ⁰"  ReadOnly="True"   IsSmart="True" Width="100">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.00000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="160">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="260" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -260,37 +280,6 @@
                             <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nLat" Header="Latitude"  ReadOnly="True"  IsSmart="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nLong" Header="Longitude"  ReadOnly="True"   IsSmart="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-
-                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰ 1200" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="140">
@@ -308,32 +297,8 @@
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-
-                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="140" SortOrder="Ascending" SortIndex="0">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ 1200 (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="260" AllowConditionalFormattingMenu="False">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="160">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
+                           
+                           
                             <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="110">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
@@ -398,6 +363,44 @@
                             <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True" ReadOnly="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰ 1200" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+
+
+                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="140" SortOrder="Ascending" SortIndex="0">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ 1200 (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="140">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
 
@@ -491,6 +494,30 @@
                                             </dxc:LineSeries2D>
                                         </dxc:XYDiagram2D>
                                     </dxc:ChartControl>
+                                </Grid>
+                            </dx:DXTabItem>
+                            <dx:DXTabItem Header="Demand" HorizontalAlignment="Right" Width="70">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="SummaryChartDemand" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource demandItemsViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D >
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel Staggered="True"/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+
+                                            <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
+                                           ArgumentDataMember="cDesc" ValueDataMember="nEnergyWh"/>
+
+
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
                                 </Grid>
                             </dx:DXTabItem>
                             <dx:DXTabItem Header="PV Power" Height="22" VerticalAlignment="Top">
@@ -951,30 +978,7 @@
                         <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="581,616,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value" Click="SimpleButton_Click_3" Grid.Row="1" Grid.RowSpan="2"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Demand Chart">
-                    <Grid Background="#FF5A5A5A"  Margin="10,10,10,10">
-                        <dxc:ChartControl x:Name="SummaryChartDemand" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource demandItemsViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-                            <dxc:ChartControl.Legends>
-                                <dxc:Legend/>
-                            </dxc:ChartControl.Legends>
-                            <dxc:XYDiagram2D >
-                                <dxc:XYDiagram2D.AxisX>
-                                    <dxc:AxisX2D>
-                                        <dxc:AxisX2D.Label>
-                                            <dxc:AxisLabel Staggered="True"/>
-                                        </dxc:AxisX2D.Label>
-                                    </dxc:AxisX2D>
-                                </dxc:XYDiagram2D.AxisX>
-
-                                <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
-                                           ArgumentDataMember="cDesc" ValueDataMember="nEnergyWh"/>
-
-
-                            </dxc:XYDiagram2D>
-                        </dxc:ChartControl>
-
-                    </Grid>
-                </dx:DXTabItem>
+               
                 <dx:DXTabItem Header="PV Computation">
                     <Grid Background="#FF5A5A5A" DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" >
                         <Label Content="Recommended PV Power =" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
@@ -1408,7 +1412,7 @@
                         <dx:SimpleButton x:Name="SimpleButtonAutoConfigureBattery" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="543,19,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure Batteries" Click="SimpleButtonAutoConfigureBattery_Click"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Shadow">
+                <dx:DXTabItem Header="Map">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1721*"/>
