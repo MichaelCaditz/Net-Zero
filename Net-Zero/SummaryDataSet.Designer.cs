@@ -360,6 +360,7 @@ namespace Net_Zero {
             this.getProject.nUsableStorageColumn.Expression = "iif(nVoltage>0,(nAdjustedDemandWH*nDaysAutonomy)/nVoltage,0)";
             this.getProject.nBatteryCapacityFinalColumn.Expression = "iif(nMDoD*nTDR>0,nUsableStorage/(nMDoD*nTDR),0)";
             this.getProject.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
+            this.getProject.nEnterpriseDemandLocalColumn.Expression = "nDemandTotal*nDemandQty";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1961,6 +1962,10 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnChosenBatterykWh;
             
+            private global::System.Data.DataColumn columnnDemandQty;
+            
+            private global::System.Data.DataColumn columnnEnterpriseDemandLocal;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -2341,6 +2346,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nDemandQtyColumn {
+                get {
+                    return this.columnnDemandQty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nEnterpriseDemandLocalColumn {
+                get {
+                    return this.columnnEnterpriseDemandLocal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2417,7 +2438,9 @@ namespace Net_Zero {
                         int nStateProvinceIDDemand, 
                         int nCountryIDDemand, 
                         decimal nReflectance, 
-                        decimal nChosenBatterykWh) {
+                        decimal nChosenBatterykWh, 
+                        decimal nDemandQty, 
+                        decimal nEnterpriseDemandLocal) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2461,7 +2484,9 @@ namespace Net_Zero {
                         nStateProvinceIDDemand,
                         nCountryIDDemand,
                         nReflectance,
-                        nChosenBatterykWh};
+                        nChosenBatterykWh,
+                        nDemandQty,
+                        nEnterpriseDemandLocal};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -2504,7 +2529,8 @@ namespace Net_Zero {
                         int nCountryID, 
                         int nStateProvinceIDDemand, 
                         int nCountryIDDemand, 
-                        decimal nReflectance) {
+                        decimal nReflectance, 
+                        decimal nDemandQty) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2548,6 +2574,8 @@ namespace Net_Zero {
                         nStateProvinceIDDemand,
                         nCountryIDDemand,
                         nReflectance,
+                        null,
+                        nDemandQty,
                         null};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
@@ -2620,6 +2648,8 @@ namespace Net_Zero {
                 this.columnnCountryIDDemand = base.Columns["nCountryIDDemand"];
                 this.columnnReflectance = base.Columns["nReflectance"];
                 this.columnnChosenBatterykWh = base.Columns["nChosenBatterykWh"];
+                this.columnnDemandQty = base.Columns["nDemandQty"];
+                this.columnnEnterpriseDemandLocal = base.Columns["nEnterpriseDemandLocal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2709,6 +2739,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnReflectance);
                 this.columnnChosenBatterykWh = new global::System.Data.DataColumn("nChosenBatterykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnChosenBatterykWh);
+                this.columnnDemandQty = new global::System.Data.DataColumn("nDemandQty", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDemandQty);
+                this.columnnEnterpriseDemandLocal = new global::System.Data.DataColumn("nEnterpriseDemandLocal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnEnterpriseDemandLocal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2728,6 +2762,7 @@ namespace Net_Zero {
                 this.columnnUsableStorage.ReadOnly = true;
                 this.columnnBatteryCapacityFinal.ReadOnly = true;
                 this.columnnChosenBatterykWh.ReadOnly = true;
+                this.columnnEnterpriseDemandLocal.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2759,6 +2794,7 @@ namespace Net_Zero {
                 this.nUsableStorageColumn.Expression = "iif(nVoltage>0,(nAdjustedDemandWH*nDaysAutonomy)/nVoltage,0)";
                 this.nBatteryCapacityFinalColumn.Expression = "iif(nMDoD*nTDR>0,nUsableStorage/(nMDoD*nTDR),0)";
                 this.nChosenBatterykWhColumn.Expression = "(nChosenBattery*nVoltage)/1000";
+                this.nEnterpriseDemandLocalColumn.Expression = "nDemandTotal*nDemandQty";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5173,6 +5209,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nDemandQty {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nDemandQtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDemandQty\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nDemandQtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nEnterpriseDemandLocal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nEnterpriseDemandLocalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nEnterpriseDemandLocal\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nEnterpriseDemandLocalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -5661,6 +5729,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnChosenBatterykWhNull() {
                 this[this.tablegetProject.nChosenBatterykWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnDemandQtyNull() {
+                return this.IsNull(this.tablegetProject.nDemandQtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnDemandQtyNull() {
+                this[this.tablegetProject.nDemandQtyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnEnterpriseDemandLocalNull() {
+                return this.IsNull(this.tablegetProject.nEnterpriseDemandLocalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnEnterpriseDemandLocalNull() {
+                this[this.tablegetProject.nEnterpriseDemandLocalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6609,6 +6701,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nStateProvinceIDDemand", "nStateProvinceIDDemand");
             tableMapping.ColumnMappings.Add("nCountryIDDemand", "nCountryIDDemand");
             tableMapping.ColumnMappings.Add("nReflectance", "nReflectance");
+            tableMapping.ColumnMappings.Add("nDemandQty", "nDemandQty");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

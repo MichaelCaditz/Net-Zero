@@ -130,19 +130,43 @@
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60,0,30">
             <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="1" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="900" Width="1780">
                 <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Background="#FF8D1111" >
-                    <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" >
+                    <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,20,10" Background="#FF5A5A5A" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
                             <ColumnDefinition Width="1060"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="600*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="24"/>
-                            <RowDefinition Height="610"/>
-
-
+                            <RowDefinition Height="610*"/>
 
                         </Grid.RowDefinitions>
+
+                        <dxm:MapControl x:Name="MapControl2" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                         <Border BorderBrush="White" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="165" Margin="6,424,0,0" Grid.Row="1" VerticalAlignment="Top" Width="448"/>
                         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="130" Margin="6,13,0,0" VerticalAlignment="Top" Width="1105" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1"/>
                         <Border BorderBrush="White" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="215" Margin="749,179,-85,0" Grid.Row="1" VerticalAlignment="Top" Width="659" Grid.ColumnSpan="2"/>
@@ -226,6 +250,12 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLong" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="606,193,0,0" Text="{Binding nLong, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Long ⁰" HorizontalAlignment="Left" Margin="607,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+
+                        <!--<Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" Grid.Row="1" Grid.ColumnSpan="3" >-->
+
+
+
+                        <!--</Grid>-->
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Height="22" VerticalAlignment="Top">
@@ -237,12 +267,37 @@
 
                         </Grid.RowDefinitions>
 
+                        <dxm:MapControl x:Name="MapControl3" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                         <dx:SimpleButton HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
                         <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2">
                             <dxg:GridControl.View>
-                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0"/>
+                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
                             </dxg:GridControl.View>
 
 
@@ -297,8 +352,8 @@
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                           
-                           
+
+
                             <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="110">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
@@ -480,9 +535,24 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
@@ -502,11 +572,18 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D >
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    
                                                     <dxc:AxisX2D.Label>
-                                                        <dxc:AxisLabel Staggered="True"/>
+                                                        <dxc:AxisLabel/>
                                                     </dxc:AxisX2D.Label>
                                                 </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
@@ -527,14 +604,29 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                                            <dxc:LineSeries2D DisplayName="Chosen PV" ArgumentDataMember="dtDate" ValueDataMember="nChosenPV"/>
-                                            <dxc:LineSeries2D DisplayName="Required PV" ArgumentDataMember="dtDate" ValueDataMember="nRequiredPV">
+                                            <dxc:LineSeries2D DisplayName="Chosen PV kW" ArgumentDataMember="dtDate" ValueDataMember="nChosenPV"/>
+                                            <dxc:LineSeries2D DisplayName="Required PV kW" ArgumentDataMember="dtDate" ValueDataMember="nRequiredPV">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
@@ -551,9 +643,24 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
@@ -579,9 +686,24 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
@@ -606,9 +728,24 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
@@ -630,9 +767,24 @@
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
-                                        <dxc:XYDiagram2D>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D/>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                    <dxc:AxisX2D.WholeRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.WholeRange>
+                                                    <dxc:AxisX2D.VisualRange>
+                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
+                                                    </dxc:AxisX2D.VisualRange>
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
+                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
@@ -668,6 +820,32 @@
                             <RowDefinition Height="472*"/>
 
                         </Grid.RowDefinitions>
+
+                        <dxm:MapControl x:Name="MapControl4" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                         <dxg:TreeListControl x:Name="TreeListControlCountry" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
@@ -802,6 +980,32 @@
                             <RowDefinition Height="472*"/>
 
                         </Grid.RowDefinitions>
+
+                        <dxm:MapControl x:Name="MapControl5" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                         <dxg:TreeListControl x:Name="TreeListControlCountryDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
@@ -923,6 +1127,33 @@
                             <RowDefinition Height="280*"/>
                             <RowDefinition Height="89*"/>
                         </Grid.RowDefinitions>
+                        <dxm:MapControl x:Name="MapControl6" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
+
+
                         <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,572,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" IsReadOnly="True" DisplayFormatString="###.00"/>
                         <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,60" Grid.RowSpan="2" >
                             <dxg:GridControl.View>
@@ -978,9 +1209,37 @@
                         <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="581,616,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value" Click="SimpleButton_Click_3" Grid.Row="1" Grid.RowSpan="2"/>
                     </Grid>
                 </dx:DXTabItem>
-               
+
                 <dx:DXTabItem Header="PV Computation">
                     <Grid Background="#FF5A5A5A" DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" >
+
+
+                        <dxm:MapControl x:Name="MapControl7" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
+
                         <Label Content="Recommended PV Power =" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
                         <Label Content="demand" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
                         <Label Content="battery efficiency x MPPT factor x  inverter derate x chosen insolation" HorizontalAlignment="Left" Margin="196,49,0,0" VerticalAlignment="Top" Width="366" Foreground="White"/>
@@ -1012,6 +1271,32 @@
                             <ColumnDefinition Width="1721*"/>
                             <ColumnDefinition Width="13*"/>
                         </Grid.ColumnDefinitions>
+
+                        <dxm:MapControl x:Name="MapControl8" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
                         <Label Content="Recommended C/20 25C Capacity =" HorizontalAlignment="Left" Margin="364,264,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
                         <Label Content="usable storage required" HorizontalAlignment="Left" Margin="618,264,0,0" VerticalAlignment="Top" Width="148" Foreground="White"/>
                         <Label Content="MDoD x TDR" HorizontalAlignment="Left" Margin="654,298,0,0" VerticalAlignment="Top" Width="92" Foreground="White"/>
@@ -1078,6 +1363,33 @@
                             <ColumnDefinition Width="1800*"/>
 
                         </Grid.ColumnDefinitions>
+
+                        <dxm:MapControl x:Name="MapControl9" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
+
                         <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog"/>
@@ -1293,6 +1605,32 @@
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="1800"/>
                         </Grid.ColumnDefinitions>
+                        <dxm:MapControl x:Name="MapControl10" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
+
                         <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}" Grid.Row="1">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
@@ -1412,7 +1750,7 @@
                         <dx:SimpleButton x:Name="SimpleButtonAutoConfigureBattery" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="543,19,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure Batteries" Click="SimpleButtonAutoConfigureBattery_Click"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Map">
+                <dx:DXTabItem Header="Map" Height="22" VerticalAlignment="Top">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1721*"/>
@@ -1438,6 +1776,42 @@
                         </dxm:MapControl>
 
                     </Grid>
+
+                </dx:DXTabItem>
+
+                <dx:DXTabItem Header="Enterprise" Height="22" VerticalAlignment="Top">
+                    <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1721*"/>
+                            <ColumnDefinition Width="13*"/>
+                        </Grid.ColumnDefinitions>-->
+                        <dxm:MapControl x:Name="MapControl11" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="8" OverridesDefaultStyle="True" Opacity="0.4">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+
+                    </Grid>
+
                 </dx:DXTabItem>
             </dx:DXTabControl>
         </ScrollViewer>

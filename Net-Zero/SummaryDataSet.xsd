@@ -194,6 +194,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nStateProvinceIDDemand" DataSetColumn="nStateProvinceIDDemand" />
               <Mapping SourceColumn="nCountryIDDemand" DataSetColumn="nCountryIDDemand" />
               <Mapping SourceColumn="nReflectance" DataSetColumn="nReflectance" />
+              <Mapping SourceColumn="nDemandQty" DataSetColumn="nDemandQty" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -205,7 +206,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
   <xs:element name="SummaryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SummaryDataSet" msprop:Generator_UserDSName="SummaryDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getSummary" msprop:Generator_TableClassName="getSummaryDataTable" msprop:Generator_TableVarName="tablegetSummary" msprop:Generator_TablePropName="getSummary" msprop:Generator_RowDeletingName="getSummaryRowDeleting" msprop:Generator_RowChangingName="getSummaryRowChanging" msprop:Generator_RowEvHandlerName="getSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="getSummaryRowDeleted" msprop:Generator_UserTableName="getSummary" msprop:Generator_RowChangedName="getSummaryRowChanged" msprop:Generator_RowEvArgName="getSummaryRowChangeEvent" msprop:Generator_RowClassName="getSummaryRow">
+        <xs:element name="getSummary" msprop:Generator_TableClassName="getSummaryDataTable" msprop:Generator_TableVarName="tablegetSummary" msprop:Generator_RowChangedName="getSummaryRowChanged" msprop:Generator_TablePropName="getSummary" msprop:Generator_RowDeletingName="getSummaryRowDeleting" msprop:Generator_RowChangingName="getSummaryRowChanging" msprop:Generator_RowEvHandlerName="getSummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="getSummaryRowDeleted" msprop:Generator_RowClassName="getSummaryRow" msprop:Generator_UserTableName="getSummary" msprop:Generator_RowEvArgName="getSummaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -269,7 +270,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getSummaryAll" msprop:Generator_TableClassName="getSummaryAllDataTable" msprop:Generator_TableVarName="tablegetSummaryAll" msprop:Generator_RowChangedName="getSummaryAllRowChanged" msprop:Generator_TablePropName="getSummaryAll" msprop:Generator_RowDeletingName="getSummaryAllRowDeleting" msprop:Generator_RowChangingName="getSummaryAllRowChanging" msprop:Generator_RowEvHandlerName="getSummaryAllRowChangeEventHandler" msprop:Generator_RowDeletedName="getSummaryAllRowDeleted" msprop:Generator_RowClassName="getSummaryAllRow" msprop:Generator_UserTableName="getSummaryAll" msprop:Generator_RowEvArgName="getSummaryAllRowChangeEvent">
+        <xs:element name="getSummaryAll" msprop:Generator_TableClassName="getSummaryAllDataTable" msprop:Generator_TableVarName="tablegetSummaryAll" msprop:Generator_TablePropName="getSummaryAll" msprop:Generator_RowDeletingName="getSummaryAllRowDeleting" msprop:Generator_RowChangingName="getSummaryAllRowChanging" msprop:Generator_RowEvHandlerName="getSummaryAllRowChangeEventHandler" msprop:Generator_RowDeletedName="getSummaryAllRowDeleted" msprop:Generator_UserTableName="getSummaryAll" msprop:Generator_RowChangedName="getSummaryAllRowChanged" msprop:Generator_RowEvArgName="getSummaryAllRowChangeEvent" msprop:Generator_RowClassName="getSummaryAllRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -293,7 +294,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getProject" msprop:Generator_TableClassName="getProjectDataTable" msprop:Generator_TableVarName="tablegetProject" msprop:Generator_RowChangedName="getProjectRowChanged" msprop:Generator_TablePropName="getProject" msprop:Generator_RowDeletingName="getProjectRowDeleting" msprop:Generator_RowChangingName="getProjectRowChanging" msprop:Generator_RowEvHandlerName="getProjectRowChangeEventHandler" msprop:Generator_RowDeletedName="getProjectRowDeleted" msprop:Generator_RowClassName="getProjectRow" msprop:Generator_UserTableName="getProject" msprop:Generator_RowEvArgName="getProjectRowChangeEvent">
+        <xs:element name="getProject" msprop:Generator_TableClassName="getProjectDataTable" msprop:Generator_TableVarName="tablegetProject" msprop:Generator_TablePropName="getProject" msprop:Generator_RowDeletingName="getProjectRowDeleting" msprop:Generator_RowChangingName="getProjectRowChanging" msprop:Generator_RowEvHandlerName="getProjectRowChangeEventHandler" msprop:Generator_RowDeletedName="getProjectRowDeleted" msprop:Generator_UserTableName="getProject" msprop:Generator_RowChangedName="getProjectRowChanged" msprop:Generator_RowEvArgName="getProjectRowChangeEvent" msprop:Generator_RowClassName="getProjectRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -368,6 +369,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nCountryIDDemand" msprop:Generator_ColumnVarNameInTable="columnnCountryIDDemand" msprop:Generator_ColumnPropNameInRow="nCountryIDDemand" msprop:Generator_ColumnPropNameInTable="nCountryIDDemandColumn" msprop:Generator_UserColumnName="nCountryIDDemand" type="xs:int" minOccurs="0" />
               <xs:element name="nReflectance" msprop:Generator_ColumnVarNameInTable="columnnReflectance" msprop:Generator_ColumnPropNameInRow="nReflectance" msprop:Generator_ColumnPropNameInTable="nReflectanceColumn" msprop:Generator_UserColumnName="nReflectance" type="xs:decimal" minOccurs="0" />
               <xs:element name="nChosenBatterykWh" msdata:ReadOnly="true" msdata:Expression="(nChosenBattery*nVoltage)/1000" msprop:Generator_ColumnVarNameInTable="columnnChosenBatterykWh" msprop:Generator_ColumnPropNameInRow="nChosenBatterykWh" msprop:Generator_ColumnPropNameInTable="nChosenBatterykWhColumn" msprop:Generator_UserColumnName="nChosenBatterykWh" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nDemandQty" msprop:Generator_ColumnVarNameInTable="columnnDemandQty" msprop:Generator_ColumnPropNameInRow="nDemandQty" msprop:Generator_ColumnPropNameInTable="nDemandQtyColumn" msprop:Generator_UserColumnName="nDemandQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nEnterpriseDemandLocal" msdata:ReadOnly="true" msdata:Expression="nDemandTotal*nDemandQty" msprop:Generator_ColumnVarNameInTable="columnnEnterpriseDemandLocal" msprop:Generator_ColumnPropNameInRow="nEnterpriseDemandLocal" msprop:Generator_ColumnPropNameInTable="nEnterpriseDemandLocalColumn" msprop:Generator_UserColumnName="nEnterpriseDemandLocal" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

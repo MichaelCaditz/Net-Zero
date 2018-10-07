@@ -271,8 +271,18 @@ namespace Net_Zero
 
 
             MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
-            
+
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -533,10 +543,18 @@ namespace Net_Zero
                 double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
                 GridColumnPredictedInsolation.Header = predictedHeader;
 
-
                 MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
-                
             }
         }
 
@@ -693,8 +711,17 @@ namespace Net_Zero
                 GridColumnPredictedInsolation.Header = predictedHeader;
 
 
-               MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
-
+                MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+                MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
             }
         }
