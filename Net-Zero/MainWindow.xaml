@@ -581,7 +581,7 @@
                                                     <dxc:AxisX2D.VisualRange>
                                                         <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
                                                     </dxc:AxisX2D.VisualRange>
-                                                    
+
                                                     <dxc:AxisX2D.Label>
                                                         <dxc:AxisLabel/>
                                                     </dxc:AxisX2D.Label>
@@ -1241,12 +1241,12 @@
 
 
                         <Label Content="Recommended PV Power =" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-                        <Label Content="demand" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
+                        <Label Content="demand" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="63" Foreground="White"/>
                         <Label Content="battery efficiency x MPPT factor x  inverter derate x chosen insolation" HorizontalAlignment="Left" Margin="196,49,0,0" VerticalAlignment="Top" Width="366" Foreground="White"/>
                         <Rectangle Fill="White"  HorizontalAlignment="Left" Height="2" Margin="196,42,0,0" Stroke="White" VerticalAlignment="Top" Width="328" />
                         <Label Content="= " HorizontalAlignment="Left" Margin="169,99,0,0" VerticalAlignment="Top" Width="18"/>
                         <Rectangle Fill="White"  HorizontalAlignment="Left" Height="2" Margin="205,137,0,0" Stroke="White" VerticalAlignment="Top" Width="319"/>
-                        <Label Content="kWh/day" HorizontalAlignment="Left" Margin="411,102,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
+                        <Label Content="kWh/day" HorizontalAlignment="Left" Margin="329,102,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextBoxnBatteryEfficiency" DisplayFormatString="####.00"  Mask="######.00" HorizontalAlignment="Left" Margin="200,162,0,0" EditValue="{Binding nBatteryEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                         <dxe:TextEdit x:Name="nMPPTFactorTextBox_Copy" DisplayFormatString="####.00"  HorizontalAlignment="Left" Margin="274,162,0,0" EditValue="{Binding nMPPTFactor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                         <dxe:TextEdit x:Name="nInverterDerateTextBox_Copy" DisplayFormatString="####.00" HorizontalAlignment="Left" Margin="351,162,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
@@ -1254,8 +1254,8 @@
                         <Label Content="= " HorizontalAlignment="Left" Margin="169,237,0,0" VerticalAlignment="Top" Width="18" RenderTransformOrigin="-17.389,-1.636"/>
                         <Label Content="kW" HorizontalAlignment="Left" Margin="255,237,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
                         <Label Content="h/d" HorizontalAlignment="Left" Margin="472,159,0,0" VerticalAlignment="Top" Width="47" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="200,237,0,0" VerticalAlignment="Top" Width="50" MaskType="Numeric" Mask="###.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White" IsReadOnly="True"/>
-                        <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="315,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="158,237,0,0" VerticalAlignment="Top" Width="92" MaskType="Numeric" Mask="###.00" FontWeight="Bold" ShowBorder="False" Height="23" Foreground="White" IsReadOnly="True"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="233,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="179,327,0,0" VerticalAlignment="Top" Width="100" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0.0" Increment="0.01" FontWeight="Bold"/>
                         <Label Content="Chosen PV Power" HorizontalAlignment="Left" Margin="180,349,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="196,277,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_2" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value"/>
@@ -1263,6 +1263,11 @@
                         <Label Content="x" HorizontalAlignment="Left" Margin="330,159,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="406,159,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="kW" HorizontalAlignment="Left" Margin="282,327,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
+                        <Label Content="x" HorizontalAlignment="Left" Margin="406,159,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
+                        <Label Content="x" HorizontalAlignment="Left" Margin="391,10,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
+                        <Label Content="# of customers" HorizontalAlignment="Left" Margin="414,10,0,0" VerticalAlignment="Top" Width="91" Foreground="White"/>
+                        <Label Content="x" HorizontalAlignment="Left" Margin="396,103,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandQtyPV" DisplayFormatString="###.00" EditValue="{Binding nDemandQty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="425,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="Battery Computation">
@@ -1327,16 +1332,18 @@
                         <Label Content="x" HorizontalAlignment="Left" Margin="951,112,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="Ah" HorizontalAlignment="Left" Margin="722,342,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
                         <Label Content="Adjusted Demand =" HorizontalAlignment="Left" Margin="36,40,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
-                        <Label Content="nominal demand" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="167" Foreground="White"/>
+                        <Label Content="nominal demand x # of customers" HorizontalAlignment="Left" Margin="161,47,0,0" VerticalAlignment="Top" Width="193" Foreground="White"/>
                         <Label Content="inverter efficiency x controller efficiency" HorizontalAlignment="Left" Margin="162,70,0,0" VerticalAlignment="Top" Width="224" Foreground="White"/>
                         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="150,67,0,0" Stroke="White" VerticalAlignment="Top" Width="204"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="111,118,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="238,112,0,0" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                        <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="211,112,0,0" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandQtyBattery" DisplayFormatString="###.00" EditValue="{Binding nDemandQty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="303,112,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
+
                         <dxe:TextEdit x:Name="TextBoxnControllerEfficiency" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="219,146,0,0" EditValue="{Binding nControllerEfficiency, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextBoxnInverterDerate" DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="153,146,0,0" EditValue="{Binding nInverterDerate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="40" ShowBorder="False" Foreground="White"/>
                         <Label Content="Wh/Day" HorizontalAlignment="Left" Margin="234,187,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextEditnAdjustedDemandWH" DisplayFormatString="###.00" EditValue="{Binding nAdjustedDemandWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,191,0,0" VerticalAlignment="Top" Width="80" MaskType="Numeric" Mask="00.00" ShowBorder="False" FontWeight="Bold" Foreground="White"/>
-                        <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="153,118,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
+                        <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="126,116,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="207,142,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="111,191,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="######.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0" Increment="0.01"/>
@@ -1345,6 +1352,7 @@
                         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="150,139,0,0" Stroke="White" VerticalAlignment="Top" Width="204"/>
                         <Label Content="Ah" HorizontalAlignment="Left" Margin="752,523,0,0" VerticalAlignment="Top" Width="99" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="678,369,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
+                        <Label Content="x" HorizontalAlignment="Left" Margin="272,112,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                     </Grid>
                 </dx:DXTabItem>
 
@@ -1809,6 +1817,12 @@
                                 <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
                             </dxm:ImageLayer>
                         </dxm:MapControl>
+                        <dxe:SpinEdit x:Name="SpinEditnDemandTotalEnterprise" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="68,77,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="0" Grid.Column="0" MinValue="0" MaxValue="10000000" Mask="####.00"/>
+                        <Label Content="Chosen Demand Total kWh/d" HorizontalAlignment="Left" Margin="68,99,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnDemandQtyEnterprise" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="252,77,0,0" EditValue="{Binding nDemandQty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="0" Grid.Column="0" MinValue="0" MaxValue="10000000" Mask="####.00"/>
+                        <Label Content="Number of Units" HorizontalAlignment="Left" Margin="252,99,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnEnterpriseDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="426,77,0,0" EditValue="{Binding nEnterpriseDemandLocal, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="0" Grid.Column="0" MinValue="0" MaxValue="10000000" Mask="####.00"/>
+                        <Label Content="Total Enterprise Demand kWh/d" HorizontalAlignment="Left" Margin="426,99,0,0" VerticalAlignment="Top" Foreground="White"/>
 
                     </Grid>
 

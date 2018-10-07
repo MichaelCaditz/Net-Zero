@@ -352,9 +352,10 @@ namespace Net_Zero {
             this.getSummary.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
             this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
             this.getSummary.nOptimumTiltColumn.Expression = "90-nSunAltitude";
-            this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,nDemandTot" +
-                "al/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation),0)";
-            this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
+            this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,(nDemandTo" +
+                "tal*nDemandQty)/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolatio" +
+                "n),0)";
+            this.getProject.nDemandTotalWHColumn.Expression = "nDemandTotal*nDemandQty*1000";
             this.getProject.nAdjustedDemandWHColumn.Expression = "iif(nInverterDerate*nControllerEfficiency>0, nDemandTotalWH/(nInverterDerate*nCon" +
                 "trollerEfficiency),0)";
             this.getProject.nUsableStorageColumn.Expression = "iif(nVoltage>0,(nAdjustedDemandWH*nDaysAutonomy)/nVoltage,0)";
@@ -2786,9 +2787,10 @@ namespace Net_Zero {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
-                this.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,nDemandTot" +
-                    "al/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation),0)";
-                this.nDemandTotalWHColumn.Expression = "nDemandTotal*1000";
+                this.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,(nDemandTo" +
+                    "tal*nDemandQty)/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolatio" +
+                    "n),0)";
+                this.nDemandTotalWHColumn.Expression = "nDemandTotal*nDemandQty*1000";
                 this.nAdjustedDemandWHColumn.Expression = "iif(nInverterDerate*nControllerEfficiency>0, nDemandTotalWH/(nInverterDerate*nCon" +
                     "trollerEfficiency),0)";
                 this.nUsableStorageColumn.Expression = "iif(nVoltage>0,(nAdjustedDemandWH*nDaysAutonomy)/nVoltage,0)";
