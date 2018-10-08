@@ -131,6 +131,7 @@ namespace Net_Zero
             
 
             openProjectRoutine();
+           
         }
 
         private void openProjectRoutine()

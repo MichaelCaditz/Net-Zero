@@ -29,7 +29,7 @@
     <MinimumRequiredVersion>1.1.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -405,6 +405,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\beamOnCollector16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\metrics32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\metrics16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\map-marker32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\map-marker16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\project32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\project16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
