@@ -272,7 +272,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
                             <RowDefinition Height="470"/>
-                            <RowDefinition Height="260*"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
 
@@ -306,9 +306,7 @@
                         <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxg:GridControl x:Name="GridControlData" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20,469,20,10" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2">
                             <dxg:GridControl.View>
-                                <dxg:TableView x:Name="TableViewData" AllowPerPixelScrolling="True" ShowTotalSummary="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30">
-
-                                </dxg:TableView>
+                                <dxg:TableView x:Name="TableViewData" AllowPerPixelScrolling="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
 
                             </dxg:GridControl.View>
 
