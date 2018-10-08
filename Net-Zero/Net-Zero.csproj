@@ -29,7 +29,7 @@
     <MinimumRequiredVersion>1.1.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -381,6 +381,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\batteries_1_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\batteries_1_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nepali-calendar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nepali-calendar32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scale32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scale16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beamOnCollector64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beamOnCollector32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\beamOnCollector16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

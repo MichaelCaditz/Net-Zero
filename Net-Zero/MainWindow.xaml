@@ -16,7 +16,7 @@
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:local="clr-namespace:Net_Zero" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:SummaryDataSetTableAdapters="clr-namespace:Net_Zero.SummaryDataSetTableAdapters" xmlns:GeographyTableAdapters="clr-namespace:Net_Zero.GeographyTableAdapters" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges" xmlns:dxm="http://schemas.devexpress.com/winfx/2008/xaml/map" x:Name="ThemedWindowMain" x:Class="Net_Zero.MainWindow"
-        Title="Net-Zero     Autonomous and Backup PV System Design" Height="900" Width="1800" WindowStartupLocation="Manual" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" VerticalAlignment="Top" HorizontalAlignment="Left" WindowState="Maximized" Closing="ThemedWindowMain_Closing">
+        Title="Net-Zero     Autonomous and Backup PV System Design" Width="1800" WindowStartupLocation="Manual" Loaded="ThemedWindow_Loaded" Background="#FF318387" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" ShowStatusPanel="False" ShowBackButton="False" WindowState="Maximized" Closing="ThemedWindowMain_Closing" Height="900">
     <dx:ThemedWindow.Resources>
         <local:DemandDataSet x:Key="demandDataSet"/>
         <CollectionViewSource x:Key="demandItemsViewSource" Source="{Binding demandItems, Source={StaticResource demandDataSet}}"/>
@@ -62,15 +62,20 @@
     </dx:ThemedWindow.Resources>
     <!--<ScrollViewer Margin="304,-5,0,0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
 
-    <Grid>
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="179*"/>-->
+        <!--</Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="20*"/>-->
             <!--<RowDefinition Height="323*"/>-->
 
         </Grid.RowDefinitions>
 
-        <dxb:BarContainerControl ContainerType="Top" Grid.Row="0">
+        <dxb:BarContainerControl ContainerType="Top" Grid.Row="0" Grid.ColumnSpan="2">
             <dxb:MainMenuControl Caption="Main Menu" Background="#FFB2BCCF">
                 <dxb:BarSubItem Content="File">
                     <dxb:BarButtonItem x:Name="btnNew" Content="New" Glyph="{dx:DXImage Image=New_16x16.png}" ItemClick="btnNew_ItemClick"/>
@@ -122,7 +127,7 @@
 
 
 
-        <dxr:RibbonStatusBarControl Grid.Row="3">
+        <dxr:RibbonStatusBarControl Grid.Row="3" >
             <dxr:RibbonStatusBarControl.RightItems>
                 <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
             </dxr:RibbonStatusBarControl.RightItems>
@@ -142,7 +147,7 @@
 
                         </Grid.RowDefinitions>
 
-                        <dxm:MapControl x:Name="MapControl2" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                        <dxm:MapControl x:Name="MapControl2" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.4" Grid.RowSpan="2">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -187,7 +192,7 @@
                         <dxe:MemoEdit x:Name="MemoEditcNote1" HorizontalAlignment="Left" Height="23" Margin="382,79,0,0" Text="{Binding cNote1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.475,10.957" Panel.ZIndex="4" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Note 2" Grid.Column="1" HorizontalAlignment="Left" Margin="532,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:MemoEdit x:Name="MemoEditcNote2" HorizontalAlignment="Left" Height="23" Margin="532,79,0,0" Text="{Binding cNote2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="Client ID" HorizontalAlignment="Left" Margin="766,469,0,122" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+                        <Label Content="Client ID" HorizontalAlignment="Left" Margin="766,467,0,190" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True"  x:Name="nClientsIDTextBox" HorizontalAlignment="Left" Height="22" Margin="766,446,0,0" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="21,78,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
@@ -262,8 +267,8 @@
                     <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
-                            <RowDefinition Height="400"/>
-                            <RowDefinition Height="260"/>
+                            <RowDefinition Height="470"/>
+                            <RowDefinition Height="260*"/>
 
                         </Grid.RowDefinitions>
 
@@ -295,14 +300,14 @@
                         <dx:SimpleButton HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
                         <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
-                        <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2">
+                        <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20,20,20,120" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
                             </dxg:GridControl.View>
 
 
-                            <dxg:GridColumn FieldName="dtDate" Header="Date" ReadOnly="True"  IsSmart="True"  Width="90"/>
-                            <dxg:GridColumn FieldName="nDayOfYear" Header="n Day of Year"  ReadOnly="True" IsSmart="True"  Width="80">
+                            <dxg:GridColumn FieldName="dtDate" Header="Date" ReadOnly="True"  IsSmart="True"  Width="90" Image="Images/nepali-calendar16.png"/>
+                            <dxg:GridColumn FieldName="nDayOfYear" Header="n Day of Year"  ReadOnly="True" IsSmart="True"  Width="110" Image="Images/nepali-calendar16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="###"/>
                                 </dxg:GridColumn.EditSettings>
@@ -317,105 +322,105 @@
                                     <dxe:TextEditSettings DisplayFormat="##.00000" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="160">
+                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="170" Image="Images/China-Power-Supply-Cord16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="140">
+                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="180" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="260" AllowConditionalFormattingMenu="False">
+                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="150" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="140" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="140" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="140" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error ⁰"  ReadOnly="True"   IsSmart="True" Width="140">
+                            <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error ⁰"  ReadOnly="True"   IsSmart="True" Width="140" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
 
 
-                            <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="110">
+                            <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True" ReadOnly="True"  Width="110">
+                            <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True" ReadOnly="True"  Width="110" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="110">
+                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="130" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenPVWouldAccomodate" Header="Chosen PV Would Accomodate kWh/d" IsSmart="True" ReadOnly="True"   Width="220">
+                            <dxg:GridColumn FieldName="nChosenPVWouldAccomodate" Header="Chosen PV Would Accomodate kWh/d" IsSmart="True" ReadOnly="True"   Width="240" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nExcessLoadSupplied" Header="Surplus or Deficit Load Supplied kWh/d" IsSmart="True" ReadOnly="True"  Width="230">
+                            <dxg:GridColumn FieldName="nExcessLoadSupplied" Header="Surplus or Deficit Load Supplied kWh/d" IsSmart="True" ReadOnly="True"  Width="240" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nPercentLoadSupplied" Header="Percent Load Supplied" IsSmart="True" ReadOnly="True"  Width="130">
+                            <dxg:GridColumn FieldName="nPercentLoadSupplied" Header="Percent Load Supplied" IsSmart="True" ReadOnly="True"  Width="160" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="P" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenBattery" Header="Chosen Bat. Cap. Ah" IsSmart="True" ReadOnly="True"   Width="130">
+                            <dxg:GridColumn FieldName="nChosenBattery" Header="Chosen Bat. Cap. Ah" IsSmart="True" ReadOnly="True"   Width="150" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nVoltage" Header="System Voltage" IsSmart="True" ReadOnly="True"   Width="130">
+                            <dxg:GridColumn FieldName="nVoltage" Header="System Voltage" IsSmart="True" ReadOnly="True"   Width="100">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenBatterykWh" Header="Chosen Bat. Cap. kWh" IsSmart="True" ReadOnly="True"  Width="130">
+                            <dxg:GridColumn FieldName="nChosenBatterykWh" Header="Chosen Bat. Cap. kWh" IsSmart="True" ReadOnly="True"  Width="160" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True" ReadOnly="True"  Width="180">
+                            <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True" ReadOnly="True"  Width="190" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nBatteryRemainingkWh" Header="Bat. Remaining kWh" IsSmart="True" ReadOnly="True"   Width="180">
+                            <dxg:GridColumn FieldName="nBatteryRemainingkWh" Header="Bat. Remaining kWh" IsSmart="True" ReadOnly="True"   Width="150" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nPercentBatteryRemaining" Header="Bat. Remaining %" IsSmart="True" ReadOnly="True"   Width="180">
+                            <dxg:GridColumn FieldName="nPercentBatteryRemaining" Header="Bat. Remaining %" IsSmart="True" ReadOnly="True"   Width="140" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days run from full charge" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days Run From Full Charge" IsSmart="True" ReadOnly="True"  Width="160">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
@@ -443,7 +448,7 @@
                             </dxg:GridColumn>
 
 
-                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="140" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="140">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -464,32 +469,32 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="160">
+                            <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="90">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="170">
+                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="90">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="170">
+                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="170" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence 1200" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence 1200" IsSmart="True" ReadOnly="True"  Width="160" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="170">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="210" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal" Header="IBH Beam on Horizontal Collector 1200 W/m^2" IsSmart="True"  Width="170" FixedWidth="True">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal" Header="IBH Beam on Horizontal Collector 1200 W/m^2" IsSmart="True"  Width="250" FixedWidth="True" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -499,17 +504,17 @@
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="160">
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 W/m^2" IsSmart="True" ReadOnly="True"  Width="190" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -722,7 +727,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Energy">
+                            <dx:DXTabItem Header="Energy Balance" Glyph="Images/scale32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="EnergyChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -761,7 +766,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation" Height="50" VerticalAlignment="Top">
+                            <dx:DXTabItem Header="Solar Radiation" Height="50" VerticalAlignment="Top" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
