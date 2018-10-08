@@ -526,34 +526,34 @@ namespace Net_Zero
 
 
 
-                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+                //Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
-                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
-                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-                getProjectViewSource.View.MoveCurrentToFirst();
-                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
-                DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
-                int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
-                string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
-                string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-                string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
-                double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
-                double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
-                GridColumnPredictedInsolation.Header = predictedHeader;
+                //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                //summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                //System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                //getProjectViewSource.View.MoveCurrentToFirst();
+                ////TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                ////TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                //DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+                //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+                //string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+                //string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+                //string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
+                //double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+                //double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+                //GridColumnPredictedInsolation.Header = predictedHeader;
 
-                MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
-                MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+                //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
             }
         }
@@ -735,14 +735,14 @@ namespace Net_Zero
                 if (conn.State == ConnectionState.Open) conn.Close();
 
 
-                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+                //Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
-                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
-                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-                getProjectViewSource.View.MoveCurrentToFirst();
-                //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
-                //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
+                //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                //summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                //System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                //getProjectViewSource.View.MoveCurrentToFirst();
+                ////TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
+                ////TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
                 
             }
@@ -804,12 +804,12 @@ namespace Net_Zero
                 if (conn.State == ConnectionState.Open) conn.Close();
 
 
-                Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+                //Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
-                Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-                summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
-                System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-                getProjectViewSource.View.MoveCurrentToFirst();
+                //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                //summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
+                //System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+                //getProjectViewSource.View.MoveCurrentToFirst();
                 //TextEditnPVRequired.EditValue = Math.Round((Decimal)TextEditnPVRequired.EditValue, 2);
                 //TextEditnDemandTotal.EditValue = Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2);
 
@@ -3640,14 +3640,14 @@ namespace Net_Zero
 
                 case "PV Computation":
                     savePVComputation();
-
+                    reloadProject();
                     message20 = "PV computation information saved.";
 
                     break;
 
                 case "Battery Computation":
                     saveBatteryComputation();
-
+                    reloadProject();
                     message20 = "Battery computation information saved.";
 
                     break;
@@ -3736,51 +3736,53 @@ namespace Net_Zero
 
             saveAll();
 
-            int nProjectsID = Settings.Default.nCurrentProjectID;
+            reloadProject();
+
+            //int nProjectsID = Settings.Default.nCurrentProjectID;
 
 
-            Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
-            Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-            summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nProjectsID);
-            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
-            getProjectViewSource.View.MoveCurrentToFirst();
+            //Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+            //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+            //summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nProjectsID);
+            //System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+            //getProjectViewSource.View.MoveCurrentToFirst();
 
 
-            // DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
-            // decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
-            // TextEditnPVRequired.EditValue = nPVRequired;
-            // TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
-            //Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
-            // TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
-            //   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
+            //// DataRowView drv = (DataRowView)getProjectViewSource.View.CurrentItem;
+            //// decimal nPVRequired = (DBNull.Value.Equals(drv["nPVRequired"]) == true ? 0m : (decimal)drv["nPVRequired"]);
+            //// TextEditnPVRequired.EditValue = nPVRequired;
+            //// TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
+            ////Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
+            //// TextEditnDemandTotal.EditValue = (TextEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnDemandTotal.EditValue) == true ? 0m :
+            ////   Math.Round((Decimal)TextEditnDemandTotal.EditValue, 2));
 
-            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
-            int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+            //DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
 
-            // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
-            // MessageBox.Show(nAmnt.ToString());
+            //// decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
+            //// MessageBox.Show(nAmnt.ToString());
 
-            //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
-            //bool bDeleted = true;
-            string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
-            string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
-            double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
-            double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
-            GridColumnPredictedInsolation.Header = predictedHeader;
+            ////int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
+            ////bool bDeleted = true;
+            //string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            //string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+            //string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
+            //double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+            //double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+            //GridColumnPredictedInsolation.Header = predictedHeader;
 
 
-            MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
             string message20 = "Project saved.";
             string caption20 = "Net-Zero";

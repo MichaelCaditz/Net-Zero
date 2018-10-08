@@ -23,14 +23,16 @@
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
+    <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://techworks-bc.com/netzero/publish/</InstallUrl>
+    <MinimumRequiredVersion>1.1.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>28</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -350,7 +352,36 @@
   <ItemGroup>
     <Resource Include="Images\14510469-summer-hot-sun16.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\China-Power-Supply-Cord16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\China-Power-Supply-Cord32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\14510469-summer-hot-sun32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pvPanelBlue16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pvPanelBlue32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tilt16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tilt32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tilt1_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tilt1_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\batteries_1_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

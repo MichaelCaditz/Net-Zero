@@ -529,7 +529,7 @@
                         <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
                         <dx:DXTabControl Margin="20,10,20,20" Grid.Row="1">
-                            <dx:DXTabItem Header="Insolation" HorizontalAlignment="Right" Width="70">
+                            <dx:DXTabItem Header="Insolation" Glyph="Images/14510469-summer-hot-sun32.png" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="SummaryChart1" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -566,7 +566,7 @@
                                     </dxc:ChartControl>
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Demand" HorizontalAlignment="Right" Width="70">
+                            <dx:DXTabItem Header="Demand" Glyph="Images/China-Power-Supply-Cord32.png" Margin="0" HorizontalAlignment="Left">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="SummaryChartDemand" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource demandItemsViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -597,7 +597,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="PV Power" Height="22" VerticalAlignment="Top">
+                            <dx:DXTabItem Header="PV Power" VerticalAlignment="Top" Margin="0" Glyph="Images/pvPanelBlue32.png" Height="50" HorizontalAlignment="Left">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="PVChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -636,7 +636,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="PV Tilt" Height="22" VerticalAlignment="Top">
+                            <dx:DXTabItem Header="PV Tilt" Height="50" VerticalAlignment="Bottom" Glyph="Images/tilt1_32.png">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="PVTiltChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -679,7 +679,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Battery">
+                            <dx:DXTabItem Header="Battery" Glyph="Images/batteries_1_32.png">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="BatteryChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -761,7 +761,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation">
+                            <dx:DXTabItem Header="Solar Radiation" Height="50" VerticalAlignment="Top">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
