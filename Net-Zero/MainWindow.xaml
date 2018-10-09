@@ -58,7 +58,7 @@
         <CollectionViewSource x:Key="getPVMasterViewSource" Source="{Binding getPVMaster, Source={StaticResource masters}}"/>
         <CollectionViewSource x:Key="getBatteryMasterViewSource" Source="{Binding getBatteryMaster, Source={StaticResource masters}}"/>
         <Style TargetType="dxg:GridColumnHeader">
-            <Setter Property="Height" Value="80" />
+            <Setter Property="Height" Value="100" />
         </Style>
         <!--<Style TargetType="{x:Type dxg:GridColumnHeader}" BasedOn="{StaticResource {x:Type dxg:GridColumnHeader}}">
             <Setter Property="Height" Value="60" />
@@ -196,7 +196,7 @@
                         <dxe:MemoEdit x:Name="MemoEditcNote1" HorizontalAlignment="Left" Height="23" Margin="382,79,0,0" Text="{Binding cNote1, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.475,10.957" Panel.ZIndex="4" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Note 2" Grid.Column="1" HorizontalAlignment="Left" Margin="532,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:MemoEdit x:Name="MemoEditcNote2" HorizontalAlignment="Left" Height="23" Margin="532,79,0,0" Text="{Binding cNote2, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="5" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="Client ID" HorizontalAlignment="Left" Margin="766,467,0,190" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+                        <Label Content="Client ID" HorizontalAlignment="Left" Margin="766,467,0,294" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True"  x:Name="nClientsIDTextBox" HorizontalAlignment="Left" Height="22" Margin="766,446,0,0" Text="{Binding nClientsID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="21,78,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
@@ -333,7 +333,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nLat" Header="PV Latitude ⁰"  ReadOnly="True"  IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nLat" Header="PV Latitude ⁰"  ReadOnly="True"  IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00000" />
                                 </dxg:GridColumn.EditSettings>
@@ -343,7 +343,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nLong" Header="PV Longitude ⁰"  ReadOnly="True"   IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nLong" Header="PV Longitude ⁰"  ReadOnly="True"   IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00000" />
                                 </dxg:GridColumn.EditSettings>
@@ -353,7 +353,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="100" Image="Images/China-Power-Supply-Cord16.png">
+                            <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="120" Image="Images/China-Power-Supply-Cord16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -373,7 +373,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="100" AllowConditionalFormattingMenu="False">
+                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -383,7 +383,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="100" Image="Images/tilt1_16.png">
+                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
                                 </dxg:GridColumn.EditSettings>
@@ -393,7 +393,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="100" Image="Images/tilt1_16.png">
+                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -403,7 +403,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="100" Image="Images/tilt1_16.png">
+                            <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="120" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -413,7 +413,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error ⁰"  ReadOnly="True"   IsSmart="True" Width="100" Image="Images/tilt1_16.png">
+                            <dxg:GridColumn FieldName="nTiltError" Header="Tilt Error ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -425,7 +425,7 @@
                             </dxg:GridColumn>
 
 
-                            <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -435,7 +435,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -445,7 +445,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -455,7 +455,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenPVWouldAccomodate" Header="Chosen PV Would Accomodate kWh/d" IsSmart="True" ReadOnly="True"   Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nChosenPVWouldAccomodate" Header="Chosen PV Would Accomodate kWh/d" IsSmart="True" ReadOnly="True"   Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -465,7 +465,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nExcessLoadSupplied" Header="Surplus or Deficit Load Supplied kWh/d" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nExcessLoadSupplied" Header="Surplus or Deficit Load Supplied kWh/d" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -475,7 +475,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nPercentLoadSupplied" Header="Percent Load Supplied" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/pvPanelBlue16.png">
+                            <dxg:GridColumn FieldName="nPercentLoadSupplied" Header="Percent Load Supplied" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/pvPanelBlue16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="P" />
                                 </dxg:GridColumn.EditSettings>
@@ -485,7 +485,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenBattery" Header="Chosen Bat. Cap. Ah" IsSmart="True" ReadOnly="True"   Width="100" Image="Images/batteries_1_16.png">
+                            <dxg:GridColumn FieldName="nChosenBattery" Header="Chosen Bat. Cap. Ah" IsSmart="True" ReadOnly="True"   Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -495,7 +495,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nVoltage" Header="System Voltage" IsSmart="True" ReadOnly="True"   Width="100">
+                            <dxg:GridColumn FieldName="nVoltage" Header="System Voltage" IsSmart="True" ReadOnly="True"   Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -505,7 +505,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenBatterykWh" Header="Chosen Bat. Cap. kWh" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/batteries_1_16.png">
+                            <dxg:GridColumn FieldName="nChosenBatterykWh" Header="Chosen Bat. Cap. kWh" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -515,7 +515,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/batteries_1_16.png">
+                            <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
@@ -525,7 +525,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nBatteryRemainingkWh" Header="Bat. Remaining kWh" IsSmart="True" ReadOnly="True"   Width="100" Image="Images/batteries_1_16.png">
+                            <dxg:GridColumn FieldName="nBatteryRemainingkWh" Header="Bat. Remaining kWh" IsSmart="True" ReadOnly="True"   Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
@@ -535,7 +535,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nPercentBatteryRemaining" Header="Bat. Remaining %" IsSmart="True" ReadOnly="True"   Width="100" Image="Images/batteries_1_16.png">
+                            <dxg:GridColumn FieldName="nPercentBatteryRemaining" Header="Bat. Remaining %" IsSmart="True" ReadOnly="True"   Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
@@ -546,7 +546,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days Run From Full Charge" IsSmart="True" ReadOnly="True"  Width="100">
+                            <dxg:GridColumn FieldName="nDaysRunFullCharge" Header="Days Run From Full Charge" IsSmart="True" ReadOnly="True"  Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00"/>
                                 </dxg:GridColumn.EditSettings>
@@ -556,7 +556,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -567,7 +567,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -577,7 +577,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰ 1200 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰ 1200 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -587,39 +587,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-
-
-                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ 1200 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="100">
+                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -630,123 +598,162 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio 1200 ST" IsSmart="True" ReadOnly="True"  Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal"  Header="IBH Beam on Horizontal Collector 1200 ST W/m^2" IsSmart="True"  Width="100" FixedWidth="True" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSkyDiffuseFactor" Header="C Sky Diffuse Factor" IsSmart="True" ReadOnly="True"  Width="100">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="100" Image="Images/beamOnCollector16.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <!--<dxg:GridColumn FieldName="nDaysRunFullChargeLocal" Header="Days run from full charge local" IsSmart="True"  Width="130">
-                            <dxg:GridColumn.EditSettings>
-                                <dxe:TextEditSettings DisplayFormat="##.00"/>
-                            </dxg:GridColumn.EditSettings>
-                        </dxg:GridColumn>-->
 
-                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="160"/>
+                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ 1200 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio 1200 ST" IsSmart="True" ReadOnly="True"  Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nASHRAE_k" Header="ASHRAE k" IsSmart="True" ReadOnly="True"  Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal"  Header="IBH Beam on Horizontal Collector 1200 ST W/m^2" IsSmart="True"  Width="120" FixedWidth="True" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nSkyDiffuseFactor" Header="C Sky Diffuse Factor" IsSmart="True" ReadOnly="True"  Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnHNS" FieldName="nReflectedCollector" Header="HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+
+                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="360"/>
 
 
                         </dxg:GridControl>

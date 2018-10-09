@@ -248,26 +248,65 @@ namespace Net_Zero
 
 
 
-            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
-            int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+            //DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
 
             // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
             // MessageBox.Show(nAmnt.ToString());
 
             //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
             //bool bDeleted = true;
+            //string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            //string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+            //string predictedHeader = "Expected Insol. kWh/m"+"\x00B2"+" for Tilt=" + cChosenTilt + "; Az: South";
+            //double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+            //double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+            //GridColumnPredictedInsolation.Header = predictedHeader;
+            //GridColumnnIB.Header = "IB Clear-Sky Beam W/m" + "\x00B2";
+            //GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam  Horizontal Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam  " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnDiffuseCollectorHorizontal.Header = "Diffuse Clear Sky Beam Horizontal Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnHNS.Header = "HNS Clear-Sky Reflected Beam Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
+            //GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
+
+
+            //MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
+            doHeaders();
+
+
+        }
+
+        private void doHeaders()
+        {
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m"+"\x00B2"+" for Tilt=" + cChosenTilt + "; Az: South";
+            string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + " for Tilt=" + cChosenTilt + "; Az: South";
             double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
             double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
             GridColumnPredictedInsolation.Header = predictedHeader;
-            GridColumnnIB.Header = "IB Clear Sky Beam W/m" + "\x00B2";
-            GridColumnnBeamCollector.Header = "IBC Beam on Collector 1200 W/m" + "\x00B2";
-            GridColumnnBeamCollectorHorizontal.Header = "IBH Beam on Horizontal Collector 1200 W/m" + "\x00B2";
-            GridColumnnDiffuseCollector.Header = "IDC Diffuse on Collector 1200 W/m" + "\x00B2";
-            GridColumnnDiffuseCollectorHorizontal.Header = "Diffuse on Horizontal Collector 1200 W/m" + "\x00B2";
-            GridColumnnReflectedCollector.Header = "IRC Reflected on Collector 1200 W/m" + "\x00B2";
+            GridColumnnIB.Header = "IB Clear-Sky Beam W/m" + "\x00B2";
+            GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam  Horizontal Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam  " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnDiffuseCollectorHorizontal.Header = "Diffuse Clear Sky Beam Horizontal Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnHNS.Header = "HNS Clear-Sky Reflected Beam Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
 
 
@@ -282,8 +321,6 @@ namespace Net_Zero
             MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
-
-
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -400,7 +437,7 @@ namespace Net_Zero
             {
                 if (conn1.State == ConnectionState.Open) conn1.Close();
 
-
+                doHeaders();
                 string message20 = "Analysis complete";
                 string caption20 = "Net-Zero";
                 MessageBoxButton buttons20 = MessageBoxButton.OK;
@@ -3711,25 +3748,26 @@ namespace Net_Zero
 
             //int nQty = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nQty"]) == true ? 0 : (int)drv3["nQty"]);
             //bool bDeleted = true;
-            string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
-            string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
-            double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
-            double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
-            GridColumnPredictedInsolation.Header = predictedHeader;
+            //string cChosenTilt1 = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            //string cName1 = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+            //string predictedHeader = "Expected Insol. kWh/m2 for Tilt=" + cChosenTilt1 + "; Az: South";
+            //double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+            //double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+            //GridColumnPredictedInsolation.Header = predictedHeader;
+            //doHeaders();
 
 
-            MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
-            MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl3.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl4.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl5.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl6.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl7.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl8.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
+            //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
 
         }
         private void btnSaveProject_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
