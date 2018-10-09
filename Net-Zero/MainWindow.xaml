@@ -670,7 +670,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nIncidence" Header="θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnIncidence" FieldName="nIncidence" Header="θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -740,7 +740,16 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-
+                            <dxg:GridColumn x:Name="GridColumnnnIncidenceHNS" FieldName="nIncidenceHNS" Header="HNS θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
                             <dxg:GridColumn x:Name="GridColumnnHNS" FieldName="nReflectedCollector" Header="HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>

@@ -117,6 +117,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nReflectedCollector" DataSetColumn="nReflectedCollector" />
               <Mapping SourceColumn="nBeamCollectorHorizontal" DataSetColumn="nBeamCollectorHorizontal" />
               <Mapping SourceColumn="nDiffuseCollectorHorizontal" DataSetColumn="nDiffuseCollectorHorizontal" />
+              <Mapping SourceColumn="nIncidenceHNS" DataSetColumn="nIncidenceHNS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -267,6 +268,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nReflectedCollector" msprop:Generator_ColumnVarNameInTable="columnnReflectedCollector" msprop:Generator_ColumnPropNameInRow="nReflectedCollector" msprop:Generator_ColumnPropNameInTable="nReflectedCollectorColumn" msprop:Generator_UserColumnName="nReflectedCollector" type="xs:decimal" minOccurs="0" />
               <xs:element name="nBeamCollectorHorizontal" msprop:Generator_ColumnVarNameInTable="columnnBeamCollectorHorizontal" msprop:Generator_ColumnPropNameInRow="nBeamCollectorHorizontal" msprop:Generator_ColumnPropNameInTable="nBeamCollectorHorizontalColumn" msprop:Generator_UserColumnName="nBeamCollectorHorizontal" type="xs:decimal" minOccurs="0" />
               <xs:element name="nDiffuseCollectorHorizontal" msprop:Generator_ColumnVarNameInTable="columnnDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInRow="nDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInTable="nDiffuseCollectorHorizontalColumn" msprop:Generator_UserColumnName="nDiffuseCollectorHorizontal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIncidenceHNS" msprop:Generator_ColumnVarNameInTable="columnnIncidenceHNS" msprop:Generator_ColumnPropNameInRow="nIncidenceHNS" msprop:Generator_ColumnPropNameInTable="nIncidenceHNSColumn" msprop:Generator_UserColumnName="nIncidenceHNS" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
