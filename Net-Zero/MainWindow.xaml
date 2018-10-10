@@ -740,6 +740,19 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="nTOTAL_fixed" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+
                             <dxg:GridColumn x:Name="GridColumnnnIncidenceHNS" FieldName="nIncidenceHNS" Header="HNS θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -771,6 +784,29 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnIRC_HNS" FieldName="nIRC_HNS" Header="IRC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_HNS" FieldName="nTOTAL_HNS" Header="IRC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
 
                             <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="360"/>
 

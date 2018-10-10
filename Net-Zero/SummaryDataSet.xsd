@@ -120,6 +120,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nIncidenceHNS" DataSetColumn="nIncidenceHNS" />
               <Mapping SourceColumn="nIBC_HNS" DataSetColumn="nIBC_HNS" />
               <Mapping SourceColumn="nIDC_HNS" DataSetColumn="nIDC_HNS" />
+              <Mapping SourceColumn="nIRC_HNS" DataSetColumn="nIRC_HNS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -273,6 +274,9 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nIncidenceHNS" msprop:Generator_ColumnVarNameInTable="columnnIncidenceHNS" msprop:Generator_ColumnPropNameInRow="nIncidenceHNS" msprop:Generator_ColumnPropNameInTable="nIncidenceHNSColumn" msprop:Generator_UserColumnName="nIncidenceHNS" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIBC_HNS" msprop:Generator_ColumnVarNameInTable="columnnIBC_HNS" msprop:Generator_ColumnPropNameInRow="nIBC_HNS" msprop:Generator_ColumnPropNameInTable="nIBC_HNSColumn" msprop:Generator_UserColumnName="nIBC_HNS" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIDC_HNS" msprop:Generator_ColumnVarNameInTable="columnnIDC_HNS" msprop:Generator_ColumnPropNameInRow="nIDC_HNS" msprop:Generator_ColumnPropNameInTable="nIDC_HNSColumn" msprop:Generator_UserColumnName="nIDC_HNS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIRC_HNS" msprop:Generator_ColumnVarNameInTable="columnnIRC_HNS" msprop:Generator_ColumnPropNameInRow="nIRC_HNS" msprop:Generator_ColumnPropNameInTable="nIRC_HNSColumn" msprop:Generator_UserColumnName="nIRC_HNS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTOTAL_HNS" msdata:ReadOnly="true" msdata:Expression="nIBC_HNS+nIDC_HNS+nIRC_HNS" msprop:Generator_ColumnVarNameInTable="columnnTOTAL_HNS" msprop:Generator_ColumnPropNameInRow="nTOTAL_HNS" msprop:Generator_ColumnPropNameInTable="nTOTAL_HNSColumn" msprop:Generator_UserColumnName="nTOTAL_HNS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTOTAL_fixed" msdata:ReadOnly="true" msdata:Expression="nBeamCollector+nDiffuseCollector+nReflectedCollector" msprop:Generator_ColumnVarNameInTable="columnnTOTAL_fixed" msprop:Generator_ColumnPropNameInRow="nTOTAL_fixed" msprop:Generator_ColumnPropNameInTable="nTOTAL_fixedColumn" msprop:Generator_UserColumnName="nTOTAL_fixed" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
