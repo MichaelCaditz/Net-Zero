@@ -750,7 +750,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnHNS" FieldName="nReflectedCollector" Header="HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnIBC_HNS" FieldName="nIBC_HNS" Header="IBC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>

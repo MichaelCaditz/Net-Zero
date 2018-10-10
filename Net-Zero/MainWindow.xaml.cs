@@ -306,12 +306,14 @@ namespace Net_Zero
             GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam  " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
             GridColumnnDiffuseCollectorHorizontal.Header = "Diffuse Clear Sky Beam Horizontal Collector 1200 ST W/m" + "\x00B2";
             GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam " + cChosenTilt + " South-Face Collector 1200 ST W/m" + "\x00B2";
-            GridColumnnHNS.Header = "HNS Clear-Sky Reflected Beam Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
+         
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
             GridColumnnIncidence.Header = "θ Angle of Incidence " + cChosenTilt + " 1200 ST ⁰";
             GridColumnnnIncidenceHNS.Header = "θ Angle of Incidence HNS One-Axis Track 1200 ST ⁰";
+            GridColumnnIBC_HNS.Header = "IBC Clear-Sky Reflected Beam HNS Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
 
-            
+
+
 
             MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
