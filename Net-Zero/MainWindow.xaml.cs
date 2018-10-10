@@ -310,11 +310,19 @@ namespace Net_Zero
 
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
             GridColumnnIncidence.Header = "θ Angle of Incidence " + cChosenTilt + " 1200 ST ⁰";
-            GridColumnnnIncidenceHNS.Header = "θ Angle of Incidence HNS One-Axis Track 1200 ST ⁰";
-            GridColumnnIBC_HNS.Header = "IBC Clear-Sky Direct Beam HNS Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
-            GridColumnnIDC_HNS.Header = "IDC Clear-Sky Diffuse Beam HNS Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
-            GridColumnnIRC_HNS.Header = "IRC Clear-Sky Reflected Beam HNS Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
-            GridColumnnTOTAL_HNS.Header = "IC Total Clear-Sky Insolation HNS Single-Axis Track South-Face Collector 1200 ST W/m" + "\x00B2";
+
+
+            GridColumnnnIncidenceHNS.Header = "θ Angle of Incidence HNS One-Axis Track North-South Collector 1200 ST ⁰";
+            GridColumnnIBC_HNS.Header = "IBC Clear-Sky Direct Beam HNS One-Axis Track North-South Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIDC_HNS.Header = "IDC Clear-Sky Diffuse Beam HNS One-Axis Track North-South Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIRC_HNS.Header = "IRC Clear-Sky Reflected Beam HNS One-Axis Track North-South Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnTOTAL_HNS.Header = "IC Total Clear-Sky Insolation HNS One-Axis Track North-South Collector 1200 ST W/m" + "\x00B2";
+
+            GridColumnnnIncidenceHEW.Header = "θ Angle of Incidence HEW One-Axis Track East-West Collector 1200 ST ⁰";
+            GridColumnnIBC_HEW.Header = "IBC Clear-Sky Direct Beam HEW One-Axis Track East-West Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIDC_HEW.Header = "IDC Clear-Sky Diffuse Beam HEW One-Axis Track East-West Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIRC_HEW.Header = "IRC Clear-Sky Reflected Beam HEW One-Axis Track East-West Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnTOTAL_HEW.Header = "IC Total Clear-Sky Insolation HEW One-Axis Track East-West Collector 1200 ST W/m" + "\x00B2";
 
 
 

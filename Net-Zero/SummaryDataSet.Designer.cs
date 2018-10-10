@@ -354,6 +354,7 @@ namespace Net_Zero {
             this.getSummary.nOptimumTiltColumn.Expression = "90-nSunAltitude";
             this.getSummary.nTOTAL_HNSColumn.Expression = "nIBC_HNS+nIDC_HNS+nIRC_HNS";
             this.getSummary.nTOTAL_fixedColumn.Expression = "nBeamCollector+nDiffuseCollector+nReflectedCollector";
+            this.getSummary.nTOTAL_HEWColumn.Expression = "nIBC_HEW+nIDC_HEW+nIRC_HEW";
             this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,(nDemandTo" +
                 "tal*nDemandQty)/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolatio" +
                 "n),0)";
@@ -497,6 +498,16 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnTOTAL_HNS;
             
             private global::System.Data.DataColumn columnnTOTAL_fixed;
+            
+            private global::System.Data.DataColumn columnnIncidenceHEW;
+            
+            private global::System.Data.DataColumn columnnIBC_HEW;
+            
+            private global::System.Data.DataColumn columnnIDC_HEW;
+            
+            private global::System.Data.DataColumn columnnIRC_HEW;
+            
+            private global::System.Data.DataColumn columnnTOTAL_HEW;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1006,6 +1017,46 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIncidenceHEWColumn {
+                get {
+                    return this.columnnIncidenceHEW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIBC_HEWColumn {
+                get {
+                    return this.columnnIBC_HEW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIDC_HEWColumn {
+                get {
+                    return this.columnnIDC_HEW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nIRC_HEWColumn {
+                get {
+                    return this.columnnIRC_HEW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nTOTAL_HEWColumn {
+                get {
+                    return this.columnnTOTAL_HEW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1098,7 +1149,12 @@ namespace Net_Zero {
                         decimal nIDC_HNS, 
                         decimal nIRC_HNS, 
                         decimal nTOTAL_HNS, 
-                        decimal nTOTAL_fixed) {
+                        decimal nTOTAL_fixed, 
+                        decimal nIncidenceHEW, 
+                        decimal nIBC_HEW, 
+                        decimal nIDC_HEW, 
+                        decimal nIRC_HEW, 
+                        decimal nTOTAL_HEW) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1158,7 +1214,12 @@ namespace Net_Zero {
                         nIDC_HNS,
                         nIRC_HNS,
                         nTOTAL_HNS,
-                        nTOTAL_fixed};
+                        nTOTAL_fixed,
+                        nIncidenceHEW,
+                        nIBC_HEW,
+                        nIDC_HEW,
+                        nIRC_HEW,
+                        nTOTAL_HEW};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1211,7 +1272,11 @@ namespace Net_Zero {
                         decimal nIncidenceHNS, 
                         decimal nIBC_HNS, 
                         decimal nIDC_HNS, 
-                        decimal nIRC_HNS) {
+                        decimal nIRC_HNS, 
+                        decimal nIncidenceHEW, 
+                        decimal nIBC_HEW, 
+                        decimal nIDC_HEW, 
+                        decimal nIRC_HEW) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1271,6 +1336,11 @@ namespace Net_Zero {
                         nIDC_HNS,
                         nIRC_HNS,
                         null,
+                        null,
+                        nIncidenceHEW,
+                        nIBC_HEW,
+                        nIDC_HEW,
+                        nIRC_HEW,
                         null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
@@ -1359,6 +1429,11 @@ namespace Net_Zero {
                 this.columnnIRC_HNS = base.Columns["nIRC_HNS"];
                 this.columnnTOTAL_HNS = base.Columns["nTOTAL_HNS"];
                 this.columnnTOTAL_fixed = base.Columns["nTOTAL_fixed"];
+                this.columnnIncidenceHEW = base.Columns["nIncidenceHEW"];
+                this.columnnIBC_HEW = base.Columns["nIBC_HEW"];
+                this.columnnIDC_HEW = base.Columns["nIDC_HEW"];
+                this.columnnIRC_HEW = base.Columns["nIRC_HEW"];
+                this.columnnTOTAL_HEW = base.Columns["nTOTAL_HEW"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1480,6 +1555,16 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnTOTAL_HNS);
                 this.columnnTOTAL_fixed = new global::System.Data.DataColumn("nTOTAL_fixed", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnTOTAL_fixed);
+                this.columnnIncidenceHEW = new global::System.Data.DataColumn("nIncidenceHEW", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIncidenceHEW);
+                this.columnnIBC_HEW = new global::System.Data.DataColumn("nIBC_HEW", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIBC_HEW);
+                this.columnnIDC_HEW = new global::System.Data.DataColumn("nIDC_HEW", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIDC_HEW);
+                this.columnnIRC_HEW = new global::System.Data.DataColumn("nIRC_HEW", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIRC_HEW);
+                this.columnnTOTAL_HEW = new global::System.Data.DataColumn("nTOTAL_HEW", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTOTAL_HEW);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1501,6 +1586,7 @@ namespace Net_Zero {
                 this.columnnOptimumTilt.ReadOnly = true;
                 this.columnnTOTAL_HNS.ReadOnly = true;
                 this.columnnTOTAL_fixed.ReadOnly = true;
+                this.columnnTOTAL_HEW.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1536,6 +1622,7 @@ namespace Net_Zero {
                 this.nOptimumTiltColumn.Expression = "90-nSunAltitude";
                 this.nTOTAL_HNSColumn.Expression = "nIBC_HNS+nIDC_HNS+nIRC_HNS";
                 this.nTOTAL_fixedColumn.Expression = "nBeamCollector+nDiffuseCollector+nReflectedCollector";
+                this.nTOTAL_HEWColumn.Expression = "nIBC_HEW+nIDC_HEW+nIRC_HEW";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3953,6 +4040,86 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIncidenceHEW {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIncidenceHEWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIncidenceHEW\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIncidenceHEWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIBC_HEW {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIBC_HEWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIBC_HEW\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIBC_HEWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIDC_HEW {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIDC_HEWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIDC_HEW\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIDC_HEWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nIRC_HEW {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIRC_HEWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIRC_HEW\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIRC_HEWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nTOTAL_HEW {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTOTAL_HEWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTOTAL_HEW\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTOTAL_HEWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -4633,6 +4800,66 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnTOTAL_fixedNull() {
                 this[this.tablegetSummary.nTOTAL_fixedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIncidenceHEWNull() {
+                return this.IsNull(this.tablegetSummary.nIncidenceHEWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIncidenceHEWNull() {
+                this[this.tablegetSummary.nIncidenceHEWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIBC_HEWNull() {
+                return this.IsNull(this.tablegetSummary.nIBC_HEWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIBC_HEWNull() {
+                this[this.tablegetSummary.nIBC_HEWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIDC_HEWNull() {
+                return this.IsNull(this.tablegetSummary.nIDC_HEWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIDC_HEWNull() {
+                this[this.tablegetSummary.nIDC_HEWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnIRC_HEWNull() {
+                return this.IsNull(this.tablegetSummary.nIRC_HEWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnIRC_HEWNull() {
+                this[this.tablegetSummary.nIRC_HEWColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnTOTAL_HEWNull() {
+                return this.IsNull(this.tablegetSummary.nTOTAL_HEWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnTOTAL_HEWNull() {
+                this[this.tablegetSummary.nTOTAL_HEWColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6302,6 +6529,10 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nIBC_HNS", "nIBC_HNS");
             tableMapping.ColumnMappings.Add("nIDC_HNS", "nIDC_HNS");
             tableMapping.ColumnMappings.Add("nIRC_HNS", "nIRC_HNS");
+            tableMapping.ColumnMappings.Add("nIncidenceHEW", "nIncidenceHEW");
+            tableMapping.ColumnMappings.Add("nIBC_HEW", "nIBC_HEW");
+            tableMapping.ColumnMappings.Add("nIDC_HEW", "nIDC_HEW");
+            tableMapping.ColumnMappings.Add("nIRC_HEW", "nIRC_HEW");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
