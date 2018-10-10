@@ -315,7 +315,7 @@
 
                             <dxg:GridColumn FieldName="dtDate" Header="Date" ReadOnly="True"  IsSmart="True"  Width="100" Image="Images/nepali-calendar16.png" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="yyyy-dd-mm"/>
+                                    <dxe:TextEditSettings DisplayFormat="d"/>
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -761,6 +761,16 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
+                            <dxg:GridColumn x:Name="GridColumnnIDC_HNS" FieldName="nIDC_HNS" Header="IDC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="360"/>
 

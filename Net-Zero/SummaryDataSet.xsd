@@ -119,6 +119,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nDiffuseCollectorHorizontal" DataSetColumn="nDiffuseCollectorHorizontal" />
               <Mapping SourceColumn="nIncidenceHNS" DataSetColumn="nIncidenceHNS" />
               <Mapping SourceColumn="nIBC_HNS" DataSetColumn="nIBC_HNS" />
+              <Mapping SourceColumn="nIDC_HNS" DataSetColumn="nIDC_HNS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -271,6 +272,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDiffuseCollectorHorizontal" msprop:Generator_ColumnVarNameInTable="columnnDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInRow="nDiffuseCollectorHorizontal" msprop:Generator_ColumnPropNameInTable="nDiffuseCollectorHorizontalColumn" msprop:Generator_UserColumnName="nDiffuseCollectorHorizontal" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIncidenceHNS" msprop:Generator_ColumnVarNameInTable="columnnIncidenceHNS" msprop:Generator_ColumnPropNameInRow="nIncidenceHNS" msprop:Generator_ColumnPropNameInTable="nIncidenceHNSColumn" msprop:Generator_UserColumnName="nIncidenceHNS" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIBC_HNS" msprop:Generator_ColumnVarNameInTable="columnnIBC_HNS" msprop:Generator_ColumnPropNameInRow="nIBC_HNS" msprop:Generator_ColumnPropNameInTable="nIBC_HNSColumn" msprop:Generator_UserColumnName="nIBC_HNS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIDC_HNS" msprop:Generator_ColumnVarNameInTable="columnnIDC_HNS" msprop:Generator_ColumnPropNameInRow="nIDC_HNS" msprop:Generator_ColumnPropNameInTable="nIDC_HNSColumn" msprop:Generator_UserColumnName="nIDC_HNS" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
