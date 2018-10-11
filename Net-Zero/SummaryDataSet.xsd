@@ -133,6 +133,9 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nIBC_PNS" DataSetColumn="nIBC_PNS" />
               <Mapping SourceColumn="nIDC_PNS" DataSetColumn="nIDC_PNS" />
               <Mapping SourceColumn="nIRC_PNS" DataSetColumn="nIRC_PNS" />
+              <Mapping SourceColumn="nIBC2" DataSetColumn="nIBC2" />
+              <Mapping SourceColumn="nIDC2" DataSetColumn="nIDC2" />
+              <Mapping SourceColumn="nIRC2" DataSetColumn="nIRC2" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -304,6 +307,10 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nIDC_PNS" msprop:Generator_ColumnVarNameInTable="columnnIDC_PNS" msprop:Generator_ColumnPropNameInRow="nIDC_PNS" msprop:Generator_ColumnPropNameInTable="nIDC_PNSColumn" msprop:Generator_UserColumnName="nIDC_PNS" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIRC_PNS" msprop:Generator_ColumnVarNameInTable="columnnIRC_PNS" msprop:Generator_ColumnPropNameInRow="nIRC_PNS" msprop:Generator_ColumnPropNameInTable="nIRC_PNSColumn" msprop:Generator_UserColumnName="nIRC_PNS" type="xs:decimal" minOccurs="0" />
               <xs:element name="nTOTAL_PNS" msdata:ReadOnly="true" msdata:Expression="nIBC_PNS+nIDC_PNS+nIRC_PNS" msprop:Generator_ColumnVarNameInTable="columnnTOTAL_PNS" msprop:Generator_ColumnPropNameInRow="nTOTAL_PNS" msprop:Generator_ColumnPropNameInTable="nTOTAL_PNSColumn" msprop:Generator_UserColumnName="nTOTAL_PNS" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIBC2" msprop:Generator_ColumnVarNameInTable="columnnIBC2" msprop:Generator_ColumnPropNameInRow="nIBC2" msprop:Generator_ColumnPropNameInTable="nIBC2Column" msprop:Generator_UserColumnName="nIBC2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIDC2" msprop:Generator_ColumnVarNameInTable="columnnIDC2" msprop:Generator_ColumnPropNameInRow="nIDC2" msprop:Generator_ColumnPropNameInTable="nIDC2Column" msprop:Generator_UserColumnName="nIDC2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIRC2" msprop:Generator_ColumnVarNameInTable="columnnIRC2" msprop:Generator_ColumnPropNameInRow="nIRC2" msprop:Generator_ColumnPropNameInTable="nIRC2Column" msprop:Generator_UserColumnName="nIRC2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTOTAL2" msdata:ReadOnly="true" msdata:Expression="nIBC2+nIDC2+nIRC2" msprop:Generator_ColumnVarNameInTable="columnnTOTAL2" msprop:Generator_ColumnPropNameInRow="nTOTAL2" msprop:Generator_ColumnPropNameInTable="nTOTAL2Column" msprop:Generator_UserColumnName="nTOTAL2" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
