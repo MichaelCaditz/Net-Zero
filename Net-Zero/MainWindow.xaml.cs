@@ -331,6 +331,12 @@ namespace Net_Zero
             GridColumnnIRC_VERT.Header = "IRC  Clear-Sky Reflected Beam VERT One-Axis Track" + cChosenTilt + " Collector 1200 ST W/m" + "\x00B2";
             GridColumnnTOTAL_VERT.Header = "IC Total Clear-Sky Insolation VERT One-Axis Track" + cChosenTilt + " Collector 1200 ST W/m" + "\x00B2";
 
+            GridColumnnnIncidencePNS.Header = "θ Angle of Incidence PNS One-Axis Track South-Facing Collector 1200 ST ⁰";
+            GridColumnnIBC_PNS.Header = "IBC Clear Sky Direct Beam PNS One-Axis Track South-Facing Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIDC_PNS.Header = "IDC Clear Sky Diffuse Beam PNS One-Axis Track South-Facing Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnIRC_PNS.Header = "IRC  Clear-Sky Reflected Beam PNS One-Axis Track South-Facing Collector 1200 ST W/m" + "\x00B2";
+            GridColumnnTOTAL_PNS.Header = "IC Total Clear-Sky Insolation PNS One-Axis Track South-Facing Collector 1200 ST W/m" + "\x00B2";
+
             MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl2.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl3.CenterPoint = new GeoPoint(nLat, nLong);

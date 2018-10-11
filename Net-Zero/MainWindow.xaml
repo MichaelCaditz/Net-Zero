@@ -918,6 +918,59 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
+                            <dxg:GridColumn x:Name="GridColumnnnIncidencePNS" FieldName="nIncidencePNS" Header="PNS θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnIBC_PNS" FieldName="nIBC_PNS" Header="IBC_PNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnIDC_PNS" FieldName="nIDC_PNS" Header="IDC_PNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnIRC_PNS" FieldName="nIRC_PNS" Header="IRC_PNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_PNS" FieldName="nTOTAL_PNS" Header="TOTAL_PNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"  Width="360"/>
 
