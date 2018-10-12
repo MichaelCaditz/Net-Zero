@@ -540,6 +540,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnTOTAL2;
             
+            private global::System.Data.DataColumn columnnHourAngle;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getSummaryDataTable() : 
@@ -1200,6 +1202,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nHourAngleColumn {
+                get {
+                    return this.columnnHourAngle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1311,7 +1321,8 @@ namespace Net_Zero {
                         decimal nIBC2, 
                         decimal nIDC2, 
                         decimal nIRC2, 
-                        decimal nTOTAL2) {
+                        decimal nTOTAL2, 
+                        decimal nHourAngle) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1390,7 +1401,8 @@ namespace Net_Zero {
                         nIBC2,
                         nIDC2,
                         nIRC2,
-                        nTOTAL2};
+                        nTOTAL2,
+                        nHourAngle};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1458,7 +1470,8 @@ namespace Net_Zero {
                         decimal nIRC_PNS, 
                         decimal nIBC2, 
                         decimal nIDC2, 
-                        decimal nIRC2) {
+                        decimal nIRC2, 
+                        decimal nHourAngle) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1537,7 +1550,8 @@ namespace Net_Zero {
                         nIBC2,
                         nIDC2,
                         nIRC2,
-                        null};
+                        null,
+                        nHourAngle};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1644,6 +1658,7 @@ namespace Net_Zero {
                 this.columnnIDC2 = base.Columns["nIDC2"];
                 this.columnnIRC2 = base.Columns["nIRC2"];
                 this.columnnTOTAL2 = base.Columns["nTOTAL2"];
+                this.columnnHourAngle = base.Columns["nHourAngle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1803,6 +1818,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnIRC2);
                 this.columnnTOTAL2 = new global::System.Data.DataColumn("nTOTAL2", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnTOTAL2);
+                this.columnnHourAngle = new global::System.Data.DataColumn("nHourAngle", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnHourAngle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -4588,6 +4605,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nHourAngle {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nHourAngleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nHourAngle\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nHourAngleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -5496,6 +5529,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnTOTAL2Null() {
                 this[this.tablegetSummary.nTOTAL2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnHourAngleNull() {
+                return this.IsNull(this.tablegetSummary.nHourAngleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnHourAngleNull() {
+                this[this.tablegetSummary.nHourAngleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7180,6 +7225,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nIBC2", "nIBC2");
             tableMapping.ColumnMappings.Add("nIDC2", "nIDC2");
             tableMapping.ColumnMappings.Add("nIRC2", "nIRC2");
+            tableMapping.ColumnMappings.Add("nHourAngle", "nHourAngle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

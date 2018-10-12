@@ -136,6 +136,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nIBC2" DataSetColumn="nIBC2" />
               <Mapping SourceColumn="nIDC2" DataSetColumn="nIDC2" />
               <Mapping SourceColumn="nIRC2" DataSetColumn="nIRC2" />
+              <Mapping SourceColumn="nHourAngle" DataSetColumn="nHourAngle" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -311,6 +312,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nIDC2" msprop:Generator_ColumnVarNameInTable="columnnIDC2" msprop:Generator_ColumnPropNameInRow="nIDC2" msprop:Generator_ColumnPropNameInTable="nIDC2Column" msprop:Generator_UserColumnName="nIDC2" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIRC2" msprop:Generator_ColumnVarNameInTable="columnnIRC2" msprop:Generator_ColumnPropNameInRow="nIRC2" msprop:Generator_ColumnPropNameInTable="nIRC2Column" msprop:Generator_UserColumnName="nIRC2" type="xs:decimal" minOccurs="0" />
               <xs:element name="nTOTAL2" msdata:ReadOnly="true" msdata:Expression="nIBC2+nIDC2+nIRC2" msprop:Generator_ColumnVarNameInTable="columnnTOTAL2" msprop:Generator_ColumnPropNameInRow="nTOTAL2" msprop:Generator_ColumnPropNameInTable="nTOTAL2Column" msprop:Generator_UserColumnName="nTOTAL2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nHourAngle" msprop:Generator_ColumnVarNameInTable="columnnHourAngle" msprop:Generator_ColumnPropNameInRow="nHourAngle" msprop:Generator_ColumnPropNameInTable="nHourAngleColumn" msprop:Generator_UserColumnName="nHourAngle" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

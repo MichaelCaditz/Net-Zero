@@ -313,9 +313,9 @@
 
 
 
-                            <dxg:GridColumn FieldName="dtDate" Header="Date" ReadOnly="True"  IsSmart="True"  Width="100" Image="Images/nepali-calendar16.png">
+                            <dxg:GridColumn FieldName="dtDate" Header="Date" ReadOnly="True"  IsSmart="True"  Width="160" Image="Images/nepali-calendar16.png">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="d"/>
+                                    <dxe:TextEditSettings DisplayFormat="f"/>
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -326,6 +326,16 @@
                             <dxg:GridColumn FieldName="nDayOfYear" Header="n Day of Year"  ReadOnly="True" IsSmart="True"  Width="80" Image="Images/nepali-calendar16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="###"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nHourAngle" Header="H Hour Angle ⁰"  ReadOnly="True" IsSmart="True"  Width="80" Image="Images/nepali-calendar16.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="000"/>
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -558,7 +568,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -567,7 +577,17 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                            <!--<dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -577,7 +597,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰ 1200 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                            <!--<dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -586,20 +606,20 @@
                                         <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
+                            </dxg:GridColumn>-->
 
 
-                            <dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ 0800 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="120">
+                            <!--<dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -609,7 +629,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ 1200 ST (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                            <!--<dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000" />
                                 </dxg:GridColumn.EditSettings>
@@ -618,19 +638,9 @@
                                         <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
+                            </dxg:GridColumn>-->
 
-                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio 1200 ST" IsSmart="True" ReadOnly="True"  Width="120">
+                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio" IsSmart="True" ReadOnly="True"  Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -670,7 +680,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnIncidence" FieldName="nIncidence" Header="θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnIncidence" FieldName="nIncidence" Header="θ Angle of Incidence" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -680,7 +690,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -690,7 +700,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal"  Header="IBH Beam on Horizontal Collector 1200 ST W/m^2" IsSmart="True"  Width="120" FixedWidth="True" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorHorizontal" FieldName="nBeamCollectorHorizontal"  Header="IBH Beam on Horizontal Collector W/m^2" IsSmart="True"  Width="120" FixedWidth="True" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -710,7 +720,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -720,7 +730,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorHorizontal" FieldName="nDiffuseCollectorHorizontal" Header="Diffuse on Horizontal Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -730,7 +740,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector 1200 ST W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -753,7 +763,7 @@
                             </dxg:GridColumn>
 
 
-                            <dxg:GridColumn x:Name="GridColumnnnIncidenceHNS" FieldName="nIncidenceHNS" Header="HNS θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnnIncidenceHNS" FieldName="nIncidenceHNS" Header="HNS θ Angle of Incidence " IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -810,7 +820,7 @@
 
 
 
-                            <dxg:GridColumn x:Name="GridColumnnnIncidenceHEW" FieldName="nIncidenceHEW" Header="HEW θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnnIncidenceHEW" FieldName="nIncidenceHEW" Header="HEW θ Angle of Incidence" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -864,7 +874,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnnIncidenceVERT" FieldName="nIncidenceVERT" Header="VERT θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnnIncidenceVERT" FieldName="nIncidenceVERT" Header="VERT θ Angle of Incidence" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -918,7 +928,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnnIncidencePNS" FieldName="nIncidencePNS" Header="PNS θ Angle of Incidence 1200 ST" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnnIncidencePNS" FieldName="nIncidencePNS" Header="PNS θ Angle of Incidence" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
