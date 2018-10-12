@@ -972,7 +972,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnIBC2" FieldName="nIB2" Header="IBC2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
+                            <dxg:GridColumn x:Name="GridColumnnIBC2" FieldName="nIBC2" Header="IBC2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector16.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
