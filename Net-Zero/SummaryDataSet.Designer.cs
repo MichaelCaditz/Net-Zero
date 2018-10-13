@@ -350,8 +350,8 @@ namespace Net_Zero {
             this.getSummary.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
             this.getSummary.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
             this.getSummary.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
-            this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
-            this.getSummary.nOptimumTiltColumn.Expression = "90-nSunAltitude";
+            this.getSummary.nTiltErrorColumn.Expression = "nChosenTiltDeg-nOptimumTilt";
+            this.getSummary.nOptimumTiltColumn.Expression = "iif(nSunAltitude>0,90-nSunAltitude,90)";
             this.getSummary.nTOTAL_HNSColumn.Expression = "nIBC_HNS+nIDC_HNS+nIRC_HNS";
             this.getSummary.nTOTAL_fixedColumn.Expression = "nBeamCollector+nDiffuseCollector+nReflectedCollector";
             this.getSummary.nTOTAL_HEWColumn.Expression = "nIBC_HEW+nIDC_HEW+nIRC_HEW";
@@ -541,6 +541,8 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnTOTAL2;
             
             private global::System.Data.DataColumn columnnHourAngle;
+            
+            private global::System.Data.DataColumn columnnHoursMoreRun;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1210,6 +1212,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nHoursMoreRunColumn {
+                get {
+                    return this.columnnHoursMoreRun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1322,7 +1332,8 @@ namespace Net_Zero {
                         decimal nIDC2, 
                         decimal nIRC2, 
                         decimal nTOTAL2, 
-                        decimal nHourAngle) {
+                        decimal nHourAngle, 
+                        decimal nHoursMoreRun) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1402,7 +1413,8 @@ namespace Net_Zero {
                         nIDC2,
                         nIRC2,
                         nTOTAL2,
-                        nHourAngle};
+                        nHourAngle,
+                        nHoursMoreRun};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1471,7 +1483,8 @@ namespace Net_Zero {
                         decimal nIBC2, 
                         decimal nIDC2, 
                         decimal nIRC2, 
-                        decimal nHourAngle) {
+                        decimal nHourAngle, 
+                        decimal nHoursMoreRun) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1551,7 +1564,8 @@ namespace Net_Zero {
                         nIDC2,
                         nIRC2,
                         null,
-                        nHourAngle};
+                        nHourAngle,
+                        nHoursMoreRun};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1659,6 +1673,7 @@ namespace Net_Zero {
                 this.columnnIRC2 = base.Columns["nIRC2"];
                 this.columnnTOTAL2 = base.Columns["nTOTAL2"];
                 this.columnnHourAngle = base.Columns["nHourAngle"];
+                this.columnnHoursMoreRun = base.Columns["nHoursMoreRun"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1820,6 +1835,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnTOTAL2);
                 this.columnnHourAngle = new global::System.Data.DataColumn("nHourAngle", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnHourAngle);
+                this.columnnHoursMoreRun = new global::System.Data.DataColumn("nHoursMoreRun", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnHoursMoreRun);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1876,8 +1893,8 @@ namespace Net_Zero {
                 this.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
                 this.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
                 this.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
-                this.nTiltErrorColumn.Expression = "nChosenTiltDeg-(90-nSunAltitude)";
-                this.nOptimumTiltColumn.Expression = "90-nSunAltitude";
+                this.nTiltErrorColumn.Expression = "nChosenTiltDeg-nOptimumTilt";
+                this.nOptimumTiltColumn.Expression = "iif(nSunAltitude>0,90-nSunAltitude,90)";
                 this.nTOTAL_HNSColumn.Expression = "nIBC_HNS+nIDC_HNS+nIRC_HNS";
                 this.nTOTAL_fixedColumn.Expression = "nBeamCollector+nDiffuseCollector+nReflectedCollector";
                 this.nTOTAL_HEWColumn.Expression = "nIBC_HEW+nIDC_HEW+nIRC_HEW";
@@ -4621,6 +4638,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nHoursMoreRun {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nHoursMoreRunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nHoursMoreRun\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nHoursMoreRunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -5541,6 +5574,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnHourAngleNull() {
                 this[this.tablegetSummary.nHourAngleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnHoursMoreRunNull() {
+                return this.IsNull(this.tablegetSummary.nHoursMoreRunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnHoursMoreRunNull() {
+                this[this.tablegetSummary.nHoursMoreRunColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7226,6 +7271,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nIDC2", "nIDC2");
             tableMapping.ColumnMappings.Add("nIRC2", "nIRC2");
             tableMapping.ColumnMappings.Add("nHourAngle", "nHourAngle");
+            tableMapping.ColumnMappings.Add("nHoursMoreRun", "nHoursMoreRun");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
