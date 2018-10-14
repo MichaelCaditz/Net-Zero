@@ -301,9 +301,9 @@
                             </dxm:ImageLayer>
                         </dxm:MapControl>
 
-                        <dx:SimpleButton HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
-                        <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="125,22,0,0" VerticalAlignment="Top" Width="150"/>
-                        <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="311,22,0,0" VerticalAlignment="Top" Width="150"/>
+                        <dx:SimpleButton HorizontalAlignment="Left" Margin="576,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
+                        <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Width="150"/>
+                        <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="192,22,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxg:GridControl x:Name="GridControlData" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20,469,20,10" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2">
                             <dxg:GridControl.View>
                                 <dxg:TableView x:Name="TableViewData" AllowPerPixelScrolling="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
@@ -1040,8 +1040,8 @@
 
 
                         </dxg:GridControl>
-                        <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="125,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="311,44,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="24,44,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="192,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
                         <dx:DXTabControl Margin="20,10,20,20" Grid.Row="1">
@@ -1645,6 +1645,14 @@
                                 </Grid>
                             </dx:DXTabItem>
                         </dx:DXTabControl>
+                        <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="362,44,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="448,25,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}">
+                            <dxe:ListBoxEdit.StyleSettings>
+                                <dxe:RadioListBoxEditStyleSettings/>
+                            </dxe:ListBoxEdit.StyleSettings>
+                            <dxe:ListBoxEditItem Content="Daily"/>
+                            <dxe:ListBoxEditItem Content="Hourly"/>
+                        </dxe:ListBoxEdit>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="PV Location" GotFocus="DXTabItem_GotFocus" Glyph="Images/pvPanelBlue32.png">

@@ -183,7 +183,9 @@ namespace Net_Zero
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
 
-            
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            int nMetricsResolution = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nMetricsResolution"]) == true ? 0 : (int)drv3["nMetricsResolution"]);
+           // ListBoxEditnMetricsResolution.SelectedIndex = nMetricsResolution;
 
             //TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
             //   Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
@@ -371,6 +373,7 @@ namespace Net_Zero
               (DateTime)DateEditStartDate.EditValue);
             endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)DateTime.Now.AddDays(365) : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)DateTime.Now.AddDays(365) :
                (DateTime)DateEditEndDate.EditValue);
+            int nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
             
@@ -385,6 +388,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@projectsID", nProjectsID);
                     cmd3.Parameters.AddWithValue("@beginDate", beginDate);
                     cmd3.Parameters.AddWithValue("@endDate", endDate);
+                    cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     //retval.Direction = ParameterDirection.Output;
@@ -445,6 +449,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nProjectsID", nProjectsID);
                     cmd3.Parameters.AddWithValue("@dtStartDate", beginDate);
                     cmd3.Parameters.AddWithValue("@dtEndDate", endDate);
+                    cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
 
 
 
@@ -633,6 +638,8 @@ namespace Net_Zero
         public void saveProjectDetails()
         {
             int nProjectsID = Settings.Default.nCurrentProjectID;
+
+            int nMetricsResolution = 0;
             //int nCityID = 0;
             decimal nMPPTFactor = 0m;
             decimal nBatteryEfficiency = 0m;
@@ -677,7 +684,7 @@ namespace Net_Zero
 
             nDemandTotal = (SpinEditnDemandTotal.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDemandTotal.EditValue) == true ? 0m : (decimal)SpinEditnDemandTotal.EditValue);
 
-
+            nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
             cName = (TextEditcName.EditValue == null ? "" : DBNull.Value.Equals(TextEditcName.EditValue) == true ? "" : (string)TextEditcName.EditValue);
             cDesc = (TextEditcDesc.EditValue == null ? "" : DBNull.Value.Equals(TextEditcDesc.EditValue) == true ? "" : (string)TextEditcDesc.EditValue);
 
@@ -722,6 +729,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@cNote2", cNote2);
                     cmd3.Parameters.AddWithValue("@cChosenTilt", cChosenTilt);
                     cmd3.Parameters.AddWithValue("@dtDateDue", dtDateDue);
+                    cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
                     //cmd3.Parameters.AddWithValue("@address1", address1);
 
 
@@ -3688,6 +3696,17 @@ namespace Net_Zero
 
                    
                     break;
+                //case "Metrics":
+                //    saveProjectDetails();
+
+
+
+                //    message20 = "Project Details saved.";
+
+                //    reloadProject();
+
+
+                //    break;
                 case "PV Location":
                     savePVLocation();
 
@@ -3749,7 +3768,7 @@ namespace Net_Zero
 
 
                 default:
-                    message20 = "No data to sace on this tab.";
+                    message20 = "No data to save on this tab.";
                     break;
             }
             MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
@@ -3776,7 +3795,8 @@ namespace Net_Zero
 
             DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
-
+            int nMetricsResolution = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nMetricsResolution"]) == true ? 0 : (int)drv3["nMetricsResolution"]);
+            //ListBoxEditnMetricsResolution.SelectedIndex = nMetricsResolution;
             // decimal nPrice = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nPrice"]) == true ? 0 : (decimal)drv3["nPrice"]);
             // MessageBox.Show(nAmnt.ToString());
 

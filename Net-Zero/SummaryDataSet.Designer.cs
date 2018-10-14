@@ -2438,6 +2438,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnEnterpriseDemandLocal;
             
+            private global::System.Data.DataColumn columnnMetricsResolution;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -2834,6 +2836,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nMetricsResolutionColumn {
+                get {
+                    return this.columnnMetricsResolution;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2912,7 +2922,8 @@ namespace Net_Zero {
                         decimal nReflectance, 
                         decimal nChosenBatterykWh, 
                         decimal nDemandQty, 
-                        decimal nEnterpriseDemandLocal) {
+                        decimal nEnterpriseDemandLocal, 
+                        int nMetricsResolution) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2958,7 +2969,8 @@ namespace Net_Zero {
                         nReflectance,
                         nChosenBatterykWh,
                         nDemandQty,
-                        nEnterpriseDemandLocal};
+                        nEnterpriseDemandLocal,
+                        nMetricsResolution};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3002,7 +3014,8 @@ namespace Net_Zero {
                         int nStateProvinceIDDemand, 
                         int nCountryIDDemand, 
                         decimal nReflectance, 
-                        decimal nDemandQty) {
+                        decimal nDemandQty, 
+                        int nMetricsResolution) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3048,7 +3061,8 @@ namespace Net_Zero {
                         nReflectance,
                         null,
                         nDemandQty,
-                        null};
+                        null,
+                        nMetricsResolution};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3122,6 +3136,7 @@ namespace Net_Zero {
                 this.columnnChosenBatterykWh = base.Columns["nChosenBatterykWh"];
                 this.columnnDemandQty = base.Columns["nDemandQty"];
                 this.columnnEnterpriseDemandLocal = base.Columns["nEnterpriseDemandLocal"];
+                this.columnnMetricsResolution = base.Columns["nMetricsResolution"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3215,6 +3230,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnDemandQty);
                 this.columnnEnterpriseDemandLocal = new global::System.Data.DataColumn("nEnterpriseDemandLocal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnEnterpriseDemandLocal);
+                this.columnnMetricsResolution = new global::System.Data.DataColumn("nMetricsResolution", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnMetricsResolution);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -6470,6 +6487,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nMetricsResolution {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nMetricsResolutionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nMetricsResolution\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nMetricsResolutionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -6982,6 +7015,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnEnterpriseDemandLocalNull() {
                 this[this.tablegetProject.nEnterpriseDemandLocalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnMetricsResolutionNull() {
+                return this.IsNull(this.tablegetProject.nMetricsResolutionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnMetricsResolutionNull() {
+                this[this.tablegetProject.nMetricsResolutionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7952,6 +7997,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nCountryIDDemand", "nCountryIDDemand");
             tableMapping.ColumnMappings.Add("nReflectance", "nReflectance");
             tableMapping.ColumnMappings.Add("nDemandQty", "nDemandQty");
+            tableMapping.ColumnMappings.Add("nMetricsResolution", "nMetricsResolution");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
