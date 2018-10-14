@@ -301,9 +301,9 @@
                             </dxm:ImageLayer>
                         </dxm:MapControl>
 
-                        <dx:SimpleButton HorizontalAlignment="Left" Margin="576,22,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
-                        <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Width="150"/>
-                        <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="192,22,0,0" VerticalAlignment="Top" Width="150"/>
+                        <dx:SimpleButton HorizontalAlignment="Left" Margin="731,13,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
+                        <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="24,13,0,0" VerticalAlignment="Top" Width="150"/>
+                        <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="192,13,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxg:GridControl x:Name="GridControlData" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20,469,20,10" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2">
                             <dxg:GridControl.View>
                                 <dxg:TableView x:Name="TableViewData" AllowPerPixelScrolling="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
@@ -1040,15 +1040,15 @@
 
 
                         </dxg:GridControl>
-                        <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="24,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="192,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <Label Content="City" HorizontalAlignment="Left" Margin="1001,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,21,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
-                        <dx:DXTabControl Margin="20,10,20,20" Grid.Row="1">
+                        <Label Content="Start Date" Grid.Column="0" HorizontalAlignment="Left" Margin="24,38,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="End Date" Grid.Column="0" HorizontalAlignment="Left" Margin="192,38,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="City" HorizontalAlignment="Left" Margin="1001,38,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy" HorizontalAlignment="Left" Height="23" Margin="1001,13,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0"/>
+                        <dx:DXTabControl x:Name="DXTabControlMetrics" Margin="20,10,20,20" Grid.Row="1">
                             <dx:DXTabControl.View>
                                 <dx:TabControlScrollView/>
                             </dx:DXTabControl.View>
-                            <dx:DXTabItem Header="Insolation" Glyph="Images/14510469-summer-hot-sun32.png" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <dx:DXTabItem Header="Insolation" Tag="SummaryChart1" Glyph="Images/14510469-summer-hot-sun32.png" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="SummaryChart1" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1056,16 +1056,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1085,29 +1079,28 @@
                                     </dxc:ChartControl>
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Demand" Glyph="Images/China-Power-Supply-Cord32.png" Margin="0" HorizontalAlignment="Left">
+                            <dx:DXTabItem Header="Demand" Tag ="SummaryChartDemand" Glyph="Images/China-Power-Supply-Cord32.png" Margin="0" HorizontalAlignment="Left">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="SummaryChartDemand" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource demandItemsViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
-                                            <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                           
+                                                <dxc:XYDiagram2D.AxisX>
+                                                    <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                        <dxc:AxisX2D.DateTimeScaleOptions>
+                                                            <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                        </dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:AxisX2D.Label>
+                                                            <dxc:AxisLabel/>
+                                                        </dxc:AxisX2D.Label>
+                                                    </dxc:AxisX2D>
+                                                </dxc:XYDiagram2D.AxisX>
 
-                                                    <dxc:AxisX2D.Label>
-                                                        <dxc:AxisLabel/>
-                                                    </dxc:AxisX2D.Label>
-                                                </dxc:AxisX2D>
-                                            </dxc:XYDiagram2D.AxisX>
-
-                                            <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
+                                                <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
                                            ArgumentDataMember="cDesc" ValueDataMember="nEnergyWh"/>
 
 
@@ -1116,7 +1109,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="PV Power" VerticalAlignment="Top" Margin="0" Glyph="Images/pvPanelBlue32.png" Height="50" HorizontalAlignment="Left">
+                            <dx:DXTabItem Header="PV Power" Tag="PVChart" VerticalAlignment="Top" Margin="0" Glyph="Images/pvPanelBlue32.png" Height="50" HorizontalAlignment="Left">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="PVChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -1125,16 +1118,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1155,7 +1142,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="PV Tilt" Height="50" VerticalAlignment="Bottom" Glyph="Images/tilt1_32.png">
+                            <dx:DXTabItem Header="PV Tilt" Tag ="PVTiltChart" Height="50" VerticalAlignment="Bottom" Glyph="Images/tilt1_32.png">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="PVTiltChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -1164,16 +1151,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1198,7 +1179,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Battery" Glyph="Images/batteries_1_32.png">
+                            <dx:DXTabItem Header="Battery" Tag ="BatteryChart" Glyph="Images/batteries_1_32.png">
                                 <Grid Background="Transparent">
 
                                     <dxc:ChartControl x:Name="BatteryChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
@@ -1207,16 +1188,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1241,7 +1216,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Energy Balance" Glyph="Images/scale32.png" Height="50">
+                            <dx:DXTabItem Header="Energy Balance" Tag ="EnergyChart" Glyph="Images/scale32.png" Height="50">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="EnergyChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1249,16 +1224,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1280,7 +1249,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (fixed collector)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (fixed collector)" Tag ="RadiationChart" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1288,16 +1257,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1330,7 +1293,7 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis HNS)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (One-Axis HNS)" Tag ="RadiationChartHNS" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartHNS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1338,16 +1301,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1380,7 +1337,7 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis HEW)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (One-Axis HEW)" Tag="RadiationChartHEW" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartHEW" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1388,16 +1345,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1429,7 +1380,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis VERT)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (One-Axis VERT)" Tag="RadiationChartVERT"  Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartVERT" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1437,16 +1388,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1478,7 +1423,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis PNS)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (One-Axis PNS)" Tag="RadiationChartPNS" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartPNS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1486,16 +1431,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1527,7 +1466,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (Two-Axis)" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation (Two-Axis)" Tag="RadiationChart2" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart2" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1535,16 +1474,10 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1577,24 +1510,18 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation Tracking Comparison" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Solar Radiation Tracking Comparison"  Glyph="Images/beamOnCollector32.png" Tag="RadiationChartTOTALS">
                                 <Grid Background="Transparent">
-                                    <dxc:ChartControl x:Name="RadiationChartTOTALS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                    <dxc:ChartControl x:Name="RadiationChartTOTALS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" ToolTipEnabled="False">
                                         <dxc:ChartControl.Legends>
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
-                                                    <dxc:AxisX2D.WholeRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.WholeRange>
-                                                    <dxc:AxisX2D.VisualRange>
-                                                        <dxc:Range MaxValue="10000" MinValue="1" AutoSideMargins="False"/>
-                                                    </dxc:AxisX2D.VisualRange>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="Average" AutoGrid="False"
-                                                            GridAlignment="Month" MeasureUnit="Day" 
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
                                                     <dxc:AxisX2D.Label>
@@ -1645,14 +1572,45 @@
                                 </Grid>
                             </dx:DXTabItem>
                         </dx:DXTabControl>
-                        <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="362,44,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="448,25,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}">
+                        <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="356,38,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}">
                             <dxe:ListBoxEdit.StyleSettings>
                                 <dxe:RadioListBoxEditStyleSettings/>
                             </dxe:ListBoxEdit.StyleSettings>
                             <dxe:ListBoxEditItem Content="Daily"/>
                             <dxe:ListBoxEditItem Content="Hourly"/>
                         </dxe:ListBoxEdit>
+                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsHour"  HorizontalAlignment="Left" Height="61" Margin="601,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsHour, Source={StaticResource getProjectViewSource}}">
+                            <dxe:ListBoxEdit.StyleSettings>
+                                <dxe:RadioListBoxEditStyleSettings/>
+                            </dxe:ListBoxEdit.StyleSettings>
+                            <dxe:ListBoxEditItem Content="0000"/>
+                            <dxe:ListBoxEditItem Content="0100"/>
+                            <dxe:ListBoxEditItem Content="0200"/>
+                            <dxe:ListBoxEditItem Content="0300"/>
+                            <dxe:ListBoxEditItem Content="0400"/>
+                            <dxe:ListBoxEditItem Content="0500"/>
+                            <dxe:ListBoxEditItem Content="0600"/>
+                            <dxe:ListBoxEditItem Content="0700"/>
+                            <dxe:ListBoxEditItem Content="0800"/>
+                            <dxe:ListBoxEditItem Content="0900"/>
+                            <dxe:ListBoxEditItem Content="1000"/>
+                            <dxe:ListBoxEditItem Content="1100"/>
+                            <dxe:ListBoxEditItem Content="1200"/>
+                            <dxe:ListBoxEditItem Content="1300"/>
+                            <dxe:ListBoxEditItem Content="1400"/>
+                            <dxe:ListBoxEditItem Content="1500"/>
+                            <dxe:ListBoxEditItem Content="1600"/>
+                            <dxe:ListBoxEditItem Content="1700"/>
+                            <dxe:ListBoxEditItem Content="1800"/>
+                            <dxe:ListBoxEditItem Content="1900"/>
+                            <dxe:ListBoxEditItem Content="2000"/>
+                            <dxe:ListBoxEditItem Content="2100"/>
+                            <dxe:ListBoxEditItem Content="2200"/>
+                            <dxe:ListBoxEditItem Content="2300"/>
+                        </dxe:ListBoxEdit>
+                        <Label Content="Solar Time:" Grid.Column="0" HorizontalAlignment="Left" Margin="535,38,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="3.259,0.091"/>
+                        <dx:SimpleButton Content="Customize Chart" HorizontalAlignment="Left" Height="29" Margin="826,13,0,0" VerticalAlignment="Top" Width="128" Click="SimpleButton_Click_5"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="PV Location" GotFocus="DXTabItem_GotFocus" Glyph="Images/pvPanelBlue32.png">

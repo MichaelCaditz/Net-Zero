@@ -217,6 +217,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nReflectance" DataSetColumn="nReflectance" />
               <Mapping SourceColumn="nDemandQty" DataSetColumn="nDemandQty" />
               <Mapping SourceColumn="nMetricsResolution" DataSetColumn="nMetricsResolution" />
+              <Mapping SourceColumn="nMetricsHour" DataSetColumn="nMetricsHour" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -421,6 +422,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDemandQty" msprop:Generator_ColumnVarNameInTable="columnnDemandQty" msprop:Generator_ColumnPropNameInRow="nDemandQty" msprop:Generator_ColumnPropNameInTable="nDemandQtyColumn" msprop:Generator_UserColumnName="nDemandQty" type="xs:decimal" minOccurs="0" />
               <xs:element name="nEnterpriseDemandLocal" msdata:ReadOnly="true" msdata:Expression="nDemandTotal*nDemandQty" msprop:Generator_ColumnVarNameInTable="columnnEnterpriseDemandLocal" msprop:Generator_ColumnPropNameInRow="nEnterpriseDemandLocal" msprop:Generator_ColumnPropNameInTable="nEnterpriseDemandLocalColumn" msprop:Generator_UserColumnName="nEnterpriseDemandLocal" type="xs:decimal" minOccurs="0" />
               <xs:element name="nMetricsResolution" msprop:Generator_ColumnVarNameInTable="columnnMetricsResolution" msprop:Generator_ColumnPropNameInRow="nMetricsResolution" msprop:Generator_ColumnPropNameInTable="nMetricsResolutionColumn" msprop:Generator_UserColumnName="nMetricsResolution" type="xs:int" minOccurs="0" />
+              <xs:element name="nMetricsHour" msprop:Generator_ColumnVarNameInTable="columnnMetricsHour" msprop:Generator_ColumnPropNameInRow="nMetricsHour" msprop:Generator_ColumnPropNameInTable="nMetricsHourColumn" msprop:Generator_UserColumnName="nMetricsHour" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

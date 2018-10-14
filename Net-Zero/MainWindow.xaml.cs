@@ -22,6 +22,7 @@ using System.ComponentModel;
 using System.Drawing;
 using Net_Zero.Properties;
 using DevExpress.Xpf.Map;
+using DevExpress.Charts.Designer;
 
 namespace Net_Zero
 {
@@ -374,6 +375,12 @@ namespace Net_Zero
             endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)DateTime.Now.AddDays(365) : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)DateTime.Now.AddDays(365) :
                (DateTime)DateEditEndDate.EditValue);
             int nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
+            int nMetricsHour = ListBoxEditnMetricsHour.SelectedIndex;
+
+         
+
+
+
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
             
@@ -389,6 +396,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@beginDate", beginDate);
                     cmd3.Parameters.AddWithValue("@endDate", endDate);
                     cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
+                    cmd3.Parameters.AddWithValue("@nMetricsHour",nMetricsHour);
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     //retval.Direction = ParameterDirection.Output;
@@ -450,6 +458,8 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@dtStartDate", beginDate);
                     cmd3.Parameters.AddWithValue("@dtEndDate", endDate);
                     cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
+                    cmd3.Parameters.AddWithValue("@nMetricsHour", nMetricsHour);
+
 
 
 
@@ -4304,6 +4314,135 @@ namespace Net_Zero
 
             reportViewer1.Show();
             rpt.CreateDocument();
+        }
+
+        private void SimpleButton_Click_5(object sender, RoutedEventArgs e)
+        {
+            string TagName = DXTabControlMetrics.SelectedContainer.Tag.ToString();
+            //ChartControl Gaga = new ChartControl { Name = TagName } ;
+            //ChartControl &TagName = new ChartControl();
+
+
+            switch (DXTabControlMetrics.SelectedContainer.Tag.ToString())
+            {
+                case "SummaryChart1":
+                    // ChartControl EnergyChart = new ChartControl();
+
+                    ChartDesigner designerSummaryChart1 = new ChartDesigner(SummaryChart1);
+                    designerSummaryChart1.Show(this);
+
+
+                    break;
+
+                case "SummaryChartDemand":
+
+                    ChartDesigner designerSummaryChartDemand = new ChartDesigner(SummaryChartDemand);
+                    designerSummaryChartDemand.Show(this);
+
+
+                    break;
+
+                case "PVChart":
+
+                    ChartDesigner designerPVChart = new ChartDesigner(PVChart);
+                    designerPVChart.Show(this);
+
+
+                    break;
+
+                case "PVTiltChart":
+
+                    ChartDesigner designerPVTiltChart = new ChartDesigner(PVTiltChart);
+                    designerPVTiltChart.Show(this);
+
+
+                    break;
+
+                case "BatteryChart":
+
+                    ChartDesigner designerBatteryChart = new ChartDesigner(BatteryChart);
+                    designerBatteryChart.Show(this);
+
+
+                    break;
+
+                case "EnergyChart":
+
+                    ChartDesigner designerEnergyChart = new ChartDesigner(EnergyChart);
+                    designerEnergyChart.Show(this);
+
+
+                    break;
+
+                case "RadiationChart":
+
+                    ChartDesigner designerRadiationChart = new ChartDesigner(RadiationChart);
+                    designerRadiationChart.Show(this);
+
+
+                    break;
+
+                case "RadiationChartHNS":
+
+                    ChartDesigner designerRadiationChartHNS = new ChartDesigner(RadiationChartHNS);
+                    designerRadiationChartHNS.Show(this);
+
+
+                    break;
+
+                case "RadiationChartHEW":
+
+                    ChartDesigner designerRadiationChartHEW = new ChartDesigner(RadiationChartHEW);
+                    designerRadiationChartHEW.Show(this);
+
+
+                    break;
+
+                case "RadiationChartVERT":
+
+                    ChartDesigner designerRadiationChartVERT = new ChartDesigner(RadiationChartVERT);
+                    designerRadiationChartVERT.Show(this);
+
+
+                    break;
+
+                case "RadiationChartPNS":
+
+                    ChartDesigner designerRadiationChartPNS = new ChartDesigner(RadiationChartPNS);
+                    designerRadiationChartPNS.Show(this);
+
+
+                    break;
+
+                case "RadiationChart2":
+
+                    ChartDesigner designerRadiationChart2 = new ChartDesigner(RadiationChart2);
+                    designerRadiationChart2.Show(this);
+
+
+                    break;
+
+                case "RadiationChartTOTALS":
+
+                    ChartDesigner designerRadiationChartTOTALS = new ChartDesigner(RadiationChartTOTALS);
+                    designerRadiationChartTOTALS.Show(this);
+
+
+                    break;
+
+
+
+
+                default:
+                   
+                    break;
+            }
+
+
+
+
+
+            
         }
     }
 }

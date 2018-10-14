@@ -2440,6 +2440,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnMetricsResolution;
             
+            private global::System.Data.DataColumn columnnMetricsHour;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -2844,6 +2846,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nMetricsHourColumn {
+                get {
+                    return this.columnnMetricsHour;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2923,7 +2933,8 @@ namespace Net_Zero {
                         decimal nChosenBatterykWh, 
                         decimal nDemandQty, 
                         decimal nEnterpriseDemandLocal, 
-                        int nMetricsResolution) {
+                        int nMetricsResolution, 
+                        int nMetricsHour) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2970,7 +2981,8 @@ namespace Net_Zero {
                         nChosenBatterykWh,
                         nDemandQty,
                         nEnterpriseDemandLocal,
-                        nMetricsResolution};
+                        nMetricsResolution,
+                        nMetricsHour};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3015,7 +3027,8 @@ namespace Net_Zero {
                         int nCountryIDDemand, 
                         decimal nReflectance, 
                         decimal nDemandQty, 
-                        int nMetricsResolution) {
+                        int nMetricsResolution, 
+                        int nMetricsHour) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3062,7 +3075,8 @@ namespace Net_Zero {
                         null,
                         nDemandQty,
                         null,
-                        nMetricsResolution};
+                        nMetricsResolution,
+                        nMetricsHour};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3137,6 +3151,7 @@ namespace Net_Zero {
                 this.columnnDemandQty = base.Columns["nDemandQty"];
                 this.columnnEnterpriseDemandLocal = base.Columns["nEnterpriseDemandLocal"];
                 this.columnnMetricsResolution = base.Columns["nMetricsResolution"];
+                this.columnnMetricsHour = base.Columns["nMetricsHour"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3232,6 +3247,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnEnterpriseDemandLocal);
                 this.columnnMetricsResolution = new global::System.Data.DataColumn("nMetricsResolution", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnMetricsResolution);
+                this.columnnMetricsHour = new global::System.Data.DataColumn("nMetricsHour", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnMetricsHour);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -6503,6 +6520,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int nMetricsHour {
+                get {
+                    try {
+                        return ((int)(this[this.tablegetProject.nMetricsHourColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nMetricsHour\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nMetricsHourColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -7027,6 +7060,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnMetricsResolutionNull() {
                 this[this.tablegetProject.nMetricsResolutionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnMetricsHourNull() {
+                return this.IsNull(this.tablegetProject.nMetricsHourColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnMetricsHourNull() {
+                this[this.tablegetProject.nMetricsHourColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7998,6 +8043,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nReflectance", "nReflectance");
             tableMapping.ColumnMappings.Add("nDemandQty", "nDemandQty");
             tableMapping.ColumnMappings.Add("nMetricsResolution", "nMetricsResolution");
+            tableMapping.ColumnMappings.Add("nMetricsHour", "nMetricsHour");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
