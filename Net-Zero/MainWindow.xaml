@@ -133,7 +133,7 @@
 
         <dxr:RibbonStatusBarControl Grid.Row="3" >
             <dxr:RibbonStatusBarControl.RightItems>
-                <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}"/>
+                <dxb:BarButtonItem x:Name="printItem" Content="Print" Glyph="{dx:DXImage Image=Print_16x16.png}" ItemClick="printItem_ItemClick"/>
             </dxr:RibbonStatusBarControl.RightItems>
         </dxr:RibbonStatusBarControl>
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60,0,30">

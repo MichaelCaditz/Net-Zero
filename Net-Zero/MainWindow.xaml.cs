@@ -379,7 +379,7 @@ namespace Net_Zero
             int nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
             int nMetricsHour = ListBoxEditnMetricsHour.SelectedIndex;
 
-            //chartControl1.ShowPrintPreview(this);
+            
 
             //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions=AggregateFunctionProperty.;
 
@@ -4506,14 +4506,205 @@ namespace Net_Zero
             theSource = (ListBoxEdit) sender;
             if (theSource.SelectedIndex == 0)
             {
-                ListBoxEditnMetricsHour.IsEnabled = false;
+                ListBoxEditnMetricsHour.IsEnabled = true;
 
             }
             else
             {
-                ListBoxEditnMetricsHour.IsEnabled = true;
+                ListBoxEditnMetricsHour.IsEnabled = false;
 
             }
+        }
+
+        private void printItem_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+
+            switch (DXTabControlMain.SelectedContainer.Header.ToString())
+            {
+
+                case "Project Details":
+                    
+
+                    break;
+                case "Metrics":
+                    //string TagName = DXTabControlMetrics.SelectedContainer.Tag.ToString();
+                    //ChartControl Gaga = new ChartControl { Name = TagName } ;
+                    //ChartControl &TagName = new ChartControl();
+
+
+                    switch (DXTabControlMetrics.SelectedContainer.Tag.ToString())
+                    {
+                        case "SummaryChart1":
+                            // ChartControl EnergyChart = new ChartControl();
+
+                            SummaryChart1.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "SummaryChartDemand":
+
+                            SummaryChartDemand.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "PVChart":
+
+                            PVChart.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "PVTiltChart":
+
+                            PVTiltChart.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "BatteryChart":
+
+                            BatteryChart.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "EnergyChart":
+
+                            EnergyChart.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChart":
+
+                            RadiationChart.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChartHNS":
+
+                            RadiationChartHNS.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChartHEW":
+
+                            RadiationChartHEW.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChartVERT":
+
+                            RadiationChartVERT.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChartPNS":
+
+                            RadiationChartPNS.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChart2":
+
+                            RadiationChart2.ShowPrintPreview(this);
+
+
+
+                            break;
+
+                        case "RadiationChartTOTALS":
+
+                            RadiationChartTOTALS.ShowPrintPreview(this);
+
+
+
+                            break;
+
+
+
+
+                        default:
+
+                            break;
+                    }
+
+
+
+
+
+
+                    break;
+                case "PV Location":
+                   
+
+                    break;
+
+                case "Demand Location":
+                    
+                    break;
+
+                case "Demand":
+                    
+
+                    break;
+
+                case "PV Computation":
+                    
+
+                    break;
+
+                case "Battery Computation":
+                   
+
+                    break;
+
+                case "PV Configuration":
+                    
+
+                    break;
+
+                case "Battery Configuration":
+                    
+
+                    break;
+
+                case "Enterprise":
+                   
+
+                    break;
+
+
+                default:
+                   
+                    break;
+            }
+
+
+
+
+
+
+
+            
         }
     }
 }
