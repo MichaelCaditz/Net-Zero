@@ -1056,7 +1056,7 @@
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
                                             <dxc:XYDiagram2D.AxisX>
-                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True"  VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
                                                         <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
                                                             GridAlignment="Day" MeasureUnit="Day" 
@@ -1520,10 +1520,11 @@
                                             <dxc:XYDiagram2D.AxisX>
                                                 <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
                                                     <dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                        <dxc:ManualDateTimeScaleOptions x:Name="MDTSRadiationChartTOTALS" AggregateFunction="None"
                                                             GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
+                                                   
                                                     <dxc:AxisX2D.Label>
                                                         <dxc:AxisLabel/>
                                                     </dxc:AxisX2D.Label>
@@ -1573,7 +1574,7 @@
                             </dx:DXTabItem>
                         </dx:DXTabControl>
                         <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="356,38,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}">
+                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}" SelectedIndexChanged="ListBoxEditnMetricsResolution_SelectedIndexChanged">
                             <dxe:ListBoxEdit.StyleSettings>
                                 <dxe:RadioListBoxEditStyleSettings/>
                             </dxe:ListBoxEdit.StyleSettings>

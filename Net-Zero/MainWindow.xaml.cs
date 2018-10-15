@@ -23,6 +23,7 @@ using System.Drawing;
 using Net_Zero.Properties;
 using DevExpress.Xpf.Map;
 using DevExpress.Charts.Designer;
+using DevExpress.Xpf.Editors;
 
 namespace Net_Zero
 {
@@ -287,6 +288,7 @@ namespace Net_Zero
             //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
             //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
             doHeaders();
+            fixCharts(nMetricsResolution);
 
 
         }
@@ -377,9 +379,19 @@ namespace Net_Zero
             int nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
             int nMetricsHour = ListBoxEditnMetricsHour.SelectedIndex;
 
-         
+            //chartControl1.ShowPrintPreview(this);
 
+            //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions=AggregateFunctionProperty.;
 
+            //((AxisX2D) SummaryChart1.Diagram.Axis
+
+            //SummaryChart1.Diagram.
+            //((AxisX2D)SummaryChart1.Diagram.).AxisX.DateTimeScaleOptions = AggregateFunctionProperty.;
+            //diagram.AxisX.DateTimeScaleOptions= DevExpress.Xpf.Charts.AggregateFunction.Average;
+
+            
+
+           
 
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
@@ -430,6 +442,8 @@ namespace Net_Zero
             {
                 if (conn.State == ConnectionState.Open) conn.Close();
 
+
+               
 
                 //LocateNewLine(TransactID1);
             }
@@ -487,6 +501,7 @@ namespace Net_Zero
                 if (conn1.State == ConnectionState.Open) conn1.Close();
 
                 doHeaders();
+                fixCharts(nMetricsResolution);
                 string message20 = "Analysis complete";
                 string caption20 = "Net-Zero";
                 MessageBoxButton buttons20 = MessageBoxButton.OK;
@@ -501,7 +516,47 @@ namespace Net_Zero
             }
         }
 
-        
+        public void fixCharts(int nMetricsResolution)  
+        {
+
+            ManualDateTimeScaleOptions mm = new ManualDateTimeScaleOptions();
+            if (nMetricsResolution == 1) //HOURLY
+
+            {
+
+                MDTSRadiationChartTOTALS.AggregateFunction = AggregateFunction.Average;
+
+                MDTSRadiationChartTOTALS.AutoGrid = false;
+                MDTSRadiationChartTOTALS.GridAlignment = DateTimeGridAlignment.Day;
+                MDTSRadiationChartTOTALS.MeasureUnit = DateTimeMeasureUnit.Day;
+                MDTSRadiationChartTOTALS.GridSpacing = 1;
+                MDTSRadiationChartTOTALS.GridOffset = 2;
+
+                //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions = mm;
+                // ((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions.Cl;
+                //((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions = mm;
+
+
+
+
+            }
+            else
+            {
+                MDTSRadiationChartTOTALS.AggregateFunction = AggregateFunction.None;
+                MDTSRadiationChartTOTALS.AutoGrid = false;
+                MDTSRadiationChartTOTALS.GridAlignment = DateTimeGridAlignment.Day;
+                MDTSRadiationChartTOTALS.MeasureUnit = DateTimeMeasureUnit.Day;
+                MDTSRadiationChartTOTALS.GridSpacing = 1;
+                MDTSRadiationChartTOTALS.GridOffset = 2;
+
+
+
+                // ((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions = mm;
+                // ((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions = mm;
+
+            }
+
+        }
 
         public void savePVLocation()
         {
@@ -4443,6 +4498,22 @@ namespace Net_Zero
 
 
             
+        }
+
+        private void ListBoxEditnMetricsResolution_SelectedIndexChanged(object sender, RoutedEventArgs e)
+        {
+            ListBoxEdit theSource;
+            theSource = (ListBoxEdit) sender;
+            if (theSource.SelectedIndex == 0)
+            {
+                ListBoxEditnMetricsHour.IsEnabled = false;
+
+            }
+            else
+            {
+                ListBoxEditnMetricsHour.IsEnabled = true;
+
+            }
         }
     }
 }
