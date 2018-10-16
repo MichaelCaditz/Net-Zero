@@ -187,7 +187,10 @@ namespace Net_Zero
 
             DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             int nMetricsResolution = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nMetricsResolution"]) == true ? 0 : (int)drv3["nMetricsResolution"]);
-           // ListBoxEditnMetricsResolution.SelectedIndex = nMetricsResolution;
+            Nullable<DateTime> dtSummaryStartDate = (drv3 == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(drv3["dtSummaryStartDate"]) == true ? (Nullable<DateTime>)null : (DateTime)drv3["dtSummaryStartDate"]);
+            Nullable<DateTime> dtSummaryEndDate = (drv3 == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(drv3["dtSummaryEndDate"]) == true ? (Nullable<DateTime>)null : (DateTime)drv3["dtSummaryEndDate"]);
+
+            // ListBoxEditnMetricsResolution.SelectedIndex = nMetricsResolution;
 
             //TextEditnPVRequired.EditValue = (TextEditnPVRequired.EditValue == null ? 0m : DBNull.Value.Equals(TextEditnPVRequired.EditValue) == true ? 0m :
             //   Math.Round((Decimal)TextEditnPVRequired.EditValue, 2));
@@ -288,7 +291,7 @@ namespace Net_Zero
             //MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
             //MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
             doHeaders();
-            fixCharts(nMetricsResolution);
+            fixCharts(nMetricsResolution, dtSummaryStartDate, dtSummaryEndDate);
 
 
         }
@@ -501,7 +504,7 @@ namespace Net_Zero
                 if (conn1.State == ConnectionState.Open) conn1.Close();
 
                 doHeaders();
-                fixCharts(nMetricsResolution);
+                fixCharts(nMetricsResolution, beginDate, endDate);
                 string message20 = "Analysis complete";
                 string caption20 = "Net-Zero";
                 MessageBoxButton buttons20 = MessageBoxButton.OK;
@@ -516,25 +519,40 @@ namespace Net_Zero
             }
         }
 
-        public void fixCharts(int nMetricsResolution)  
+        public void fixCharts(int nMetricsResolution, Nullable<DateTime> dtBeginDate, Nullable<DateTime> dtEndDate)  
         {
 
+
+           DateTime beginDate= Convert.ToDateTime(dtBeginDate);
+            DateTime endDate = Convert.ToDateTime(dtEndDate);
             ManualDateTimeScaleOptions mm = new ManualDateTimeScaleOptions();
             if (nMetricsResolution == 1) //HOURLY
 
             {
+                if ((endDate.Date-beginDate.Date).TotalDays ==0)
+                {
 
-                MDTSRadiationChartTOTALS.AggregateFunction = AggregateFunction.Average;
+                    MDTSRadiationChartTOTALS.AggregateFunction = AggregateFunction.None;
 
-                MDTSRadiationChartTOTALS.AutoGrid = false;
-                MDTSRadiationChartTOTALS.GridAlignment = DateTimeGridAlignment.Day;
-                MDTSRadiationChartTOTALS.MeasureUnit = DateTimeMeasureUnit.Day;
-                MDTSRadiationChartTOTALS.GridSpacing = 1;
-                MDTSRadiationChartTOTALS.GridOffset = 2;
+                    MDTSRadiationChartTOTALS.AutoGrid = false;
+                    MDTSRadiationChartTOTALS.GridAlignment = DateTimeGridAlignment.Hour;
+                    MDTSRadiationChartTOTALS.MeasureUnit = DateTimeMeasureUnit.Hour;
+                    MDTSRadiationChartTOTALS.GridSpacing = 1;
+                    MDTSRadiationChartTOTALS.GridOffset = 2;
 
-                //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions = mm;
-                // ((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions.Cl;
-                //((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions = mm;
+                    //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions = mm;
+                    // ((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions.Cl;
+                    //((XYDiagram2D)RadiationChartTOTALS.Diagram).AxisX.DateTimeScaleOptions = mm;
+                }
+                else {
+                    MDTSRadiationChartTOTALS.AggregateFunction = AggregateFunction.Average;
+
+                    MDTSRadiationChartTOTALS.AutoGrid = false;
+                    MDTSRadiationChartTOTALS.GridAlignment = DateTimeGridAlignment.Day;
+                    MDTSRadiationChartTOTALS.MeasureUnit = DateTimeMeasureUnit.Day;
+                    MDTSRadiationChartTOTALS.GridSpacing = 1;
+                    MDTSRadiationChartTOTALS.GridOffset = 2;
+                }
 
 
 
