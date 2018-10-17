@@ -585,6 +585,7 @@ namespace Net_Zero
             decimal nManualLong = 0;
             decimal nReflectance = 0;
             bool bUserSpecifiedCoordinates = false;
+            decimal nGMTPlusMinus = 0;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
 
@@ -636,6 +637,7 @@ namespace Net_Zero
                 nManualLong = (SpinEditnManualLong.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnManualLong.EditValue) == true ? 0m : (decimal)SpinEditnManualLong.EditValue);
                 bUserSpecifiedCoordinates = (CheckEditbUserSpecifiedCoordinates.EditValue == null ? false : DBNull.Value.Equals(CheckEditbUserSpecifiedCoordinates.EditValue) == true ? false : (bool)CheckEditbUserSpecifiedCoordinates.EditValue);
                 nReflectance = (SpinEditnReflectance.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnReflectance.EditValue) == true ? 0m : (decimal)SpinEditnReflectance.EditValue);
+                nGMTPlusMinus = (SpinEditnGMTPlusMinus.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnGMTPlusMinus.EditValue) == true ? 0m : (decimal)SpinEditnGMTPlusMinus.EditValue);
 
                 //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
                 //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
@@ -659,6 +661,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nManualLong", nManualLong);
                     cmd3.Parameters.AddWithValue("@bUserSpecifiedCoordinates", bUserSpecifiedCoordinates);
                     cmd3.Parameters.AddWithValue("@nReflectance", nReflectance);
+                    cmd3.Parameters.AddWithValue("@nGMTPlusMinus", nGMTPlusMinus);
 
 
 

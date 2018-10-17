@@ -1086,21 +1086,21 @@
                                             <dxc:Legend/>
                                         </dxc:ChartControl.Legends>
                                         <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
-                                           
-                                                <dxc:XYDiagram2D.AxisX>
-                                                    <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
-                                                        <dxc:AxisX2D.DateTimeScaleOptions>
-                                                            <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
                                                             GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
-                                                        </dxc:AxisX2D.DateTimeScaleOptions>
-                                                        <dxc:AxisX2D.Label>
-                                                            <dxc:AxisLabel/>
-                                                        </dxc:AxisX2D.Label>
-                                                    </dxc:AxisX2D>
-                                                </dxc:XYDiagram2D.AxisX>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
 
-                                                <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
+                                            <dxc:BarSideBySideSeries2D DisplayName="Energy Demand Wh" 
                                            ArgumentDataMember="cDesc" ValueDataMember="nEnergyWh"/>
 
 
@@ -1524,7 +1524,7 @@
                                                             GridAlignment="Day" MeasureUnit="Day" 
                                                             GridSpacing="1" GridOffset="2"/>
                                                     </dxc:AxisX2D.DateTimeScaleOptions>
-                                                   
+
                                                     <dxc:AxisX2D.Label>
                                                         <dxc:AxisLabel/>
                                                     </dxc:AxisX2D.Label>
@@ -1772,6 +1772,8 @@
                         <dxe:CheckEdit x:Name="CheckEditbUserSpecifiedCoordinates" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bUserSpecifiedCoordinates, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="1001,10,0,0" VerticalAlignment="Top" Width="180" Content="User-Specified Coordinates:" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnReflectance" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="846,5,0,0" EditValue="{Binding nReflectance, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="13" Increment="0.01"/>
                         <Label Content="Ground Reflectance" HorizontalAlignment="Left" Margin="846,28,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="Time Zone GMT +-" HorizontalAlignment="Left" Margin="1482,28,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnGMTPlusMinus" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="00"  HorizontalAlignment="Left" Height="23" Margin="1482,5,0,0" EditValue="{Binding nGMTPlusMinus, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="00" Panel.ZIndex="13" Increment="1"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem x:Name="DXTabItemDemandLocation" Header="Demand Location" Height="45" VerticalAlignment="Top" GotFocus="DXTabItemDemandLocation_GotFocus" Glyph="Images/China-Power-Supply-Cord32.png">
