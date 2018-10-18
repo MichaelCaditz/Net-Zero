@@ -363,9 +363,9 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nCT" Header="Civil Time"  ReadOnly="True"  Image="Images/clockColours32.png" IsSmart="True" Width="120">
+                            <dxg:GridColumn FieldName="dtCT" Header="Civil Time"  ReadOnly="True"  Image="Images/clockColours32.png" IsSmart="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00000" />
+                                    <dxe:TextEditSettings DisplayFormat="f" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
