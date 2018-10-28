@@ -24,6 +24,7 @@ using Net_Zero.Properties;
 using DevExpress.Xpf.Map;
 using DevExpress.Charts.Designer;
 using DevExpress.Xpf.Editors;
+using Net_Zero.Infoscreens;
 
 namespace Net_Zero
 {
@@ -1001,7 +1002,7 @@ namespace Net_Zero
         private void SimpleButtonInfoTDRLeadAcid_Click(object sender, RoutedEventArgs e)
         {
             InfoTDRLeadAcid InfoTDRLeadAcid1 = new InfoTDRLeadAcid();
-
+           
 
             InfoTDRLeadAcid1.ShowDialog();
         }
