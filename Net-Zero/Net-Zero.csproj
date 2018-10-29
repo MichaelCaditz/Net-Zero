@@ -343,7 +343,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\TDRLeadAcid.png" />
+    <Resource Include="Images\Info\TDRLeadAcid.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
@@ -437,6 +437,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clockColours32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Info\p371.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -1,12 +1,16 @@
 ﻿<dx:ThemedWindow
-    x:Class="Net_Zero.Infoscreens.InfoTDRLeadAcid"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    x:Class="Net_Zero.Infoscreens.InfoTDRLeadAcid"
     Title="InfoTDRLeadAcid" Height="350" Width="525"
     >
 
     <Grid>
+
+        <dxe:ImageEdit Margin="0,0,0,40" ShowMenu="False" Source="/Net-Zero;component/Images/Info/p371.png"  />
+        <dxe:TextEdit Margin="0,284,0,0" VerticalAlignment="Bottom" Width="517" EditValue="Masters, Gilbert M., Renewable and Efficient Power Systems, p.371" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </dx:ThemedWindow>
