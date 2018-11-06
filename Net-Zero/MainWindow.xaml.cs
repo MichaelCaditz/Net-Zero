@@ -305,7 +305,7 @@ namespace Net_Zero
             int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + " for Tilt=" + cChosenTilt + "; Az: South";
+            string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d"+ " for Tilt=" + cChosenTilt + "; Az: South";
             double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
             double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
             GridColumnPredictedInsolation.Header = predictedHeader;
@@ -317,7 +317,7 @@ namespace Net_Zero
             GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
             GridColumnnTOTAL_fixed.Header = "IC Total Clear-Sky Insolation " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
 
-            GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2";
+            GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2"+"/d";
             GridColumnnIncidence.Header = "θ Angle of Incidence " + cChosenTilt + " ⁰";
 
 

@@ -383,7 +383,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2"  ReadOnly="True"  IsSmart="True" Width="180">
+                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2/d"  ReadOnly="True"  IsSmart="True" Width="180" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -393,7 +393,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation h/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
+                            <dxg:GridColumn x:Name="GridColumnPredictedInsolation" FieldName="nInsolationPredicted" Header="Predicted Insolation kWh/m^2/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -465,7 +465,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn FieldName="nDifferenceRequiredPVChosenPV" Header="PV Difference kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
