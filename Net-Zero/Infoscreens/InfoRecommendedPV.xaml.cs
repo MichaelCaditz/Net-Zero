@@ -13,14 +13,14 @@ using System.Windows.Shapes;
 using DevExpress.Xpf.Core;
 
 
-namespace Net_Zero
+namespace Net_Zero.Infoscreens
 {
     /// <summary>
-    /// Interaction logic for InfoTDRLeadAcid.xaml
+    /// Interaction logic for InfoRecommendedPV.xaml
     /// </summary>
-    public partial class InfoTDRLeadAcid : ThemedWindow
+    public partial class InfoRecommendedPV : ThemedWindow
     {
-        public InfoTDRLeadAcid()
+        public InfoRecommendedPV()
         {
             InitializeComponent();
         }

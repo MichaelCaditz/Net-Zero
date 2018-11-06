@@ -1,0 +1,12 @@
+﻿<dx:ThemedWindow
+    x:Class="Net_Zero.Infoscreens.InfoRecommendedPV"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="InfoRecommendedPV" Height="350" Width="525"
+    >
+
+    <Grid>
+
+    </Grid>
+</dx:ThemedWindow>
