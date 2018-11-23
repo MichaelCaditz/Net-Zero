@@ -114,8 +114,9 @@ namespace Net_Zero
                     }
                 }
                 // MessageBox.Show(ProjectList1.nProjectID.ToString());
-               Settings.Default.nLastProjectID= Settings.Default.nCurrentProjectID;
-               Settings.Default.nCurrentProjectID= ProjectList1.nProjectID;
+                Settings.Default.nCurrentProjectID = ProjectList1.nProjectID;
+                Settings.Default.nLastProjectID= Settings.Default.nCurrentProjectID;
+              
                 // MessageBox.Show("User clicked OK button");
             }
             else
@@ -131,7 +132,7 @@ namespace Net_Zero
         {
             this.Title = "Net - Zero     Autonomous and Backup PV System Design     " + ProgramSettings.net_zeroconnectionStringPublic;
             Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
-            
+            Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
 
             openProjectRoutine();
            
@@ -139,8 +140,8 @@ namespace Net_Zero
 
         private void openProjectRoutine()
         {
-            int nLastProjectID = Settings.Default.nLastProjectID;
-            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+            //int nLastProjectID = Settings.Default.nLastProjectID;
+           int nCurrentProjectID = Settings.Default.nCurrentProjectID;
 
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
