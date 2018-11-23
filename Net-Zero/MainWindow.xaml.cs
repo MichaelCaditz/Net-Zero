@@ -3704,32 +3704,57 @@ namespace Net_Zero
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
 
-            if (IDToFind > -1)
+            int wasnull = 0;
+            wasnull = (BindingListCollectionView)TreeListControlCountryDemand.ItemsSource == null ? 1 : 0;
+            if (wasnull == 1)
             {
-                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCountryDemand.ItemsSource)
-                    if ((int)drv["nID"] == IDToFind)
-                    {
-                        // This is the data row view record you want...
-                        TreeListControlCountryDemand.SelectedItem = drv;
-                        TreeListControlCountryDemand.CurrentItem = drv;
-                        break;
-                    }
+
+
+                return;
+            }
+            else
+            {
+
+
+                if (IDToFind > -1)
+                {
+                    foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCountryDemand.ItemsSource)
+                        if ((int)drv["nID"] == IDToFind)
+                        {
+                            // This is the data row view record you want...
+                            TreeListControlCountryDemand.SelectedItem = drv;
+                            TreeListControlCountryDemand.CurrentItem = drv;
+                            break;
+                        }
+                }
             }
         }
         public void LocateNewLineStateProvinceDemand(int IDToFind)
         {
             //int IDToFind = Convert.ToInt32(txt_IdUnique.Text);
-
-            if (IDToFind > -1)
+            int wasnull = 0;
+            wasnull = (BindingListCollectionView)TreeListControlStateProvinceDemand.ItemsSource == null ? 1 : 0;
+            if (wasnull == 1)
             {
-                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlStateProvinceDemand.ItemsSource)
-                    if ((int)drv["nID"] == IDToFind)
-                    {
-                        // This is the data row view record you want...
-                        TreeListControlStateProvinceDemand.SelectedItem = drv;
-                        TreeListControlStateProvinceDemand.CurrentItem = drv;
-                        break;
-                    }
+
+
+                return;
+            }
+            else
+            {
+
+
+                if (IDToFind > -1)
+                {
+                    foreach (DataRowView drv in (BindingListCollectionView)TreeListControlStateProvinceDemand.ItemsSource)
+                        if ((int)drv["nID"] == IDToFind)
+                        {
+                            // This is the data row view record you want...
+                            TreeListControlStateProvinceDemand.SelectedItem = drv;
+                            TreeListControlStateProvinceDemand.CurrentItem = drv;
+                            break;
+                        }
+                }
             }
         }
         public void LocateNewLineCityDemand(int IDToFind)
@@ -3738,14 +3763,29 @@ namespace Net_Zero
 
             if (IDToFind > -1)
             {
-                foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCityDemand.ItemsSource)
-                    if ((int)drv["nID"] == IDToFind)
-                    {
-                        // This is the data row view record you want...
-                        TreeListControlCityDemand.SelectedItem = drv;
-                        TreeListControlCityDemand.CurrentItem = drv;
-                        break;
-                    }
+
+                int wasnull = 0;
+                wasnull = (BindingListCollectionView)TreeListControlCityDemand.ItemsSource == null ? 1 : 0;
+                if (wasnull == 1)
+                {
+
+                  
+                    return;
+                }
+                else
+                {
+
+
+
+                    foreach (DataRowView drv in (BindingListCollectionView)TreeListControlCityDemand.ItemsSource)
+                        if ((int)drv["nID"] == IDToFind)
+                        {
+                            // This is the data row view record you want...
+                            TreeListControlCityDemand.SelectedItem = drv;
+                            TreeListControlCityDemand.CurrentItem = drv;
+                            break;
+                        }
+                }
             }
         }
 
