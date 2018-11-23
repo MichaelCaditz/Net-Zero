@@ -259,6 +259,8 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLong" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="606,193,0,0" Text="{Binding nLong, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Long ⁰" HorizontalAlignment="Left" Margin="607,276,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
+                        <Label Content="Chosen Array Azimuth 0=S" HorizontalAlignment="Left" Margin="251,566,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenAzimuth" DisplayFormatString="000.00"  EditValue="{Binding nChosenAzimuth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,544,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="360" Mask="000.00" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
 
                         <!--<Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" Grid.Row="1" Grid.ColumnSpan="3" >-->
 
@@ -413,9 +415,19 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ Chosen Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                            <dxg:GridColumn FieldName="nChosenTiltDeg" Header="Σ PV Tilt ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nChosenAzimuth" Header="φ PV Azimuth ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings  DisplayFormat="000.000"/>
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
