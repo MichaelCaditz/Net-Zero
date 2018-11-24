@@ -309,17 +309,40 @@ namespace Net_Zero
             string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d"+ " for Tilt=" + cChosenTilt + "; Az: South";
             double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
             double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+            double nCustomTilt = Convert.ToDouble((DBNull.Value.Equals(drv3["nCustomTilt"]) == true ? 0m : (decimal)drv3["nCustomTilt"]));
+            double nChosenAzimuth = Convert.ToDouble((DBNull.Value.Equals(drv3["nChosenAzimuth"]) == true ? 0m : (decimal)drv3["nChosenAzimuth"]));
+
+            if (cChosenTilt == "Custom")
+            {
+                cChosenTilt = "β=" + nCustomTilt.ToString() + "⁰";
+            }
+            else
+            {
+                cChosenTilt = "β="+cChosenTilt + "⁰";
+            }
+
+            string cChosenAzimuth = "φ="+nChosenAzimuth.ToString() + "⁰";
+
+
+
             GridColumnPredictedInsolation.Header = predictedHeader;
             GridColumnnIB.Header = "IB Clear-Sky Beam W/m" + "\x00B2";
-            GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
-            GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam  Horizontal Collector W/m" + "\x00B2";
-            GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam  " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
+
+            GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam   W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
+
+
+            GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam Horizontal Collector W/m" + "\x00B2";
+            GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam W/m" + "\x00B2 " + cChosenTilt + " "+ cChosenAzimuth;
             GridColumnnDiffuseCollectorHorizontal.Header = "IDH Diffuse Clear Sky Beam Horizontal Collector W/m" + "\x00B2";
-            GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
-            GridColumnnTOTAL_fixed.Header = "IC Total Clear-Sky Insolation " + cChosenTilt + " South-Face Collector W/m" + "\x00B2";
+            GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
+            GridColumnnTOTAL_fixed.Header = "IC Total Clear-Sky Insolation W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth ;
 
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2"+"/d";
-            GridColumnnIncidence.Header = "θ Angle of Incidence " + cChosenTilt + " ⁰";
+
+           
+            GridColumnnIncidence.Header = "θ Angle of Incidence" + cChosenTilt;
+            
+            
 
 
             GridColumnnnIncidenceHNS.Header = "θ Angle of Incidence HNS One-Axis Track North-South Collector ⁰";
@@ -598,40 +621,18 @@ namespace Net_Zero
             //int accountCurrent = 0;
             int wasnull = 0;
             wasnull = (getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View == null ? 1 : 0);
-            if (wasnull == 1)
-            {
-
-                //// MessageBox.Show("Warning: uSP_getLineViewSource is null", "CoolBlue");
-                //string message = "Warning:getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource is null";
-                //string caption = "CoolBlue";
-
-                //MessageBoxButton buttons = MessageBoxButton.OK;
-                //MessageBoxImage icon = MessageBoxImage.Information;
-                //MessageBoxResult defaultResult = MessageBoxResult.OK;
-                //MessageBoxOptions options = MessageBoxOptions.RtlReading;
-                //// Show message box
-                //// MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                //// Displays the MessageBox.
-                //MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
-
-                //if (result == MessageBoxResult.OK)
-                //{
-
-                //    // Closes the parent form.
-
-                //    //this.Close();
-
-                //}
-                return;
-            }
-            else
+            if (wasnull == 0)
             {
 
 
                 DataRowView drv = (DataRowView)getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource.View.CurrentItem;
                 //accountCurrent = (drv == null ? 0 : DBNull.Value.Equals(drv["ID"]) == true ? 0 : (int)drv["ID"]);
                 nCityID = (DBNull.Value.Equals(drv["nCityID"]) == true ? 0 : (int)drv["nCityID"]);
+            }
+           
+
+
+               
                 nInsolation = (TextEditInsolation.EditValue == null ? 0m : DBNull.Value.Equals(TextEditInsolation.EditValue) == true ? 0m : (decimal)TextEditInsolation.EditValue);
 
                 nManualLat = (SpinEditnManualLat.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnManualLat.EditValue) == true ? 0m : (decimal)SpinEditnManualLat.EditValue);
@@ -644,7 +645,7 @@ namespace Net_Zero
                 //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
                 //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
 
-            }
+            
 
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
@@ -740,6 +741,7 @@ namespace Net_Zero
             decimal nTDR = 0m;
 
             decimal nChosenInsolation = 0m;
+            decimal nCustomTilt = 0m;
             decimal nChosenBattery = 0m;
             decimal nChosenPV = 0m;
             decimal nDemandTotal = 0m;
@@ -769,6 +771,7 @@ namespace Net_Zero
             nDaysAutonomy = (SpinEditnDaysAutonomy.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnDaysAutonomy.EditValue) == true ? 0m : (decimal)SpinEditnDaysAutonomy.EditValue);
 
             nChosenInsolation = (SpinEditnChosenInsolation.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenInsolation.EditValue) == true ? 0m : (decimal)SpinEditnChosenInsolation.EditValue);
+            nCustomTilt = (SpinEditnCustomTilt.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnCustomTilt.EditValue) == true ? 0m : (decimal)SpinEditnCustomTilt.EditValue);
             nChosenBattery = (SpinEditnChosenBattery.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenBattery.EditValue) == true ? 0m : (decimal)SpinEditnChosenBattery.EditValue);
             nChosenPV = (SpinEditnChosenPV.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnChosenPV.EditValue) == true ? 0m : (decimal)SpinEditnChosenPV.EditValue);
 
@@ -811,6 +814,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@nTDR", nTDR);
 
                     cmd3.Parameters.AddWithValue("@nChosenInsolation", nChosenInsolation);
+                    cmd3.Parameters.AddWithValue("@nCustomTilt", nCustomTilt);
                     cmd3.Parameters.AddWithValue("@nChosenBattery", nChosenBattery);
                     cmd3.Parameters.AddWithValue("@nChosenPV", nChosenPV);
                     cmd3.Parameters.AddWithValue("@nDemandTotal", nDemandTotal);
@@ -2190,6 +2194,7 @@ namespace Net_Zero
             decimal nTDR = 0m;
 
             decimal nChosenInsolation = 0m;
+            decimal nCustomTilt = 0m;
             decimal nChosenBattery = 0m;
             decimal nDemandTotal = 0m;
 
@@ -2328,6 +2333,7 @@ namespace Net_Zero
             decimal nTDR = 0m;
 
             decimal nChosenInsolation = 0m;
+            decimal nCustomTilt = 0m;
             decimal nChosenBattery = 0m;
             decimal nDemandTotal = 0m;
             decimal nDemandQty = 0m;
@@ -4055,19 +4061,20 @@ namespace Net_Zero
             //SummaryDataSet testSummaryDataSet = new SummaryDataSet();
 
             Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
+            Settings.Default.Save();
 
-            //if (testSummaryDataSet.HasChanges())
-            // SummaryDataSet testSummaryDataSet = new SummaryDataSet();
-            //testSummaryDataSet.AcceptChanges();
-            // Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+           //if (testSummaryDataSet.HasChanges())
+           // SummaryDataSet testSummaryDataSet = new SummaryDataSet();
+           //testSummaryDataSet.AcceptChanges();
+           // Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
-            //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
-            //summaryDataSetgetProjectTableAdapter.Update(summaryDataSet.getProject);
-            // System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+           //Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+           //summaryDataSetgetProjectTableAdapter.Update(summaryDataSet.getProject);
+           // System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
 
-            //getProjectViewSource.
-            //getProjectViewSource.View.MoveCurrentToFirst();
-            Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
+           //getProjectViewSource.
+           //getProjectViewSource.View.MoveCurrentToFirst();
+           Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));

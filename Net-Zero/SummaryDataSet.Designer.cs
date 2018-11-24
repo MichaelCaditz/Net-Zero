@@ -345,8 +345,9 @@ namespace Net_Zero {
             this.getSummary.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
             this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
             this.getSummary.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
-            this.getSummary.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
-            this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
+            this.getSummary.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
+            this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +
+                ",0)";
             this.getSummary.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
             this.getSummary.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
             this.getSummary.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
@@ -1922,8 +1923,9 @@ namespace Net_Zero {
                 this.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
                 this.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
                 this.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
-                this.nPercentLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate/nDemandTotal";
-                this.nDaysRunFullChargeLocalColumn.Expression = "((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied";
+                this.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
+                this.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +
+                    ",0)";
                 this.nChosenBatterykWhLocalColumn.Expression = "(nChosenBattery*nVoltage)/1000";
                 this.nBatteryRemainingkWhLocalColumn.Expression = "nChosenBatterykWh-nRunningLoss";
                 this.nPercentBatteryRemainingColumn.Expression = "iif(nChosenBatterykWh>0 ,(nBatteryRemainingkWh*100)/nChosenBatterykWh,0)";
@@ -2480,6 +2482,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnChosenAzimuth;
             
+            private global::System.Data.DataColumn columnnCustomTilt;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public getProjectDataTable() : 
@@ -2908,6 +2912,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nCustomTiltColumn {
+                get {
+                    return this.columnnCustomTilt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2990,7 +3002,8 @@ namespace Net_Zero {
                         int nMetricsResolution, 
                         int nMetricsHour, 
                         decimal nGMTPlusMinus, 
-                        decimal nChosenAzimuth) {
+                        decimal nChosenAzimuth, 
+                        decimal nCustomTilt) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3040,7 +3053,8 @@ namespace Net_Zero {
                         nMetricsResolution,
                         nMetricsHour,
                         nGMTPlusMinus,
-                        nChosenAzimuth};
+                        nChosenAzimuth,
+                        nCustomTilt};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3088,7 +3102,8 @@ namespace Net_Zero {
                         int nMetricsResolution, 
                         int nMetricsHour, 
                         decimal nGMTPlusMinus, 
-                        decimal nChosenAzimuth) {
+                        decimal nChosenAzimuth, 
+                        decimal nCustomTilt) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3138,7 +3153,8 @@ namespace Net_Zero {
                         nMetricsResolution,
                         nMetricsHour,
                         nGMTPlusMinus,
-                        nChosenAzimuth};
+                        nChosenAzimuth,
+                        nCustomTilt};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3216,6 +3232,7 @@ namespace Net_Zero {
                 this.columnnMetricsHour = base.Columns["nMetricsHour"];
                 this.columnnGMTPlusMinus = base.Columns["nGMTPlusMinus"];
                 this.columnnChosenAzimuth = base.Columns["nChosenAzimuth"];
+                this.columnnCustomTilt = base.Columns["nCustomTilt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3317,6 +3334,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnGMTPlusMinus);
                 this.columnnChosenAzimuth = new global::System.Data.DataColumn("nChosenAzimuth", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnChosenAzimuth);
+                this.columnnCustomTilt = new global::System.Data.DataColumn("nCustomTilt", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCustomTilt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -6692,6 +6711,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal nCustomTilt {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nCustomTiltColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCustomTilt\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nCustomTiltColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -7252,6 +7287,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnChosenAzimuthNull() {
                 this[this.tablegetProject.nChosenAzimuthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnCustomTiltNull() {
+                return this.IsNull(this.tablegetProject.nCustomTiltColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnCustomTiltNull() {
+                this[this.tablegetProject.nCustomTiltColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8228,6 +8275,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nMetricsHour", "nMetricsHour");
             tableMapping.ColumnMappings.Add("nGMTPlusMinus", "nGMTPlusMinus");
             tableMapping.ColumnMappings.Add("nChosenAzimuth", "nChosenAzimuth");
+            tableMapping.ColumnMappings.Add("nCustomTilt", "nCustomTilt");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
