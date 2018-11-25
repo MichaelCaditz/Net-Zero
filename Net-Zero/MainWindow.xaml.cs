@@ -340,7 +340,7 @@ namespace Net_Zero
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2"+"/d";
 
            
-            GridColumnnIncidence.Header = "θ Angle of Incidence" + cChosenTilt;
+            GridColumnnIncidence.Header = "θ Angle of Incidence " + cChosenTilt;
             
             
 

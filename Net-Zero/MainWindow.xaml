@@ -60,6 +60,8 @@
         <Style TargetType="dxg:GridColumnHeader">
             <Setter Property="Height" Value="100" />
         </Style>
+
+
         <!--<Style TargetType="{x:Type dxg:GridColumnHeader}" BasedOn="{StaticResource {x:Type dxg:GridColumnHeader}}">
             <Setter Property="Height" Value="60" />
         </Style>-->
@@ -236,9 +238,9 @@
                         <Label Content="PV City" HorizontalAlignment="Left" Margin="21,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="21,193,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="21,517,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="933,216,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="##0.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="933,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="##0.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="933,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="10000000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <dx:SimpleButton x:Name="SimpleButtonInfoTDRLeadAcid" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="255,193,0,0" Grid.Row="1" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Info_16x16.png}" Click="SimpleButtonInfoTDRLeadAcid_Click">
                             <dx:SimpleButton.OpacityMask>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -264,7 +266,7 @@
                         <dxe:SpinEdit x:Name="SpinEditnChosenAzimuth" DisplayFormatString="000.00"  EditValue="{Binding nChosenAzimuth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,544,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="360" Mask="000.00" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Custom Tilt" Grid.Column="1" HorizontalAlignment="Left" Margin="21,615,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnCustomTilt" EditValue="{Binding nCustomTilt, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,593,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="360" Mask="000.00" Panel.ZIndex="15" Grid.Row="1" Grid.Column="1">
-                           
+
                         </dxe:SpinEdit>
 
                         <!--<Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" Background="#FF5A5A5A" Grid.Row="1" Grid.ColumnSpan="3" >-->
@@ -707,7 +709,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn FieldName="nSkyDiffuseFactor" Header="C Sky Diffuse Factor" IsSmart="True" ReadOnly="True"  Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -727,6 +729,17 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
                             <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -747,16 +760,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nSkyDiffuseFactor" Header="C Sky Diffuse Factor" IsSmart="True" ReadOnly="True"  Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
+
                             <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -1985,52 +1989,60 @@
 
 
                         <dxe:SpinEdit x:Name="SpinEditComputedDemandTotal"  HorizontalAlignment="Left" Margin="581,572,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1" IsReadOnly="True" DisplayFormatString="###.00"/>
-                        <dxg:GridControl x:Name="demandItemsDataGrid" ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,60" Grid.RowSpan="2" >
+                        <dxg:GridControl x:Name="demandItemsDataGrid"  ItemsSource="{Binding Source={StaticResource demandItemsViewSource}}" AutoGenerateColumns="None" Margin="20,20,20,60" Grid.RowSpan="2" OptimizeSummaryCalculation="True" AllowLiveDataShaping="True" >
+                            <dxg:GridControl.TotalSummary>
+                                <dxg:GridSummaryItem FieldName="nPowerW" SummaryType="Sum" />
+                                <dxg:GridSummaryItem FieldName="nEnergyWh" SummaryType="Sum"/>
+                                <dxg:GridSummaryItem FieldName="nEnergykWh" SummaryType="Sum"/>
+                            </dxg:GridControl.TotalSummary>
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
-                            <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
-                            <dxg:GridColumn x:Name="dtCreateDateColumn" FieldName="dtCreateDate" Header="dt Create Date"  Visible="False"/>
+                            <dxg:GridControl.Columns>
 
 
-                            <dxg:GridColumn x:Name="cDescColumn" FieldName="cDesc" Header="Description" Width="200"/>
-                            <dxg:GridColumn x:Name="nQtyColumn" FieldName="nQty" Header="Qty." Width="60">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0"  DisplayFormat="###" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-
-                            <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="bDeletedColumn" FieldName="bDeleted" Header="Delete" Width="60"/>
+                                <dxg:GridColumn x:Name="nIDColumn" FieldName="nID" Header="n ID"  Width="20" Visible="False"/>
+                                <dxg:GridColumn x:Name="dtCreateDateColumn" FieldName="dtCreateDate" Header="dt Create Date"  Visible="False"/>
 
 
-                            <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.1" MaxValue="10000" MinValue="0"  DisplayFormat="###.#" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="###.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
-                                </dxg:GridColumn.EditSettings>
-                            </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>
-                            <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
+                                <dxg:GridColumn x:Name="cDescColumn" FieldName="cDesc" Header="Description" Width="200"/>
+                                <dxg:GridColumn x:Name="nQtyColumn" FieldName="nQty" Header="Qty." Width="60">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0"  DisplayFormat="###" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nHoursColumn" FieldName="nHours" Header="Hours/day" Width="80">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
 
+                                <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="140" SortOrder="Ascending" SortIndex="0">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="######.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+
+
+                                <dxg:GridColumn x:Name="OnOffFactorColumn" FieldName="nOnOffFactor" Header="On/Off Factor" Width="120">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.1" MaxValue="10000" MinValue="0"  DisplayFormat="###.#" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="###.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nProjectsIDColumn" FieldName="nProjectsID" Header="n Projects ID" Width="120" Visible="False"/>
+                                <dxg:GridColumn x:Name="cNoteColumn" FieldName="cNote" Header="Note" Width="600"/>
+                            </dxg:GridControl.Columns>
                         </dxg:GridControl>
                         <Label Content="Computed Demand Total kWh/d" HorizontalAlignment="Left" Margin="581,594,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1" />
                         <dx:SimpleButton x:Name="SimpleButtonNewDemand" Content="" HorizontalAlignment="Left" Margin="110,576,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewDemand_Click" ToolTip="Add New Demand Item" Grid.Row="1"/>
@@ -2185,7 +2197,7 @@
                         <dxe:TextEdit x:Name="TextEditnDemandTotalWH" DisplayFormatString="###.00"  EditValue="{Binding nDemandTotalWH, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="126,116,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="207,142,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
                         <Label Content="= " HorizontalAlignment="Left" Margin="111,191,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="######.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0" Increment="0.01"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenBattery_1"  DisplayFormatString="######.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="597,523,0,0" VerticalAlignment="Top" Width="150" Mask="######.00" MaskType="Numeric" MaxValue="1000000" MinValue="0" Increment="0.01"/>
                         <dx:SimpleButton x:Name="SimpleButtonBatteryToChosenBattery" Content="" HorizontalAlignment="Left" Height="30" Margin="597,474,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" Click="SimpleButtonBatteryToChosenBattery_Click" ToolTip="Choose Recommended Battery Capacity"/>
                         <Label Content="Chosen Battery Capacity" HorizontalAlignment="Left" Margin="597,545,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Rectangle Fill="White" HorizontalAlignment="Left" Height="2" Margin="150,139,0,0" Stroke="White" VerticalAlignment="Top" Width="204"/>
@@ -2198,10 +2210,12 @@
                 <dx:DXTabItem Header="PV Configuration" Height="45" Glyph="Images/pvPanelBlue32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10" DataContext="{StaticResource getPVViewSource}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="170"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="70"/>
                             <RowDefinition Height="300"/>
                             <RowDefinition Height="60"/>
-                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="280"/>
+                            <RowDefinition Height="*"/>
 
 
                         </Grid.RowDefinitions>
@@ -2211,7 +2225,7 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <dxm:MapControl x:Name="MapControl9" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                        <dxm:MapControl x:Name="MapControl9" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="2" Grid.RowSpan="6" Opacity="0.4">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -2237,102 +2251,245 @@
                         </dxm:MapControl>
 
 
-                        <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                        <dxg:GridControl AutoGenerateColumns="None" Grid.Column="1" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2">
                             <dxg:GridControl.View>
-                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog"/>
+                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" NewItemRowPosition="Bottom" Margin="0" EditFormShowMode="Dialog" Height="285"/>
                             </dxg:GridControl.View>
 
-                            <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
+                            <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
                                 <dxg:GridColumn.EditTemplate>
                                     <ControlTemplate>
-                                        <dxe:TextEdit EditValue="{Binding Data.TransactionDate, Mode=OneWay}" 
-                                           
-                                                  />
+                                        <dxe:TextEdit EditValue="{Binding Data.TransactionDate, Mode=OneWay}"/>
                                     </ControlTemplate>
                                 </dxg:GridColumn.EditTemplate>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nTilt_deg" Header='Tilt ⁰' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nOrientation_deg" Header='Orientation ⁰' Width="160" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="360" MinValue="0" DisplayFormat="###.00"/>
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nQty" Header='Qty.' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPrice" Header='Price Ea.' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2"/>
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="nTotPrice" Header='Total' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVmp" Header='Optimal Volts (Vmp)' Width="120" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nImp" Header='Optimal Current (Imp)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVoc"  Header='Open Circuit Volt. (Voc)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nIsc"  Header='Short Curcuit Current (Isc)' Width="160" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWeight_kg"  Header='Weight kG' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nLength_mm" Header='Length mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWidth_mm" Header='Width mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nHeight_mm" Header='Height mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
 
 
 
                         </dxg:GridControl>
-                        <dxga:LinearGaugeControl x:Name="LinearGaugePV"  Grid.ColumnSpan="1" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448" Grid.Column="1">
+                        <dxga:LinearGaugeControl x:Name="LinearGaugePV"  Grid.ColumnSpan="1" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448" Grid.Column="1" Grid.RowSpan="3">
                             <dxga:LinearGaugeControl.Scales>
                                 <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
                                     <dxga:LinearScale.LevelBars>
@@ -2349,7 +2506,7 @@
                         <dxe:SpinEdit x:Name="SpinEditnCapacityAchievedPVkW"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Column="1" IsReadOnly="True"/>
                         <Label Content="Achieved PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
 
-                        <dx:SimpleButton x:Name="SimpleButtonNewPV" Content="" HorizontalAlignment="Left" Margin="506,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Column="1" Click="SimpleButtonNewPV_Click" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
+                        <dx:SimpleButton x:Name="SimpleButtonNewPV" Content="" HorizontalAlignment="Left" Margin="506,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Column="1" Click="SimpleButtonNewPV_Click" Grid.Row="3" RenderTransformOrigin="0.5,0.5">
                             <dx:SimpleButton.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -2359,22 +2516,60 @@
                                 </TransformGroup>
                             </dx:SimpleButton.RenderTransform>
                         </dx:SimpleButton>
-                        <dxg:GridControl AutoGenerateColumns="None"     EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,10,10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="3">
+                        <dxg:GridControl AutoGenerateColumns="None"     EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,20,0" ItemsSource="{Binding Source={StaticResource getPVMasterViewSource}}" Grid.Column="1" Grid.Row="4">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="None" AllowEditing="False"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True"/>
+                            <dxg:GridColumn FieldName="bDeleted" Header='Delete' Width ='60'  IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPriority" Header="Priority" IsSmart="True" AllowEditing="False" Width="60" Visible="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cModel" Header='Model' IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cBrand" Header='Brand' IsSmart="True" SortOrder="Ascending" SortIndex="0">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPmax" Header='Rated Power W' IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
 
 
@@ -2382,6 +2577,13 @@
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="c2"/>
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
 
 
@@ -2389,62 +2591,143 @@
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nImp" Header='Optimal Current (Imp)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVoc"  Header='Open Circuit Volt. (Voc)' Width="140" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nIsc"  Header='Short Curcuit Current (Isc)' Width="160" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWeight_kg"  Header='Weight kG' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nLength_mm" Header='Length mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nWidth_mm" Header='Width mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nHeight_mm" Header='Height mm' Width="100" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cFrame" Header='Frame Descr.' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cVendor" Header='Vendor' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
 
-                            <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cURL" Header='URL' Width="200" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                         </dxg:GridControl>
-                        <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="2" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank"/>
-                        <Label Content="PV panels this project:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
-                        <Label Content="PV panels master list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="3"/>
-                        <dx:SimpleButton x:Name="SimpleButtonAutoConfigurePV" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="826,10,0,0" Grid.Row="2" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure PV" Click="SimpleButtonAutoConfigurePV_Click"/>
+                        <dxe:CheckEdit x:Name="CheckEditAddBlankPV" Grid.Column="1" HorizontalAlignment="Left" Margin="573,26,0,0" Grid.Row="3" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank"/>
+                        <Label Content="PV panels this project:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
+                        <Label Content="PV panels master list:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="4"/>
+                        <dx:SimpleButton x:Name="SimpleButtonAutoConfigurePV" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="826,10,0,0" Grid.Row="3" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure PV" Click="SimpleButtonAutoConfigurePV_Click"/>
 
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="Battery Configuration" Height="45" Glyph="Images/batteries_1_32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10" DataContext="{StaticResource getPVViewSource}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="140"/>
-                            <RowDefinition Height="160"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="190"/>
                             <RowDefinition Height="210"/>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="260"/>
+                            <RowDefinition Height="*"/>
 
 
                         </Grid.RowDefinitions>
@@ -2452,7 +2735,7 @@
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="1800"/>
                         </Grid.ColumnDefinitions>
-                        <dxm:MapControl x:Name="MapControl10" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                        <dxm:MapControl x:Name="MapControl10" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="6" Opacity="0.4">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -2478,68 +2761,204 @@
                         </dxm:MapControl>
 
 
-                        <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}" Grid.Row="1">
+                        <dxg:GridControl x:Name="GridControlBatterySeriesString" AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" Margin="20,20,0,0" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringViewSource}}" Grid.Row="1" HorizontalAlignment="Left">
+
+
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" Width="60" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cName" Header="String Name" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" Width="60" IsSmart="True" >
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cName" Header="String Name" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nTotVolts" Header="String Voltage" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nTotCapacity" Header="String Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
                         </dxg:GridControl>
-                        <dxg:GridControl x:Name="GridControlBattery"  AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}" Grid.Row="2">
+                        <dxg:GridControl x:Name="GridControlBattery"  AutoGenerateColumns="None" Grid.ColumnSpan="2" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,20,0,0" ItemsSource="{Binding Source={StaticResource getBatterySeriesStringgetBatteryViewSource}}" Grid.Row="2">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                             </dxg:GridControl.View>
-                            <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" IsSmart="True" Width="60"/>
-                            <dxg:GridColumn FieldName="cModel" Header="Model"/>
-                            <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="bDeleted" Header="Delete" Visible=" True" IsSmart="True" Width="60">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cModel" Header="Model">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True">
 
-                            <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True"/>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True">
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nProjectsID" Visible=" False"  IsSmart="True">
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nQty" Header="Qty." IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="1" MaxValue="10000" MinValue="0"  DisplayFormat="###" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                         </dxg:GridControl>
                         <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenBatteryCapacity"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Column="1"/>
                         <dxe:SpinEdit x:Name="SpinEditnCapacityAchieved"  DisplayFormatString="###.00" HorizontalAlignment="Left" Margin="242,19,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Column="1"/>
                         <Label Content="Capacity Achieved" Grid.Column="1" HorizontalAlignment="Left" Margin="242,41,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxga:LinearGaugeControl x:Name="LinearGauge1" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448" Grid.Column="1">
+                        <dxga:LinearGaugeControl x:Name="LinearGauge1" HorizontalAlignment="Left" Margin="1216,10,0,0" VerticalAlignment="Top" Height="124" Width="448" Grid.Column="1" Grid.RowSpan="2">
                             <dxga:LinearGaugeControl.Scales>
                                 <dxga:LinearScale LayoutMode="LeftToRight" EndValue="80">
                                     <dxga:LinearScale.LevelBars>
@@ -2551,11 +2970,11 @@
                                 </dxga:LinearScale>
                             </dxga:LinearGaugeControl.Scales>
                         </dxga:LinearGaugeControl>
-                        <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,10,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Row="1" Grid.Column="1"/>
+                        <dx:SimpleButton x:Name="SimpleButtonNewString" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Margin="635,20,0,0" VerticalAlignment="Top" Click="SimpleButtonNewString_Click" Glyph="{dx:DXImage Image=Add_32x32.png}" Grid.Row="1" Grid.Column="1"/>
                         <dx:SimpleButton x:Name="SimpleButtonNewBattery" Content="" HorizontalAlignment="Left" Margin="508,10,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_32x32.png}" Click="SimpleButtonNewBattery_Click" Grid.Column="1" Grid.Row="3"/>
                         <dxe:CheckEdit x:Name="CheckEditAddBlankBattery" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Foreground="White" Content="Add Blank" Margin="581,29,0,0" Grid.Row="3" Grid.Column="1"/>
 
-                        <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,19,0,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}" Grid.Column="1" Grid.Row="4">
+                        <dxg:GridControl AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="20,19,0,0" ItemsSource="{Binding Source={StaticResource getBatteryMasterViewSource}}" Grid.Column="1" Grid.Row="4">
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" EditFormShowMode="Dialog"/>
                             </dxg:GridControl.View>
@@ -2564,32 +2983,99 @@
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cModel" Header="Model"/>
+                            <dxg:GridColumn FieldName="cModel" Header="Model">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nID" Visible=" False" IsSmart="True"/>
                             <dxg:GridColumn FieldName="dtCreateDate" Visible=" False" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True"/>
-                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cBrand" Header="Brand" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="cNote" Header="Note" IsSmart="True">
 
-
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nCapacity_Ah" Header="Capacity Ah" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cVendor" Header="Vendor" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nPrice" Header="Price Ea." IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="nVolts" Header="Volts" IsSmart="True">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
                                 </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True"/>
+                            <dxg:GridColumn FieldName="cURL" Header="URL" IsSmart="True">
+                                <dxg:GridColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:GridColumn.HeaderStyle>
+                            </dxg:GridColumn>
                         </dxg:GridControl>
                         <Label Content="Battery series strings this project - connected in parallel:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.RowSpan="2" Grid.Row="1"/>
                         <Label Content="Batteries in the string:" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2"/>
