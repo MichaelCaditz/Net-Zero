@@ -9,7 +9,7 @@
        
     x:Class="Net_Zero.BatteryMasterList"
     Title="BatteryMasterList" Height="800" Width="1000"
-    Loaded="ThemedWindow_Loaded" WindowState="Maximized"
+    Loaded="ThemedWindow_Loaded"
     >
 
     <dx:ThemedWindow.Resources>
