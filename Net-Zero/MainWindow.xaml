@@ -203,7 +203,7 @@
                         <Label Content="Date Due" Grid.Column="1" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:DateEdit x:Name="DatePickerdtDateDue" HorizontalAlignment="Left" Margin="21,78,0,0" EditValue="{Binding dtDateDue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Demand Total kWh/d" Grid.Column="1" HorizontalAlignment="Left" Margin="21,366,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,344,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1" MinValue="0" MaxValue="10000000" Mask="####.00"/>
+                        <dxe:SpinEdit x:Name="SpinEditnDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="21,344,0,0" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="1" Grid.Column="1" MinValue="0" MaxValue="1000000000" Mask="####.00"/>
                         <Label Content="Lat ⁰" HorizontalAlignment="Left" Margin="481,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLat" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="481,193,0,0" Text="{Binding nLat, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Insolation" Grid.Column="1" HorizontalAlignment="Left" Margin="21,468,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
@@ -238,7 +238,7 @@
                         <Label Content="PV City" HorizontalAlignment="Left" Margin="21,216,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:TextEdit IsReadOnly="True" x:Name="textEditcCity" HorizontalAlignment="Left" Height="23" Margin="21,193,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen PV kW" Grid.Column="1" HorizontalAlignment="Left" Margin="21,517,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenPV"  DisplayFormatString="###.00" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,495,0,0" VerticalAlignment="Top" Width="150" Increment="0.1" MaxValue="100000000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Battery Ah" Grid.Column="1" HorizontalAlignment="Left" Margin="933,216,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenBattery"  DisplayFormatString="##0.00" EditValue="{Binding nChosenBattery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="933,193,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MaxValue="10000000" MinValue="0" Mask="######.00" Panel.ZIndex="17" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                         <dx:SimpleButton x:Name="SimpleButtonInfoTDRLeadAcid" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="255,193,0,0" Grid.Row="1" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Info_16x16.png}" Click="SimpleButtonInfoTDRLeadAcid_Click">
@@ -1649,11 +1649,13 @@
                     <Grid Margin="10,10,-1,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
-                            <RowDefinition Height="472*"/>
+                            <RowDefinition Height="380"/>
+                            <RowDefinition Height="360"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
 
-                        <dxm:MapControl x:Name="MapControl4" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                        <dxm:MapControl x:Name="MapControl4" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="4" Opacity="0.4">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -1678,14 +1680,14 @@
                             </dxm:ImageLayer>
                         </dxm:MapControl>
 
-                        <dxg:TreeListControl x:Name="TreeListControlCountry" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlCountry" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
                             <dxg:TreeListColumn FieldName="cName" Header="Country" />
 
                         </dxg:TreeListControl>
-                        <dxg:TreeListControl x:Name="TreeListControlStateProvince" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="220,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlStateProvince" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="220,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
@@ -1694,7 +1696,7 @@
 
                         </dxg:TreeListControl>
 
-                        <dxg:TreeListControl x:Name="TreeListControlCity" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="400,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlCity" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="400,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
@@ -1703,18 +1705,41 @@
 
                         </dxg:TreeListControl>
 
-                        <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="700,40,20,10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="700,40,20,0" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
-                            <dxg:TreeListColumn FieldName="nMonth" Header=" " Width="30"/>
-                            <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
+                            <dxg:TreeListColumn FieldName="nMonth" Header=" " Width="30">
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
+                            </dxg:TreeListColumn>
+                            <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80">
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
+                            </dxg:TreeListColumn>
 
 
                             <dxg:TreeListColumn FieldName="nTilt0" Header="No Tilt" Width="110" ReadOnly="True">
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
 
 
@@ -1723,28 +1748,71 @@
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###0.00" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
                             <dxg:TreeListColumn FieldName="nTiltLatMinus15" Header="Latitude -15 deg Tilt" Width="110"   ReadOnly="True">
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
                             <dxg:TreeListColumn FieldName="nTiltLat" Header="Latitude Tilt" Width="110" ReadOnly="True">
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
                             <dxg:TreeListColumn FieldName="nTiltLatPlus15" Header="Latitude +15 deg Tilt" Width="110"  ReadOnly="True">
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00#" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
                             <dxg:TreeListColumn FieldName="n2Axis" Header="2-Axis Track" Width="110"  ReadOnly="True">
                                 <dxg:TreeListColumn.EditSettings>
                                     <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="##0.00" />
                                 </dxg:TreeListColumn.EditSettings>
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
                             </dxg:TreeListColumn>
-                            <dxg:TreeListColumn FieldName="cNote" Header="Note" Width="200"  />
+                            <dxg:TreeListColumn FieldName="cNote" Header="Note" Width="200"  >
+                                <dxg:TreeListColumn.HeaderStyle>
+                                    <Style TargetType="dxg:BaseGridHeader">
+                                        <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                        <Setter Property="Background" Value="LightSkyBlue" />
+                                        <Setter Property="Height" Value="20" />
+                                    </Style>
+                                </dxg:TreeListColumn.HeaderStyle>
+                            </dxg:TreeListColumn>
 
 
                         </dxg:TreeListControl>
@@ -1761,7 +1829,7 @@
 
                         <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy1" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCity, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                         <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-                        <dxc:ChartControl x:Name="InsolationChart" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <dxc:ChartControl x:Name="InsolationChart" Margin="700,40,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <dxc:ChartControl.Legends>
                                 <dxc:Legend/>
                             </dxc:ChartControl.Legends>
@@ -1799,7 +1867,7 @@
                                 </dxc:LineSeries2D>
                             </dxc:XYDiagram2D>
                         </dxc:ChartControl>
-                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
+                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy2" HorizontalAlignment="Left" Height="23" Margin="700,10,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="2"/>
                         <dxe:CheckEdit x:Name="CheckEditbUserSpecifiedCoordinates" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bUserSpecifiedCoordinates, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="1001,10,0,0" VerticalAlignment="Top" Width="180" Content="User-Specified Coordinates:" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnReflectance" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="846,5,0,0" EditValue="{Binding nReflectance, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="100" MinValue="0" Mask="######.00" Panel.ZIndex="13" Increment="0.01"/>
                         <Label Content="Ground Reflectance" HorizontalAlignment="Left" Margin="846,28,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -1811,11 +1879,13 @@
                     <Grid Margin="10,10,10,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
-                            <RowDefinition Height="472*"/>
+                            <RowDefinition Height="380"/>
+                            <RowDefinition Height="360"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
 
-                        <dxm:MapControl x:Name="MapControl5" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.4">
+                        <dxm:MapControl x:Name="MapControl5" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Grid.RowSpan="4" Opacity="0.4">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -1840,14 +1910,14 @@
                             </dxm:ImageLayer>
                         </dxm:MapControl>
 
-                        <dxg:TreeListControl x:Name="TreeListControlCountryDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlCountryDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="10" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" VerticalAlignment="Top" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
                             <dxg:TreeListColumn FieldName="cName" Header="Country" />
 
                         </dxg:TreeListControl>
-                        <dxg:TreeListControl x:Name="TreeListControlStateProvinceDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="220,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlStateProvinceDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="220,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvinceViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
@@ -1856,7 +1926,7 @@
 
                         </dxg:TreeListControl>
 
-                        <dxg:TreeListControl x:Name="TreeListControlCityDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="400,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl x:Name="TreeListControlCityDemand" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="400,10,0,10" VerticalAlignment="Top" Width="166" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" VerticalContentAlignment="Stretch" Grid.RowSpan="2">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0,0,-60,0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
@@ -1865,11 +1935,11 @@
 
                         </dxg:TreeListControl>
 
-                        <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="700,40,20,10" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1">
+                        <dxg:TreeListControl  AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="700,40,0,0" ItemsSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSourceDemand}}" ShowBorder="False" SelectionMode="Row" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Stretch">
                             <dxg:TreeListControl.View>
                                 <dxg:TreeListView AllowPerPixelScrolling="True" ShowTotalSummary="True" Margin="0" ShowVerticalLines="False" ShowHorizontalLines="False" AllowEditing="False" ShowDragDropHint="False" VerticalScrollbarVisibility="Auto"/>
                             </dxg:TreeListControl.View>
-                            <dxg:TreeListColumn FieldName="nMonth" Header=" " Width="30"/>
+                            <dxg:TreeListColumn FieldName="nMonth" Header=" " Width="30" SortOrder="Ascending" SortIndex="0"/>
                             <dxg:TreeListColumn FieldName="cMonthText" Header="Month" Width="80"/>
 
 
@@ -1913,7 +1983,7 @@
                         <Label Content="kWh/m2/Day - Sun Hours/Day" HorizontalAlignment="Left" Margin="984,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Foreground="White"/>
                         <dxe:TextEdit DataContext="{StaticResource getProjectViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy11" HorizontalAlignment="Left" Height="23" Margin="118,5,0,0" Text="{Binding cCityDemand, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold"/>
                         <Label Content="Current City" HorizontalAlignment="Left" Margin="118,28,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
-                        <dxc:ChartControl x:Name="InsolationChart1" Margin="700,400,20,20" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <dxc:ChartControl x:Name="InsolationChart1" Margin="700,40,20,0" DataSource="{Binding Source={StaticResource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <dxc:ChartControl.Legends>
                                 <dxc:Legend/>
                             </dxc:ChartControl.Legends>
@@ -1951,7 +2021,7 @@
                                 </dxc:LineSeries2D>
                             </dxc:XYDiagram2D>
                         </dxc:ChartControl>
-                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy21" HorizontalAlignment="Left" Height="23" Margin="700,372,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="1"/>
+                        <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy21" HorizontalAlignment="Left" Height="23" Margin="700,10,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="2"/>
                     </Grid>
                 </dx:DXTabItem>
                 <dx:DXTabItem Header="Demand" Height="45" Glyph="Images/China-Power-Supply-Cord32.png">
@@ -2050,7 +2120,7 @@
 
                                 <dxg:GridColumn x:Name="nPowerWColumn" FieldName="nPowerW" Header="Power Consumption W" Width="160" SortOrder="Ascending" SortIndex="0">
                                     <dxg:GridColumn.EditSettings>
-                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="######.00" />
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000000" MinValue="0"  DisplayFormat="######.00" />
                                     </dxg:GridColumn.EditSettings>
                                     <dxg:GridColumn.HeaderStyle>
                                         <Style TargetType="dxg:BaseGridHeader">
@@ -2076,7 +2146,7 @@
                                 </dxg:GridColumn>
                                 <dxg:GridColumn x:Name="nEnergyWhColumn" FieldName="nEnergyWh" Header="Wh/Day" Width="120">
                                     <dxg:GridColumn.EditSettings>
-                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="1000000" MinValue="0"  DisplayFormat="###.00" />
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="100000000" MinValue="0"  DisplayFormat="###.00" />
                                     </dxg:GridColumn.EditSettings>
                                     <dxg:GridColumn.HeaderStyle>
                                         <Style TargetType="dxg:BaseGridHeader">
@@ -2088,7 +2158,7 @@
                                 </dxg:GridColumn>
                                 <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
                                     <dxg:GridColumn.EditSettings>
-                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000" MinValue="0"  DisplayFormat="###.00" />
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000000" MinValue="0"  DisplayFormat="###.00" />
                                     </dxg:GridColumn.EditSettings>
                                     <dxg:GridColumn.HeaderStyle>
                                         <Style TargetType="dxg:BaseGridHeader">
@@ -2174,7 +2244,7 @@
                         <Label Content="h/d" HorizontalAlignment="Left" Margin="472,149,0,0" VerticalAlignment="Top" Width="47" Foreground="White"/>
                         <dxe:TextEdit x:Name="TextEditnPVRequired"  DisplayFormatString="###.00" EditValue="{Binding nPVRequired, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="158,236,0,0" VerticalAlignment="Top" Width="92" MaskType="Numeric" Mask="###.00" FontWeight="Bold" ShowBorder="False" Height="24" Foreground="White" IsReadOnly="True"/>
                         <dxe:TextEdit x:Name="TextEditnDemandTotal" DisplayFormatString="###.00" EditValue="{Binding nDemandTotal, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="233,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
-                        <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="179,327,0,0" VerticalAlignment="Top" Width="100" Mask="######.00" MaskType="Numeric" MaxValue="10000" MinValue="0.0" Increment="0.01" FontWeight="Bold"/>
+                        <dxe:SpinEdit x:Name="SpinEditnChosenPV_1"  DisplayFormatString="###.00" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding nChosenPV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="158,327,0,0" VerticalAlignment="Top" Width="121" Mask="######.00" MaskType="Numeric" MaxValue="10000000" MinValue="0.0" Increment="0.01" FontWeight="Bold"/>
                         <Label Content="Chosen PV Power" HorizontalAlignment="Left" Margin="180,349,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dx:SimpleButton Content="" HorizontalAlignment="Left" Margin="196,277,0,0" VerticalAlignment="Top" Click="SimpleButton_Click_2" Glyph="{dx:DXImage Image=MoveDown_32x32.png}" ToolTip="Choose Recommended Value"/>
                         <Label Content="x" HorizontalAlignment="Left" Margin="253,149,0,0" VerticalAlignment="Top" Width="18" Foreground="White"/>
