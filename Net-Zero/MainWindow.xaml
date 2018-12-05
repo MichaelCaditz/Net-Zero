@@ -60,6 +60,8 @@
         <Style TargetType="dxg:GridColumnHeader">
             <Setter Property="Height" Value="100" />
         </Style>
+        <local:Greeenhouse x:Key="greeenhouse"/>
+        <CollectionViewSource x:Key="getEDGAR_to_SQLViewSource" Source="{Binding getEDGAR_to_SQL, Source={StaticResource greeenhouse}}"/>
 
 
         <!--<Style TargetType="{x:Type dxg:GridColumnHeader}" BasedOn="{StaticResource {x:Type dxg:GridColumnHeader}}">
@@ -2064,6 +2066,7 @@
                                 <dxg:GridSummaryItem FieldName="nPowerW" SummaryType="Sum" />
                                 <dxg:GridSummaryItem FieldName="nEnergyWh" SummaryType="Sum"/>
                                 <dxg:GridSummaryItem FieldName="nEnergykWh" SummaryType="Sum"/>
+                                <dxg:GridSummaryItem FieldName="nAnnualEnergykWh" SummaryType="Sum"/>
                             </dxg:GridControl.TotalSummary>
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
@@ -2157,6 +2160,18 @@
                                     </dxg:GridColumn.HeaderStyle>
                                 </dxg:GridColumn>
                                 <dxg:GridColumn x:Name="nEnergykWhColumn" FieldName="nEnergykWh" Header="kWh/Day" Width="120">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000000" MinValue="0"  DisplayFormat="###.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                    <dxg:GridColumn.HeaderStyle>
+                                        <Style TargetType="dxg:BaseGridHeader">
+                                            <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                            <Setter Property="Background" Value="LightSkyBlue" />
+                                            <Setter Property="Height" Value="20" />
+                                        </Style>
+                                    </dxg:GridColumn.HeaderStyle>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nAnnualEnergykWhColumn" FieldName="nAnnualEnergykWh" Header="Annual Energy kWh" Width="120">
                                     <dxg:GridColumn.EditSettings>
                                         <dxe:SpinEditSettings Increment="0.01" MaxValue="10000000" MinValue="0"  DisplayFormat="###.00" />
                                     </dxg:GridColumn.EditSettings>
@@ -3287,6 +3302,53 @@
                         <Label Content="Number of Units" HorizontalAlignment="Left" Margin="252,99,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnEnterpriseDemandTotal" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="426,77,0,0" EditValue="{Binding nEnterpriseDemandLocal, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Panel.ZIndex="16" Grid.Row="0" Grid.Column="0" MinValue="0" MaxValue="10000000" Mask="####.00"/>
                         <Label Content="Total Enterprise Demand kWh/d" HorizontalAlignment="Left" Margin="426,99,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+                    </Grid>
+
+                </dx:DXTabItem>
+                <dx:DXTabItem Header="Greenhouse" Height="45" VerticalAlignment="Top">
+                    <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="1200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="610"/>
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+                        <dxm:MapControl x:Name="MapControl12" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.4" Grid.RowSpan="2">
+                            <dxm:MapControl.ScrollButtonsOptions>
+                                <dxm:ScrollButtonsOptions Visible="False"/>
+                            </dxm:MapControl.ScrollButtonsOptions>
+                            <dxm:MapControl.ZoomTrackbarOptions>
+                                <dxm:ZoomTrackbarOptions Visible="False"/>
+                            </dxm:MapControl.ZoomTrackbarOptions>
+                            <dxm:MapControl.CoordinateSystem>
+                                <dxm:GeoMapCoordinateSystem/>
+                            </dxm:MapControl.CoordinateSystem>
+                            <dxm:MapControl.CenterPoint>
+                                <dxm:GeoPoint Latitude="49" Longitude="-122"/>
+                            </dxm:MapControl.CenterPoint>
+                            <!--<dxm:MapControl.MiniMap>
+                                <dxm:MiniMap Alignment="TopRight">
+                                    <dxm:MiniMap.Behavior>
+                                        <dxm:DynamicMiniMapBehavior/>
+                                    </dxm:MiniMap.Behavior>
+                                </dxm:MiniMap>
+                            </dxm:MapControl.MiniMap>-->
+                            <dxm:ImageLayer Margin="0,0,0,0">
+                                <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
+                            </dxm:ImageLayer>
+                        </dxm:MapControl>
+                        <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQLViewSource}}" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                            <dxg:GridControl.View>
+                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+
 
                     </Grid>
 

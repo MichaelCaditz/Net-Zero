@@ -135,6 +135,7 @@ namespace Net_Zero
             Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
 
             openProjectRoutine();
+
            
         }
 
@@ -255,7 +256,13 @@ namespace Net_Zero
             getBatteryMasterViewSource.View.MoveCurrentToFirst();
 
 
-
+            Net_Zero.Greeenhouse greeenhouse = ((Net_Zero.Greeenhouse)(this.FindResource("greeenhouse")));
+            // TODO: Add code here to load data into the table getEDGAR_to_SQL.
+            // This code could not be generated, because the greeenhousegetEDGAR_to_SQLTableAdapter.Fill method is missing, or has unrecognized parameters.
+            Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter greeenhousegetEDGAR_to_SQLTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter();
+            greeenhousegetEDGAR_to_SQLTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL);
+            System.Windows.Data.CollectionViewSource getEDGAR_to_SQLViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQLViewSource")));
+            getEDGAR_to_SQLViewSource.View.MoveCurrentToFirst();
 
             //DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
@@ -387,6 +394,7 @@ namespace Net_Zero
             MapControl9.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
+            MapControl12.CenterPoint = new GeoPoint(nLat, nLong);
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
