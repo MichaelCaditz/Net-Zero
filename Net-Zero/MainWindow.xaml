@@ -3310,7 +3310,7 @@
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="1200"/>
+                            <ColumnDefinition Width="1000"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -3319,7 +3319,7 @@
                             <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
-                        <dxm:MapControl x:Name="MapControl12" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.4" Grid.RowSpan="2">
+                        <dxm:MapControl x:Name="MapControl12" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.6" Grid.RowSpan="3">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -3343,10 +3343,511 @@
                                 <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
                             </dxm:ImageLayer>
                         </dxm:MapControl>
-                        <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQLViewSource}}" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                        <dxg:GridControl AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQLViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="False" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8">
+                            <dxg:GridControl.GroupSummary>
+                                <dxg:GridSummaryItem FieldName="c1970" SummaryType="Sum" ShowInGroupColumnFooter="c1970"/>
+                            </dxg:GridControl.GroupSummary>
+                            <dxg:GridControl.Bands>
+                                <dxg:GridControlBand Header="Band1">
+                                    <dxg:GridColumn FieldName="cISO_Name" Header="Country" Visible=" True" Width="100" IsSmart="True" AllowGrouping="True" GroupIndex="0" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="cSector" Header="Sector" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1970" Header="1970" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1971" Header="1971" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1972" Header="1972" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1973" Header="1973" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1974" Header="1974" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1975" Header="1975" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1976" Header="1976" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1977" Header="1977" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1978" Header="1978" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1979" Header="1979" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1980" Header="1980" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1981" Header="1981" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1982" Header="1982" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1983" Header="1983" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1984" Header="1984" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1985" Header="1985" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1986" Header="1986" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1987" Header="1987" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1988" Header="1988" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1989" Header="1989" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1990" Header="1990" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1991" Header="1991" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1992" Header="1992" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1993" Header="1993" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1994" Header="1994" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1995" Header="1995" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1996" Header="1996" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1997" Header="1997" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1998" Header="1998" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n1999" Header="1999" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2000" Header="2000" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2001" Header="2001" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2002" Header="2002" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2003" Header="2003" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2004" Header="2004" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2005" Header="2005" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2006" Header="2006" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2007" Header="2007" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2008" Header="2008" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2009" Header="2009" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2010" Header="2010" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2011" Header="2011" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2012" Header="2012" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2013" Header="2013" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2014" Header="2014" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2015" Header="2015" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+                                    <dxg:GridColumn FieldName="n2016" Header="2016" Visible=" True" Width="100" IsSmart="True" >
+                                        <dxg:GridColumn.HeaderStyle>
+                                            <Style TargetType="{x:Type dxg:BaseGridHeader}">
+                                                <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                                <Setter Property="Background" Value="LightSkyBlue" />
+                                                <Setter Property="Height" Value="20" />
+                                            </Style>
+                                        </dxg:GridColumn.HeaderStyle>
+                                    </dxg:GridColumn>
+
+
+                                </dxg:GridControlBand>
+
+                            </dxg:GridControl.Bands>
                             <dxg:GridControl.View>
-                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                                <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True" AllowPartialGrouping="True" AllowFixedGroups="False" AllowMergedGrouping="True" GroupSummaryDisplayMode="AlignByColumns" ShowGroupFooters="True" ShowGroupedColumns="True" SummariesIgnoreNullValues="True"/>
                             </dxg:GridControl.View>
+
+
                         </dxg:GridControl>
 
 
