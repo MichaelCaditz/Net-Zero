@@ -1,0 +1,14 @@
+﻿<dx:ThemedWindow
+    x:Class="Net_Zero.logon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="logon" Height="350" Width="525"
+    >
+
+    <Grid>
+        <dx:SimpleButton Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Height="25" Margin="369,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" IsCancel="True" Click="btnQuit_Click"/>
+        <dx:SimpleButton Name="btnLogon" Content="Logon" HorizontalAlignment="Left" Height="25" Margin="254,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" IsDefault="True" Click="btnLogon_Click"/>
+
+    </Grid>
+</dx:ThemedWindow>

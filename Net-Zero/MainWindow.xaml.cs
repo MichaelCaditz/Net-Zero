@@ -38,7 +38,7 @@ namespace Net_Zero
         public MainWindow()
         {
 
-            InitializeComponent();
+           InitializeComponent();
         }
 
         private void btnOpen_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -131,6 +131,10 @@ namespace Net_Zero
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Title = "Net - Zero     Autonomous and Backup PV System Design     " + ProgramSettings.net_zeroconnectionStringPublic;
+
+
+           
+           
             Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
             Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
 
