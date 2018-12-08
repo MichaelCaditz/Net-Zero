@@ -41,29 +41,16 @@ namespace Net_Zero
         [STAThread]
         static void Main()
         {
+            
             logon logon1 = new logon();
             logon1.ShowDialog();
             App app = new App();
 
 
-            
+
             //if (logon1.DialogResult.HasValue && logon1.DialogResult.Value == false)
             if (logon1.returnValue == true)
             {
-
-
-
-              
-
-
-
-
-
-
-
-
-
-
 
 
 

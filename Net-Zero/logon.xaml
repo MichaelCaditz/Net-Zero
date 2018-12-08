@@ -4,16 +4,16 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="Net_Zero.logon"
-    Title="Net-Zero Logon" Height="350" Width="525" WindowStartupLocation="CenterScreen"
+    Title="Net-Zero Logon" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" Background="#FF20593D"
     >
 
     <Grid>
-        <dx:SimpleButton x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Height="25" Margin="369,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" IsCancel="True" Click="btnQuit_Click"/>
-        <dx:SimpleButton x:Name="btnLogon" Content="Submit" HorizontalAlignment="Left" Height="25" Margin="254,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" IsDefault="True" Click="btnLogon_Click"/>
+        <dx:SimpleButton x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Height="25" Margin="369,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsCancel="True" Click="btnQuit_Click"/>
+        <dx:SimpleButton x:Name="btnLogon" Content="Submit" HorizontalAlignment="Left" Height="25" Margin="254,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsDefault="True" Click="btnLogon_Click" Foreground="#FF1A2C1B"/>
 
         <dxe:TextEdit Name="txtcEmail" HorizontalAlignment="Left" Margin="130,31,0,0" VerticalAlignment="Top" Width="234"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="130,53,0,0" VerticalAlignment="Top" Width="99" Foreground="Black"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="130,113,0,0" VerticalAlignment="Top" Width="99" Foreground="Black"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="130,53,0,0" VerticalAlignment="Top" Width="99" Foreground="#FFA89D9D"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="130,113,0,0" VerticalAlignment="Top" Width="99" Foreground="#FFA89D9D"/>
 
 
         <dxe:PasswordBoxEdit Name="txtcPassword" HorizontalAlignment="Left" Margin="130,91,0,0" VerticalAlignment="Top" Width="234"/>

@@ -130,7 +130,7 @@ namespace Net_Zero
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Title = "Net - Zero     Autonomous and Backup PV System Design     " + ProgramSettings.net_zeroconnectionStringPublic;
+            this.Title = "Net - Zero     Autonomous and Backup PV System Design:" +Settings.Default.cUserEmail+"    :"+ ProgramSettings.net_zeroconnectionStringPublic;
 
 
            
@@ -147,6 +147,10 @@ namespace Net_Zero
         {
             //int nLastProjectID = Settings.Default.nLastProjectID;
            int nCurrentProjectID = Settings.Default.nCurrentProjectID;
+            if (nCurrentProjectID==0)
+            {
+                nCurrentProjectID = 1007;
+            }
 
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
@@ -4343,6 +4347,7 @@ namespace Net_Zero
             }
 
                 SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+                int nUserID = Settings.Default.nUserID;
                 try
                 {
 
@@ -4351,7 +4356,9 @@ namespace Net_Zero
 
                         //cmd3.Transaction = trans1;
                         cmd3.Parameters.Clear();
-                        cmd3.CommandText = "[dbo].[USP_insertProject]";
+
+                    cmd3.Parameters.AddWithValue("@nUserID", nUserID);
+                    cmd3.CommandText = "[dbo].[USP_insertProject]";
                         
 
 

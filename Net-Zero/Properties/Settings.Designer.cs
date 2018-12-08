@@ -66,5 +66,77 @@ namespace Net_Zero.Properties {
                 return ((string)(this["Net_ZeroConnectionStringLocal"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int nUserID {
+            get {
+                return ((int)(this["nUserID"]));
+            }
+            set {
+                this["nUserID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cUserName {
+            get {
+                return ((string)(this["cUserName"]));
+            }
+            set {
+                this["cUserName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cUserEmail {
+            get {
+                return ((string)(this["cUserEmail"]));
+            }
+            set {
+                this["cUserEmail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int nRoleID {
+            get {
+                return ((int)(this["nRoleID"]));
+            }
+            set {
+                this["nRoleID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cUserLast {
+            get {
+                return ((string)(this["cUserLast"]));
+            }
+            set {
+                this["cUserLast"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cUserFirst {
+            get {
+                return ((string)(this["cUserFirst"]));
+            }
+            set {
+                this["cUserFirst"] = value;
+            }
+        }
     }
 }

@@ -121,8 +121,16 @@ namespace Net_Zero
 
 
             if (nID != 0)
-            { 
-            this.returnValue = true;
+            {
+
+                Settings.Default.nUserID = nID;
+                Settings.Default.nRoleID = nRoleID;
+                Settings.Default.cUserEmail = cEmail;
+                Settings.Default.cUserFirst = cFirst;
+                Settings.Default.cUserLast = cLast;
+                Settings.Default.Save();
+
+                this.returnValue = true;
                 this.Close();
             }
             
