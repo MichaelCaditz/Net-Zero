@@ -130,15 +130,16 @@ namespace Net_Zero
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Title = "Net - Zero     Autonomous and Backup PV System Design:" +Settings.Default.cUserEmail+"    :"+ ProgramSettings.net_zeroconnectionStringPublic;
+            this.Title = "Net - Zero     Autonomous and Backup PV System Design:" + Settings.Default.cUserEmail + "    :" + ProgramSettings.net_zeroconnectionStringPublic;
 
 
-           
-           
+
+
             Settings.Default.nCurrentProjectID = Settings.Default.nLastProjectID;
             Settings.Default.nLastProjectID = Settings.Default.nCurrentProjectID;
 
             openProjectRoutine();
+
 
            
         }
@@ -264,13 +265,7 @@ namespace Net_Zero
             getBatteryMasterViewSource.View.MoveCurrentToFirst();
 
 
-            Net_Zero.Greeenhouse greeenhouse = ((Net_Zero.Greeenhouse)(this.FindResource("greeenhouse")));
-            // TODO: Add code here to load data into the table getEDGAR_to_SQL.
-            // This code could not be generated, because the greeenhousegetEDGAR_to_SQLTableAdapter.Fill method is missing, or has unrecognized parameters.
-            Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter greeenhousegetEDGAR_to_SQLTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter();
-            greeenhousegetEDGAR_to_SQLTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL);
-            System.Windows.Data.CollectionViewSource getEDGAR_to_SQLViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQLViewSource")));
-            getEDGAR_to_SQLViewSource.View.MoveCurrentToFirst();
+           
 
             //DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
@@ -4798,6 +4793,53 @@ namespace Net_Zero
 
 
             
+        }
+
+        private void btnRefreshGreenhouse_Click(object sender, RoutedEventArgs e)
+        {
+            Net_Zero.Greeenhouse greeenhouse = ((Net_Zero.Greeenhouse)(this.FindResource("greeenhouse")));
+            switch (ComboBoxcGreenhouseChart.SelectedIndex)
+
+
+
+
+            {
+                case 0:
+
+                    grdGreenhouse.Visibility = Visibility.Visible;
+                    grdGreenhouseGrouped.Visibility=Visibility.Hidden;
+
+                    Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter greeenhousegetEDGAR_to_SQLTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter();
+                    greeenhousegetEDGAR_to_SQLTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL);
+                    System.Windows.Data.CollectionViewSource getEDGAR_to_SQLViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQLViewSource")));
+                    getEDGAR_to_SQLViewSource.View.MoveCurrentToFirst();
+
+                    break;
+
+               
+
+                case 1:
+
+                    grdGreenhouse.Visibility = Visibility.Hidden;
+                    grdGreenhouseGrouped.Visibility = Visibility.Visible;
+                    grdGreenhouseGrouped.BringIntoView();
+                    Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQL_groupedTableAdapter greeenhousegetEDGAR_to_SQL_groupedTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQL_groupedTableAdapter();
+                    greeenhousegetEDGAR_to_SQL_groupedTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL_grouped);
+                    System.Windows.Data.CollectionViewSource getEDGAR_to_SQL_groupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQL_groupedViewSource")));
+                    getEDGAR_to_SQL_groupedViewSource.View.MoveCurrentToFirst();
+
+                    break;
+
+            }
+
+
+           
+
+
+
+
+           
+           
         }
     }
 }

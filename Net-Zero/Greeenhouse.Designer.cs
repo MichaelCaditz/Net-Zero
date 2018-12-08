@@ -26,6 +26,8 @@ namespace Net_Zero {
         
         private getEDGAR_to_SQLDataTable tablegetEDGAR_to_SQL;
         
+        private getEDGAR_to_SQL_groupedDataTable tablegetEDGAR_to_SQL_grouped;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace Net_Zero {
                 if ((ds.Tables["getEDGAR_to_SQL"] != null)) {
                     base.Tables.Add(new getEDGAR_to_SQLDataTable(ds.Tables["getEDGAR_to_SQL"]));
                 }
+                if ((ds.Tables["getEDGAR_to_SQL_grouped"] != null)) {
+                    base.Tables.Add(new getEDGAR_to_SQL_groupedDataTable(ds.Tables["getEDGAR_to_SQL_grouped"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace Net_Zero {
         public getEDGAR_to_SQLDataTable getEDGAR_to_SQL {
             get {
                 return this.tablegetEDGAR_to_SQL;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public getEDGAR_to_SQL_groupedDataTable getEDGAR_to_SQL_grouped {
+            get {
+                return this.tablegetEDGAR_to_SQL_grouped;
             }
         }
         
@@ -155,6 +170,9 @@ namespace Net_Zero {
                 if ((ds.Tables["getEDGAR_to_SQL"] != null)) {
                     base.Tables.Add(new getEDGAR_to_SQLDataTable(ds.Tables["getEDGAR_to_SQL"]));
                 }
+                if ((ds.Tables["getEDGAR_to_SQL_grouped"] != null)) {
+                    base.Tables.Add(new getEDGAR_to_SQL_groupedDataTable(ds.Tables["getEDGAR_to_SQL_grouped"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace Net_Zero {
                     this.tablegetEDGAR_to_SQL.InitVars();
                 }
             }
+            this.tablegetEDGAR_to_SQL_grouped = ((getEDGAR_to_SQL_groupedDataTable)(base.Tables["getEDGAR_to_SQL_grouped"]));
+            if ((initTable == true)) {
+                if ((this.tablegetEDGAR_to_SQL_grouped != null)) {
+                    this.tablegetEDGAR_to_SQL_grouped.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace Net_Zero {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tablegetEDGAR_to_SQL = new getEDGAR_to_SQLDataTable();
             base.Tables.Add(this.tablegetEDGAR_to_SQL);
+            this.tablegetEDGAR_to_SQL_grouped = new getEDGAR_to_SQL_groupedDataTable();
+            base.Tables.Add(this.tablegetEDGAR_to_SQL_grouped);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializegetEDGAR_to_SQL() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializegetEDGAR_to_SQL_grouped() {
             return false;
         }
         
@@ -271,6 +303,9 @@ namespace Net_Zero {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void getEDGAR_to_SQLRowChangeEventHandler(object sender, getEDGAR_to_SQLRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void getEDGAR_to_SQL_groupedRowChangeEventHandler(object sender, getEDGAR_to_SQL_groupedRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1263,6 +1298,1007 @@ namespace Net_Zero {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "getEDGAR_to_SQLDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class getEDGAR_to_SQL_groupedDataTable : global::System.Data.TypedTableBase<getEDGAR_to_SQL_groupedRow> {
+            
+            private global::System.Data.DataColumn columncISO_Name;
+            
+            private global::System.Data.DataColumn columnn1970;
+            
+            private global::System.Data.DataColumn columnn1971;
+            
+            private global::System.Data.DataColumn columnn1972;
+            
+            private global::System.Data.DataColumn columnn1973;
+            
+            private global::System.Data.DataColumn columnn1974;
+            
+            private global::System.Data.DataColumn columnn1975;
+            
+            private global::System.Data.DataColumn columnn1976;
+            
+            private global::System.Data.DataColumn columnn1977;
+            
+            private global::System.Data.DataColumn columnn1978;
+            
+            private global::System.Data.DataColumn columnn1979;
+            
+            private global::System.Data.DataColumn columnn1980;
+            
+            private global::System.Data.DataColumn columnn1981;
+            
+            private global::System.Data.DataColumn columnn1982;
+            
+            private global::System.Data.DataColumn columnn1983;
+            
+            private global::System.Data.DataColumn columnn1984;
+            
+            private global::System.Data.DataColumn columnn1985;
+            
+            private global::System.Data.DataColumn columnn1986;
+            
+            private global::System.Data.DataColumn columnn1987;
+            
+            private global::System.Data.DataColumn columnn1988;
+            
+            private global::System.Data.DataColumn columnn1989;
+            
+            private global::System.Data.DataColumn columnn1990;
+            
+            private global::System.Data.DataColumn columnn1991;
+            
+            private global::System.Data.DataColumn columnn1992;
+            
+            private global::System.Data.DataColumn columnn1993;
+            
+            private global::System.Data.DataColumn columnn1994;
+            
+            private global::System.Data.DataColumn columnn1995;
+            
+            private global::System.Data.DataColumn columnn1996;
+            
+            private global::System.Data.DataColumn columnn1997;
+            
+            private global::System.Data.DataColumn columnn1998;
+            
+            private global::System.Data.DataColumn columnn1999;
+            
+            private global::System.Data.DataColumn columnn2000;
+            
+            private global::System.Data.DataColumn columnn2001;
+            
+            private global::System.Data.DataColumn columnn2002;
+            
+            private global::System.Data.DataColumn columnn2003;
+            
+            private global::System.Data.DataColumn columnn2004;
+            
+            private global::System.Data.DataColumn columnn2005;
+            
+            private global::System.Data.DataColumn columnn2006;
+            
+            private global::System.Data.DataColumn columnn2007;
+            
+            private global::System.Data.DataColumn columnn2008;
+            
+            private global::System.Data.DataColumn columnn2009;
+            
+            private global::System.Data.DataColumn columnn2010;
+            
+            private global::System.Data.DataColumn columnn2011;
+            
+            private global::System.Data.DataColumn columnn2012;
+            
+            private global::System.Data.DataColumn columnn2013;
+            
+            private global::System.Data.DataColumn columnn2014;
+            
+            private global::System.Data.DataColumn columnn2015;
+            
+            private global::System.Data.DataColumn columnn2016;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedDataTable() {
+                this.TableName = "getEDGAR_to_SQL_grouped";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal getEDGAR_to_SQL_groupedDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected getEDGAR_to_SQL_groupedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cISO_NameColumn {
+                get {
+                    return this.columncISO_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1970Column {
+                get {
+                    return this.columnn1970;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1971Column {
+                get {
+                    return this.columnn1971;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1972Column {
+                get {
+                    return this.columnn1972;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1973Column {
+                get {
+                    return this.columnn1973;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1974Column {
+                get {
+                    return this.columnn1974;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1975Column {
+                get {
+                    return this.columnn1975;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1976Column {
+                get {
+                    return this.columnn1976;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1977Column {
+                get {
+                    return this.columnn1977;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1978Column {
+                get {
+                    return this.columnn1978;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1979Column {
+                get {
+                    return this.columnn1979;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1980Column {
+                get {
+                    return this.columnn1980;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1981Column {
+                get {
+                    return this.columnn1981;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1982Column {
+                get {
+                    return this.columnn1982;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1983Column {
+                get {
+                    return this.columnn1983;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1984Column {
+                get {
+                    return this.columnn1984;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1985Column {
+                get {
+                    return this.columnn1985;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1986Column {
+                get {
+                    return this.columnn1986;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1987Column {
+                get {
+                    return this.columnn1987;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1988Column {
+                get {
+                    return this.columnn1988;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1989Column {
+                get {
+                    return this.columnn1989;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1990Column {
+                get {
+                    return this.columnn1990;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1991Column {
+                get {
+                    return this.columnn1991;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1992Column {
+                get {
+                    return this.columnn1992;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1993Column {
+                get {
+                    return this.columnn1993;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1994Column {
+                get {
+                    return this.columnn1994;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1995Column {
+                get {
+                    return this.columnn1995;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1996Column {
+                get {
+                    return this.columnn1996;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1997Column {
+                get {
+                    return this.columnn1997;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1998Column {
+                get {
+                    return this.columnn1998;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n1999Column {
+                get {
+                    return this.columnn1999;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2000Column {
+                get {
+                    return this.columnn2000;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2001Column {
+                get {
+                    return this.columnn2001;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2002Column {
+                get {
+                    return this.columnn2002;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2003Column {
+                get {
+                    return this.columnn2003;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2004Column {
+                get {
+                    return this.columnn2004;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2005Column {
+                get {
+                    return this.columnn2005;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2006Column {
+                get {
+                    return this.columnn2006;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2007Column {
+                get {
+                    return this.columnn2007;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2008Column {
+                get {
+                    return this.columnn2008;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2009Column {
+                get {
+                    return this.columnn2009;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2010Column {
+                get {
+                    return this.columnn2010;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2011Column {
+                get {
+                    return this.columnn2011;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2012Column {
+                get {
+                    return this.columnn2012;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2013Column {
+                get {
+                    return this.columnn2013;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2014Column {
+                get {
+                    return this.columnn2014;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2015Column {
+                get {
+                    return this.columnn2015;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn n2016Column {
+                get {
+                    return this.columnn2016;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedRow this[int index] {
+                get {
+                    return ((getEDGAR_to_SQL_groupedRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event getEDGAR_to_SQL_groupedRowChangeEventHandler getEDGAR_to_SQL_groupedRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event getEDGAR_to_SQL_groupedRowChangeEventHandler getEDGAR_to_SQL_groupedRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event getEDGAR_to_SQL_groupedRowChangeEventHandler getEDGAR_to_SQL_groupedRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event getEDGAR_to_SQL_groupedRowChangeEventHandler getEDGAR_to_SQL_groupedRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddgetEDGAR_to_SQL_groupedRow(getEDGAR_to_SQL_groupedRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedRow AddgetEDGAR_to_SQL_groupedRow(
+                        string cISO_Name, 
+                        double n1970, 
+                        double n1971, 
+                        double n1972, 
+                        double n1973, 
+                        double n1974, 
+                        double n1975, 
+                        double n1976, 
+                        double n1977, 
+                        double n1978, 
+                        double n1979, 
+                        double n1980, 
+                        double n1981, 
+                        double n1982, 
+                        double n1983, 
+                        double n1984, 
+                        double n1985, 
+                        double n1986, 
+                        double n1987, 
+                        double n1988, 
+                        double n1989, 
+                        double n1990, 
+                        double n1991, 
+                        double n1992, 
+                        double n1993, 
+                        double n1994, 
+                        double n1995, 
+                        double n1996, 
+                        double n1997, 
+                        double n1998, 
+                        double n1999, 
+                        double n2000, 
+                        double n2001, 
+                        double n2002, 
+                        double n2003, 
+                        double n2004, 
+                        double n2005, 
+                        double n2006, 
+                        double n2007, 
+                        double n2008, 
+                        double n2009, 
+                        double n2010, 
+                        double n2011, 
+                        double n2012, 
+                        double n2013, 
+                        double n2014, 
+                        double n2015, 
+                        double n2016) {
+                getEDGAR_to_SQL_groupedRow rowgetEDGAR_to_SQL_groupedRow = ((getEDGAR_to_SQL_groupedRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        cISO_Name,
+                        n1970,
+                        n1971,
+                        n1972,
+                        n1973,
+                        n1974,
+                        n1975,
+                        n1976,
+                        n1977,
+                        n1978,
+                        n1979,
+                        n1980,
+                        n1981,
+                        n1982,
+                        n1983,
+                        n1984,
+                        n1985,
+                        n1986,
+                        n1987,
+                        n1988,
+                        n1989,
+                        n1990,
+                        n1991,
+                        n1992,
+                        n1993,
+                        n1994,
+                        n1995,
+                        n1996,
+                        n1997,
+                        n1998,
+                        n1999,
+                        n2000,
+                        n2001,
+                        n2002,
+                        n2003,
+                        n2004,
+                        n2005,
+                        n2006,
+                        n2007,
+                        n2008,
+                        n2009,
+                        n2010,
+                        n2011,
+                        n2012,
+                        n2013,
+                        n2014,
+                        n2015,
+                        n2016};
+                rowgetEDGAR_to_SQL_groupedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowgetEDGAR_to_SQL_groupedRow);
+                return rowgetEDGAR_to_SQL_groupedRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                getEDGAR_to_SQL_groupedDataTable cln = ((getEDGAR_to_SQL_groupedDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new getEDGAR_to_SQL_groupedDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columncISO_Name = base.Columns["cISO_Name"];
+                this.columnn1970 = base.Columns["n1970"];
+                this.columnn1971 = base.Columns["n1971"];
+                this.columnn1972 = base.Columns["n1972"];
+                this.columnn1973 = base.Columns["n1973"];
+                this.columnn1974 = base.Columns["n1974"];
+                this.columnn1975 = base.Columns["n1975"];
+                this.columnn1976 = base.Columns["n1976"];
+                this.columnn1977 = base.Columns["n1977"];
+                this.columnn1978 = base.Columns["n1978"];
+                this.columnn1979 = base.Columns["n1979"];
+                this.columnn1980 = base.Columns["n1980"];
+                this.columnn1981 = base.Columns["n1981"];
+                this.columnn1982 = base.Columns["n1982"];
+                this.columnn1983 = base.Columns["n1983"];
+                this.columnn1984 = base.Columns["n1984"];
+                this.columnn1985 = base.Columns["n1985"];
+                this.columnn1986 = base.Columns["n1986"];
+                this.columnn1987 = base.Columns["n1987"];
+                this.columnn1988 = base.Columns["n1988"];
+                this.columnn1989 = base.Columns["n1989"];
+                this.columnn1990 = base.Columns["n1990"];
+                this.columnn1991 = base.Columns["n1991"];
+                this.columnn1992 = base.Columns["n1992"];
+                this.columnn1993 = base.Columns["n1993"];
+                this.columnn1994 = base.Columns["n1994"];
+                this.columnn1995 = base.Columns["n1995"];
+                this.columnn1996 = base.Columns["n1996"];
+                this.columnn1997 = base.Columns["n1997"];
+                this.columnn1998 = base.Columns["n1998"];
+                this.columnn1999 = base.Columns["n1999"];
+                this.columnn2000 = base.Columns["n2000"];
+                this.columnn2001 = base.Columns["n2001"];
+                this.columnn2002 = base.Columns["n2002"];
+                this.columnn2003 = base.Columns["n2003"];
+                this.columnn2004 = base.Columns["n2004"];
+                this.columnn2005 = base.Columns["n2005"];
+                this.columnn2006 = base.Columns["n2006"];
+                this.columnn2007 = base.Columns["n2007"];
+                this.columnn2008 = base.Columns["n2008"];
+                this.columnn2009 = base.Columns["n2009"];
+                this.columnn2010 = base.Columns["n2010"];
+                this.columnn2011 = base.Columns["n2011"];
+                this.columnn2012 = base.Columns["n2012"];
+                this.columnn2013 = base.Columns["n2013"];
+                this.columnn2014 = base.Columns["n2014"];
+                this.columnn2015 = base.Columns["n2015"];
+                this.columnn2016 = base.Columns["n2016"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columncISO_Name = new global::System.Data.DataColumn("cISO_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncISO_Name);
+                this.columnn1970 = new global::System.Data.DataColumn("n1970", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1970);
+                this.columnn1971 = new global::System.Data.DataColumn("n1971", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1971);
+                this.columnn1972 = new global::System.Data.DataColumn("n1972", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1972);
+                this.columnn1973 = new global::System.Data.DataColumn("n1973", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1973);
+                this.columnn1974 = new global::System.Data.DataColumn("n1974", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1974);
+                this.columnn1975 = new global::System.Data.DataColumn("n1975", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1975);
+                this.columnn1976 = new global::System.Data.DataColumn("n1976", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1976);
+                this.columnn1977 = new global::System.Data.DataColumn("n1977", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1977);
+                this.columnn1978 = new global::System.Data.DataColumn("n1978", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1978);
+                this.columnn1979 = new global::System.Data.DataColumn("n1979", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1979);
+                this.columnn1980 = new global::System.Data.DataColumn("n1980", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1980);
+                this.columnn1981 = new global::System.Data.DataColumn("n1981", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1981);
+                this.columnn1982 = new global::System.Data.DataColumn("n1982", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1982);
+                this.columnn1983 = new global::System.Data.DataColumn("n1983", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1983);
+                this.columnn1984 = new global::System.Data.DataColumn("n1984", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1984);
+                this.columnn1985 = new global::System.Data.DataColumn("n1985", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1985);
+                this.columnn1986 = new global::System.Data.DataColumn("n1986", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1986);
+                this.columnn1987 = new global::System.Data.DataColumn("n1987", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1987);
+                this.columnn1988 = new global::System.Data.DataColumn("n1988", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1988);
+                this.columnn1989 = new global::System.Data.DataColumn("n1989", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1989);
+                this.columnn1990 = new global::System.Data.DataColumn("n1990", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1990);
+                this.columnn1991 = new global::System.Data.DataColumn("n1991", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1991);
+                this.columnn1992 = new global::System.Data.DataColumn("n1992", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1992);
+                this.columnn1993 = new global::System.Data.DataColumn("n1993", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1993);
+                this.columnn1994 = new global::System.Data.DataColumn("n1994", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1994);
+                this.columnn1995 = new global::System.Data.DataColumn("n1995", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1995);
+                this.columnn1996 = new global::System.Data.DataColumn("n1996", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1996);
+                this.columnn1997 = new global::System.Data.DataColumn("n1997", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1997);
+                this.columnn1998 = new global::System.Data.DataColumn("n1998", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1998);
+                this.columnn1999 = new global::System.Data.DataColumn("n1999", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn1999);
+                this.columnn2000 = new global::System.Data.DataColumn("n2000", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2000);
+                this.columnn2001 = new global::System.Data.DataColumn("n2001", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2001);
+                this.columnn2002 = new global::System.Data.DataColumn("n2002", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2002);
+                this.columnn2003 = new global::System.Data.DataColumn("n2003", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2003);
+                this.columnn2004 = new global::System.Data.DataColumn("n2004", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2004);
+                this.columnn2005 = new global::System.Data.DataColumn("n2005", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2005);
+                this.columnn2006 = new global::System.Data.DataColumn("n2006", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2006);
+                this.columnn2007 = new global::System.Data.DataColumn("n2007", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2007);
+                this.columnn2008 = new global::System.Data.DataColumn("n2008", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2008);
+                this.columnn2009 = new global::System.Data.DataColumn("n2009", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2009);
+                this.columnn2010 = new global::System.Data.DataColumn("n2010", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2010);
+                this.columnn2011 = new global::System.Data.DataColumn("n2011", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2011);
+                this.columnn2012 = new global::System.Data.DataColumn("n2012", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2012);
+                this.columnn2013 = new global::System.Data.DataColumn("n2013", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2013);
+                this.columnn2014 = new global::System.Data.DataColumn("n2014", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2014);
+                this.columnn2015 = new global::System.Data.DataColumn("n2015", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2015);
+                this.columnn2016 = new global::System.Data.DataColumn("n2016", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnn2016);
+                this.columncISO_Name.MaxLength = 100;
+                this.columnn1970.ReadOnly = true;
+                this.columnn1971.ReadOnly = true;
+                this.columnn1972.ReadOnly = true;
+                this.columnn1973.ReadOnly = true;
+                this.columnn1974.ReadOnly = true;
+                this.columnn1975.ReadOnly = true;
+                this.columnn1976.ReadOnly = true;
+                this.columnn1977.ReadOnly = true;
+                this.columnn1978.ReadOnly = true;
+                this.columnn1979.ReadOnly = true;
+                this.columnn1980.ReadOnly = true;
+                this.columnn1981.ReadOnly = true;
+                this.columnn1982.ReadOnly = true;
+                this.columnn1983.ReadOnly = true;
+                this.columnn1984.ReadOnly = true;
+                this.columnn1985.ReadOnly = true;
+                this.columnn1986.ReadOnly = true;
+                this.columnn1987.ReadOnly = true;
+                this.columnn1988.ReadOnly = true;
+                this.columnn1989.ReadOnly = true;
+                this.columnn1990.ReadOnly = true;
+                this.columnn1991.ReadOnly = true;
+                this.columnn1992.ReadOnly = true;
+                this.columnn1993.ReadOnly = true;
+                this.columnn1994.ReadOnly = true;
+                this.columnn1995.ReadOnly = true;
+                this.columnn1996.ReadOnly = true;
+                this.columnn1997.ReadOnly = true;
+                this.columnn1998.ReadOnly = true;
+                this.columnn1999.ReadOnly = true;
+                this.columnn2000.ReadOnly = true;
+                this.columnn2001.ReadOnly = true;
+                this.columnn2002.ReadOnly = true;
+                this.columnn2003.ReadOnly = true;
+                this.columnn2004.ReadOnly = true;
+                this.columnn2005.ReadOnly = true;
+                this.columnn2006.ReadOnly = true;
+                this.columnn2007.ReadOnly = true;
+                this.columnn2008.ReadOnly = true;
+                this.columnn2009.ReadOnly = true;
+                this.columnn2010.ReadOnly = true;
+                this.columnn2011.ReadOnly = true;
+                this.columnn2012.ReadOnly = true;
+                this.columnn2013.ReadOnly = true;
+                this.columnn2014.ReadOnly = true;
+                this.columnn2015.ReadOnly = true;
+                this.columnn2016.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedRow NewgetEDGAR_to_SQL_groupedRow() {
+                return ((getEDGAR_to_SQL_groupedRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new getEDGAR_to_SQL_groupedRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(getEDGAR_to_SQL_groupedRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.getEDGAR_to_SQL_groupedRowChanged != null)) {
+                    this.getEDGAR_to_SQL_groupedRowChanged(this, new getEDGAR_to_SQL_groupedRowChangeEvent(((getEDGAR_to_SQL_groupedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.getEDGAR_to_SQL_groupedRowChanging != null)) {
+                    this.getEDGAR_to_SQL_groupedRowChanging(this, new getEDGAR_to_SQL_groupedRowChangeEvent(((getEDGAR_to_SQL_groupedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.getEDGAR_to_SQL_groupedRowDeleted != null)) {
+                    this.getEDGAR_to_SQL_groupedRowDeleted(this, new getEDGAR_to_SQL_groupedRowChangeEvent(((getEDGAR_to_SQL_groupedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.getEDGAR_to_SQL_groupedRowDeleting != null)) {
+                    this.getEDGAR_to_SQL_groupedRowDeleting(this, new getEDGAR_to_SQL_groupedRowChangeEvent(((getEDGAR_to_SQL_groupedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovegetEDGAR_to_SQL_groupedRow(getEDGAR_to_SQL_groupedRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Greeenhouse ds = new Greeenhouse();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "getEDGAR_to_SQL_groupedDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2758,6 +3794,1365 @@ namespace Net_Zero {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class getEDGAR_to_SQL_groupedRow : global::System.Data.DataRow {
+            
+            private getEDGAR_to_SQL_groupedDataTable tablegetEDGAR_to_SQL_grouped;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal getEDGAR_to_SQL_groupedRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablegetEDGAR_to_SQL_grouped = ((getEDGAR_to_SQL_groupedDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cISO_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tablegetEDGAR_to_SQL_grouped.cISO_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cISO_Name\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.cISO_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1970 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1970Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1970\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1970Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1971 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1971Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1971\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1971Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1972 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1972Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1972\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1972Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1973 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1973Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1973\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1973Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1974 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1974Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1974\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1974Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1975 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1975Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1975\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1975Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1976 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1976Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1976\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1976Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1977 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1977Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1977\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1977Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1978 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1978Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1978\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1978Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1979 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1979Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1979\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1979Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1980 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1980Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1980\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1980Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1981 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1981Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1981\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1981Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1982 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1982Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1982\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1982Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1983 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1983Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1983\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1983Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1984 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1984Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1984\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1984Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1985 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1985Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1985\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1985Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1986 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1986Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1986\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1986Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1987 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1987Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1987\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1987Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1988 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1988Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1988\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1988Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1989 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1989Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1989\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1989Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1990 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1990Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1990\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1990Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1991 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1991Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1991\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1991Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1992 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1992Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1992\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1992Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1993 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1993Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1993\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1993Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1994 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1994Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1994\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1994Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1995 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1995Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1995\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1995Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1996 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1996Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1996\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1996Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1997 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1997Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1997\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1997Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1998 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1998Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1998\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1998Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n1999 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n1999Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n1999\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n1999Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2000 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2000Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2000\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2000Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2001 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2001Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2001\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2001Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2002 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2002Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2002\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2002Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2003 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2003Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2003\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2003Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2004 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2004Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2004\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2004Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2005 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2005Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2005\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2005Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2006 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2006Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2006\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2006Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2007 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2007Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2007\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2007Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2008 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2008Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2008\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2008Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2009 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2009Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2009\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2009Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2010 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2010Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2010\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2010Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2011 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2011Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2011\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2011Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2012 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2012Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2012\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2012Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2013 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2013Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2013\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2013Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2014 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2014Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2014\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2014Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2015 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2015Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2015\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2015Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double n2016 {
+                get {
+                    try {
+                        return ((double)(this[this.tablegetEDGAR_to_SQL_grouped.n2016Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'n2016\' in table \'getEDGAR_to_SQL_grouped\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.n2016Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscISO_NameNull() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.cISO_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcISO_NameNull() {
+                this[this.tablegetEDGAR_to_SQL_grouped.cISO_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1970Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1970Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1970Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1970Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1971Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1971Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1971Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1971Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1972Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1972Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1972Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1972Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1973Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1973Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1973Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1973Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1974Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1974Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1974Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1974Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1975Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1975Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1975Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1975Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1976Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1976Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1976Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1976Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1977Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1977Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1977Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1977Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1978Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1978Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1978Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1978Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1979Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1979Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1979Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1979Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1980Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1980Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1980Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1980Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1981Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1981Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1981Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1981Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1982Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1982Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1982Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1982Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1983Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1983Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1983Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1983Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1984Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1984Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1984Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1984Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1985Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1985Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1985Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1985Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1986Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1986Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1986Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1986Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1987Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1987Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1987Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1987Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1988Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1988Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1988Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1988Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1989Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1989Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1989Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1989Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1990Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1990Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1990Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1990Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1991Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1991Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1991Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1991Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1992Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1992Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1992Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1992Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1993Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1993Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1993Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1993Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1994Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1994Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1994Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1994Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1995Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1995Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1995Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1995Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1996Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1996Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1996Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1996Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1997Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1997Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1997Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1997Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1998Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1998Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1998Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1998Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn1999Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n1999Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn1999Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n1999Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2000Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2000Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2000Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2000Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2001Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2001Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2001Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2001Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2002Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2002Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2002Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2002Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2003Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2003Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2003Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2003Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2004Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2004Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2004Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2004Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2005Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2005Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2005Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2005Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2006Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2006Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2006Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2006Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2007Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2007Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2007Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2007Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2008Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2008Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2008Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2008Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2009Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2009Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2009Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2009Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2010Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2010Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2010Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2010Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2011Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2011Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2011Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2011Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2012Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2012Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2012Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2012Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2013Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2013Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2013Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2013Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2014Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2014Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2014Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2014Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2015Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2015Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2015Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2015Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isn2016Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.n2016Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setn2016Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.n2016Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2777,6 +5172,40 @@ namespace Net_Zero {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public getEDGAR_to_SQLRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class getEDGAR_to_SQL_groupedRowChangeEvent : global::System.EventArgs {
+            
+            private getEDGAR_to_SQL_groupedRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedRowChangeEvent(getEDGAR_to_SQL_groupedRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public getEDGAR_to_SQL_groupedRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3009,6 +5438,250 @@ namespace Net_Zero.GreeenhouseTableAdapters {
         public virtual Greeenhouse.getEDGAR_to_SQLDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             Greeenhouse.getEDGAR_to_SQLDataTable dataTable = new Greeenhouse.getEDGAR_to_SQLDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class getEDGAR_to_SQL_groupedTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public getEDGAR_to_SQL_groupedTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "getEDGAR_to_SQL_grouped";
+            tableMapping.ColumnMappings.Add("cISO_Name", "cISO_Name");
+            tableMapping.ColumnMappings.Add("n1970", "n1970");
+            tableMapping.ColumnMappings.Add("n1971", "n1971");
+            tableMapping.ColumnMappings.Add("n1972", "n1972");
+            tableMapping.ColumnMappings.Add("n1973", "n1973");
+            tableMapping.ColumnMappings.Add("n1974", "n1974");
+            tableMapping.ColumnMappings.Add("n1975", "n1975");
+            tableMapping.ColumnMappings.Add("n1976", "n1976");
+            tableMapping.ColumnMappings.Add("n1977", "n1977");
+            tableMapping.ColumnMappings.Add("n1978", "n1978");
+            tableMapping.ColumnMappings.Add("n1979", "n1979");
+            tableMapping.ColumnMappings.Add("n1980", "n1980");
+            tableMapping.ColumnMappings.Add("n1981", "n1981");
+            tableMapping.ColumnMappings.Add("n1982", "n1982");
+            tableMapping.ColumnMappings.Add("n1983", "n1983");
+            tableMapping.ColumnMappings.Add("n1984", "n1984");
+            tableMapping.ColumnMappings.Add("n1985", "n1985");
+            tableMapping.ColumnMappings.Add("n1986", "n1986");
+            tableMapping.ColumnMappings.Add("n1987", "n1987");
+            tableMapping.ColumnMappings.Add("n1988", "n1988");
+            tableMapping.ColumnMappings.Add("n1989", "n1989");
+            tableMapping.ColumnMappings.Add("n1990", "n1990");
+            tableMapping.ColumnMappings.Add("n1991", "n1991");
+            tableMapping.ColumnMappings.Add("n1992", "n1992");
+            tableMapping.ColumnMappings.Add("n1993", "n1993");
+            tableMapping.ColumnMappings.Add("n1994", "n1994");
+            tableMapping.ColumnMappings.Add("n1995", "n1995");
+            tableMapping.ColumnMappings.Add("n1996", "n1996");
+            tableMapping.ColumnMappings.Add("n1997", "n1997");
+            tableMapping.ColumnMappings.Add("n1998", "n1998");
+            tableMapping.ColumnMappings.Add("n1999", "n1999");
+            tableMapping.ColumnMappings.Add("n2000", "n2000");
+            tableMapping.ColumnMappings.Add("n2001", "n2001");
+            tableMapping.ColumnMappings.Add("n2002", "n2002");
+            tableMapping.ColumnMappings.Add("n2003", "n2003");
+            tableMapping.ColumnMappings.Add("n2004", "n2004");
+            tableMapping.ColumnMappings.Add("n2005", "n2005");
+            tableMapping.ColumnMappings.Add("n2006", "n2006");
+            tableMapping.ColumnMappings.Add("n2007", "n2007");
+            tableMapping.ColumnMappings.Add("n2008", "n2008");
+            tableMapping.ColumnMappings.Add("n2009", "n2009");
+            tableMapping.ColumnMappings.Add("n2010", "n2010");
+            tableMapping.ColumnMappings.Add("n2011", "n2011");
+            tableMapping.ColumnMappings.Add("n2012", "n2012");
+            tableMapping.ColumnMappings.Add("n2013", "n2013");
+            tableMapping.ColumnMappings.Add("n2014", "n2014");
+            tableMapping.ColumnMappings.Add("n2015", "n2015");
+            tableMapping.ColumnMappings.Add("n2016", "n2016");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.getEDGAR_to_SQL_grouped";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.getEDGAR_to_SQL_grouped";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Greeenhouse.getEDGAR_to_SQL_groupedDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Greeenhouse.getEDGAR_to_SQL_groupedDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Greeenhouse.getEDGAR_to_SQL_groupedDataTable dataTable = new Greeenhouse.getEDGAR_to_SQL_groupedDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(Greeenhouse.getEDGAR_to_SQL_groupedDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Greeenhouse.getEDGAR_to_SQL_groupedDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            Greeenhouse.getEDGAR_to_SQL_groupedDataTable dataTable = new Greeenhouse.getEDGAR_to_SQL_groupedDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
