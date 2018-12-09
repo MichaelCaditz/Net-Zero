@@ -4848,5 +4848,37 @@ namespace Net_Zero
            
            
         }
+
+        private void GrdGreenhouseGrouped_SelectedItemChanged(object sender, DevExpress.Xpf.Grid.SelectedItemChangedEventArgs e)
+        {
+            Net_Zero.Greeenhouse greeenhouse = ((Net_Zero.Greeenhouse)(this.FindResource("greeenhouse")));
+            System.Windows.Data.CollectionViewSource getEDGAR_to_SQL_groupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQL_groupedViewSource")));
+
+            DataRowView drv3 = (DataRowView)getEDGAR_to_SQL_groupedViewSource.View.CurrentItem;
+            //int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
+            string cISO_Name = (DBNull.Value.Equals(drv3["cISO_Name"]) == true ? "" : (string)drv3["cISO_Name"]);
+           // string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
+           // string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d" + " for Tilt=" + cChosenTilt + "; Az: South";
+           // double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
+           // double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
+           // double nCustomTilt = Convert.ToDouble((DBNull.Value.Equals(drv3["nCustomTilt"]) == true ? 0m : (decimal)drv3["nCustomTilt"]));
+            //double nChosenAzimuth = Convert.ToDouble((DBNull.Value.Equals(drv3["nChosenAzimuth"]) == true ? 0m : (decimal)drv3["nChosenAzimuth"]));
+
+
+
+
+
+
+
+
+
+            DataFilter dataFilter1 = new DataFilter("cISO_Name", "System.Int32", DataFilterCondition.Equal, cISO_Name);
+            Series series1 = ((XYDiagram2D)GreenhouseChart1.Diagram).Series[0];
+            series1.DataFilters.Clear();
+            series1.DataFilters.AddRange(new DataFilter[] { dataFilter1});
+
+
+
+        }
     }
 }

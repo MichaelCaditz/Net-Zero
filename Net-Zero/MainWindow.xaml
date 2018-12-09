@@ -3318,7 +3318,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="24"/>
                             <RowDefinition Height="260"/>
-                            <RowDefinition Height="600"/>
+                            <RowDefinition Height="480"/>
 
                         </Grid.RowDefinitions>
 
@@ -3337,13 +3337,13 @@
                                 <dxm:GeoPoint Latitude="49" Longitude="-122"/>
                             </dxm:MapControl.CenterPoint>
                             
-                        <dxm:MapControl.MiniMap>
+                        <!--<dxm:MapControl.MiniMap>
                                 <dxm:MiniMap Alignment="TopRight">
                                     <dxm:MiniMap.Behavior>
                                         <dxm:DynamicMiniMapBehavior/>
                                     </dxm:MiniMap.Behavior>
                                 </dxm:MiniMap>
-                            </dxm:MapControl.MiniMap>
+                            </dxm:MapControl.MiniMap>-->
                         
                             <dxm:ImageLayer Margin="0,0,0,0">
                                 <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
@@ -4041,7 +4041,7 @@
 
 
 
-                        <dxg:GridControl Name="grdGreenhouseGrouped" AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQL_groupedViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="False" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8">
+                        <dxg:GridControl Name="grdGreenhouseGrouped" AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQL_groupedViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="False" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8" SelectedItemChanged="GrdGreenhouseGrouped_SelectedItemChanged">
                             <dxg:GridControl.GroupSummary>
                                 <dxg:GridSummaryItem FieldName="c1970" SummaryType="Sum" ShowInGroupColumnFooter="c1970"/>
                             </dxg:GridControl.GroupSummary>
