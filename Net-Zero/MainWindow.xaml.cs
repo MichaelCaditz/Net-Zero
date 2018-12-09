@@ -4798,6 +4798,29 @@ namespace Net_Zero
 
         private void btnRefreshGreenhouse_Click(object sender, RoutedEventArgs e)
         {
+           
+           
+            System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
+            System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
+
+
+            DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
+            decimal nCO2g_perkWhCoal = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nCO2g_perkWhCoal"]) == true ? 0m : (decimal)drv3["nCO2g_perkWhCoal"]);
+            decimal nCO2g_perkWhPV = (drv3 == null ? 0m : DBNull.Value.Equals(drv3["nCO2g_perkWhPV"]) == true ? 0m : (decimal)drv3["nCO2g_perkWhPV"]);
+
+           
+            DataRowView drv4 = (DataRowView)demandItemsViewSource.View.CurrentItem;
+            decimal AnnualEnergykWh = (drv4 == null ? 0m : DBNull.Value.Equals(drv4["AnnualEnergykWh"]) == true ? 0m : (decimal)drv4["AnnualEnergykWh"]);
+
+
+
+            decimal nSavedCO2 = (AnnualEnergykWh * nCO2g_perkWhCoal) - (AnnualEnergykWh * nCO2g_perkWhPV);
+
+
+            SpinEditnSavedCO2.EditValue = nSavedCO2;
+
+
+
             Net_Zero.Greeenhouse greeenhouse = ((Net_Zero.Greeenhouse)(this.FindResource("greeenhouse")));
             switch (ComboBoxcGreenhouseChart.SelectedIndex)
 
