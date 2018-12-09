@@ -1476,6 +1476,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnn2016;
             
+            private global::System.Data.DataColumn columnScore2014_2015;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getEDGAR_to_SQL_groupedDataTable() {
@@ -1895,6 +1897,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Score2014_2015Column {
+                get {
+                    return this.columnScore2014_2015;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1978,7 +1988,8 @@ namespace Net_Zero {
                         double n2013, 
                         double n2014, 
                         double n2015, 
-                        double n2016) {
+                        double n2016, 
+                        decimal Score2014_2015) {
                 getEDGAR_to_SQL_groupedRow rowgetEDGAR_to_SQL_groupedRow = ((getEDGAR_to_SQL_groupedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cISO_Name,
@@ -2028,7 +2039,8 @@ namespace Net_Zero {
                         n2013,
                         n2014,
                         n2015,
-                        n2016};
+                        n2016,
+                        Score2014_2015};
                 rowgetEDGAR_to_SQL_groupedRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetEDGAR_to_SQL_groupedRow);
                 return rowgetEDGAR_to_SQL_groupedRow;
@@ -2099,6 +2111,7 @@ namespace Net_Zero {
                 this.columnn2014 = base.Columns["n2014"];
                 this.columnn2015 = base.Columns["n2015"];
                 this.columnn2016 = base.Columns["n2016"];
+                this.columnScore2014_2015 = base.Columns["Score2014_2015"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2200,6 +2213,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnn2015);
                 this.columnn2016 = new global::System.Data.DataColumn("n2016", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnn2016);
+                this.columnScore2014_2015 = new global::System.Data.DataColumn("Score2014_2015", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnScore2014_2015);
                 this.columncISO_Name.MaxLength = 100;
                 this.columnn1970.ReadOnly = true;
                 this.columnn1971.ReadOnly = true;
@@ -4889,6 +4904,23 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Score2014_2015 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetEDGAR_to_SQL_grouped.Score2014_2015Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Score2014_2015\' in table \'getEDGAR_to_SQL_grouped\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetEDGAR_to_SQL_grouped.Score2014_2015Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscISO_NameNull() {
                 return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.cISO_NameColumn);
             }
@@ -5461,6 +5493,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setn2016Null() {
                 this[this.tablegetEDGAR_to_SQL_grouped.n2016Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsScore2014_2015Null() {
+                return this.IsNull(this.tablegetEDGAR_to_SQL_grouped.Score2014_2015Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetScore2014_2015Null() {
+                this[this.tablegetEDGAR_to_SQL_grouped.Score2014_2015Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -6057,6 +6101,7 @@ namespace Net_Zero.GreeenhouseTableAdapters {
             tableMapping.ColumnMappings.Add("n2014", "n2014");
             tableMapping.ColumnMappings.Add("n2015", "n2015");
             tableMapping.ColumnMappings.Add("n2016", "n2016");
+            tableMapping.ColumnMappings.Add("Score2014_2015", "Score2014_2015");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

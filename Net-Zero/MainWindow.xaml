@@ -3318,12 +3318,13 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="24"/>
                             <RowDefinition Height="260"/>
-                            <RowDefinition Height="480"/>
+                            <RowDefinition Height="460"/>
+                            <RowDefinition Height="*"/>
 
                         </Grid.RowDefinitions>
 
 
-                        <dxm:MapControl x:Name="MapControl12" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.6" Grid.RowSpan="3">
+                        <dxm:MapControl x:Name="MapControl12" Margin="0" MaxZoomLevel="20" InitialMapSize="800,800" ZoomLevel="6" OverridesDefaultStyle="True" Grid.ColumnSpan="3" Opacity="0.6" Grid.RowSpan="4">
                             <dxm:MapControl.ScrollButtonsOptions>
                                 <dxm:ScrollButtonsOptions Visible="False"/>
                             </dxm:MapControl.ScrollButtonsOptions>
@@ -3364,7 +3365,14 @@
                             <dxc:ChartControl.Legends>
                                 <dxc:Legend/>
                             </dxc:ChartControl.Legends>
-                            <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                            <dxc:XYDiagram2D  VerticalAlignment="Top" Height="347">
+                                <dxc:XYDiagram2D.AxisY>
+                                    <dxc:AxisY2D MinorCount="4">
+                                        <!--<dxc:AxisY2D.WholeRange>
+                                            <dxc:Range MaxValue="120000" MinValue="1"/>
+                                        </dxc:AxisY2D.WholeRange>-->
+                                    </dxc:AxisY2D>
+                                </dxc:XYDiagram2D.AxisY>
                                 <dxc:XYDiagram2D.AxisX>
                                     <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True"  VisualRange="{x:Null}" WholeRange="{x:Null}">
                                         <dxc:AxisX2D.DateTimeScaleOptions>
@@ -4041,7 +4049,7 @@
 
 
 
-                        <dxg:GridControl Name="grdGreenhouseGrouped" AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQL_groupedViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="False" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8" SelectedItemChanged="GrdGreenhouseGrouped_SelectedItemChanged">
+                        <dxg:GridControl Name="grdGreenhouseGrouped" AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQL_groupedViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="True" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8" SelectedItemChanged="GrdGreenhouseGrouped_SelectedItemChanged">
                             <dxg:GridControl.GroupSummary>
                                 <dxg:GridSummaryItem FieldName="c1970" SummaryType="Sum" ShowInGroupColumnFooter="c1970"/>
                             </dxg:GridControl.GroupSummary>
@@ -4057,17 +4065,17 @@
                                         </dxg:GridColumn.HeaderStyle>
                                     </dxg:GridColumn>
 
-                                    <!--<dxg:GridColumn FieldName="cSector" Header="Sector" Visible=" True" Width="100" IsSmart="True" >
+                                    <dxg:GridColumn FieldName="Score2014_2015"  Header="Democracy Score" Visible=" True" Width="140" IsSmart="True" >
                                         <dxg:GridColumn.HeaderStyle>
                                             <Style TargetType="{x:Type dxg:BaseGridHeader}">
-                                                -->
-                                    <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
-                                    <!--
+                                                
+                                    <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+                                    
                                                 <Setter Property="Background" Value="LightSkyBlue" />
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
-                                    </dxg:GridColumn>-->
+                                    </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1970" Header="1970" Visible=" True" Width="100" IsSmart="True" >
                                         <dxg:GridColumn.HeaderStyle>

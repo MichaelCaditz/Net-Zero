@@ -138,6 +138,7 @@
               <Mapping SourceColumn="n2014" DataSetColumn="n2014" />
               <Mapping SourceColumn="n2015" DataSetColumn="n2015" />
               <Mapping SourceColumn="n2016" DataSetColumn="n2016" />
+              <Mapping SourceColumn="Score2014_2015" DataSetColumn="Score2014_2015" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="Net_ZeroConnectionStringWinhost (Settings)" DbObjectName="DB_80510_netzero.dbo.getEDGAR_to_SQL_grouped" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -319,6 +320,7 @@
               <xs:element name="n2014" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnn2014" msprop:Generator_ColumnPropNameInRow="n2014" msprop:Generator_ColumnPropNameInTable="n2014Column" msprop:Generator_UserColumnName="n2014" type="xs:double" minOccurs="0" />
               <xs:element name="n2015" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnn2015" msprop:Generator_ColumnPropNameInRow="n2015" msprop:Generator_ColumnPropNameInTable="n2015Column" msprop:Generator_UserColumnName="n2015" type="xs:double" minOccurs="0" />
               <xs:element name="n2016" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnn2016" msprop:Generator_ColumnPropNameInRow="n2016" msprop:Generator_ColumnPropNameInTable="n2016Column" msprop:Generator_UserColumnName="n2016" type="xs:double" minOccurs="0" />
+              <xs:element name="Score2014_2015" msprop:Generator_ColumnVarNameInTable="columnScore2014_2015" msprop:Generator_ColumnPropNameInRow="Score2014_2015" msprop:Generator_ColumnPropNameInTable="Score2014_2015Column" msprop:Generator_UserColumnName="Score2014_2015" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
