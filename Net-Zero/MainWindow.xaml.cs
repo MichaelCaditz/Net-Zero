@@ -141,7 +141,8 @@ namespace Net_Zero
             openProjectRoutine();
 
 
-           
+
+            
         }
 
         private void openProjectRoutine()
@@ -4827,6 +4828,12 @@ namespace Net_Zero
                     greeenhousegetEDGAR_to_SQL_groupedTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL_grouped);
                     System.Windows.Data.CollectionViewSource getEDGAR_to_SQL_groupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQL_groupedViewSource")));
                     getEDGAR_to_SQL_groupedViewSource.View.MoveCurrentToFirst();
+
+                    
+                    Net_Zero.GreeenhouseTableAdapters.getEdgarPivotGroupedTableAdapter greeenhousegetEdgarPivotGroupedTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEdgarPivotGroupedTableAdapter();
+                    greeenhousegetEdgarPivotGroupedTableAdapter.Fill(greeenhouse.getEdgarPivotGrouped);
+                    System.Windows.Data.CollectionViewSource getEdgarPivotGroupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEdgarPivotGroupedViewSource")));
+                    getEdgarPivotGroupedViewSource.View.MoveCurrentToFirst();
 
                     break;
 

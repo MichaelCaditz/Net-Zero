@@ -63,6 +63,7 @@
         <local:Greeenhouse x:Key="greeenhouse"/>
         <CollectionViewSource x:Key="getEDGAR_to_SQLViewSource" Source="{Binding getEDGAR_to_SQL, Source={StaticResource greeenhouse}}"/>
         <CollectionViewSource x:Key="getEDGAR_to_SQL_groupedViewSource" Source="{Binding getEDGAR_to_SQL_grouped, Source={StaticResource greeenhouse}}"/>
+        <CollectionViewSource x:Key="getEdgarPivotGroupedViewSource" Source="{Binding getEdgarPivotGrouped, Source={StaticResource greeenhouse}}"/>
 
 
         <!--<Style TargetType="{x:Type dxg:GridColumnHeader}" BasedOn="{StaticResource {x:Type dxg:GridColumnHeader}}">
@@ -3311,13 +3312,13 @@
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="1000"/>
+                            <ColumnDefinition Width="1710"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="24"/>
-                            <RowDefinition Height="610"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="260"/>
+                            <RowDefinition Height="600"/>
 
                         </Grid.RowDefinitions>
 
@@ -3335,27 +3336,60 @@
                             <dxm:MapControl.CenterPoint>
                                 <dxm:GeoPoint Latitude="49" Longitude="-122"/>
                             </dxm:MapControl.CenterPoint>
-                            <!--<dxm:MapControl.MiniMap>
+                            
+                        <dxm:MapControl.MiniMap>
                                 <dxm:MiniMap Alignment="TopRight">
                                     <dxm:MiniMap.Behavior>
                                         <dxm:DynamicMiniMapBehavior/>
                                     </dxm:MiniMap.Behavior>
                                 </dxm:MiniMap>
-                            </dxm:MapControl.MiniMap>-->
+                            </dxm:MapControl.MiniMap>
+                        
                             <dxm:ImageLayer Margin="0,0,0,0">
                                 <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
                             </dxm:ImageLayer>
                         </dxm:MapControl>
 
                         <dxe:ComboBoxEdit x:Name="ComboBoxcGreenhouseChart" EditValue="Choose Data" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="150" Panel.ZIndex="15" Grid.Row="1" Grid.Column="1">
-                            <dxe:ComboBoxEditItem Content="By Sector"/>
-                            <dxe:ComboBoxEditItem Content="Country Totals"/>
-                           
+                            <dxe:ComboBoxEditItem Content="kt CO2 By Sector"/>
+                            <dxe:ComboBoxEditItem Content="kt CO2 Country Totals"/>
+
                         </dxe:ComboBoxEdit>
 
 
 
                         <dx:SimpleButton Name="btnRefreshGreenhouse" HorizontalAlignment="Left" Margin="447,10,0,0" VerticalAlignment="Top"  Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis" Grid.Column="1" Grid.RowSpan="2" Click="btnRefreshGreenhouse_Click"/>
+
+                        <dxc:ChartControl x:Name="GreenhouseChart1" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getEdgarPivotGroupedViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="1">
+                            <dxc:ChartControl.Legends>
+                                <dxc:Legend/>
+                            </dxc:ChartControl.Legends>
+                            <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                <dxc:XYDiagram2D.AxisX>
+                                    <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True"  VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                        <dxc:AxisX2D.DateTimeScaleOptions>
+                                            <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Year" MeasureUnit="Year" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                        </dxc:AxisX2D.DateTimeScaleOptions>
+                                        <dxc:AxisX2D.Label>
+                                            <dxc:AxisLabel/>
+                                        </dxc:AxisX2D.Label>
+                                    </dxc:AxisX2D>
+                                </dxc:XYDiagram2D.AxisX>
+                                <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                <!--<dxc:LineSeries2D DisplayName="Chosen Insolation kWh/m^2" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>-->
+                                <dxc:LineSeries2D DisplayName="CO2 kt" ArgumentDataMember="dtYear" ValueDataMember="nCO2">
+                                    <dxc:LineSeries2D.LineStyle>
+                                        <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                    </dxc:LineSeries2D.LineStyle>
+                                </dxc:LineSeries2D>
+                            </dxc:XYDiagram2D>
+                        </dxc:ChartControl>
+
+
+
 
                         <dxg:GridControl Name="grdGreenhouse" AutoGenerateColumns="None" ItemsSource="{Binding Source={StaticResource getEDGAR_to_SQLViewSource}}" AllowLiveDataShaping="True" AllowCollectionView="False" EnableSmartColumnsGeneration="True" HorizontalAlignment="Left" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Opacity="0.8">
                             <dxg:GridControl.GroupSummary>
@@ -3363,7 +3397,7 @@
                             </dxg:GridControl.GroupSummary>
                             <dxg:GridControl.Bands>
                                 <dxg:GridControlBand Header="Band1">
-                                    <dxg:GridColumn FieldName="cISO_Name" Header="Country" Visible=" True" Width="100" IsSmart="True" AllowGrouping="True" GroupIndex="0" >
+                                    <dxg:GridColumn FieldName="cISO_Name" Header="Country" Visible=" True" Width="140" IsSmart="True" AllowGrouping="True" GroupIndex="0" >
                                         <dxg:GridColumn.HeaderStyle>
                                             <Style TargetType="{x:Type dxg:BaseGridHeader}">
                                                 <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
@@ -3391,6 +3425,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1971" Header="1971" Visible=" True" Width="100" IsSmart="True" >
@@ -3401,6 +3438,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1972" Header="1972" Visible=" True" Width="100" IsSmart="True" >
@@ -3411,6 +3451,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1973" Header="1973" Visible=" True" Width="100" IsSmart="True" >
@@ -3421,6 +3464,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1974" Header="1974" Visible=" True" Width="100" IsSmart="True" >
@@ -3431,6 +3477,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1975" Header="1975" Visible=" True" Width="100" IsSmart="True" >
@@ -3441,6 +3490,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1976" Header="1976" Visible=" True" Width="100" IsSmart="True" >
@@ -3451,6 +3503,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1977" Header="1977" Visible=" True" Width="100" IsSmart="True" >
@@ -3461,6 +3516,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1978" Header="1978" Visible=" True" Width="100" IsSmart="True" >
@@ -3471,6 +3529,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1979" Header="1979" Visible=" True" Width="100" IsSmart="True" >
@@ -3481,6 +3542,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1980" Header="1980" Visible=" True" Width="100" IsSmart="True" >
@@ -3491,6 +3555,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1981" Header="1981" Visible=" True" Width="100" IsSmart="True" >
@@ -3501,6 +3568,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1982" Header="1982" Visible=" True" Width="100" IsSmart="True" >
@@ -3511,6 +3581,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1983" Header="1983" Visible=" True" Width="100" IsSmart="True" >
@@ -3521,6 +3594,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1984" Header="1984" Visible=" True" Width="100" IsSmart="True" >
@@ -3531,6 +3607,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1985" Header="1985" Visible=" True" Width="100" IsSmart="True" >
@@ -3541,6 +3620,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1986" Header="1986" Visible=" True" Width="100" IsSmart="True" >
@@ -3551,6 +3633,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1987" Header="1987" Visible=" True" Width="100" IsSmart="True" >
@@ -3561,6 +3646,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1988" Header="1988" Visible=" True" Width="100" IsSmart="True" >
@@ -3571,6 +3659,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1989" Header="1989" Visible=" True" Width="100" IsSmart="True" >
@@ -3581,6 +3672,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1990" Header="1990" Visible=" True" Width="100" IsSmart="True" >
@@ -3591,6 +3685,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1991" Header="1991" Visible=" True" Width="100" IsSmart="True" >
@@ -3601,6 +3698,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1992" Header="1992" Visible=" True" Width="100" IsSmart="True" >
@@ -3611,6 +3711,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1993" Header="1993" Visible=" True" Width="100" IsSmart="True" >
@@ -3621,6 +3724,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1994" Header="1994" Visible=" True" Width="100" IsSmart="True" >
@@ -3631,6 +3737,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1995" Header="1995" Visible=" True" Width="100" IsSmart="True" >
@@ -3641,6 +3750,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1996" Header="1996" Visible=" True" Width="100" IsSmart="True" >
@@ -3651,6 +3763,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1997" Header="1997" Visible=" True" Width="100" IsSmart="True" >
@@ -3661,6 +3776,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1998" Header="1998" Visible=" True" Width="100" IsSmart="True" >
@@ -3671,6 +3789,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1999" Header="1999" Visible=" True" Width="100" IsSmart="True" >
@@ -3681,6 +3802,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2000" Header="2000" Visible=" True" Width="100" IsSmart="True" >
@@ -3691,6 +3815,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2001" Header="2001" Visible=" True" Width="100" IsSmart="True" >
@@ -3701,6 +3828,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2002" Header="2002" Visible=" True" Width="100" IsSmart="True" >
@@ -3711,6 +3841,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2003" Header="2003" Visible=" True" Width="100" IsSmart="True" >
@@ -3721,6 +3854,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2004" Header="2004" Visible=" True" Width="100" IsSmart="True" >
@@ -3731,6 +3867,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2005" Header="2005" Visible=" True" Width="100" IsSmart="True" >
@@ -3741,6 +3880,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2006" Header="2006" Visible=" True" Width="100" IsSmart="True" >
@@ -3751,6 +3893,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2007" Header="2007" Visible=" True" Width="100" IsSmart="True" >
@@ -3761,6 +3906,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2008" Header="2008" Visible=" True" Width="100" IsSmart="True" >
@@ -3771,6 +3919,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2009" Header="2009" Visible=" True" Width="100" IsSmart="True" >
@@ -3781,6 +3932,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2010" Header="2010" Visible=" True" Width="100" IsSmart="True" >
@@ -3791,6 +3945,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2011" Header="2011" Visible=" True" Width="100" IsSmart="True" >
@@ -3801,6 +3958,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2012" Header="2012" Visible=" True" Width="100" IsSmart="True" >
@@ -3811,6 +3971,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2013" Header="2013" Visible=" True" Width="100" IsSmart="True" >
@@ -3821,6 +3984,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2014" Header="2014" Visible=" True" Width="100" IsSmart="True" >
@@ -3831,6 +3997,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2015" Header="2015" Visible=" True" Width="100" IsSmart="True" >
@@ -3841,6 +4010,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2016" Header="2016" Visible=" True" Width="100" IsSmart="True" >
@@ -3851,6 +4023,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
 
@@ -3872,7 +4047,7 @@
                             </dxg:GridControl.GroupSummary>
                             <dxg:GridControl.Bands>
                                 <dxg:GridControlBand Header="Band1">
-                                    <dxg:GridColumn FieldName="cISO_Name" Header="Country" Visible=" True" Width="100" IsSmart="True" AllowGrouping="True" GroupIndex="0" >
+                                    <dxg:GridColumn FieldName="cISO_Name" Header="Country" Visible=" True" Width="140" IsSmart="True" AllowGrouping="True" GroupIndex="0" >
                                         <dxg:GridColumn.HeaderStyle>
                                             <Style TargetType="{x:Type dxg:BaseGridHeader}">
                                                 <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
@@ -3902,6 +4077,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1971" Header="1971" Visible=" True" Width="100" IsSmart="True" >
@@ -3912,6 +4090,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1972" Header="1972" Visible=" True" Width="100" IsSmart="True" >
@@ -3922,6 +4103,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1973" Header="1973" Visible=" True" Width="100" IsSmart="True" >
@@ -3932,6 +4116,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1974" Header="1974" Visible=" True" Width="100" IsSmart="True" >
@@ -3942,6 +4129,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1975" Header="1975" Visible=" True" Width="100" IsSmart="True" >
@@ -3952,6 +4142,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1976" Header="1976" Visible=" True" Width="100" IsSmart="True" >
@@ -3962,6 +4155,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1977" Header="1977" Visible=" True" Width="100" IsSmart="True" >
@@ -3972,6 +4168,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1978" Header="1978" Visible=" True" Width="100" IsSmart="True" >
@@ -3982,6 +4181,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1979" Header="1979" Visible=" True" Width="100" IsSmart="True" >
@@ -3992,6 +4194,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1980" Header="1980" Visible=" True" Width="100" IsSmart="True" >
@@ -4002,6 +4207,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1981" Header="1981" Visible=" True" Width="100" IsSmart="True" >
@@ -4012,6 +4220,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1982" Header="1982" Visible=" True" Width="100" IsSmart="True" >
@@ -4022,6 +4233,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1983" Header="1983" Visible=" True" Width="100" IsSmart="True" >
@@ -4032,6 +4246,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1984" Header="1984" Visible=" True" Width="100" IsSmart="True" >
@@ -4042,6 +4259,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1985" Header="1985" Visible=" True" Width="100" IsSmart="True" >
@@ -4052,6 +4272,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1986" Header="1986" Visible=" True" Width="100" IsSmart="True" >
@@ -4062,6 +4285,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1987" Header="1987" Visible=" True" Width="100" IsSmart="True" >
@@ -4072,6 +4298,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1988" Header="1988" Visible=" True" Width="100" IsSmart="True" >
@@ -4082,6 +4311,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1989" Header="1989" Visible=" True" Width="100" IsSmart="True" >
@@ -4092,6 +4324,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1990" Header="1990" Visible=" True" Width="100" IsSmart="True" >
@@ -4102,6 +4337,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1991" Header="1991" Visible=" True" Width="100" IsSmart="True" >
@@ -4112,6 +4350,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1992" Header="1992" Visible=" True" Width="100" IsSmart="True" >
@@ -4122,6 +4363,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1993" Header="1993" Visible=" True" Width="100" IsSmart="True" >
@@ -4132,6 +4376,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1994" Header="1994" Visible=" True" Width="100" IsSmart="True" >
@@ -4142,6 +4389,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1995" Header="1995" Visible=" True" Width="100" IsSmart="True" >
@@ -4152,6 +4402,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1996" Header="1996" Visible=" True" Width="100" IsSmart="True" >
@@ -4162,6 +4415,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1997" Header="1997" Visible=" True" Width="100" IsSmart="True" >
@@ -4172,6 +4428,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1998" Header="1998" Visible=" True" Width="100" IsSmart="True" >
@@ -4182,6 +4441,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n1999" Header="1999" Visible=" True" Width="100" IsSmart="True" >
@@ -4192,6 +4454,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2000" Header="2000" Visible=" True" Width="100" IsSmart="True" >
@@ -4202,6 +4467,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2001" Header="2001" Visible=" True" Width="100" IsSmart="True" >
@@ -4212,6 +4480,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2002" Header="2002" Visible=" True" Width="100" IsSmart="True" >
@@ -4222,6 +4493,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2003" Header="2003" Visible=" True" Width="100" IsSmart="True" >
@@ -4232,6 +4506,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2004" Header="2004" Visible=" True" Width="100" IsSmart="True" >
@@ -4242,6 +4519,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2005" Header="2005" Visible=" True" Width="100" IsSmart="True" >
@@ -4252,6 +4532,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2006" Header="2006" Visible=" True" Width="100" IsSmart="True" >
@@ -4262,6 +4545,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2007" Header="2007" Visible=" True" Width="100" IsSmart="True" >
@@ -4272,6 +4558,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2008" Header="2008" Visible=" True" Width="100" IsSmart="True" >
@@ -4282,6 +4571,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2009" Header="2009" Visible=" True" Width="100" IsSmart="True" >
@@ -4292,6 +4584,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2010" Header="2010" Visible=" True" Width="100" IsSmart="True" >
@@ -4302,6 +4597,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2011" Header="2011" Visible=" True" Width="100" IsSmart="True" >
@@ -4312,6 +4610,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2012" Header="2012" Visible=" True" Width="100" IsSmart="True" >
@@ -4322,6 +4623,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2013" Header="2013" Visible=" True" Width="100" IsSmart="True" >
@@ -4332,6 +4636,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2014" Header="2014" Visible=" True" Width="100" IsSmart="True" >
@@ -4342,6 +4649,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2015" Header="2015" Visible=" True" Width="100" IsSmart="True" >
@@ -4352,6 +4662,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
                                     <dxg:GridColumn FieldName="n2016" Header="2016" Visible=" True" Width="100" IsSmart="True" >
@@ -4362,6 +4675,9 @@
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
                                         </dxg:GridColumn.HeaderStyle>
+                                        <dxg:GridColumn.EditSettings>
+                                            <dxe:TextEditSettings DisplayFormat="##########.00"/>
+                                        </dxg:GridColumn.EditSettings>
                                     </dxg:GridColumn>
 
 
@@ -4374,6 +4690,7 @@
 
 
                         </dxg:GridControl>
+                        <!--<Label Content="kt CO2" Grid.Column="1" HorizontalAlignment="Left" Margin="200,2,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="2,3,0,3" Foreground="White" FontSize="14" FontWeight="Bold"/>-->
 
                     </Grid>
 
