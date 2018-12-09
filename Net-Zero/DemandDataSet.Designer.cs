@@ -29,7 +29,7 @@ namespace Net_Zero {
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public DemandDataSet() {
             this.BeginInit();
             this.InitClass();
@@ -41,7 +41,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected DemandDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
@@ -81,7 +81,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public demandItemsDataTable demandItems {
@@ -91,7 +91,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -104,7 +104,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public new global::System.Data.DataTableCollection Tables {
             get {
@@ -113,7 +113,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public new global::System.Data.DataRelationCollection Relations {
             get {
@@ -122,7 +122,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected override void InitializeDerivedDataSet() {
             this.BeginInit();
             this.InitClass();
@@ -130,7 +130,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
             DemandDataSet cln = ((DemandDataSet)(base.Clone()));
             cln.InitVars();
@@ -140,19 +140,19 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected override bool ShouldSerializeTables() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected override bool ShouldSerializeRelations() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected override void ReadXmlSerializable(global::System.Xml.XmlReader reader) {
             if ((this.DetermineSchemaSerializationMode(reader) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 this.Reset();
@@ -177,7 +177,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected override global::System.Xml.Schema.XmlSchema GetSchemaSerializable() {
             global::System.IO.MemoryStream stream = new global::System.IO.MemoryStream();
             this.WriteXmlSchema(new global::System.Xml.XmlTextWriter(stream, null));
@@ -186,13 +186,13 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars() {
             this.InitVars(true);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
             this.tabledemandItems = ((demandItemsDataTable)(base.Tables["demandItems"]));
             if ((initTable == true)) {
@@ -203,7 +203,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
             this.DataSetName = "DemandDataSet";
             this.Prefix = "";
@@ -215,13 +215,13 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializedemandItems() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -229,7 +229,7 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
             DemandDataSet ds = new DemandDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
@@ -276,14 +276,15 @@ namespace Net_Zero {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.demandItems.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
             this.demandItems.nEnergykWhColumn.Expression = "nEnergyWh/1000";
             this.demandItems.nAnnualEnergykWhColumn.Expression = "nEnergykWh*365";
+            this.demandItems.SUMnAnnualEnergykWHColumn.Expression = "sum(nAnnualEnergykWh)";
         }
         
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void demandItemsRowChangeEventHandler(object sender, demandItemsRowChangeEvent e);
         
         /// <summary>
@@ -319,14 +320,16 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnAnnualEnergykWh;
             
+            private global::System.Data.DataColumn columnSUMnAnnualEnergykWH;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsDataTable() : 
                     this(false) {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsDataTable(bool initExpressions) {
                 this.TableName = "demandItems";
                 this.BeginInit();
@@ -338,7 +341,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal demandItemsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
@@ -355,14 +358,14 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected demandItemsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nIDColumn {
                 get {
                     return this.columnnID;
@@ -370,7 +373,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn dtCreateDateColumn {
                 get {
                     return this.columndtCreateDate;
@@ -378,7 +381,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn cDescColumn {
                 get {
                     return this.columncDesc;
@@ -386,7 +389,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nQtyColumn {
                 get {
                     return this.columnnQty;
@@ -394,7 +397,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nHoursColumn {
                 get {
                     return this.columnnHours;
@@ -402,7 +405,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nPowerWColumn {
                 get {
                     return this.columnnPowerW;
@@ -410,7 +413,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn cNoteColumn {
                 get {
                     return this.columncNote;
@@ -418,7 +421,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nOnOffFactorColumn {
                 get {
                     return this.columnnOnOffFactor;
@@ -426,7 +429,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nProjectsIDColumn {
                 get {
                     return this.columnnProjectsID;
@@ -434,7 +437,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nEnergyWhColumn {
                 get {
                     return this.columnnEnergyWh;
@@ -442,7 +445,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nEnergykWhColumn {
                 get {
                     return this.columnnEnergykWh;
@@ -450,7 +453,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn bDeletedColumn {
                 get {
                     return this.columnbDeleted;
@@ -458,7 +461,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn nAnnualEnergykWhColumn {
                 get {
                     return this.columnnAnnualEnergykWh;
@@ -466,7 +469,15 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SUMnAnnualEnergykWHColumn {
+                get {
+                    return this.columnSUMnAnnualEnergykWH;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -475,34 +486,34 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow this[int index] {
                 get {
                     return ((demandItemsRow)(this.Rows[index]));
                 }
             }
             
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public event demandItemsRowChangeEventHandler demandItemsRowChanging;
             
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public event demandItemsRowChangeEventHandler demandItemsRowChanged;
             
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public event demandItemsRowChangeEventHandler demandItemsRowDeleting;
             
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public event demandItemsRowChangeEventHandler demandItemsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void AdddemandItemsRow(demandItemsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh, bool bDeleted, decimal nAnnualEnergykWh) {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh, bool bDeleted, decimal nAnnualEnergykWh, string SUMnAnnualEnergykWH) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -517,14 +528,15 @@ namespace Net_Zero {
                         nEnergyWh,
                         nEnergykWh,
                         bDeleted,
-                        nAnnualEnergykWh};
+                        nAnnualEnergykWh,
+                        SUMnAnnualEnergykWH};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
                 return rowdemandItemsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, bool bDeleted) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -540,6 +552,7 @@ namespace Net_Zero {
                         null,
                         null,
                         bDeleted,
+                        null,
                         null};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
@@ -547,14 +560,14 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow FindBynID(int nID) {
                 return ((demandItemsRow)(this.Rows.Find(new object[] {
                             nID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 demandItemsDataTable cln = ((demandItemsDataTable)(base.Clone()));
                 cln.InitVars();
@@ -562,13 +575,13 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
                 return new demandItemsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnnID = base.Columns["nID"];
                 this.columndtCreateDate = base.Columns["dtCreateDate"];
@@ -583,10 +596,11 @@ namespace Net_Zero {
                 this.columnnEnergykWh = base.Columns["nEnergykWh"];
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnAnnualEnergykWh = base.Columns["nAnnualEnergykWh"];
+                this.columnSUMnAnnualEnergykWH = base.Columns["SUMnAnnualEnergykWH"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
                 this.columnnID = new global::System.Data.DataColumn("nID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnID);
@@ -614,6 +628,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnbDeleted);
                 this.columnnAnnualEnergykWh = new global::System.Data.DataColumn("nAnnualEnergykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAnnualEnergykWh);
+                this.columnSUMnAnnualEnergykWH = new global::System.Data.DataColumn("SUMnAnnualEnergykWH", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSUMnAnnualEnergykWH);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -627,36 +643,38 @@ namespace Net_Zero {
                 this.columnnEnergyWh.ReadOnly = true;
                 this.columnnEnergykWh.ReadOnly = true;
                 this.columnnAnnualEnergykWh.ReadOnly = true;
+                this.columnSUMnAnnualEnergykWH.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow NewdemandItemsRow() {
                 return ((demandItemsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
                 return new demandItemsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(demandItemsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
                 this.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
                 this.nEnergykWhColumn.Expression = "nEnergyWh/1000";
                 this.nAnnualEnergykWhColumn.Expression = "nEnergykWh*365";
+                this.SUMnAnnualEnergykWHColumn.Expression = "sum(nAnnualEnergykWh)";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
                 if ((this.demandItemsRowChanged != null)) {
@@ -665,7 +683,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
                 if ((this.demandItemsRowChanging != null)) {
@@ -674,7 +692,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
                 if ((this.demandItemsRowDeleted != null)) {
@@ -683,7 +701,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
                 if ((this.demandItemsRowDeleting != null)) {
@@ -692,13 +710,13 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void RemovedemandItemsRow(demandItemsRow row) {
                 this.Rows.Remove(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
@@ -769,14 +787,14 @@ namespace Net_Zero {
             private demandItemsDataTable tabledemandItems;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal demandItemsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tabledemandItems = ((demandItemsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int nID {
                 get {
                     return ((int)(this[this.tabledemandItems.nIDColumn]));
@@ -787,7 +805,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public System.DateTime dtCreateDate {
                 get {
                     try {
@@ -803,7 +821,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string cDesc {
                 get {
                     try {
@@ -819,7 +837,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int nQty {
                 get {
                     try {
@@ -835,7 +853,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nHours {
                 get {
                     try {
@@ -851,7 +869,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nPowerW {
                 get {
                     try {
@@ -867,7 +885,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string cNote {
                 get {
                     try {
@@ -883,7 +901,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nOnOffFactor {
                 get {
                     try {
@@ -899,7 +917,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int nProjectsID {
                 get {
                     try {
@@ -915,7 +933,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nEnergyWh {
                 get {
                     try {
@@ -931,7 +949,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nEnergykWh {
                 get {
                     try {
@@ -947,7 +965,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool bDeleted {
                 get {
                     try {
@@ -963,7 +981,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal nAnnualEnergykWh {
                 get {
                     try {
@@ -979,154 +997,182 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SUMnAnnualEnergykWH {
+                get {
+                    try {
+                        return ((string)(this[this.tabledemandItems.SUMnAnnualEnergykWHColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SUMnAnnualEnergykWH\' in table \'demandItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledemandItems.SUMnAnnualEnergykWHColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tabledemandItems.dtCreateDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetdtCreateDateNull() {
                 this[this.tabledemandItems.dtCreateDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscDescNull() {
                 return this.IsNull(this.tabledemandItems.cDescColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcDescNull() {
                 this[this.tabledemandItems.cDescColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnQtyNull() {
                 return this.IsNull(this.tabledemandItems.nQtyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnQtyNull() {
                 this[this.tabledemandItems.nQtyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnHoursNull() {
                 return this.IsNull(this.tabledemandItems.nHoursColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnHoursNull() {
                 this[this.tabledemandItems.nHoursColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnPowerWNull() {
                 return this.IsNull(this.tabledemandItems.nPowerWColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnPowerWNull() {
                 this[this.tabledemandItems.nPowerWColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IscNoteNull() {
                 return this.IsNull(this.tabledemandItems.cNoteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetcNoteNull() {
                 this[this.tabledemandItems.cNoteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnOnOffFactorNull() {
                 return this.IsNull(this.tabledemandItems.nOnOffFactorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnOnOffFactorNull() {
                 this[this.tabledemandItems.nOnOffFactorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnProjectsIDNull() {
                 return this.IsNull(this.tabledemandItems.nProjectsIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnProjectsIDNull() {
                 this[this.tabledemandItems.nProjectsIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnEnergyWhNull() {
                 return this.IsNull(this.tabledemandItems.nEnergyWhColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnEnergyWhNull() {
                 this[this.tabledemandItems.nEnergyWhColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnEnergykWhNull() {
                 return this.IsNull(this.tabledemandItems.nEnergykWhColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnEnergykWhNull() {
                 this[this.tabledemandItems.nEnergykWhColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsbDeletedNull() {
                 return this.IsNull(this.tabledemandItems.bDeletedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetbDeletedNull() {
                 this[this.tabledemandItems.bDeletedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnAnnualEnergykWhNull() {
                 return this.IsNull(this.tabledemandItems.nAnnualEnergykWhColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnAnnualEnergykWhNull() {
                 this[this.tabledemandItems.nAnnualEnergykWhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSUMnAnnualEnergykWHNull() {
+                return this.IsNull(this.tabledemandItems.SUMnAnnualEnergykWHColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSUMnAnnualEnergykWHNull() {
+                this[this.tabledemandItems.SUMnAnnualEnergykWHColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Row event argument class
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public class demandItemsRowChangeEvent : global::System.EventArgs {
             
             private demandItemsRow eventRow;
@@ -1134,14 +1180,14 @@ namespace Net_Zero {
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRowChangeEvent(demandItemsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public demandItemsRow Row {
                 get {
                     return this.eventRow;
@@ -1149,7 +1195,7 @@ namespace Net_Zero {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataRowAction Action {
                 get {
                     return this.eventAction;
@@ -1183,13 +1229,13 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public demandItemsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
@@ -1200,7 +1246,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
@@ -1228,7 +1274,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
@@ -1254,7 +1300,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
@@ -1265,7 +1311,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool ClearBeforeFill {
             get {
                 return this._clearBeforeFill;
@@ -1276,7 +1322,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
@@ -1296,14 +1342,14 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
             this._connection.ConnectionString = global::Net_Zero.Properties.Settings.Default.Net_ZeroConnectionStringWinhost;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
@@ -1315,7 +1361,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
         public virtual int Fill(DemandDataSet.demandItemsDataTable dataTable, global::System.Nullable<int> projectsID) {
@@ -1334,7 +1380,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DemandDataSet.demandItemsDataTable GetData(global::System.Nullable<int> projectsID) {
@@ -1368,7 +1414,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         private global::System.Data.IDbConnection _connection;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public UpdateOrderOption UpdateOrder {
             get {
                 return this._updateOrder;
@@ -1379,7 +1425,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -1390,7 +1436,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         public global::System.Data.IDbConnection Connection {
             get {
@@ -1405,7 +1451,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         public int TableAdapterInstanceCount {
             get {
@@ -1418,7 +1464,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         ///Update rows in top-down order.
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
@@ -1428,7 +1474,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         ///Insert rows in top-down order.
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
@@ -1438,7 +1484,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         ///Delete rows in bottom-up order.
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(DemandDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
@@ -1448,7 +1494,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         ///Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private global::System.Data.DataRow[] GetRealUpdatedRows(global::System.Data.DataRow[] updatedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             if (((updatedRows == null) 
                         || (updatedRows.Length < 1))) {
@@ -1472,7 +1518,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         ///Update all changes to the dataset.
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public virtual int UpdateAll(DemandDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
@@ -1583,13 +1629,13 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected virtual void SortSelfReferenceRows(global::System.Data.DataRow[] rows, global::System.Data.DataRelation relation, bool childFirst) {
             global::System.Array.Sort<global::System.Data.DataRow>(rows, new SelfReferenceComparer(relation, childFirst));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         protected virtual bool MatchTableAdapterConnection(global::System.Data.IDbConnection inputConnection) {
             if ((this._connection != null)) {
                 return true;
@@ -1607,7 +1653,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         /// <summary>
         ///Update Order Option
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public enum UpdateOrderOption {
             
             InsertUpdateDelete = 0,
@@ -1618,7 +1664,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
         /// <summary>
         ///Used to sort self-referenced table's rows
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private class SelfReferenceComparer : object, global::System.Collections.Generic.IComparer<global::System.Data.DataRow> {
             
             private global::System.Data.DataRelation _relation;
@@ -1626,7 +1672,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
             private int _childFirst;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal SelfReferenceComparer(global::System.Data.DataRelation relation, bool childFirst) {
                 this._relation = relation;
                 if (childFirst) {
@@ -1638,7 +1684,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private global::System.Data.DataRow GetRoot(global::System.Data.DataRow row, out int distance) {
                 global::System.Diagnostics.Debug.Assert((row != null));
                 global::System.Data.DataRow root = row;
@@ -1677,7 +1723,7 @@ namespace Net_Zero.DemandDataSetTableAdapters {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int Compare(global::System.Data.DataRow row1, global::System.Data.DataRow row2) {
                 if (object.ReferenceEquals(row1, row2)) {
                     return 0;

@@ -3337,15 +3337,15 @@
                             <dxm:MapControl.CenterPoint>
                                 <dxm:GeoPoint Latitude="49" Longitude="-122"/>
                             </dxm:MapControl.CenterPoint>
-                            
-                        <!--<dxm:MapControl.MiniMap>
+
+                            <!--<dxm:MapControl.MiniMap>
                                 <dxm:MiniMap Alignment="TopRight">
                                     <dxm:MiniMap.Behavior>
                                         <dxm:DynamicMiniMapBehavior/>
                                     </dxm:MiniMap.Behavior>
                                 </dxm:MiniMap>
                             </dxm:MapControl.MiniMap>-->
-                        
+
                             <dxm:ImageLayer Margin="0,0,0,0">
                                 <dxm:BingMapDataProvider BingKey="Ap40l448CPfH4NLrZhnxtBBESjCHpQK27SZhy1GK3Nts7A_ZWqzdIGak7cdPqteW"/>
                             </dxm:ImageLayer>
@@ -3357,7 +3357,14 @@
 
                         </dxe:ComboBoxEdit>
 
-
+                        <dxe:SpinEdit x:Name="SpinEditnCO2g_perkWhCoal" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="618,0,0,0" EditValue="{Binding nCO2g_perkWhCoal, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="10000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <dxe:SpinEdit x:Name="SpinEditnCO2g_perkWhPV" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="856,0,0,0" EditValue="{Binding nCO2g_perkWhPV, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="10000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <Label Content="CO2 g/kWh Coal:" Grid.Column="1" HorizontalAlignment="Left" Margin="516,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                        <Label Content="CO2 g/kWh PV:" Grid.Column="1" HorizontalAlignment="Left" Margin="760,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnProjectkWh" DataContext="{StaticResource demandItemsViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="1088,0,0,0" EditValue="{Binding SUMnAnnualEnergykWh, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="10000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <Label Content="This project kWh:" Grid.Column="1" HorizontalAlignment="Left" Margin="992,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                        <dxe:SpinEdit x:Name="SpinEditnSavedCO2" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="1372,0,0,0" EditValue="{Binding nCO2g_perkWhPV, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="10000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <Label Content="This project Saved CO2:" Grid.Column="1" HorizontalAlignment="Left" Margin="1241,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
 
                         <dx:SimpleButton Name="btnRefreshGreenhouse" HorizontalAlignment="Left" Margin="447,10,0,0" VerticalAlignment="Top"  Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis" Grid.Column="1" Grid.RowSpan="2" Click="btnRefreshGreenhouse_Click"/>
 
@@ -4068,9 +4075,9 @@
                                     <dxg:GridColumn FieldName="Score2014_2015"  Header="Democracy Score" Visible=" True" Width="140" IsSmart="True" >
                                         <dxg:GridColumn.HeaderStyle>
                                             <Style TargetType="{x:Type dxg:BaseGridHeader}">
-                                                
-                                    <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
-                                    
+
+                                                <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+
                                                 <Setter Property="Background" Value="LightSkyBlue" />
                                                 <Setter Property="Height" Value="20" />
                                             </Style>
@@ -4698,7 +4705,7 @@
 
 
                         </dxg:GridControl>
-                        <!--<Label Content="kt CO2" Grid.Column="1" HorizontalAlignment="Left" Margin="200,2,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="2,3,0,3" Foreground="White" FontSize="14" FontWeight="Bold"/>-->
+                       <!--<Label Content="kt CO2" Grid.Column="1" HorizontalAlignment="Left" Margin="200,2,0,0" Grid.Row="1" VerticalAlignment="Top" Padding="2,3,0,3" Foreground="White" FontSize="14" FontWeight="Bold"/>-->
 
                     </Grid>
 

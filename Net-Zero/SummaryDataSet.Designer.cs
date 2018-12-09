@@ -2484,6 +2484,10 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnCustomTilt;
             
+            private global::System.Data.DataColumn columnnCO2g_perkWhCoal;
+            
+            private global::System.Data.DataColumn columnnCO2g_perkWhPV;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public getProjectDataTable() : 
@@ -2920,6 +2924,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nCO2g_perkWhCoalColumn {
+                get {
+                    return this.columnnCO2g_perkWhCoal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn nCO2g_perkWhPVColumn {
+                get {
+                    return this.columnnCO2g_perkWhPV;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3003,7 +3023,9 @@ namespace Net_Zero {
                         int nMetricsHour, 
                         decimal nGMTPlusMinus, 
                         decimal nChosenAzimuth, 
-                        decimal nCustomTilt) {
+                        decimal nCustomTilt, 
+                        decimal nCO2g_perkWhCoal, 
+                        decimal nCO2g_perkWhPV) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3054,7 +3076,9 @@ namespace Net_Zero {
                         nMetricsHour,
                         nGMTPlusMinus,
                         nChosenAzimuth,
-                        nCustomTilt};
+                        nCustomTilt,
+                        nCO2g_perkWhCoal,
+                        nCO2g_perkWhPV};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3103,7 +3127,9 @@ namespace Net_Zero {
                         int nMetricsHour, 
                         decimal nGMTPlusMinus, 
                         decimal nChosenAzimuth, 
-                        decimal nCustomTilt) {
+                        decimal nCustomTilt, 
+                        decimal nCO2g_perkWhCoal, 
+                        decimal nCO2g_perkWhPV) {
                 getProjectRow rowgetProjectRow = ((getProjectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3154,7 +3180,9 @@ namespace Net_Zero {
                         nMetricsHour,
                         nGMTPlusMinus,
                         nChosenAzimuth,
-                        nCustomTilt};
+                        nCustomTilt,
+                        nCO2g_perkWhCoal,
+                        nCO2g_perkWhPV};
                 rowgetProjectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetProjectRow);
                 return rowgetProjectRow;
@@ -3233,6 +3261,8 @@ namespace Net_Zero {
                 this.columnnGMTPlusMinus = base.Columns["nGMTPlusMinus"];
                 this.columnnChosenAzimuth = base.Columns["nChosenAzimuth"];
                 this.columnnCustomTilt = base.Columns["nCustomTilt"];
+                this.columnnCO2g_perkWhCoal = base.Columns["nCO2g_perkWhCoal"];
+                this.columnnCO2g_perkWhPV = base.Columns["nCO2g_perkWhPV"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3336,6 +3366,10 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnChosenAzimuth);
                 this.columnnCustomTilt = new global::System.Data.DataColumn("nCustomTilt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnCustomTilt);
+                this.columnnCO2g_perkWhCoal = new global::System.Data.DataColumn("nCO2g_perkWhCoal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCO2g_perkWhCoal);
+                this.columnnCO2g_perkWhPV = new global::System.Data.DataColumn("nCO2g_perkWhPV", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnCO2g_perkWhPV);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -6727,6 +6761,38 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nCO2g_perkWhCoal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nCO2g_perkWhCoalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCO2g_perkWhCoal\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nCO2g_perkWhCoalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal nCO2g_perkWhPV {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetProject.nCO2g_perkWhPVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nCO2g_perkWhPV\' in table \'getProject\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetProject.nCO2g_perkWhPVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetProject.dtCreateDateColumn);
             }
@@ -7299,6 +7365,30 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnCustomTiltNull() {
                 this[this.tablegetProject.nCustomTiltColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnCO2g_perkWhCoalNull() {
+                return this.IsNull(this.tablegetProject.nCO2g_perkWhCoalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnCO2g_perkWhCoalNull() {
+                this[this.tablegetProject.nCO2g_perkWhCoalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnCO2g_perkWhPVNull() {
+                return this.IsNull(this.tablegetProject.nCO2g_perkWhPVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnCO2g_perkWhPVNull() {
+                this[this.tablegetProject.nCO2g_perkWhPVColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8276,6 +8366,8 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
             tableMapping.ColumnMappings.Add("nGMTPlusMinus", "nGMTPlusMinus");
             tableMapping.ColumnMappings.Add("nChosenAzimuth", "nChosenAzimuth");
             tableMapping.ColumnMappings.Add("nCustomTilt", "nCustomTilt");
+            tableMapping.ColumnMappings.Add("nCO2g_perkWhCoal", "nCO2g_perkWhCoal");
+            tableMapping.ColumnMappings.Add("nCO2g_perkWhPV", "nCO2g_perkWhPV");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
