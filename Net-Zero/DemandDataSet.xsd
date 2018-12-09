@@ -71,7 +71,6 @@
               <xs:element name="nEnergykWh" msdata:ReadOnly="true" msdata:Expression="nEnergyWh/1000" msprop:Generator_ColumnVarNameInTable="columnnEnergykWh" msprop:Generator_ColumnPropNameInRow="nEnergykWh" msprop:Generator_ColumnPropNameInTable="nEnergykWhColumn" msprop:Generator_UserColumnName="nEnergykWh" type="xs:decimal" minOccurs="0" />
               <xs:element name="bDeleted" msprop:Generator_ColumnVarNameInTable="columnbDeleted" msprop:Generator_ColumnPropNameInRow="bDeleted" msprop:Generator_ColumnPropNameInTable="bDeletedColumn" msprop:Generator_UserColumnName="bDeleted" type="xs:boolean" minOccurs="0" />
               <xs:element name="nAnnualEnergykWh" msdata:ReadOnly="true" msdata:Expression="nEnergykWh*365" msprop:Generator_ColumnVarNameInTable="columnnAnnualEnergykWh" msprop:Generator_ColumnPropNameInRow="nAnnualEnergykWh" msprop:Generator_ColumnPropNameInTable="nAnnualEnergykWhColumn" msprop:Generator_UserColumnName="nAnnualEnergykWh" type="xs:decimal" minOccurs="0" />
-              <xs:element name="SUMnAnnualEnergykWH" msdata:ReadOnly="true" msdata:Expression="sum(nAnnualEnergykWh)" msprop:Generator_ColumnVarNameInTable="columnSUMnAnnualEnergykWH" msprop:Generator_ColumnPropNameInRow="SUMnAnnualEnergykWH" msprop:Generator_ColumnPropNameInTable="SUMnAnnualEnergykWHColumn" msprop:Generator_UserColumnName="SUMnAnnualEnergykWH" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

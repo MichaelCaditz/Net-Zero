@@ -281,7 +281,6 @@ namespace Net_Zero {
             this.demandItems.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
             this.demandItems.nEnergykWhColumn.Expression = "nEnergyWh/1000";
             this.demandItems.nAnnualEnergykWhColumn.Expression = "nEnergykWh*365";
-            this.demandItems.SUMnAnnualEnergykWHColumn.Expression = "sum(nAnnualEnergykWh)";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -319,8 +318,6 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnbDeleted;
             
             private global::System.Data.DataColumn columnnAnnualEnergykWh;
-            
-            private global::System.Data.DataColumn columnSUMnAnnualEnergykWH;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -470,14 +467,6 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SUMnAnnualEnergykWHColumn {
-                get {
-                    return this.columnSUMnAnnualEnergykWH;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -513,7 +502,7 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh, bool bDeleted, decimal nAnnualEnergykWh, string SUMnAnnualEnergykWH) {
+            public demandItemsRow AdddemandItemsRow(System.DateTime dtCreateDate, string cDesc, int nQty, decimal nHours, decimal nPowerW, string cNote, decimal nOnOffFactor, int nProjectsID, decimal nEnergyWh, decimal nEnergykWh, bool bDeleted, decimal nAnnualEnergykWh) {
                 demandItemsRow rowdemandItemsRow = ((demandItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -528,8 +517,7 @@ namespace Net_Zero {
                         nEnergyWh,
                         nEnergykWh,
                         bDeleted,
-                        nAnnualEnergykWh,
-                        SUMnAnnualEnergykWH};
+                        nAnnualEnergykWh};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
                 return rowdemandItemsRow;
@@ -552,7 +540,6 @@ namespace Net_Zero {
                         null,
                         null,
                         bDeleted,
-                        null,
                         null};
                 rowdemandItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdemandItemsRow);
@@ -596,7 +583,6 @@ namespace Net_Zero {
                 this.columnnEnergykWh = base.Columns["nEnergykWh"];
                 this.columnbDeleted = base.Columns["bDeleted"];
                 this.columnnAnnualEnergykWh = base.Columns["nAnnualEnergykWh"];
-                this.columnSUMnAnnualEnergykWH = base.Columns["SUMnAnnualEnergykWH"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -628,8 +614,6 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnbDeleted);
                 this.columnnAnnualEnergykWh = new global::System.Data.DataColumn("nAnnualEnergykWh", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnAnnualEnergykWh);
-                this.columnSUMnAnnualEnergykWH = new global::System.Data.DataColumn("SUMnAnnualEnergykWH", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSUMnAnnualEnergykWH);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -643,7 +627,6 @@ namespace Net_Zero {
                 this.columnnEnergyWh.ReadOnly = true;
                 this.columnnEnergykWh.ReadOnly = true;
                 this.columnnAnnualEnergykWh.ReadOnly = true;
-                this.columnSUMnAnnualEnergykWH.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -670,7 +653,6 @@ namespace Net_Zero {
                 this.nEnergyWhColumn.Expression = "((nPowerW*nHours)/nOnOffFactor)*nQty";
                 this.nEnergykWhColumn.Expression = "nEnergyWh/1000";
                 this.nAnnualEnergykWhColumn.Expression = "nEnergykWh*365";
-                this.SUMnAnnualEnergykWHColumn.Expression = "sum(nAnnualEnergykWh)";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -998,22 +980,6 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string SUMnAnnualEnergykWH {
-                get {
-                    try {
-                        return ((string)(this[this.tabledemandItems.SUMnAnnualEnergykWHColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SUMnAnnualEnergykWH\' in table \'demandItems\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledemandItems.SUMnAnnualEnergykWHColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tabledemandItems.dtCreateDateColumn);
             }
@@ -1154,18 +1120,6 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetnAnnualEnergykWhNull() {
                 this[this.tabledemandItems.nAnnualEnergykWhColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsSUMnAnnualEnergykWHNull() {
-                return this.IsNull(this.tabledemandItems.SUMnAnnualEnergykWHColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetSUMnAnnualEnergykWHNull() {
-                this[this.tabledemandItems.SUMnAnnualEnergykWHColumn] = global::System.Convert.DBNull;
             }
         }
         
