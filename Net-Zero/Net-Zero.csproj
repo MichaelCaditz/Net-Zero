@@ -29,8 +29,8 @@
     <MinimumRequiredVersion>1.1.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -65,7 +65,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.Designer.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -126,10 +126,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Compile Include="AllProjectsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,11 +152,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Geography.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Greeenhouse.cs">
+      <DependentUpon>Greeenhouse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Greeenhouse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Greeenhouse.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Infoscreens\InfoRecommendedPV.xaml.cs">
       <DependentUpon>InfoRecommendedPV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infoscreens\InfoTDRLeadAcid.xaml.cs">
       <DependentUpon>InfoTDRLeadAcid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="logon.xaml.cs">
+      <DependentUpon>logon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Masters.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -200,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Infoscreens\InfoTDRLeadAcid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="logon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,6 +313,17 @@
     </None>
     <None Include="Geography.xss">
       <DependentUpon>Geography.xsd</DependentUpon>
+    </None>
+    <None Include="Greeenhouse.xsc">
+      <DependentUpon>Greeenhouse.xsd</DependentUpon>
+    </None>
+    <None Include="Greeenhouse.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Greeenhouse.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Greeenhouse.xss">
+      <DependentUpon>Greeenhouse.xsd</DependentUpon>
     </None>
     <None Include="Masters.xsc">
       <DependentUpon>Masters.xsd</DependentUpon>

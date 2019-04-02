@@ -42,7 +42,7 @@ namespace Net_Zero
 
         private void ThemedWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            int nUserID = Settings.Default.nUserID;
 
 
             Net_Zero.AllProjectsDataSet allProjectsDataSet = ((Net_Zero.AllProjectsDataSet)(this.FindResource("allProjectsDataSet")));
@@ -51,7 +51,7 @@ namespace Net_Zero
 
 
             Net_Zero.AllProjectsDataSetTableAdapters.getAllProjectTableAdapter allProjectsDataSetgetAllProjectTableAdapter = new Net_Zero.AllProjectsDataSetTableAdapters.getAllProjectTableAdapter();
-            allProjectsDataSetgetAllProjectTableAdapter.Fill(allProjectsDataSet.getAllProject);
+            allProjectsDataSetgetAllProjectTableAdapter.Fill(allProjectsDataSet.getAllProject,nUserID);
 
 
 
