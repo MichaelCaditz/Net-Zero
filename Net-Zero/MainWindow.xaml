@@ -2069,6 +2069,7 @@
                                 <dxg:GridSummaryItem FieldName="nEnergyWh" SummaryType="Sum"/>
                                 <dxg:GridSummaryItem FieldName="nEnergykWh" SummaryType="Sum"/>
                                 <dxg:GridSummaryItem FieldName="nAnnualEnergykWh" SummaryType="Sum"/>
+                                <dxg:GridSummaryItem FieldName="nAnnualEnergymWh" SummaryType="Sum"/>
                             </dxg:GridControl.TotalSummary>
                             <dxg:GridControl.View>
                                 <dxg:TableView AllowPerPixelScrolling="True"  ShowTotalSummary="True" EditFormShowMode="Dialog" HorizontalAlignment="Left" VerticalAlignment="Top" RowUpdated="TableView_RowUpdated"/>
@@ -2176,6 +2177,18 @@
                                 <dxg:GridColumn x:Name="nAnnualEnergykWhColumn" FieldName="nAnnualEnergykWh" Header="Annual Energy kWh" Width="120">
                                     <dxg:GridColumn.EditSettings>
                                         <dxe:SpinEditSettings Increment="0.01" MaxValue="10000000" MinValue="0"  DisplayFormat="###.00" />
+                                    </dxg:GridColumn.EditSettings>
+                                    <dxg:GridColumn.HeaderStyle>
+                                        <Style TargetType="dxg:BaseGridHeader">
+                                            <!--<Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />-->
+                                            <Setter Property="Background" Value="LightSkyBlue" />
+                                            <Setter Property="Height" Value="20" />
+                                        </Style>
+                                    </dxg:GridColumn.HeaderStyle>
+                                </dxg:GridColumn>
+                                <dxg:GridColumn x:Name="nAnnualEnergymWhColumn" FieldName="nAnnualEnergymWh" Header="Annual Energy mWh" Width="120">
+                                    <dxg:GridColumn.EditSettings>
+                                        <dxe:SpinEditSettings Increment="0.01" MaxValue="10000000" MinValue="0"  DisplayFormat="#######.00" />
                                     </dxg:GridColumn.EditSettings>
                                     <dxg:GridColumn.HeaderStyle>
                                         <Style TargetType="dxg:BaseGridHeader">
@@ -3363,7 +3376,7 @@
                         <Label Content="CO2 g/kWh PV:" Grid.Column="1" HorizontalAlignment="Left" Margin="760,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnProjectkWh" DataContext="{StaticResource demandItemsViewSource}" DisplayFormatString="###.00"  HorizontalAlignment="Left" Height="23" Margin="1088,0,0,0" EditValue="{Binding AnnualEnergykWh, Mode=OneWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="1000000000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
                         <Label Content="This project kWh:" Grid.Column="1" HorizontalAlignment="Left" Margin="992,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
-                        <dxe:SpinEdit x:Name="SpinEditnSavedCO2" DisplayFormatString="#####.00"  HorizontalAlignment="Left" Height="23" Margin="1372,0,0,0"  VerticalAlignment="Top" Width="120" MaxValue="100000000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
+                        <dxe:SpinEdit x:Name="SpinEditnSavedCO2" DisplayFormatString="#####.00"  HorizontalAlignment="Left" Height="23" Margin="1372,0,0,0"  VerticalAlignment="Top" Width="120" MaxValue="100000000000" MinValue="0" Mask="######.00" Panel.ZIndex="13" Grid.Row="1" Grid.Column="1" Increment="0.01"/>
                         <Label Content="This project Saved CO2 g:" Grid.Column="1" HorizontalAlignment="Left" Margin="1234,0,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
 
                         <dx:SimpleButton Name="btnRefreshGreenhouse" HorizontalAlignment="Left" Margin="447,10,0,0" VerticalAlignment="Top"  Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis" Grid.Column="1" Grid.RowSpan="2" Click="btnRefreshGreenhouse_Click"/>
