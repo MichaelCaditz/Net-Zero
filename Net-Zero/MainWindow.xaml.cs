@@ -624,7 +624,9 @@ namespace Net_Zero
             bool bUserSpecifiedCoordinates = false;
             decimal nGMTPlusMinus = 0;
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
-
+            bool bDaylightTime = false;
+            Nullable<DateTime> dtDaylightFirst;
+            Nullable<DateTime> dtDaylightLast;
 
             System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
@@ -651,13 +653,17 @@ namespace Net_Zero
 
                 nManualLong = (SpinEditnManualLong.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnManualLong.EditValue) == true ? 0m : (decimal)SpinEditnManualLong.EditValue);
                 bUserSpecifiedCoordinates = (CheckEditbUserSpecifiedCoordinates.EditValue == null ? false : DBNull.Value.Equals(CheckEditbUserSpecifiedCoordinates.EditValue) == true ? false : (bool)CheckEditbUserSpecifiedCoordinates.EditValue);
-                nReflectance = (SpinEditnReflectance.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnReflectance.EditValue) == true ? 0m : (decimal)SpinEditnReflectance.EditValue);
+            bDaylightTime = (CheckEditbDaylightTime.EditValue == null ? false : DBNull.Value.Equals(CheckEditbDaylightTime.EditValue) == true ? false : (bool)CheckEditbDaylightTime.EditValue);
+            nReflectance = (SpinEditnReflectance.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnReflectance.EditValue) == true ? 0m : (decimal)SpinEditnReflectance.EditValue);
                 nGMTPlusMinus = (SpinEditnGMTPlusMinus.EditValue == null ? 0m : DBNull.Value.Equals(SpinEditnGMTPlusMinus.EditValue) == true ? 0m : (decimal)SpinEditnGMTPlusMinus.EditValue);
+            dtDaylightFirst = (DatePickerdtDaylightFirst.EditValue == null ? (Nullable<DateTime>)DateTime.Now : DBNull.Value.Equals(DatePickerdtDaylightFirst.EditValue) == true ? (Nullable<DateTime>)DateTime.Now :
+              (DateTime)DatePickerdtDaylightFirst.EditValue);
+            dtDaylightLast = (DatePickerdtDaylightLast.EditValue == null ? (Nullable<DateTime>)DateTime.Now : DBNull.Value.Equals(DatePickerdtDaylightLast.EditValue) == true ? (Nullable<DateTime>)DateTime.Now :
+              (DateTime)DatePickerdtDaylightLast.EditValue);
+            //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
+            //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
 
-                //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
-                //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
 
-            
 
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
@@ -677,6 +683,9 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@bUserSpecifiedCoordinates", bUserSpecifiedCoordinates);
                     cmd3.Parameters.AddWithValue("@nReflectance", nReflectance);
                     cmd3.Parameters.AddWithValue("@nGMTPlusMinus", nGMTPlusMinus);
+                    cmd3.Parameters.AddWithValue("@bDaylightTime", bDaylightTime);
+                    cmd3.Parameters.AddWithValue("@dtDaylightFirst", dtDaylightFirst);
+                    cmd3.Parameters.AddWithValue("@dtDaylightLast", dtDaylightLast);
 
 
 
