@@ -399,6 +399,11 @@ namespace Net_Zero
             MapControl10.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl11.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl12.CenterPoint = new GeoPoint(nLat, nLong);
+
+
+            enableUserCoordinates();
+
+            enableDaylight();
         }
 
         private void SimpleButton_Click(object sender, RoutedEventArgs e)
@@ -555,6 +560,42 @@ namespace Net_Zero
                 MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
+
+        public void enableUserCoordinates()
+        {
+            if (CheckEditbUserSpecifiedCoordinates.IsChecked == true)
+            {
+                SpinEditnManualLat.IsEnabled = true;
+                SpinEditnManualLong.IsEnabled = true;
+            }
+            else
+            { 
+                SpinEditnManualLat.IsEnabled = false;
+                SpinEditnManualLong.IsEnabled = false;
+
+            }
+
+
+        }
+
+        public void enableDaylight()
+        {
+            if (CheckEditbDaylightTime.IsChecked == true)
+            {
+                DatePickerdtDaylightFirst.IsEnabled = true;
+                DatePickerdtDaylightLast.IsEnabled = true;
+            }
+            else
+            {
+                DatePickerdtDaylightFirst.IsEnabled = false;
+                DatePickerdtDaylightLast.IsEnabled = false;
+
+            }
+
+
+        }
+
+ 
 
         public void fixCharts(int nMetricsResolution, Nullable<DateTime> dtBeginDate, Nullable<DateTime> dtEndDate)  
         {
@@ -4911,6 +4952,16 @@ namespace Net_Zero
 
 
 
+        }
+
+        private void CheckEditbUserSpecifiedCoordinates_Checked(object sender, RoutedEventArgs e)
+        {
+            enableUserCoordinates();
+        }
+
+        private void CheckEditbDaylightTime_Checked(object sender, RoutedEventArgs e)
+        {
+            enableDaylight();
         }
     }
 }
