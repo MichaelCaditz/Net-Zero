@@ -396,6 +396,90 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <!--<dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <!--<dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+
+
+                            <!--<dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <!--<dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>-->
+
+                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio" IsSmart="True" ReadOnly="True"  Width="120">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nDemandTotal" Header="Nominal Demand kWh/d" ReadOnly="True" IsSmart="True"  Width="120" Image="Images/China-Power-Supply-Cord32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
@@ -406,7 +490,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2/d"  ReadOnly="True"  IsSmart="True" Width="180" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn x:Name="GridColumnnInsolation" FieldName="nInsolation" Header="Chosen Insolation kWh/m^2/d"  ReadOnly="True"  IsSmart="True" Width="180">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.00" />
                                 </dxg:GridColumn.EditSettings>
@@ -426,7 +510,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
                                 </dxg:GridColumn.EditSettings>
@@ -619,90 +703,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nDeclination" Header="δ Declination ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"  IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-
-                            <!--<dxg:GridColumn FieldName="nSunAltitude0800" Header="β Altitude ⁰ 0800 ST"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>-->
-                            <dxg:GridColumn FieldName="nSunAltitude" Header="β Altitude ⁰" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <!--<dxg:GridColumn FieldName="nSunAltitude1600" Header="β Altitude ⁰ 1600 ST" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>-->
-
-
-                            <!--<dxg:GridColumn FieldName="nSunAzimuth0800" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png"  ReadOnly="True"   IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>-->
-                            <dxg:GridColumn FieldName="nSunAzimuth" Header="φ Azimuth ⁰ (S=0)"  Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"   IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
-                            <!--<dxg:GridColumn FieldName="nSunAzimuth1600" Header="φ Azimuth ⁰ 1600 ST (S=0)" Image="Images/14510469-summer-hot-sun16.png" ReadOnly="True"    IsSmart="True" Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>-->
-
-                            <dxg:GridColumn FieldName="nAirMassRatio" Header="m Air Mass Ratio" IsSmart="True" ReadOnly="True"  Width="120">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
+                           
                             <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
