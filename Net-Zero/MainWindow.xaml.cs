@@ -25,6 +25,7 @@ using DevExpress.Xpf.Map;
 using DevExpress.Charts.Designer;
 using DevExpress.Xpf.Editors;
 using Net_Zero.Infoscreens;
+using Microsoft.Win32;
 
 namespace Net_Zero
 {
@@ -350,7 +351,8 @@ namespace Net_Zero
 
 
             GridColumnPredictedInsolation.Header = predictedHeader;
-            GridColumnnIB.Header = "IB Clear-Sky Beam W/m" + "\x00B2";
+            GridColumnnIB.Header = "IB Clear-Sky (normal) Beam W/m" + "\x00B2";
+            GridColumnnDNI.Header = "DNI Emperical (normal)Beam W/m" + "\x00B2";
 
             GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam   W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
 
@@ -682,6 +684,7 @@ namespace Net_Zero
             bool bDaylightTime = false;
             Nullable<DateTime> dtDaylightFirst;
             Nullable<DateTime> dtDaylightLast;
+            string cTMYFile = "";
 
             System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvincegetAllCitygetAllInsolationViewSource")));
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
@@ -717,7 +720,7 @@ namespace Net_Zero
               (DateTime)DatePickerdtDaylightLast.EditValue);
             //account_no = (DBNull.Value.Equals(drv["account_no"]) == true ? "" : (string)drv["account_no"]);
             //address1 = (DBNull.Value.Equals(drv["address1"]) == true ? "" : (string)drv["address1"]);
-
+            cTMYFile = (TextEditcName.EditValue == null ? "" : DBNull.Value.Equals(cTMYFileTextBox.EditValue) == true ? "" : (string)cTMYFileTextBox.EditValue);
 
 
 
@@ -741,6 +744,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@bDaylightTime", bDaylightTime);
                     cmd3.Parameters.AddWithValue("@dtDaylightFirst", dtDaylightFirst);
                     cmd3.Parameters.AddWithValue("@dtDaylightLast", dtDaylightLast);
+                    cmd3.Parameters.AddWithValue("@cTMYFile", cTMYFile);
 
 
 
@@ -4996,6 +5000,69 @@ namespace Net_Zero
         private void CheckEditbDaylightTime_Checked(object sender, RoutedEventArgs e)
         {
             enableDaylight();
+        }
+
+        private void SimpleButtonLocateTMY_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.csv)|*.csv*";
+            openFileDialog.InitialDirectory = @"C:\Users\michael.MICHAELCADITZ\OneDrive\Net-Zero\TMY\";
+            if (openFileDialog.ShowDialog() == true)
+                cTMYFileTextBox.EditValue=openFileDialog.FileName;
+        }
+
+        private void SimpleButtonApply_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
+            try
+            {
+
+                using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
+                {
+                    //cmd3.Transaction = trans1;
+                    cmd3.Parameters.Clear();
+                    cmd3.CommandText = "[dbo].[CreateTMY]";
+
+                    cmd3.Parameters.AddWithValue("@TMYFilename", cTMYFileTextBox.EditValue);
+                 
+
+                    //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
+                    //retval.Direction = ParameterDirection.Output;
+                    conn.Open();
+                    cmd3.ExecuteNonQuery();
+                    //TransactID1 = (int)cmd3.Parameters["@transactIdentity"].Value;
+                }
+
+
+
+
+            }
+
+
+            catch (Exception ex)
+            {
+                //utilities.errorLog(System.Reflection.MethodInfo.GetCurrentMethod().Name, ex);
+                System.ArgumentException argEx = new System.ArgumentException("New Line", "", ex);
+                throw argEx;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open) conn.Close();
+
+                ////registerDataSet.EnforceConstraints = false;
+                //Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+                //batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
+                //batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
+                //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
+                // registerDataSet.EnforceConstraints = true;
+
+                //uSP_getLineDataGrid.
+
+                //uSP_getAllAccountTypesUSP_getAllAccountsViewSource.View.MoveCurrentToPosition(0);
+
+                //resetButtons();
+                //LocateNewLineBatterySeriesString(TransactID1);
+            }
         }
     }
 }

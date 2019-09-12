@@ -744,7 +744,19 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnIB" FieldName="nIB" Header="IB Clear Sky Beam (normal) W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+
+                            <dxg:GridColumn x:Name="GridColumnnDNI" FieldName="nIB" Header="Emperical DNI (normal) W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1889,6 +1901,7 @@
                         <Label Content="Time Zone GMT +-" HorizontalAlignment="Left" Margin="1070,27,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnGMTPlusMinus" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="00.00"  HorizontalAlignment="Left" Height="23" Margin="1069,9,0,0" EditValue="{Binding nGMTPlusMinus, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="00.00" Panel.ZIndex="13" Increment=".25"/>
                         <dxe:TextEdit x:Name="cTMYFileTextBox" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Height="24" Margin="1469,8,0,0" Text="{Binding cTMYFile, Mode=OneWay}" VerticalAlignment="Top" Width="237" Background="#FFF0F0F0"/>
+                        <dx:SimpleButton x:Name="SimpleButtonLocateTMY" HorizontalAlignment="Left" Margin="1469,0,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=LoadFrom_32x32.png}" ToolTip="Locate TMY file" Grid.Row="1" Click="SimpleButtonLocateTMY_Click"/>
 
 
                         <dxe:CheckEdit x:Name="CheckEditbDaylightTime" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bDaylightTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="1219,10,0,0" VerticalAlignment="Top" Width="109" Content="Daylight Time" Foreground="White" Checked="CheckEditbDaylightTime_Checked" Unchecked="CheckEditbDaylightTime_Checked"/>
@@ -1896,6 +1909,8 @@
                         <dxe:DateEdit x:Name="DatePickerdtDaylightLast" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Margin="1315,3,0,0" EditValue="{Binding dtDaylightLast, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="0" Width="134" ShowToday="False" Mask="MM-dd" DisplayFormatString="MM-dd"/>
                         <Label Content="First Day" HorizontalAlignment="Left" Margin="1315,27,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Label Content="Last Day" HorizontalAlignment="Left" Margin="1315,24,0,0" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
+                        <Label Content="TMY File" HorizontalAlignment="Left" Margin="1469,27,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <dx:SimpleButton x:Name="SimpleButtonApply" HorizontalAlignment="Left" Margin="1528,0,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Save_32x32.png}" ToolTip="Import TMY file" Grid.Row="1" Click="SimpleButtonApply_Click"/>
 
 
 
