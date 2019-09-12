@@ -703,7 +703,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                           
+
                             <dxg:GridColumn FieldName="nASHRAE_A" Header="ASHRAE A" IsSmart="True"  ReadOnly="True" Width="120">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -1888,6 +1888,9 @@
                         <Label Content="Ground Reflectance" HorizontalAlignment="Left" Margin="601,27,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <Label Content="Time Zone GMT +-" HorizontalAlignment="Left" Margin="1070,27,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnGMTPlusMinus" DataContext="{StaticResource getProjectViewSource}" DisplayFormatString="00.00"  HorizontalAlignment="Left" Height="23" Margin="1069,9,0,0" EditValue="{Binding nGMTPlusMinus, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" MaxValue="180" MinValue="-180" Mask="00.00" Panel.ZIndex="13" Increment=".25"/>
+                        <dxe:TextEdit x:Name="cTMYFileTextBox" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Height="24" Margin="1469,8,0,0" Text="{Binding cTMYFile, Mode=OneWay}" VerticalAlignment="Top" Width="237" Background="#FFF0F0F0"/>
+
+
                         <dxe:CheckEdit x:Name="CheckEditbDaylightTime" DataContext="{StaticResource getProjectViewSource}" EditValue="{Binding bDaylightTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="1219,10,0,0" VerticalAlignment="Top" Width="109" Content="Daylight Time" Foreground="White" Checked="CheckEditbDaylightTime_Checked" Unchecked="CheckEditbDaylightTime_Checked"/>
                         <dxe:DateEdit x:Name="DatePickerdtDaylightFirst" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Margin="1315,10,0,0" EditValue="{Binding dtDaylightFirst, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="0" Grid.Column="0" Width="134" ShowToday="False" Mask="MM-dd" DisplayFormatString="MM-dd"/>
                         <dxe:DateEdit x:Name="DatePickerdtDaylightLast" DataContext="{StaticResource getProjectViewSource}" HorizontalAlignment="Left" Margin="1315,3,0,0" EditValue="{Binding dtDaylightLast, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Panel.ZIndex="3" Grid.Row="1" Grid.Column="0" Width="134" ShowToday="False" Mask="MM-dd" DisplayFormatString="MM-dd"/>

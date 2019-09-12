@@ -142,10 +142,21 @@ namespace Net_Zero.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BURRARD;Initial Catalog=Net-Zero;Integrated Security=True")]
-        public string Net_ZeroConnectionStringBurrard {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BURRARD;Initial Catalog=Net-Zero;Integrated Security=True,USER ID=MIC" +
+            "HAELCADITZ\\Michael")]
+        public string NetZeroConnectionStringBurrard {
             get {
-                return ((string)(this["Net_ZeroConnectionStringBurrard"]));
+                return ((string)(this["NetZeroConnectionStringBurrard"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BURRARD;Initial Catalog=NetZero;Integrated Security=True")]
+        public string NetZeroConnectionString {
+            get {
+                return ((string)(this["NetZeroConnectionString"]));
             }
         }
     }

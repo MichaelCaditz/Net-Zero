@@ -156,6 +156,8 @@ namespace Net_Zero
 
             Net_Zero.DemandDataSet demandDataSet = ((Net_Zero.DemandDataSet)(this.FindResource("demandDataSet")));
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
+            demandDataSetdemandItemsTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
+
             demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource demandItemsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("demandItemsViewSource")));
             demandItemsViewSource.View.MoveCurrentToFirst();
@@ -165,6 +167,7 @@ namespace Net_Zero
             Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
             Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
+            summaryDataSetgetSummaryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getSummaryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getSummaryViewSource")));
             getSummaryViewSource.View.MoveCurrentToFirst();
@@ -172,6 +175,7 @@ namespace Net_Zero
 
             Net_Zero.Geography geography = ((Net_Zero.Geography)(this.FindResource("geography")));
             Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter geographygetAllCountriesTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCountriesTableAdapter();
+            geographygetAllCountriesTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             geographygetAllCountriesTableAdapter.Fill(geography.getAllCountries);
             System.Windows.Data.CollectionViewSource getAllCountriesViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesViewSource")));
             getAllCountriesViewSource.View.MoveCurrentToFirst();
@@ -180,6 +184,7 @@ namespace Net_Zero
 
 
             Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter geographygetAllStateProvinceTableAdapter = new Net_Zero.GeographyTableAdapters.getAllStateProvinceTableAdapter();
+            geographygetAllStateProvinceTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             geographygetAllStateProvinceTableAdapter.Fill(geography.getAllStateProvince);
             System.Windows.Data.CollectionViewSource getAllCountriesgetAllStateProvinceViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getAllCountriesgetAllStateProvinceViewSource")));
             getAllCountriesgetAllStateProvinceViewSource.View.MoveCurrentToFirst();
@@ -188,12 +193,15 @@ namespace Net_Zero
 
 
             Net_Zero.GeographyTableAdapters.getAllCityTableAdapter geographygetAllCityTableAdapter = new Net_Zero.GeographyTableAdapters.getAllCityTableAdapter();
+            geographygetAllCityTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             geographygetAllCityTableAdapter.Fill(geography.getAllCity);
 
             Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter geographygetAllInsolationTableAdapter = new Net_Zero.GeographyTableAdapters.getAllInsolationTableAdapter();
+            geographygetAllInsolationTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             geographygetAllInsolationTableAdapter.Fill(geography.getAllInsolation);
 
             Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+            summaryDataSetgetProjectTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
@@ -213,6 +221,7 @@ namespace Net_Zero
 
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
             Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getPVViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVViewSource")));
             getPVViewSource.View.MoveCurrentToFirst();
@@ -221,6 +230,7 @@ namespace Net_Zero
             Net_Zero.Battery battery = ((Net_Zero.Battery)(this.FindResource("battery")));
 
             Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nCurrentProjectID);
             System.Windows.Data.CollectionViewSource getBatterySeriesStringViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatterySeriesStringViewSource")));
             getBatterySeriesStringViewSource.View.MoveCurrentToFirst();
@@ -228,6 +238,7 @@ namespace Net_Zero
 
 
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             getBatteryTableAdapter.Fill(battery.getBattery, nCurrentProjectID);
             //System.Windows.Data.CollectionViewSource getBatteryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryViewSource")));
 
@@ -257,10 +268,12 @@ namespace Net_Zero
 
             Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
             Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
+            mastersgetPVMasterTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             mastersgetPVMasterTableAdapter.Fill(masters.getPVMaster);
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
             getPVMasterViewSource.View.MoveCurrentToFirst();
             Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter mastersgetBatteryMasterTableAdapter = new Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter();
+            mastersgetBatteryMasterTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             mastersgetBatteryMasterTableAdapter.Fill(masters.getBatteryMaster);
             System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
             getBatteryMasterViewSource.View.MoveCurrentToFirst();
@@ -468,6 +481,7 @@ namespace Net_Zero
                 // This code could not be generated, because the summaryDataSetgetSummaryTableAdapter.Fill method is missing, or has unrecognized parameters.
 
                 Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter summaryDataSetgetSummaryTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getSummaryTableAdapter();
+                summaryDataSetgetSummaryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                 summaryDataSetgetSummaryTableAdapter.Fill(summaryDataSet.getSummary, nCurrentProjectID);
 
 
@@ -1274,10 +1288,12 @@ namespace Net_Zero
             // registerDataSet.EnforceConstraints = false;
 
             Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
             //registerDataSet.EnforceConstraints = true;
 
             Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
 
 
@@ -1403,7 +1419,7 @@ namespace Net_Zero
 
                 //registerDataSet.EnforceConstraints = false;
                 Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
-
+                batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                 batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
                 //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
                 // registerDataSet.EnforceConstraints = true;
@@ -1521,7 +1537,7 @@ namespace Net_Zero
 
                 //registerDataSet.EnforceConstraints = false;
                 Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
-
+                batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                 batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
                 //registerDataSetUSP_getLineTableAdapter.Fill(registerDataSet.USP_getLine, accountCurrent);
                 // registerDataSet.EnforceConstraints = true;
@@ -1707,6 +1723,7 @@ namespace Net_Zero
 
                 //registerDataSet.EnforceConstraints = false;
                 Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+                getBatteryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                 getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
                 //resetButtons();
                 LocateNewLineBattery(TransactID1);
@@ -2346,6 +2363,7 @@ namespace Net_Zero
                     Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
 
                     Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+                    summaryDataSetgetProjectTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nCurrentProjectID);
                     System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
                     getProjectViewSource.View.MoveCurrentToFirst();
@@ -2823,6 +2841,7 @@ namespace Net_Zero
             // registerDataSet.EnforceConstraints = false;
 
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
@@ -3036,6 +3055,7 @@ namespace Net_Zero
                         if (conn1.State == ConnectionState.Open) conn1.Close();
 
                     Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+                    pVDataSetgetPVTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
                 }
 
@@ -3147,6 +3167,7 @@ namespace Net_Zero
                     if (conn1.State == ConnectionState.Open) conn1.Close();
 
                     Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
+                    demandDataSetdemandItemsTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nProjectsID);
 
                 }
@@ -3177,9 +3198,11 @@ namespace Net_Zero
 
 
             Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter demandDataSetdemandItemsTableAdapter = new Net_Zero.DemandDataSetTableAdapters.demandItemsTableAdapter();
+            demandDataSetdemandItemsTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             demandDataSetdemandItemsTableAdapter.Fill(demandDataSet.demandItems, nProjectsID);
 
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             getBatteryTableAdapter.Fill(battery.getBattery, nProjectsID);
             Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
@@ -3232,6 +3255,7 @@ namespace Net_Zero
             PVMasterList1.ShowDialog();
             Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
             Net_Zero.MastersTableAdapters.getPVMasterTableAdapter mastersgetPVMasterTableAdapter = new Net_Zero.MastersTableAdapters.getPVMasterTableAdapter();
+            mastersgetPVMasterTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             mastersgetPVMasterTableAdapter.Fill(masters.getPVMaster);
             System.Windows.Data.CollectionViewSource getPVMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getPVMasterViewSource")));
             getPVMasterViewSource.View.MoveCurrentToFirst();
@@ -3247,6 +3271,8 @@ namespace Net_Zero
             Net_Zero.Masters masters = ((Net_Zero.Masters)(this.FindResource("masters")));
           
             Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter mastersgetBatteryMasterTableAdapter = new Net_Zero.MastersTableAdapters.getBatteryMasterTableAdapter();
+            mastersgetBatteryMasterTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
+
             mastersgetBatteryMasterTableAdapter.Fill(masters.getBatteryMaster);
             System.Windows.Data.CollectionViewSource getBatteryMasterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getBatteryMasterViewSource")));
             getBatteryMasterViewSource.View.MoveCurrentToFirst();
@@ -3357,10 +3383,12 @@ namespace Net_Zero
             // registerDataSet.EnforceConstraints = false;
 
             Net_Zero.PVDataSetTableAdapters.getPVTableAdapter pVDataSetgetPVTableAdapter = new Net_Zero.PVDataSetTableAdapters.getPVTableAdapter();
+            pVDataSetgetPVTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             pVDataSetgetPVTableAdapter.Fill(pVDataSet.getPV, nProjectsID);
             //registerDataSet.EnforceConstraints = true;
 
             Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, nProjectsID);
 
 
@@ -3489,8 +3517,10 @@ namespace Net_Zero
             //registerDataSet.EnforceConstraints = true;
 
             Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter batterygetBatterySeriesStringTableAdapter = new Net_Zero.BatteryTableAdapters.getBatterySeriesStringTableAdapter();
+            batterygetBatterySeriesStringTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             batterygetBatterySeriesStringTableAdapter.Fill(battery.getBatterySeriesString, Settings.Default.nCurrentProjectID);
             Net_Zero.BatteryTableAdapters.getBatteryTableAdapter getBatteryTableAdapter = new Net_Zero.BatteryTableAdapters.getBatteryTableAdapter();
+            getBatteryTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             getBatteryTableAdapter.Fill(battery.getBattery, Settings.Default.nCurrentProjectID);
             // Net_Zero.PVDataSet pVDataSet = ((Net_Zero.PVDataSet)(this.FindResource("pVDataSet")));
 
@@ -3980,6 +4010,7 @@ namespace Net_Zero
 
             Net_Zero.SummaryDataSet summaryDataSet = ((Net_Zero.SummaryDataSet)(this.FindResource("summaryDataSet")));
             Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter summaryDataSetgetProjectTableAdapter = new Net_Zero.SummaryDataSetTableAdapters.getProjectTableAdapter();
+            summaryDataSetgetProjectTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
             summaryDataSetgetProjectTableAdapter.Fill(summaryDataSet.getProject, nProjectsID);
             System.Windows.Data.CollectionViewSource getProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getProjectViewSource")));
             getProjectViewSource.View.MoveCurrentToFirst();
@@ -4884,6 +4915,7 @@ namespace Net_Zero
                     grdGreenhouseGrouped.Visibility=Visibility.Hidden;
 
                     Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter greeenhousegetEDGAR_to_SQLTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQLTableAdapter();
+                    greeenhousegetEDGAR_to_SQLTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     greeenhousegetEDGAR_to_SQLTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL);
                     System.Windows.Data.CollectionViewSource getEDGAR_to_SQLViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQLViewSource")));
                     getEDGAR_to_SQLViewSource.View.MoveCurrentToFirst();
@@ -4898,12 +4930,14 @@ namespace Net_Zero
                     grdGreenhouseGrouped.Visibility = Visibility.Visible;
                     grdGreenhouseGrouped.BringIntoView();
                     Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQL_groupedTableAdapter greeenhousegetEDGAR_to_SQL_groupedTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEDGAR_to_SQL_groupedTableAdapter();
+                    greeenhousegetEDGAR_to_SQL_groupedTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     greeenhousegetEDGAR_to_SQL_groupedTableAdapter.Fill(greeenhouse.getEDGAR_to_SQL_grouped);
                     System.Windows.Data.CollectionViewSource getEDGAR_to_SQL_groupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEDGAR_to_SQL_groupedViewSource")));
                     getEDGAR_to_SQL_groupedViewSource.View.MoveCurrentToFirst();
 
                     
                     Net_Zero.GreeenhouseTableAdapters.getEdgarPivotGroupedTableAdapter greeenhousegetEdgarPivotGroupedTableAdapter = new Net_Zero.GreeenhouseTableAdapters.getEdgarPivotGroupedTableAdapter();
+                    greeenhousegetEdgarPivotGroupedTableAdapter.Connection.ConnectionString = ProgramSettings.net_zeroconnectionString;
                     greeenhousegetEdgarPivotGroupedTableAdapter.Fill(greeenhouse.getEdgarPivotGrouped);
                     System.Windows.Data.CollectionViewSource getEdgarPivotGroupedViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("getEdgarPivotGroupedViewSource")));
                     getEdgarPivotGroupedViewSource.View.MoveCurrentToFirst();
