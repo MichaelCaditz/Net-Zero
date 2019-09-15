@@ -236,6 +236,10 @@
                             <dxe:ComboBoxEditItem Content="Latitude Minus 15 Deg"/>
                             <dxe:ComboBoxEditItem Content="Latitude"/>
                             <dxe:ComboBoxEditItem Content="Latitude Plus 15 Deg"/>
+                            <dxe:ComboBoxEditItem Content="1 Axis Track HNS"/>
+                            <dxe:ComboBoxEditItem Content="1 Axis Track HEW"/>
+                            <dxe:ComboBoxEditItem Content="1 Axis Track PNS"/>
+                            <dxe:ComboBoxEditItem Content="1 Axis Track VERT"/>
                             <dxe:ComboBoxEditItem Content="2 Axis Track"/>
                             <dxe:ComboBoxEditItem Content="Custom"/>
                         </dxe:ComboBoxEdit>
@@ -510,7 +514,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Tilt"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Track System"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
                                 </dxg:GridColumn.EditSettings>
@@ -530,16 +534,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="nChosenAzimuth" Header="φ PV Azimuth ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
-                                <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings  DisplayFormat="000.000"/>
-                                </dxg:GridColumn.EditSettings>
-                                <dxg:GridColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
-                                    </DataTemplate>
-                                </dxg:GridColumn.HeaderTemplate>
-                            </dxg:GridColumn>
+                            
                             <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="120" Image="Images/tilt1_32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
@@ -560,7 +555,37 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nChosenAzimuth" Header="φ PV Azimuth ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
 
+                            <dxg:GridColumn FieldName="nSunAzimuth" Header="Optimum Azimuth ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn FieldName="nAzimuthError" Header="Azimuth Error ⁰"  ReadOnly="True"   IsSmart="True" Width="120" Image="Images/tilt1_32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings  DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
 
                             <dxg:GridColumn FieldName="nRequiredPV" Header="PV Required kW" IsSmart="True"  ReadOnly="True"  Width="120" Image="Images/pvPanelBlue32.png">
                                 <dxg:GridColumn.EditSettings>
@@ -799,7 +824,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnGHI" FieldName="nGHI" Header="DHI Emperical Global (horiz) W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnGHI" FieldName="nGHI" Header="GHI Emperical Global (horiz) W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>

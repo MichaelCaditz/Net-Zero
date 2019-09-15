@@ -341,6 +341,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDNI" msprop:Generator_ColumnVarNameInTable="columnnDNI" msprop:Generator_ColumnPropNameInRow="nDNI" msprop:Generator_ColumnPropNameInTable="nDNIColumn" msprop:Generator_UserColumnName="nDNI" type="xs:decimal" minOccurs="0" />
               <xs:element name="nDHI" msprop:Generator_ColumnVarNameInTable="columnnDHI" msprop:Generator_ColumnPropNameInRow="nDHI" msprop:Generator_ColumnPropNameInTable="nDHIColumn" msprop:Generator_UserColumnName="nDHI" type="xs:decimal" minOccurs="0" />
               <xs:element name="nGHI" msprop:Generator_ColumnVarNameInTable="columnnGHI" msprop:Generator_ColumnPropNameInRow="nGHI" msprop:Generator_ColumnPropNameInTable="nGHIColumn" msprop:Generator_UserColumnName="nGHI" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nAzimuthError" msdata:ReadOnly="true" msdata:Expression="nChosenAzimuth-nSunAzimuth" msprop:Generator_ColumnVarNameInTable="columnnAzimuthError" msprop:Generator_ColumnPropNameInRow="nAzimuthError" msprop:Generator_ColumnPropNameInTable="nAzimuthErrorColumn" msprop:Generator_UserColumnName="nAzimuthError" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

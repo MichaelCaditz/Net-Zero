@@ -359,6 +359,7 @@ namespace Net_Zero {
             this.getSummary.nTOTAL_VERTColumn.Expression = "nIBC_VERT+nIDC_VERT+nIRC_VERT";
             this.getSummary.nTOTAL_PNSColumn.Expression = "nIBC_PNS+nIDC_PNS+nIRC_PNS";
             this.getSummary.nTOTAL2Column.Expression = "nIBC2+nIDC2+nIRC2";
+            this.getSummary.nAzimuthErrorColumn.Expression = "nChosenAzimuth-nSunAzimuth";
             this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,(nDemandTo" +
                 "tal*nDemandQty)/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolatio" +
                 "n),0)";
@@ -556,6 +557,8 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnDHI;
             
             private global::System.Data.DataColumn columnnGHI;
+            
+            private global::System.Data.DataColumn columnnAzimuthError;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1281,6 +1284,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nAzimuthErrorColumn {
+                get {
+                    return this.columnnAzimuthError;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1400,7 +1411,8 @@ namespace Net_Zero {
                         bool bIsDT, 
                         decimal nDNI, 
                         decimal nDHI, 
-                        decimal nGHI) {
+                        decimal nGHI, 
+                        decimal nAzimuthError) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1487,7 +1499,8 @@ namespace Net_Zero {
                         bIsDT,
                         nDNI,
                         nDHI,
-                        nGHI};
+                        nGHI,
+                        nAzimuthError};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1650,7 +1663,8 @@ namespace Net_Zero {
                         bIsDT,
                         nDNI,
                         nDHI,
-                        nGHI};
+                        nGHI,
+                        null};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1765,6 +1779,7 @@ namespace Net_Zero {
                 this.columnnDNI = base.Columns["nDNI"];
                 this.columnnDHI = base.Columns["nDHI"];
                 this.columnnGHI = base.Columns["nGHI"];
+                this.columnnAzimuthError = base.Columns["nAzimuthError"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1940,6 +1955,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnDHI);
                 this.columnnGHI = new global::System.Data.DataColumn("nGHI", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnGHI);
+                this.columnnAzimuthError = new global::System.Data.DataColumn("nAzimuthError", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnAzimuthError);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -1965,6 +1982,7 @@ namespace Net_Zero {
                 this.columnnTOTAL_VERT.ReadOnly = true;
                 this.columnnTOTAL_PNS.ReadOnly = true;
                 this.columnnTOTAL2.ReadOnly = true;
+                this.columnnAzimuthError.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2005,6 +2023,7 @@ namespace Net_Zero {
                 this.nTOTAL_VERTColumn.Expression = "nIBC_VERT+nIDC_VERT+nIRC_VERT";
                 this.nTOTAL_PNSColumn.Expression = "nIBC_PNS+nIDC_PNS+nIRC_PNS";
                 this.nTOTAL2Column.Expression = "nIBC2+nIDC2+nIRC2";
+                this.nAzimuthErrorColumn.Expression = "nChosenAzimuth-nSunAzimuth";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5042,6 +5061,22 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nAzimuthError {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nAzimuthErrorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nAzimuthError\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nAzimuthErrorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -6046,6 +6081,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnGHINull() {
                 this[this.tablegetSummary.nGHIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnAzimuthErrorNull() {
+                return this.IsNull(this.tablegetSummary.nAzimuthErrorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnAzimuthErrorNull() {
+                this[this.tablegetSummary.nAzimuthErrorColumn] = global::System.Convert.DBNull;
             }
         }
         
