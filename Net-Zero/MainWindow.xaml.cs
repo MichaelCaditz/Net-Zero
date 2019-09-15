@@ -351,15 +351,23 @@ namespace Net_Zero
 
 
             GridColumnPredictedInsolation.Header = predictedHeader;
-            GridColumnnIB.Header = "IB Clear-Sky (normal) Beam W/m" + "\x00B2";
-            GridColumnnDNI.Header = "DNI Emperical (normal)Beam W/m" + "\x00B2";
+
+            GridColumnnIB.Header = "IB Clear-Sky Beam (normal) W/m" + "\x00B2";
+            GridColumnnDNI.Header = "DNI Emperical Beam (normal) W/m" + "\x00B2";
+            GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam (horiz) W/m" + "\x00B2";
+
+            GridColumnnDiffuseCollectorHorizontal.Header = "IDH Clear Sky Diffuse (horiz) W/m" + "\x00B2";
+            GridColumnnDHI.Header = "DHI Emperical Diffuse (horiz) W/m" + "\x00B2";
+            GridColumnnGHI.Header = "GHI Emperical Global (horiz) W/m" + "\x00B2";
+
+
 
             GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam   W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
 
 
-            GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam Horizontal Collector W/m" + "\x00B2";
+            
             GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam W/m" + "\x00B2 " + cChosenTilt + " "+ cChosenAzimuth;
-            GridColumnnDiffuseCollectorHorizontal.Header = "IDH Diffuse Clear Sky Beam Horizontal Collector W/m" + "\x00B2";
+            
             GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
             GridColumnnTOTAL_fixed.Header = "IC Total Clear-Sky Insolation W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth ;
 
@@ -427,6 +435,8 @@ namespace Net_Zero
             int nCurrentProjectID = Settings.Default.nCurrentProjectID;
             Nullable<DateTime> beginDate;
             Nullable<DateTime> endDate;
+
+            string cTMYFileName = "";
             //beginDate = (DateEditStartDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditStartDate.EditValue) == true ? (Nullable<DateTime>)null :
             //   (DateTime)DateEditStartDate.EditValue);
             //endDate = (DateEditEndDate.EditValue == null ? (Nullable<DateTime>)null : DBNull.Value.Equals(DateEditEndDate.EditValue) == true ? (Nullable<DateTime>)null :
@@ -438,8 +448,8 @@ namespace Net_Zero
                (DateTime)DateEditEndDate.EditValue);
             int nMetricsResolution = ListBoxEditnMetricsResolution.SelectedIndex;
             int nMetricsHour = ListBoxEditnMetricsHour.SelectedIndex;
+            cTMYFileName = (TextEditcName.EditValue == null ? "" : DBNull.Value.Equals(cTMYFileTextBox.EditValue) == true ? "" : (string)cTMYFileTextBox.EditValue);
 
-            
 
             //((XYDiagram2D)SummaryChart1.Diagram).AxisX.DateTimeScaleOptions=AggregateFunctionProperty.;
 
@@ -449,9 +459,9 @@ namespace Net_Zero
             //((AxisX2D)SummaryChart1.Diagram.).AxisX.DateTimeScaleOptions = AggregateFunctionProperty.;
             //diagram.AxisX.DateTimeScaleOptions= DevExpress.Xpf.Charts.AggregateFunction.Average;
 
-            
 
-           
+
+
 
 
             SqlConnection conn = new SqlConnection() { ConnectionString = ProgramSettings.net_zeroconnectionString };
@@ -469,6 +479,7 @@ namespace Net_Zero
                     cmd3.Parameters.AddWithValue("@endDate", endDate);
                     cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
                     cmd3.Parameters.AddWithValue("@nMetricsHour",nMetricsHour);
+                    cmd3.Parameters.AddWithValue("@TMYFilename",cTMYFileName);
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
                     //retval.Direction = ParameterDirection.Output;
@@ -5019,11 +5030,15 @@ namespace Net_Zero
 
                 using (SqlCommand cmd3 = new SqlCommand() { Connection = conn, CommandType = CommandType.StoredProcedure })
                 {
+
+                   string cTMYFile = (TextEditcName.EditValue == null ? "" : DBNull.Value.Equals(cTMYFileTextBox.EditValue) == true ? "" : (string)cTMYFileTextBox.EditValue);
+
+
                     //cmd3.Transaction = trans1;
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "[dbo].[CreateTMY]";
 
-                    cmd3.Parameters.AddWithValue("@TMYFilename", cTMYFileTextBox.EditValue);
+                    cmd3.Parameters.AddWithValue("@TMYFilename", cTMYFile);
                  
 
                     //SqlParameter retval = cmd3.Parameters.Add("@transactIdentity", SqlDbType.Int);
