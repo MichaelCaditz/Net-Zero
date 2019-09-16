@@ -272,7 +272,7 @@
                         <dxe:TextEdit IsReadOnly="True" x:Name="TextBoxnLongDemand" DisplayFormatString="###.00000" HorizontalAlignment="Left" Height="23" Margin="607,253,0,0" Text="{Binding nLongDemand, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" Background="#FFF0F0F0" Grid.Row="1" Grid.Column="1"/>
                         <Label Content="Chosen Array Azimuth 0=S" HorizontalAlignment="Left" Margin="251,566,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnChosenAzimuth" DisplayFormatString="000.00"  EditValue="{Binding nChosenAzimuth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="251,544,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="360" Mask="000.00" Panel.ZIndex="7" Grid.Row="1" Grid.Column="1"/>
-                        <Label Content="Custom Tilt" Grid.Column="1" HorizontalAlignment="Left" Margin="21,615,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
+                        <Label Content="Custom or 1 Axis  VERT Tilt" Grid.Column="1" HorizontalAlignment="Left" Margin="21,615,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="White"/>
                         <dxe:SpinEdit x:Name="SpinEditnCustomTilt" EditValue="{Binding nCustomTilt, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="21,593,0,0" VerticalAlignment="Top" Width="150" Increment="0.01" MinValue="0" MaxValue="360" Mask="000.00" Panel.ZIndex="15" Grid.Row="1" Grid.Column="1">
 
                         </dxe:SpinEdit>
@@ -321,7 +321,7 @@
                         <dx:SimpleButton HorizontalAlignment="Left" Margin="731,13,0,0" VerticalAlignment="Top" Click="SimpleButton_Click" Glyph="{dx:DXImage Image=Refresh_32x32.png}" ToolTip="Refresh analysis"/>
                         <dxe:DateEdit x:Name="DateEditStartDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryStartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="24,13,0,0" VerticalAlignment="Top" Width="150"/>
                         <dxe:DateEdit x:Name="DateEditEndDate" DataContext="{StaticResource getProjectViewSource}"  EditValue="{Binding dtSummaryEndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="192,13,0,0" VerticalAlignment="Top" Width="150"/>
-                        <dxg:GridControl x:Name="GridControlData" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="20,0,0,0" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1694">
+                        <dxg:GridControl x:Name="GridControlData" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="21,0,0,0" ItemsSource="{Binding Source={StaticResource getSummaryViewSource}}" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1694">
                             <dxg:GridControl.View>
                                 <dxg:TableView x:Name="TableViewData" AllowPerPixelScrolling="True"  ShowDragDropHint="False" ShowFilterPanelMode="Never" ShowGroupPanel="False" Margin="0" HeaderPanelMinHeight="30"/>
 
@@ -514,7 +514,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Track System"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Track System"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />
                                 </dxg:GridColumn.EditSettings>
@@ -534,7 +534,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                            
+
                             <dxg:GridColumn FieldName="nOptimumTilt" Header="Optimum Tilt ⁰" ReadOnly="True"    IsSmart="True" Width="120" Image="Images/tilt1_32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  DisplayFormat="##.0000"/>
@@ -845,7 +845,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                           
+
                             <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -856,7 +856,7 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
-                           
+
                             <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -868,7 +868,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="nTOTAL_fixed" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="IC Total Clear-Sky Insolation W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -901,7 +901,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnIDC_HNS" FieldName="nIDC_HNS" Header="IDC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnIDC_HNS" FieldName="nIDC_HNS" Header="IDC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -923,7 +923,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_HNS" FieldName="nTOTAL_HNS" Header="IRC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_HNS" FieldName="nTOTAL_HNS" Header="IC Total Clear-Sky Insolation HNS One-Axis Track North-South Collector W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -980,7 +980,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_HEW" FieldName="nTOTAL_HEW" Header="TOTAL_HEW" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_HEW" FieldName="nTOTAL_HEW" Header="IC Total Clear-Sky Insolation HEW One-Axis Track East-West Collector W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1034,7 +1034,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_VERT" FieldName="nTOTAL_VERT" Header="TOTAL_VERT" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_VERT" FieldName="nTOTAL_VERT" Header="IC Total Clear-Sky Insolation VERT One-Axis Track" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1088,7 +1088,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_PNS" FieldName="nTOTAL_PNS" Header="TOTAL_PNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_PNS" FieldName="nTOTAL_PNS" Header="IC Total Clear-Sky Insolation PNS One-Axis Track South-Facing Collector W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1132,7 +1132,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL2" FieldName="nTOTAL2" Header="TOTAL2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL2" FieldName="nTOTAL2" Header="IC Total Clear-Sky Insolation Two-Axis Track W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
