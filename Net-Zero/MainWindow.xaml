@@ -1617,7 +1617,7 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation Tracking Comparison"  Glyph="Images/beamOnCollector32.png" Tag="RadiationChartTOTALS">
+                            <dx:DXTabItem Header="Clear Sky Tracking Comparison W/m^2"  Glyph="Images/beamOnCollector32.png" Tag="RadiationChartTOTALS">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartTOTALS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" ToolTipEnabled="False">
                                         <dxc:ChartControl.Legends>
@@ -1639,36 +1639,36 @@
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                                            <dxc:LineSeries2D DisplayName="IB Clear Sky Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
-                                            <dxc:LineSeries2D DisplayName="Fixed Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_fixed">
+                                            <dxc:LineSeries2D DisplayName="IB Beam (normal) W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
+                                            <dxc:LineSeries2D DisplayName="Selected tracking total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_fixed">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
-                                            <dxc:LineSeries2D DisplayName="One-Axis HNS W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HNS">
+                                            <dxc:LineSeries2D DisplayName="One-Axis HNS total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HNS">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
-                                            <dxc:LineSeries2D DisplayName="One-Axis HEW W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HEW">
-                                                <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
-                                                </dxc:LineSeries2D.LineStyle>
-                                            </dxc:LineSeries2D>
-
-                                            <dxc:LineSeries2D DisplayName="One-Axis VERT W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_VERT">
+                                            <dxc:LineSeries2D DisplayName="One-Axis HEW total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HEW">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
 
-                                            <dxc:LineSeries2D DisplayName="One-Axis PNS W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_PNS">
+                                            <dxc:LineSeries2D DisplayName="One-Axis VERT total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_VERT">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
 
-                                            <dxc:LineSeries2D DisplayName="Two-Axis W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL2">
+                                            <dxc:LineSeries2D DisplayName="One-Axis PNS total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_PNS">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+
+                                            <dxc:LineSeries2D DisplayName="Two-Axis total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL2">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
@@ -1681,12 +1681,13 @@
                             </dx:DXTabItem>
                         </dx:DXTabControl>
                         <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="356,38,0,0" VerticalAlignment="Top" Foreground="White"/>
-                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="45" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}" SelectedIndexChanged="ListBoxEditnMetricsResolution_SelectedIndexChanged">
+                        <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="67" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}" SelectedIndexChanged="ListBoxEditnMetricsResolution_SelectedIndexChanged">
                             <dxe:ListBoxEdit.StyleSettings>
                                 <dxe:RadioListBoxEditStyleSettings/>
                             </dxe:ListBoxEdit.StyleSettings>
                             <dxe:ListBoxEditItem Content="Daily"/>
                             <dxe:ListBoxEditItem Content="Hourly"/>
+                            <dxe:ListBoxEditItem Content="Daily Total"/>
                         </dxe:ListBoxEdit>
                         <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsHour"  HorizontalAlignment="Left" Height="61" Margin="601,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsHour, Source={StaticResource getProjectViewSource}}">
                             <dxe:ListBoxEdit.StyleSettings>
