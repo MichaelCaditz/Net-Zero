@@ -362,10 +362,11 @@ namespace Net_Zero
 
 
 
-            GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam   W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
+            GridColumnnBeamCollector.Header = "IBC Clear-Sky Beam W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
+            GridColumnnBeamCollectorEmperical.Header = "IBC Emperical Beam W/m" + "\x00B2" + cChosenTilt + " " + cChosenAzimuth;
 
 
-            
+
             GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam W/m" + "\x00B2 " + cChosenTilt + " "+ cChosenAzimuth;
             
             GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
@@ -5077,6 +5078,17 @@ namespace Net_Zero
 
                 //resetButtons();
                 //LocateNewLineBatterySeriesString(TransactID1);
+                string message20 = "TMY File Imported";
+                string caption20 = "Net-Zero";
+                MessageBoxButton buttons20 = MessageBoxButton.OK;
+                MessageBoxImage icon20 = MessageBoxImage.Information;
+                MessageBoxResult defaultResult20 = MessageBoxResult.OK;
+                MessageBoxOptions options20 = MessageBoxOptions.RtlReading;
+                // Show message box
+                // MessageBoxResult result = MessageBox.Show(message, caption, buttons, icon, defaultResult, options);
+
+                // Displays the MessageBox.
+                MessageBoxResult result = MessageBox.Show(message20, caption20, buttons20, icon20, defaultResult20, options20);
             }
         }
     }

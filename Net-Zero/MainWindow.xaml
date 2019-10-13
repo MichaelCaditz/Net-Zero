@@ -835,7 +835,18 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Beam on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Clear-Sky Beam  W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnBeamCollectorEmperical" FieldName="nBeamCollectorEmperical" Header="IBC Emperical Beam W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1639,38 +1650,42 @@
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                                            <dxc:LineSeries2D DisplayName="IB Beam (normal) W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
+                                            <dxc:LineSeries2D DisplayName="IB Beam (normal) W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="6"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
                                             <dxc:LineSeries2D DisplayName="Selected tracking total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_fixed">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
                                             <dxc:LineSeries2D DisplayName="One-Axis HNS total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HNS">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
                                             <dxc:LineSeries2D DisplayName="One-Axis HEW total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HEW">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
 
                                             <dxc:LineSeries2D DisplayName="One-Axis VERT total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_VERT">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
 
                                             <dxc:LineSeries2D DisplayName="One-Axis PNS total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_PNS">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
 
                                             <dxc:LineSeries2D DisplayName="Two-Axis total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL2">
                                                 <dxc:LineSeries2D.LineStyle>
-                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                    <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>
                                             </dxc:LineSeries2D>
                                         </dxc:XYDiagram2D>
