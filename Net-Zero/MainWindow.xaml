@@ -857,7 +857,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Diffuse on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollector" FieldName="nDiffuseCollector" Header="IDC Clear Sky Diffuse Beam W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -868,7 +868,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Reflected on Collector W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnDiffuseCollectorEmperical" FieldName="nDiffuseCollectorEmperical" Header="IDC Emperical Diffuse Beam W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -879,7 +879,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="IC Total Clear-Sky Insolation W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollector" FieldName="nReflectedCollector" Header="IRC Clear-Sky Reflected W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -890,7 +890,38 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
+                            <dxg:GridColumn x:Name="GridColumnnReflectedCollectorEmperical" FieldName="nReflectedCollectorEmperical" Header="IRC Emperical Reflected W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
 
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="IC Total Clear-Sky Insolation W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnTotalEmperical" FieldName="nTotalEmperical" Header="IC Total Emperical W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
                             <dxg:GridColumn x:Name="GridColumnnnIncidenceHNS" FieldName="nIncidenceHNS" Header="HNS θ Angle of Incidence " IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -912,7 +943,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnIDC_HNS" FieldName="nIDC_HNS" Header="IDC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn x:Name="GridColumnnIDC_HNS" FieldName="nIDC_HNS" Header="IDC_HNS" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>

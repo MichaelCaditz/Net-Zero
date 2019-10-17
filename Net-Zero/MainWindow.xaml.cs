@@ -356,7 +356,7 @@ namespace Net_Zero
             GridColumnnDNI.Header = "DNI Emperical Beam (normal) W/m" + "\x00B2";
             GridColumnnBeamCollectorHorizontal.Header = "IBH Clear-Sky Beam (horiz) W/m" + "\x00B2";
 
-            GridColumnnDiffuseCollectorHorizontal.Header = "IDH Clear Sky Diffuse (horiz) W/m" + "\x00B2";
+            GridColumnnDiffuseCollectorHorizontal.Header = "IDH Clear-Sky Diffuse (horiz) W/m" + "\x00B2";
             GridColumnnDHI.Header = "DHI Emperical Diffuse (horiz) W/m" + "\x00B2";
             GridColumnnGHI.Header = "GHI Emperical Global (horiz) W/m" + "\x00B2";
 
@@ -367,10 +367,13 @@ namespace Net_Zero
 
 
 
-            GridColumnnDiffuseCollector.Header = "IDC Clear Sky Diffuse Beam W/m" + "\x00B2 " + cChosenTilt + " "+ cChosenAzimuth;
-            
-            GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected Beam W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
+            GridColumnnDiffuseCollector.Header = "IDC Clear-Sky Diffuse W/m" + "\x00B2 " + cChosenTilt + " "+ cChosenAzimuth;
+            GridColumnnDiffuseCollectorEmperical.Header = "IDC Emperical Diffuse W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
+
+            GridColumnnReflectedCollector.Header = "IRC  Clear-Sky Reflected W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
+            GridColumnnReflectedCollectorEmperical.Header = "IRC Emperical Reflected W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
             GridColumnnTOTAL_fixed.Header = "IC Total Clear-Sky Insolation W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth ;
+            GridColumnnTotalEmperical.Header = "IC Total Emperical Insolation W/m" + "\x00B2 " + cChosenTilt + " " + cChosenAzimuth;
 
             GridColumnnInsolation.Header = "Chosen Insolation kWh/m" + "\x00B2"+"/d";
 
