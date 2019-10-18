@@ -514,6 +514,16 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnPredictedInsolationEmperical" FieldName="nInsolationPredictedEmperical" Header="Emperical Insolation kWh/m^2/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
                             <dxg:GridColumn FieldName="cChosenTilt" Header="Chosen Track System"  ReadOnly="True"  IsSmart="True" Width="120" Image="Images/tilt1_32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings  />

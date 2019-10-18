@@ -587,6 +587,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnTOTAL2Emperical;
             
+            private global::System.Data.DataColumn columnnInsolationPredictedEmperical;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public getSummaryDataTable() : 
@@ -1415,6 +1417,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nInsolationPredictedEmpericalColumn {
+                get {
+                    return this.columnnInsolationPredictedEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1547,7 +1557,8 @@ namespace Net_Zero {
                         decimal nIBC2Emperical, 
                         decimal nIDC2Emperical, 
                         decimal nIRC2Emperical, 
-                        decimal nTOTAL2Emperical) {
+                        decimal nTOTAL2Emperical, 
+                        decimal nInsolationPredictedEmperical) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1647,7 +1658,8 @@ namespace Net_Zero {
                         nIBC2Emperical,
                         nIDC2Emperical,
                         nIRC2Emperical,
-                        nTOTAL2Emperical};
+                        nTOTAL2Emperical,
+                        nInsolationPredictedEmperical};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1732,7 +1744,8 @@ namespace Net_Zero {
                         decimal nIRC_HNSEmperical, 
                         decimal nIBC2Emperical, 
                         decimal nIDC2Emperical, 
-                        decimal nIRC2Emperical) {
+                        decimal nIRC2Emperical, 
+                        decimal nInsolationPredictedEmperical) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1832,7 +1845,8 @@ namespace Net_Zero {
                         nIBC2Emperical,
                         nIDC2Emperical,
                         nIRC2Emperical,
-                        null};
+                        null,
+                        nInsolationPredictedEmperical};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1960,6 +1974,7 @@ namespace Net_Zero {
                 this.columnnIDC2Emperical = base.Columns["nIDC2Emperical"];
                 this.columnnIRC2Emperical = base.Columns["nIRC2Emperical"];
                 this.columnnTOTAL2Emperical = base.Columns["nTOTAL2Emperical"];
+                this.columnnInsolationPredictedEmperical = base.Columns["nInsolationPredictedEmperical"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2161,6 +2176,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnIRC2Emperical);
                 this.columnnTOTAL2Emperical = new global::System.Data.DataColumn("nTOTAL2Emperical", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnTOTAL2Emperical);
+                this.columnnInsolationPredictedEmperical = new global::System.Data.DataColumn("nInsolationPredictedEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnInsolationPredictedEmperical);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -5481,6 +5498,23 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nInsolationPredictedEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nInsolationPredictedEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nInsolationPredictedEmperical\' in table \'getSummary\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nInsolationPredictedEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -6641,6 +6675,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnTOTAL2EmpericalNull() {
                 this[this.tablegetSummary.nTOTAL2EmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnInsolationPredictedEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nInsolationPredictedEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnInsolationPredictedEmpericalNull() {
+                this[this.tablegetSummary.nInsolationPredictedEmpericalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8650,6 +8696,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nIBC2Emperical", "nIBC2Emperical");
             tableMapping.ColumnMappings.Add("nIDC2Emperical", "nIDC2Emperical");
             tableMapping.ColumnMappings.Add("nIRC2Emperical", "nIRC2Emperical");
+            tableMapping.ColumnMappings.Add("nInsolationPredictedEmperical", "nInsolationPredictedEmperical");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

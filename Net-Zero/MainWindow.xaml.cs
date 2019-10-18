@@ -330,8 +330,9 @@ namespace Net_Zero
             DataRowView drv3 = (DataRowView)getProjectViewSource.View.CurrentItem;
             int nID = (drv3 == null ? 0 : DBNull.Value.Equals(drv3["nID"]) == true ? 0 : (int)drv3["nID"]);
             string cChosenTilt = (DBNull.Value.Equals(drv3["cChosenTilt"]) == true ? "" : (string)drv3["cChosenTilt"]);
+            
             string cName = (DBNull.Value.Equals(drv3["cName"]) == true ? "" : (string)drv3["cName"]);
-            string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d"+ " for Tilt=" + cChosenTilt + "; Az: South";
+            
             double nLat = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLat"]));
             double nLong = Convert.ToDouble((DBNull.Value.Equals(drv3["nLat"]) == true ? 0m : (decimal)drv3["nLong"]));
             double nCustomTilt = Convert.ToDouble((DBNull.Value.Equals(drv3["nCustomTilt"]) == true ? 0m : (decimal)drv3["nCustomTilt"]));
@@ -347,10 +348,12 @@ namespace Net_Zero
             }
 
             string cChosenAzimuth = "φ="+nChosenAzimuth.ToString() + "⁰";
-
+            string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d" + "β = " + cChosenTilt  + "; φ = 180⁰";
+            string predictedHeaderEmperical = "TMY Emperical Insol. kWh/m" + "\x00B2" + "/d ;"+ cChosenTilt + cChosenAzimuth;
 
 
             GridColumnPredictedInsolation.Header = predictedHeader;
+            GridColumnPredictedInsolationEmperical.Header = predictedHeaderEmperical;
 
             GridColumnnIB.Header = "IB Clear-Sky Beam (normal) W/m" + "\x00B2";
             GridColumnnDNI.Header = "DNI Emperical Beam (normal) W/m" + "\x00B2";

@@ -156,6 +156,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nIBC2Emperical" DataSetColumn="nIBC2Emperical" />
               <Mapping SourceColumn="nIDC2Emperical" DataSetColumn="nIDC2Emperical" />
               <Mapping SourceColumn="nIRC2Emperical" DataSetColumn="nIRC2Emperical" />
+              <Mapping SourceColumn="nInsolationPredictedEmperical" DataSetColumn="nInsolationPredictedEmperical" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -363,6 +364,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nIDC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnIDC2Emperical" msprop:Generator_ColumnPropNameInRow="nIDC2Emperical" msprop:Generator_ColumnPropNameInTable="nIDC2EmpericalColumn" msprop:Generator_UserColumnName="nIDC2Emperical" type="xs:decimal" minOccurs="0" />
               <xs:element name="nIRC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnIRC2Emperical" msprop:Generator_ColumnPropNameInRow="nIRC2Emperical" msprop:Generator_ColumnPropNameInTable="nIRC2EmpericalColumn" msprop:Generator_UserColumnName="nIRC2Emperical" type="xs:decimal" minOccurs="0" />
               <xs:element name="nTOTAL2Emperical" msdata:ReadOnly="true" msdata:Expression="nIBC2Emperical+nIDC2Emperical+nIRC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnTOTAL2Emperical" msprop:Generator_ColumnPropNameInRow="nTOTAL2Emperical" msprop:Generator_ColumnPropNameInTable="nTOTAL2EmpericalColumn" msprop:Generator_UserColumnName="nTOTAL2Emperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nInsolationPredictedEmperical" msprop:Generator_ColumnVarNameInTable="columnnInsolationPredictedEmperical" msprop:Generator_ColumnPropNameInRow="nInsolationPredictedEmperical" msprop:Generator_ColumnPropNameInTable="nInsolationPredictedEmpericalColumn" msprop:Generator_UserColumnName="nInsolationPredictedEmperical" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
