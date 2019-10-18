@@ -385,34 +385,44 @@ namespace Net_Zero
 
             GridColumnnnIncidenceHNS.Header = "θ Angle of Incidence HNS One-Axis Track North-South Collector ⁰";
             GridColumnnIBC_HNS.Header = "IBC Clear-Sky Direct Beam HNS One-Axis Track North-South Collector W/m" + "\x00B2";
-            GridColumnnIDC_HNS.Header = "IDC Clear-Sky Diffuse Beam HNS One-Axis Track North-South Collector W/m" + "\x00B2";
-            GridColumnnIRC_HNS.Header = "IRC Clear-Sky Reflected Beam HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+            GridColumnnIDC_HNS.Header = "IDC Clear-Sky Diffuse HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+            GridColumnnIRC_HNS.Header = "IRC Clear-Sky Reflected HNS One-Axis Track North-South Collector W/m" + "\x00B2";
             GridColumnnTOTAL_HNS.Header = "IC Total Clear-Sky Insolation HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+
+            GridColumnnIBC_HNSEmperical.Header = "IBC Emperical Direct Beam HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+            GridColumnnIDC_HNSEmperical.Header = "IDC Emperical Diffuse HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+            GridColumnnIRC_HNSEmperical.Header = "IRC Emperical Reflected HNS One-Axis Track North-South Collector W/m" + "\x00B2";
+            GridColumnnTOTAL_HNSEmperical.Header = "IC Total Emperical Insolation HNS One-Axis Track North-South Collector W/m" + "\x00B2";
 
             GridColumnnnIncidenceHEW.Header = "θ Angle of Incidence HEW One-Axis Track East-West Collector ⁰";
             GridColumnnIBC_HEW.Header = "IBC Clear-Sky Direct Beam HEW One-Axis Track East-West Collector W/m" + "\x00B2";
-            GridColumnnIDC_HEW.Header = "IDC Clear-Sky Diffuse Beam HEW One-Axis Track East-West Collector W/m" + "\x00B2";
-            GridColumnnIRC_HEW.Header = "IRC Clear-Sky Reflected Beam HEW One-Axis Track East-West Collector W/m" + "\x00B2";
+            GridColumnnIDC_HEW.Header = "IDC Clear-Sky Diffuse HEW One-Axis Track East-West Collector W/m" + "\x00B2";
+            GridColumnnIRC_HEW.Header = "IRC Clear-Sky Reflected HEW One-Axis Track East-West Collector W/m" + "\x00B2";
             GridColumnnTOTAL_HEW.Header = "IC Total Clear-Sky Insolation HEW One-Axis Track East-West Collector W/m" + "\x00B2";
 
 
             GridColumnnnIncidenceVERT.Header = "θ Angle of Incidence VERT One-Axis Track" + cChosenTilt + " Collector  ⁰";
             GridColumnnIBC_VERT.Header = "IBC Clear Sky Direct Beam VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
-            GridColumnnIDC_VERT.Header = "IDC Clear Sky Diffuse Beam VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
-            GridColumnnIRC_VERT.Header = "IRC  Clear-Sky Reflected Beam VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
+            GridColumnnIDC_VERT.Header = "IDC Clear Sky Diffuse VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
+            GridColumnnIRC_VERT.Header = "IRC  Clear-Sky Reflected VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
             GridColumnnTOTAL_VERT.Header = "IC Total Clear-Sky Insolation VERT One-Axis Track" + cChosenTilt + " Collector W/m" + "\x00B2";
 
             GridColumnnnIncidencePNS.Header = "θ Angle of Incidence PNS One-Axis Track South-Facing Collector ⁰";
             GridColumnnIBC_PNS.Header = "IBC Clear Sky Direct Beam PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
-            GridColumnnIDC_PNS.Header = "IDC Clear Sky Diffuse Beam PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
-            GridColumnnIRC_PNS.Header = "IRC  Clear-Sky Reflected Beam PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
+            GridColumnnIDC_PNS.Header = "IDC Clear Sky Diffuse PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
+            GridColumnnIRC_PNS.Header = "IRC  Clear-Sky Reflected PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
             GridColumnnTOTAL_PNS.Header = "IC Total Clear-Sky Insolation PNS One-Axis Track South-Facing Collector W/m" + "\x00B2";
 
            
             GridColumnnIBC2.Header = "IBC Clear Sky Direct Beam Two-Axis Track W/m" + "\x00B2";
-            GridColumnnIDC2.Header = "IDC Clear Sky Diffuse Beam Two-Axis Track W/m" + "\x00B2";
-            GridColumnnIRC2.Header = "IRC  Clear-Sky Reflected Beam Two-Axis Trackk W/m" + "\x00B2";
+            GridColumnnIDC2.Header = "IDC Clear Sky Diffuse Two-Axis Track W/m" + "\x00B2";
+            GridColumnnIRC2.Header = "IRC  Clear-Sky Reflected Two-Axis Track W/m" + "\x00B2";
             GridColumnnTOTAL2.Header = "IC Total Clear-Sky Insolation Two-Axis Track W/m" + "\x00B2";
+
+            GridColumnnIBC2Emperical.Header = "IBC Emperical Direct Beam Two-Axis Track W/m" + "\x00B2";
+            GridColumnnIDC2Emperical.Header = "IDC Emperical Diffuse Two-Axis Track W/m" + "\x00B2";
+            GridColumnnIRC2Emperical.Header = "IRC Emperical Reflected Two-Axis Track W/m" + "\x00B2";
+            GridColumnnTOTAL2Emperical.Header = "IC Total Emperical Insolation Two-Axis Track W/m" + "\x00B2";
 
             MapControl1.CenterPoint = new GeoPoint(nLat, nLong);
             MapControl2.CenterPoint = new GeoPoint(nLat, nLong);

@@ -150,6 +150,12 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nBeamCollectorEmperical" DataSetColumn="nBeamCollectorEmperical" />
               <Mapping SourceColumn="nReflectedCollectorEmperical" DataSetColumn="nReflectedCollectorEmperical" />
               <Mapping SourceColumn="nDiffuseCollectorEmperical" DataSetColumn="nDiffuseCollectorEmperical" />
+              <Mapping SourceColumn="nIBC_HNSEmperical" DataSetColumn="nIBC_HNSEmperical" />
+              <Mapping SourceColumn="nIDC_HNSEmperical" DataSetColumn="nIDC_HNSEmperical" />
+              <Mapping SourceColumn="nIRC_HNSEmperical" DataSetColumn="nIRC_HNSEmperical" />
+              <Mapping SourceColumn="nIBC2Emperical" DataSetColumn="nIBC2Emperical" />
+              <Mapping SourceColumn="nIDC2Emperical" DataSetColumn="nIDC2Emperical" />
+              <Mapping SourceColumn="nIRC2Emperical" DataSetColumn="nIRC2Emperical" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -349,6 +355,14 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nReflectedCollectorEmperical" msprop:Generator_ColumnVarNameInTable="columnnReflectedCollectorEmperical" msprop:Generator_ColumnPropNameInRow="nReflectedCollectorEmperical" msprop:Generator_ColumnPropNameInTable="nReflectedCollectorEmpericalColumn" msprop:Generator_UserColumnName="nReflectedCollectorEmperical" type="xs:decimal" minOccurs="0" />
               <xs:element name="nDiffuseCollectorEmperical" msprop:Generator_ColumnVarNameInTable="columnnDiffuseCollectorEmperical" msprop:Generator_ColumnPropNameInRow="nDiffuseCollectorEmperical" msprop:Generator_ColumnPropNameInTable="nDiffuseCollectorEmpericalColumn" msprop:Generator_UserColumnName="nDiffuseCollectorEmperical" type="xs:decimal" minOccurs="0" />
               <xs:element name="nTotalEmperical" msdata:ReadOnly="true" msdata:Expression="nBeamCollectorEmperical+nReflectedCollectorEmperical+nDiffuseCollectorEmperical" msprop:Generator_ColumnVarNameInTable="columnnTotalEmperical" msprop:Generator_ColumnPropNameInRow="nTotalEmperical" msprop:Generator_ColumnPropNameInTable="nTotalEmpericalColumn" msprop:Generator_UserColumnName="nTotalEmperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIBC_HNSEmperical" msprop:Generator_ColumnVarNameInTable="columnnIBC_HNSEmperical" msprop:Generator_ColumnPropNameInRow="nIBC_HNSEmperical" msprop:Generator_ColumnPropNameInTable="nIBC_HNSEmpericalColumn" msprop:Generator_UserColumnName="nIBC_HNSEmperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIDC_HNSEmperical" msprop:Generator_ColumnVarNameInTable="columnnIDC_HNSEmperical" msprop:Generator_ColumnPropNameInRow="nIDC_HNSEmperical" msprop:Generator_ColumnPropNameInTable="nIDC_HNSEmpericalColumn" msprop:Generator_UserColumnName="nIDC_HNSEmperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIRC_HNSEmperical" msprop:Generator_ColumnVarNameInTable="columnnIRC_HNSEmperical" msprop:Generator_ColumnPropNameInRow="nIRC_HNSEmperical" msprop:Generator_ColumnPropNameInTable="nIRC_HNSEmpericalColumn" msprop:Generator_UserColumnName="nIRC_HNSEmperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTOTAL_HNSEmperical" msdata:ReadOnly="true" msdata:Expression="nIBC_HNSEmperical+nIRC_HNSEmperical+nIDC_HNSEmperical" msprop:Generator_ColumnVarNameInTable="columnnTOTAL_HNSEmperical" msprop:Generator_ColumnPropNameInRow="nTOTAL_HNSEmperical" msprop:Generator_ColumnPropNameInTable="nTOTAL_HNSEmpericalColumn" msprop:Generator_UserColumnName="nTOTAL_HNSEmperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIBC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnIBC2Emperical" msprop:Generator_ColumnPropNameInRow="nIBC2Emperical" msprop:Generator_ColumnPropNameInTable="nIBC2EmpericalColumn" msprop:Generator_UserColumnName="nIBC2Emperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIDC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnIDC2Emperical" msprop:Generator_ColumnPropNameInRow="nIDC2Emperical" msprop:Generator_ColumnPropNameInTable="nIDC2EmpericalColumn" msprop:Generator_UserColumnName="nIDC2Emperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nIRC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnIRC2Emperical" msprop:Generator_ColumnPropNameInRow="nIRC2Emperical" msprop:Generator_ColumnPropNameInTable="nIRC2EmpericalColumn" msprop:Generator_UserColumnName="nIRC2Emperical" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nTOTAL2Emperical" msdata:ReadOnly="true" msdata:Expression="nIBC2Emperical+nIDC2Emperical+nIRC2Emperical" msprop:Generator_ColumnVarNameInTable="columnnTOTAL2Emperical" msprop:Generator_ColumnPropNameInRow="nTOTAL2Emperical" msprop:Generator_ColumnPropNameInTable="nTOTAL2EmpericalColumn" msprop:Generator_UserColumnName="nTOTAL2Emperical" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
