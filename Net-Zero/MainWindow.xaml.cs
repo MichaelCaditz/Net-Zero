@@ -349,11 +349,13 @@ namespace Net_Zero
 
             string cChosenAzimuth = "φ="+nChosenAzimuth.ToString() + "⁰";
             string predictedHeader = "Expected Insol. kWh/m" + "\x00B2" + "/d" + "β = " + cChosenTilt  + "; φ = 180⁰";
-            string predictedHeaderEmperical = "TMY Emperical Insol. kWh/m" + "\x00B2" + "/d ;"+ cChosenTilt + cChosenAzimuth;
+            string predictedHeaderEmperical = "TMY Emperical Insol. this day kWh/m" + "\x00B2" + "/d ; "+ cChosenTilt + cChosenAzimuth;
+            string predictedHeaderEmpericalMonth = "TMY Emperical Insol. month avg. kWh/m" + "\x00B2" + "/d ; " + cChosenTilt + cChosenAzimuth;
 
 
             GridColumnPredictedInsolation.Header = predictedHeader;
             GridColumnPredictedInsolationEmperical.Header = predictedHeaderEmperical;
+            GridColumnPredictedInsolationEmpericalMonth.Header = predictedHeaderEmpericalMonth;
 
             GridColumnnIB.Header = "IB Clear-Sky Beam (normal) W/m" + "\x00B2";
             GridColumnnDNI.Header = "DNI Emperical Beam (normal) W/m" + "\x00B2";
@@ -492,7 +494,7 @@ namespace Net_Zero
                     cmd3.Parameters.Clear();
                     cmd3.CommandText = "dbo.createDates";
                     cmd3.Parameters.AddWithValue("@projectsID", nProjectsID);
-                    cmd3.Parameters.AddWithValue("@beginDate", beginDate);
+                    cmd3.Parameters.AddWithValue("@originalbeginDate", beginDate);
                     cmd3.Parameters.AddWithValue("@endDate", endDate);
                     cmd3.Parameters.AddWithValue("@nMetricsResolution", nMetricsResolution);
                     cmd3.Parameters.AddWithValue("@nMetricsHour",nMetricsHour);
