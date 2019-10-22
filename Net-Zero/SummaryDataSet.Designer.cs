@@ -343,7 +343,9 @@ namespace Net_Zero {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitExpressions() {
             this.getSummary.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
-            this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+            this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "iif(nInsolationPredicted>0,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFact" +
+                "or*nInsolationPredicted,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor" +
+                "*nInsolationPredictedEmperical)";
             this.getSummary.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
             this.getSummary.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
             this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +
@@ -2248,7 +2250,9 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitExpressions() {
                 this.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
-                this.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+                this.nChosenPVWouldAccomodateColumn.Expression = "iif(nInsolationPredicted>0,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFact" +
+                    "or*nInsolationPredicted,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor" +
+                    "*nInsolationPredictedEmperical)";
                 this.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
                 this.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
                 this.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +

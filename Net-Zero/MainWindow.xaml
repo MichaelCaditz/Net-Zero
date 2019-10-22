@@ -516,7 +516,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn x:Name="GridColumnPredictedInsolationEmperical" FieldName="nInsolationPredictedEmperical" Header="Emperical Insolation kWh/m^2/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -619,7 +619,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nChosenPV" Header="Chosen PV kW" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/pvPanelBlue32.png">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -699,7 +699,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn FieldName="nRunningLoss" Header="Cumulative Battery Loss kWh" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/batteries_1_16.png">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00"/>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
