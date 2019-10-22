@@ -516,7 +516,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn x:Name="GridColumnPredictedInsolationEmperical" FieldName="nInsolationPredictedEmperical" Header="Emperical Insolation kWh/m^2/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
+                                    <dxe:TextEditSettings DisplayFormat="##.0000000" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -526,7 +526,7 @@
                             </dxg:GridColumn>
                             <dxg:GridColumn x:Name="GridColumnPredictedInsolationEmpericalMonth" FieldName="nInsolationPredictedEmpericalMonth" Header="Emperical Insolation kWh/m^2/d" ReadOnly="True"  IsSmart="True"  Width="120" AllowConditionalFormattingMenu="False">
                                 <dxg:GridColumn.EditSettings>
-                                    <dxe:TextEditSettings DisplayFormat="##.00" />
+                                    <dxe:TextEditSettings DisplayFormat="##.000000" />
                                 </dxg:GridColumn.EditSettings>
                                 <dxg:GridColumn.HeaderTemplate>
                                     <DataTemplate>
@@ -801,7 +801,17 @@
                             </dxg:GridColumn>
 
 
-                            <dxg:GridColumn x:Name="GridColumnnDNI" FieldName="nDNI" Header="Emperical DNI (normal) W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png">
+                            <dxg:GridColumn x:Name="GridColumnnDNI" FieldName="nDNI" Header="Emperical DNI (normal) W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnDNIDay" FieldName="nDNIDay" Header="Emperical DNI (normal) day total W/m^2" IsSmart="True"  ReadOnly="True" Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -844,6 +854,17 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
+                            <dxg:GridColumn x:Name="GridColumnnDHIDay" FieldName="nDHIDay" Header="DHI Emperical Diffuse (horiz) day total W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
                             <dxg:GridColumn x:Name="GridColumnnGHI" FieldName="nGHI" Header="GHI Emperical Global (horiz) W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
@@ -854,6 +875,18 @@
                                     </DataTemplate>
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
+
+                            <dxg:GridColumn x:Name="GridColumnnGHIDay" FieldName="nGHIDay" Header="GHI Emperical Global (horiz) day total W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+
 
                             <dxg:GridColumn x:Name="GridColumnnBeamCollector" FieldName="nBeamCollector" Header="IBC Clear-Sky Beam  W/m^2" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
@@ -921,7 +954,7 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="IC Total Clear-Sky Insolation W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn x:Name="GridColumnnTOTAL_fixed" FieldName="nTOTAL_fixed" Header="IC Total Clear-Sky Insolation W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -932,7 +965,17 @@
                                 </dxg:GridColumn.HeaderTemplate>
                             </dxg:GridColumn>
 
-                            <dxg:GridColumn x:Name="GridColumnnTotalEmperical" FieldName="nTotalEmperical" Header="IC Total Emperical W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png" SortOrder="Ascending" SortIndex="0">
+                            <dxg:GridColumn x:Name="GridColumnnTotalEmperical" FieldName="nTotalEmperical" Header="IC Total Emperical W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
+                                <dxg:GridColumn.EditSettings>
+                                    <dxe:TextEditSettings DisplayFormat="##.0000"/>
+                                </dxg:GridColumn.EditSettings>
+                                <dxg:GridColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </dxg:GridColumn.HeaderTemplate>
+                            </dxg:GridColumn>
+                            <dxg:GridColumn x:Name="GridColumnnTotalEmpericalDay" FieldName="nTotalEmpericalDay" Header="IC Total Emperical Day Total W/m" IsSmart="True" ReadOnly="True"  Width="120" Image="Images/beamOnCollector32.png">
                                 <dxg:GridColumn.EditSettings>
                                     <dxe:TextEditSettings DisplayFormat="##.0000"/>
                                 </dxg:GridColumn.EditSettings>
@@ -1841,9 +1884,9 @@
                             <dxe:ListBoxEdit.StyleSettings>
                                 <dxe:RadioListBoxEditStyleSettings/>
                             </dxe:ListBoxEdit.StyleSettings>
-                            <dxe:ListBoxEditItem Content="Daily"/>
-                            <dxe:ListBoxEditItem Content="Hourly"/>
-                            <dxe:ListBoxEditItem Content="Daily Total"/>
+                            <dxe:ListBoxEditItem Content="Brief"/>
+                            <dxe:ListBoxEditItem Content="Detailed"/>
+                           
                         </dxe:ListBoxEdit>
                         <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsHour"  HorizontalAlignment="Left" Height="61" Margin="601,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsHour, Source={StaticResource getProjectViewSource}}">
                             <dxe:ListBoxEdit.StyleSettings>
