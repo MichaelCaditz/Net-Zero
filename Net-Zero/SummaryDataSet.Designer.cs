@@ -601,6 +601,8 @@ namespace Net_Zero {
             
             private global::System.Data.DataColumn columnnTotalEmpericalDay;
             
+            private global::System.Data.DataColumn columnbUserSpecifiedCoordinates;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public getSummaryDataTable() : 
@@ -1477,6 +1479,14 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bUserSpecifiedCoordinatesColumn {
+                get {
+                    return this.columnbUserSpecifiedCoordinates;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1615,7 +1625,8 @@ namespace Net_Zero {
                         decimal nDNIDay, 
                         decimal nDHIDay, 
                         decimal nGHIDay, 
-                        decimal nTotalEmpericalDay) {
+                        decimal nTotalEmpericalDay, 
+                        bool bUserSpecifiedCoordinates) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1721,7 +1732,8 @@ namespace Net_Zero {
                         nDNIDay,
                         nDHIDay,
                         nGHIDay,
-                        nTotalEmpericalDay};
+                        nTotalEmpericalDay,
+                        bUserSpecifiedCoordinates};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1812,7 +1824,8 @@ namespace Net_Zero {
                         decimal nDNIDay, 
                         decimal nDHIDay, 
                         decimal nGHIDay, 
-                        decimal nTotalEmpericalDay) {
+                        decimal nTotalEmpericalDay, 
+                        bool bUserSpecifiedCoordinates) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1918,7 +1931,8 @@ namespace Net_Zero {
                         nDNIDay,
                         nDHIDay,
                         nGHIDay,
-                        nTotalEmpericalDay};
+                        nTotalEmpericalDay,
+                        bUserSpecifiedCoordinates};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -2052,6 +2066,7 @@ namespace Net_Zero {
                 this.columnnDHIDay = base.Columns["nDHIDay"];
                 this.columnnGHIDay = base.Columns["nGHIDay"];
                 this.columnnTotalEmpericalDay = base.Columns["nTotalEmpericalDay"];
+                this.columnbUserSpecifiedCoordinates = base.Columns["bUserSpecifiedCoordinates"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2265,6 +2280,8 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnGHIDay);
                 this.columnnTotalEmpericalDay = new global::System.Data.DataColumn("nTotalEmpericalDay", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnTotalEmpericalDay);
+                this.columnbUserSpecifiedCoordinates = new global::System.Data.DataColumn("bUserSpecifiedCoordinates", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbUserSpecifiedCoordinates);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -5685,6 +5702,23 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool bUserSpecifiedCoordinates {
+                get {
+                    try {
+                        return ((bool)(this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bUserSpecifiedCoordinates\' in table \'getSummary\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -6917,6 +6951,18 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnTotalEmpericalDayNull() {
                 this[this.tablegetSummary.nTotalEmpericalDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsbUserSpecifiedCoordinatesNull() {
+                return this.IsNull(this.tablegetSummary.bUserSpecifiedCoordinatesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetbUserSpecifiedCoordinatesNull() {
+                this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8931,6 +8977,7 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nDNIDay", "nDNIDay");
             tableMapping.ColumnMappings.Add("nDHIDay", "nDHIDay");
             tableMapping.ColumnMappings.Add("nGHIDay", "nGHIDay");
+            tableMapping.ColumnMappings.Add("bUserSpecifiedCoordinates", "bUserSpecifiedCoordinates");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

@@ -284,7 +284,7 @@
                         <!--</Grid>-->
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Height="45" VerticalAlignment="Top" Glyph="Images/metrics32.png">
+                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Glyph="Images/metrics32.png">
                     <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
@@ -1373,6 +1373,37 @@
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
                                             <dxc:LineSeries2D DisplayName="Chosen Insolation kWh/m^2" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                                             <dxc:LineSeries2D DisplayName="Predicted Insolation kWh/m^2" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+                                </Grid>
+                            </dx:DXTabItem>
+                            <dx:DXTabItem Header="Insolation TMY" Tag="SummaryChart101" Glyph="Images/14510469-summer-hot-sun32.png" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="SummaryChart101" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True"  VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="Chosen Insolation kWh/m^2" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                                            <dxc:LineSeries2D DisplayName="Predicted Insolation kWh/m^2" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredictedEmperical">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
                                                 </dxc:LineSeries2D.LineStyle>

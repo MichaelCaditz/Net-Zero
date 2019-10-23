@@ -161,6 +161,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <Mapping SourceColumn="nDNIDay" DataSetColumn="nDNIDay" />
               <Mapping SourceColumn="nDHIDay" DataSetColumn="nDHIDay" />
               <Mapping SourceColumn="nGHIDay" DataSetColumn="nGHIDay" />
+              <Mapping SourceColumn="bUserSpecifiedCoordinates" DataSetColumn="bUserSpecifiedCoordinates" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -374,6 +375,7 @@ SELECT nID, nInsolation, dtCreateDate, nProjectsID, dtDate, bDeleted FROM summar
               <xs:element name="nDHIDay" msprop:Generator_ColumnVarNameInTable="columnnDHIDay" msprop:Generator_ColumnPropNameInRow="nDHIDay" msprop:Generator_ColumnPropNameInTable="nDHIDayColumn" msprop:Generator_UserColumnName="nDHIDay" type="xs:decimal" minOccurs="0" />
               <xs:element name="nGHIDay" msprop:Generator_ColumnVarNameInTable="columnnGHIDay" msprop:Generator_ColumnPropNameInRow="nGHIDay" msprop:Generator_ColumnPropNameInTable="nGHIDayColumn" msprop:Generator_UserColumnName="nGHIDay" type="xs:decimal" minOccurs="0" />
               <xs:element name="nTotalEmpericalDay" msprop:Generator_ColumnVarNameInTable="columnnTotalEmpericalDay" msprop:Generator_ColumnPropNameInRow="nTotalEmpericalDay" msprop:Generator_ColumnPropNameInTable="nTotalEmpericalDayColumn" msprop:Generator_UserColumnName="nTotalEmpericalDay" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bUserSpecifiedCoordinates" msprop:Generator_ColumnVarNameInTable="columnbUserSpecifiedCoordinates" msprop:Generator_ColumnPropNameInRow="bUserSpecifiedCoordinates" msprop:Generator_ColumnPropNameInTable="bUserSpecifiedCoordinatesColumn" msprop:Generator_UserColumnName="bUserSpecifiedCoordinates" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
