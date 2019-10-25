@@ -144,7 +144,7 @@
         </dxr:RibbonStatusBarControl>
         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.RowSpan="3" Margin="0,60,0,30">
             <dx:DXTabControl x:Name="DXTabControlMain" Margin="20,0" Grid.RowSpan="1" Grid.Row="1" Background="#FF27261F" SelectionChanged="DXTabControl_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" Height="900" Width="1780">
-                <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Height="45" Background="#FF8D1111" Glyph="Images/project32.png" >
+                <dx:DXTabItem x:Name="DXTabProjectDetails" Header="Project Details" Height="45" VerticalAlignment="Center" Background="#FF8D1111" Glyph="Images/project32.png" >
                     <Grid DataContext="{StaticResource getProjectViewSource}" Margin="10,10,20,10" Background="#FF5A5A5A" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
@@ -284,7 +284,7 @@
                         <!--</Grid>-->
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Glyph="Images/metrics32.png">
+                <dx:DXTabItem x:Name="DXTabEnergySummary" Header="Metrics" Height="45" VerticalAlignment="Center" Glyph="Images/metrics32.png">
                     <Grid Margin="10,10,10,10" Background="#FF5A5A5A" DataContext="{StaticResource getSummaryViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
@@ -1582,7 +1582,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (fixed collector)" Tag ="RadiationChart" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Clear Sky Insolation" Tag ="RadiationChart" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1603,7 +1603,7 @@
                                             </dxc:XYDiagram2D.AxisX>
                                             <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
                             <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
-                                            <dxc:LineSeries2D DisplayName="IB Clear Sky Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
+                                            <dxc:LineSeries2D DisplayName="IB Normal Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIB"/>
                                             <dxc:LineSeries2D DisplayName="IBC Beam on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nBeamCollector">
                                                 <dxc:LineSeries2D.LineStyle>
                                                     <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
@@ -1626,7 +1626,51 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis HNS)" Tag ="RadiationChartHNS" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="TMY Emperical Insolation" Tag ="RadiationChart" Glyph="Images/beamOnCollector32.png">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="RadiationChart777" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="DNI Normal Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDNI"/>
+                                            <dxc:LineSeries2D DisplayName="IBC Beam on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nBeamCollectorEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IDC Diffuse on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDiffuseCollectorEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IRC Reflected on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nReflectedCollectorEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
+
+                                </Grid>
+                            </dx:DXTabItem>
+
+                            <dx:DXTabItem Header="Clear Sky Insolation (One-Axis HNS)" Tag ="RadiationChartHNS" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartHNS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1670,7 +1714,51 @@
                                 </Grid>
                             </dx:DXTabItem>
 
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis HEW)" Tag="RadiationChartHEW" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="TMY Emperical Insolation (One-Axis HNS)" Tag ="RadiationChartHNS" Glyph="Images/beamOnCollector32.png">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="RadiationChartHNS111" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="IB Clear Sky Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDNI"/>
+                                            <dxc:LineSeries2D DisplayName="IBC Beam on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIBC_HNSEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IDC Diffuse on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIDC_HNSEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IRC Reflected on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIRC_HNSEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
+
+                                </Grid>
+                            </dx:DXTabItem>
+
+                            <dx:DXTabItem Header="Clear Sky Insolation (One-Axis HEW)" Tag="RadiationChartHEW" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartHEW" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1713,7 +1801,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis VERT)" Tag="RadiationChartVERT"  Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Clear Sky Insolation (One-Axis VERT)" Tag="RadiationChartVERT"  Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartVERT" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1756,7 +1844,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (One-Axis PNS)" Tag="RadiationChartPNS" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Clear Sky Insolation (One-Axis PNS)" Tag="RadiationChartPNS" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChartPNS" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1799,7 +1887,7 @@
 
                                 </Grid>
                             </dx:DXTabItem>
-                            <dx:DXTabItem Header="Solar Radiation (Two-Axis)" Tag="RadiationChart2" Glyph="Images/beamOnCollector32.png">
+                            <dx:DXTabItem Header="Clear Sky Insolation (Two-Axis)" Tag="RadiationChart2" Glyph="Images/beamOnCollector32.png">
                                 <Grid Background="Transparent">
                                     <dxc:ChartControl x:Name="RadiationChart2" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
                                         <dxc:ChartControl.Legends>
@@ -1842,6 +1930,51 @@
 
                                 </Grid>
                             </dx:DXTabItem>
+
+                            <dx:DXTabItem Header="TMY Emperical Insolation (Two-Axis)" Tag="RadiationChart2" Glyph="Images/beamOnCollector32.png">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="RadiationChart2111" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions AggregateFunction="None" AutoGrid="False"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="DNI Clear Sky Beam W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDNI"/>
+                                            <dxc:LineSeries2D DisplayName="IBC Beam on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIBC2Emperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IDC Diffuse on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIDC2Emperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="IRC Reflected on Collector W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nIRC2Emperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="3" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
+
+                                </Grid>
+                            </dx:DXTabItem>
+
 
                             <dx:DXTabItem Header="Clear Sky Tracking Comparison W/m^2"  Glyph="Images/beamOnCollector32.png" Tag="RadiationChartTOTALS">
                                 <Grid Background="Transparent">
@@ -1909,7 +2042,60 @@
 
                                 </Grid>
                             </dx:DXTabItem>
+
+                            <dx:DXTabItem Header="TMY Emperical Tracking Comparison W/m^2"  Glyph="Images/beamOnCollector32.png" Tag="RadiationChartTOTALS">
+                                <Grid Background="Transparent">
+                                    <dxc:ChartControl x:Name="RadiationChartTOTALS111" Margin="20,10,20,20" DataSource="{Binding Source={StaticResource getSummaryViewSource}}" Background="#FFD8D3D3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" ToolTipEnabled="False">
+                                        <dxc:ChartControl.Legends>
+                                            <dxc:Legend/>
+                                        </dxc:ChartControl.Legends>
+                                        <dxc:XYDiagram2D Height="257" VerticalAlignment="Top">
+                                            <dxc:XYDiagram2D.AxisX>
+                                                <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True" VisualRange="{x:Null}" WholeRange="{x:Null}">
+                                                    <dxc:AxisX2D.DateTimeScaleOptions>
+                                                        <dxc:ManualDateTimeScaleOptions x:Name="MDTSRadiationChartTOTALS111" AggregateFunction="None"
+                                                            GridAlignment="Day" MeasureUnit="Day" 
+                                                            GridSpacing="1" GridOffset="2"/>
+                                                    </dxc:AxisX2D.DateTimeScaleOptions>
+
+                                                    <dxc:AxisX2D.Label>
+                                                        <dxc:AxisLabel/>
+                                                    </dxc:AxisX2D.Label>
+                                                </dxc:AxisX2D>
+                                            </dxc:XYDiagram2D.AxisX>
+                                            <!--<dxc:BarSideBySideSeries2D DisplayName="Chosen Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolation"/>
+                            <dxc:BarSideBySideSeries2D DisplayName="Predicted Insolation" ArgumentDataMember="dtDate" ValueDataMember="nInsolationPredicted"/>-->
+                                            <dxc:LineSeries2D DisplayName="DNI W/m^2" ArgumentDataMember="dtDate" ValueDataMember="nDNI">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="6"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="Selected tracking total" ArgumentDataMember="dtDate" ValueDataMember="nTotalEmpericalEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="6"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            <dxc:LineSeries2D DisplayName="One-Axis HNS total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL_HNSEmperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="6"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                            
+
+                                            <dxc:LineSeries2D DisplayName="Two-Axis total" ArgumentDataMember="dtDate" ValueDataMember="nTOTAL2Emperical">
+                                                <dxc:LineSeries2D.LineStyle>
+                                                    <dxc:LineStyle Thickness="6" LineJoin="Bevel"/>
+                                                </dxc:LineSeries2D.LineStyle>
+                                            </dxc:LineSeries2D>
+                                        </dxc:XYDiagram2D>
+                                    </dxc:ChartControl>
+
+
+                                </Grid>
+                            </dx:DXTabItem>
                         </dx:DXTabControl>
+                        
+                        
                         <Label Content="Resolution:" Grid.Column="0" HorizontalAlignment="Left" Margin="356,38,0,0" VerticalAlignment="Top" Foreground="White"/>
                         <dxe:ListBoxEdit x:Name="ListBoxEditnMetricsResolution"  HorizontalAlignment="Left" Height="67" Margin="421,13,0,0" VerticalAlignment="Top" Width="92" SelectedIndex="{Binding nMetricsResolution, Source={StaticResource getProjectViewSource}}" SelectedIndexChanged="ListBoxEditnMetricsResolution_SelectedIndexChanged">
                             <dxe:ListBoxEdit.StyleSettings>
@@ -1952,7 +2138,7 @@
                         <dx:SimpleButton Content="Customize Chart" HorizontalAlignment="Left" Height="29" Margin="826,13,0,0" VerticalAlignment="Top" Width="128" Click="SimpleButton_Click_5"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="PV Location" GotFocus="DXTabItem_GotFocus" Glyph="Images/pvPanelBlue32.png">
+                <dx:DXTabItem Header="PV Location" Height="45" VerticalAlignment="Center" GotFocus="DXTabItem_GotFocus" Glyph="Images/pvPanelBlue32.png">
                     <Grid Margin="10,10,-1,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
@@ -2196,7 +2382,7 @@
 
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem x:Name="DXTabItemDemandLocation" Header="Demand Location" Height="45" VerticalAlignment="Top" GotFocus="DXTabItemDemandLocation_GotFocus" Glyph="Images/China-Power-Supply-Cord32.png">
+                <dx:DXTabItem x:Name="DXTabItemDemandLocation" Header="Demand Location" Height="45" VerticalAlignment="Center" GotFocus="DXTabItemDemandLocation_GotFocus" Glyph="Images/China-Power-Supply-Cord32.png">
                     <Grid Margin="10,10,10,10"  Background="#FF5A5A5A" DataContext="{StaticResource getAllCountriesViewSource}" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
@@ -2345,7 +2531,7 @@
                         <dxe:TextEdit DataContext="{StaticResource getAllCountriesgetAllStateProvincegetAllCityViewSource}" IsReadOnly="True" x:Name="textEditcCity_Copy21" HorizontalAlignment="Left" Height="23" Margin="700,10,0,0" Text="{Binding cName, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="448" Background="#FFF0F0F0" FontWeight="Bold" Grid.Row="2"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Demand" Height="45" Glyph="Images/China-Power-Supply-Cord32.png">
+                <dx:DXTabItem Header="Demand" Height="45" VerticalAlignment="Center" Glyph="Images/China-Power-Supply-Cord32.png">
                     <Grid Background="#FF5A5A5A"  Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="6*"/>
@@ -2535,7 +2721,7 @@
                     </Grid>
                 </dx:DXTabItem>
 
-                <dx:DXTabItem Header="PV Computation" Height="45" Glyph="Images/pvPanelBlue32.png">
+                <dx:DXTabItem Header="PV Computation" Height="45" VerticalAlignment="Center" Glyph="Images/pvPanelBlue32.png">
                     <Grid Background="#FF5A5A5A" DataContext="{StaticResource getProjectViewSource}" Margin="10,10,10,10" >
 
 
@@ -2604,7 +2790,7 @@
                         <dxe:TextEdit x:Name="TextEditnDemandQtyPV" DisplayFormatString="###.00" EditValue="{Binding nDemandQty, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="425,105,0,0" VerticalAlignment="Top" Width="80" ShowBorder="False" Foreground="White" IsReadOnly="True"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Battery Computation" Height="45" Glyph="Images/batteries_1_32.png">
+                <dx:DXTabItem Header="Battery Computation" Height="45" VerticalAlignment="Center" Glyph="Images/batteries_1_32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1721*"/>
@@ -2693,7 +2879,7 @@
                     </Grid>
                 </dx:DXTabItem>
 
-                <dx:DXTabItem Header="PV Configuration" Height="45" Glyph="Images/pvPanelBlue32.png">
+                <dx:DXTabItem Header="PV Configuration" Height="45" VerticalAlignment="Center" Glyph="Images/pvPanelBlue32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10" DataContext="{StaticResource getPVViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60"/>
@@ -3205,7 +3391,7 @@
 
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Battery Configuration" Height="45" Glyph="Images/batteries_1_32.png">
+                <dx:DXTabItem Header="Battery Configuration" Height="45" VerticalAlignment="Center" Glyph="Images/batteries_1_32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10" DataContext="{StaticResource getPVViewSource}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="80"/>
@@ -3569,7 +3755,7 @@
                         <dx:SimpleButton x:Name="SimpleButtonAutoConfigureBattery" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="543,19,0,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=AddItem_32x32.png}" ToolTip="Auto-Configure Batteries" Click="SimpleButtonAutoConfigureBattery_Click"/>
                     </Grid>
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Map" Height="45" VerticalAlignment="Top" Glyph="Images/map-marker32.png">
+                <dx:DXTabItem Header="Map" Height="45" VerticalAlignment="Center" Glyph="Images/map-marker32.png">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1721*"/>
@@ -3598,7 +3784,7 @@
 
                 </dx:DXTabItem>
 
-                <dx:DXTabItem Header="Enterprise" Height="45" VerticalAlignment="Top">
+                <dx:DXTabItem Header="Enterprise" Height="45" VerticalAlignment="Center">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1721*"/>
@@ -3638,7 +3824,7 @@
                     </Grid>
 
                 </dx:DXTabItem>
-                <dx:DXTabItem Header="Greenhouse" Height="45" VerticalAlignment="Top">
+                <dx:DXTabItem Header="Greenhouse" Height="45" VerticalAlignment="Center">
                     <Grid Background="#FF5A5A5A" Margin="10,10,10,10"  DataContext="{StaticResource getProjectViewSource}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
