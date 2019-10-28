@@ -343,7 +343,9 @@ namespace Net_Zero {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitExpressions() {
             this.getSummary.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
-            this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+            this.getSummary.nChosenPVWouldAccomodateColumn.Expression = "iif(nInsolationPredicted>0,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFact" +
+                "or*nInsolationPredicted,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor" +
+                "*nInsolationPredictedEmperical)";
             this.getSummary.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
             this.getSummary.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
             this.getSummary.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +
@@ -360,6 +362,9 @@ namespace Net_Zero {
             this.getSummary.nTOTAL_PNSColumn.Expression = "nIBC_PNS+nIDC_PNS+nIRC_PNS";
             this.getSummary.nTOTAL2Column.Expression = "nIBC2+nIDC2+nIRC2";
             this.getSummary.nAzimuthErrorColumn.Expression = "nChosenAzimuth-nSunAzimuth";
+            this.getSummary.nTotalEmpericalColumn.Expression = "nBeamCollectorEmperical+nReflectedCollectorEmperical+nDiffuseCollectorEmperical";
+            this.getSummary.nTOTAL_HNSEmpericalColumn.Expression = "nIBC_HNSEmperical+nIRC_HNSEmperical+nIDC_HNSEmperical";
+            this.getSummary.nTOTAL2EmpericalColumn.Expression = "nIBC2Emperical+nIDC2Emperical+nIRC2Emperical";
             this.getProject.nPVRequiredColumn.Expression = "iif(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolation>0,(nDemandTo" +
                 "tal*nDemandQty)/(nBatteryEfficiency*nMPPTFactor*nInverterDerate*nChosenInsolatio" +
                 "n),0)";
@@ -561,6 +566,42 @@ namespace Net_Zero {
             private global::System.Data.DataColumn columnnAzimuthError;
             
             private global::System.Data.DataColumn columnnBeamCollectorEmperical;
+            
+            private global::System.Data.DataColumn columnnReflectedCollectorEmperical;
+            
+            private global::System.Data.DataColumn columnnDiffuseCollectorEmperical;
+            
+            private global::System.Data.DataColumn columnnTotalEmperical;
+            
+            private global::System.Data.DataColumn columnnIBC_HNSEmperical;
+            
+            private global::System.Data.DataColumn columnnIDC_HNSEmperical;
+            
+            private global::System.Data.DataColumn columnnIRC_HNSEmperical;
+            
+            private global::System.Data.DataColumn columnnTOTAL_HNSEmperical;
+            
+            private global::System.Data.DataColumn columnnIBC2Emperical;
+            
+            private global::System.Data.DataColumn columnnIDC2Emperical;
+            
+            private global::System.Data.DataColumn columnnIRC2Emperical;
+            
+            private global::System.Data.DataColumn columnnTOTAL2Emperical;
+            
+            private global::System.Data.DataColumn columnnInsolationPredictedEmperical;
+            
+            private global::System.Data.DataColumn columnnInsolationPredictedEmpericalMonth;
+            
+            private global::System.Data.DataColumn columnnDNIDay;
+            
+            private global::System.Data.DataColumn columnnDHIDay;
+            
+            private global::System.Data.DataColumn columnnGHIDay;
+            
+            private global::System.Data.DataColumn columnnTotalEmpericalDay;
+            
+            private global::System.Data.DataColumn columnbUserSpecifiedCoordinates;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1302,6 +1343,150 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nReflectedCollectorEmpericalColumn {
+                get {
+                    return this.columnnReflectedCollectorEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nDiffuseCollectorEmpericalColumn {
+                get {
+                    return this.columnnDiffuseCollectorEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nTotalEmpericalColumn {
+                get {
+                    return this.columnnTotalEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIBC_HNSEmpericalColumn {
+                get {
+                    return this.columnnIBC_HNSEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIDC_HNSEmpericalColumn {
+                get {
+                    return this.columnnIDC_HNSEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIRC_HNSEmpericalColumn {
+                get {
+                    return this.columnnIRC_HNSEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nTOTAL_HNSEmpericalColumn {
+                get {
+                    return this.columnnTOTAL_HNSEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIBC2EmpericalColumn {
+                get {
+                    return this.columnnIBC2Emperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIDC2EmpericalColumn {
+                get {
+                    return this.columnnIDC2Emperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nIRC2EmpericalColumn {
+                get {
+                    return this.columnnIRC2Emperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nTOTAL2EmpericalColumn {
+                get {
+                    return this.columnnTOTAL2Emperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nInsolationPredictedEmpericalColumn {
+                get {
+                    return this.columnnInsolationPredictedEmperical;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nInsolationPredictedEmpericalMonthColumn {
+                get {
+                    return this.columnnInsolationPredictedEmpericalMonth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nDNIDayColumn {
+                get {
+                    return this.columnnDNIDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nDHIDayColumn {
+                get {
+                    return this.columnnDHIDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nGHIDayColumn {
+                get {
+                    return this.columnnGHIDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nTotalEmpericalDayColumn {
+                get {
+                    return this.columnnTotalEmpericalDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bUserSpecifiedCoordinatesColumn {
+                get {
+                    return this.columnbUserSpecifiedCoordinates;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1423,7 +1608,25 @@ namespace Net_Zero {
                         decimal nDHI, 
                         decimal nGHI, 
                         decimal nAzimuthError, 
-                        decimal nBeamCollectorEmperical) {
+                        decimal nBeamCollectorEmperical, 
+                        decimal nReflectedCollectorEmperical, 
+                        decimal nDiffuseCollectorEmperical, 
+                        decimal nTotalEmperical, 
+                        decimal nIBC_HNSEmperical, 
+                        decimal nIDC_HNSEmperical, 
+                        decimal nIRC_HNSEmperical, 
+                        decimal nTOTAL_HNSEmperical, 
+                        decimal nIBC2Emperical, 
+                        decimal nIDC2Emperical, 
+                        decimal nIRC2Emperical, 
+                        decimal nTOTAL2Emperical, 
+                        decimal nInsolationPredictedEmperical, 
+                        decimal nInsolationPredictedEmpericalMonth, 
+                        decimal nDNIDay, 
+                        decimal nDHIDay, 
+                        decimal nGHIDay, 
+                        decimal nTotalEmpericalDay, 
+                        bool bUserSpecifiedCoordinates) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1512,7 +1715,25 @@ namespace Net_Zero {
                         nDHI,
                         nGHI,
                         nAzimuthError,
-                        nBeamCollectorEmperical};
+                        nBeamCollectorEmperical,
+                        nReflectedCollectorEmperical,
+                        nDiffuseCollectorEmperical,
+                        nTotalEmperical,
+                        nIBC_HNSEmperical,
+                        nIDC_HNSEmperical,
+                        nIRC_HNSEmperical,
+                        nTOTAL_HNSEmperical,
+                        nIBC2Emperical,
+                        nIDC2Emperical,
+                        nIRC2Emperical,
+                        nTOTAL2Emperical,
+                        nInsolationPredictedEmperical,
+                        nInsolationPredictedEmpericalMonth,
+                        nDNIDay,
+                        nDHIDay,
+                        nGHIDay,
+                        nTotalEmpericalDay,
+                        bUserSpecifiedCoordinates};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1589,7 +1810,22 @@ namespace Net_Zero {
                         decimal nDNI, 
                         decimal nDHI, 
                         decimal nGHI, 
-                        decimal nBeamCollectorEmperical) {
+                        decimal nBeamCollectorEmperical, 
+                        decimal nReflectedCollectorEmperical, 
+                        decimal nDiffuseCollectorEmperical, 
+                        decimal nIBC_HNSEmperical, 
+                        decimal nIDC_HNSEmperical, 
+                        decimal nIRC_HNSEmperical, 
+                        decimal nIBC2Emperical, 
+                        decimal nIDC2Emperical, 
+                        decimal nIRC2Emperical, 
+                        decimal nInsolationPredictedEmperical, 
+                        decimal nInsolationPredictedEmpericalMonth, 
+                        decimal nDNIDay, 
+                        decimal nDHIDay, 
+                        decimal nGHIDay, 
+                        decimal nTotalEmpericalDay, 
+                        bool bUserSpecifiedCoordinates) {
                 getSummaryRow rowgetSummaryRow = ((getSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1678,7 +1914,25 @@ namespace Net_Zero {
                         nDHI,
                         nGHI,
                         null,
-                        nBeamCollectorEmperical};
+                        nBeamCollectorEmperical,
+                        nReflectedCollectorEmperical,
+                        nDiffuseCollectorEmperical,
+                        null,
+                        nIBC_HNSEmperical,
+                        nIDC_HNSEmperical,
+                        nIRC_HNSEmperical,
+                        null,
+                        nIBC2Emperical,
+                        nIDC2Emperical,
+                        nIRC2Emperical,
+                        null,
+                        nInsolationPredictedEmperical,
+                        nInsolationPredictedEmpericalMonth,
+                        nDNIDay,
+                        nDHIDay,
+                        nGHIDay,
+                        nTotalEmpericalDay,
+                        bUserSpecifiedCoordinates};
                 rowgetSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowgetSummaryRow);
                 return rowgetSummaryRow;
@@ -1795,6 +2049,24 @@ namespace Net_Zero {
                 this.columnnGHI = base.Columns["nGHI"];
                 this.columnnAzimuthError = base.Columns["nAzimuthError"];
                 this.columnnBeamCollectorEmperical = base.Columns["nBeamCollectorEmperical"];
+                this.columnnReflectedCollectorEmperical = base.Columns["nReflectedCollectorEmperical"];
+                this.columnnDiffuseCollectorEmperical = base.Columns["nDiffuseCollectorEmperical"];
+                this.columnnTotalEmperical = base.Columns["nTotalEmperical"];
+                this.columnnIBC_HNSEmperical = base.Columns["nIBC_HNSEmperical"];
+                this.columnnIDC_HNSEmperical = base.Columns["nIDC_HNSEmperical"];
+                this.columnnIRC_HNSEmperical = base.Columns["nIRC_HNSEmperical"];
+                this.columnnTOTAL_HNSEmperical = base.Columns["nTOTAL_HNSEmperical"];
+                this.columnnIBC2Emperical = base.Columns["nIBC2Emperical"];
+                this.columnnIDC2Emperical = base.Columns["nIDC2Emperical"];
+                this.columnnIRC2Emperical = base.Columns["nIRC2Emperical"];
+                this.columnnTOTAL2Emperical = base.Columns["nTOTAL2Emperical"];
+                this.columnnInsolationPredictedEmperical = base.Columns["nInsolationPredictedEmperical"];
+                this.columnnInsolationPredictedEmpericalMonth = base.Columns["nInsolationPredictedEmpericalMonth"];
+                this.columnnDNIDay = base.Columns["nDNIDay"];
+                this.columnnDHIDay = base.Columns["nDHIDay"];
+                this.columnnGHIDay = base.Columns["nGHIDay"];
+                this.columnnTotalEmpericalDay = base.Columns["nTotalEmpericalDay"];
+                this.columnbUserSpecifiedCoordinates = base.Columns["bUserSpecifiedCoordinates"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1974,6 +2246,42 @@ namespace Net_Zero {
                 base.Columns.Add(this.columnnAzimuthError);
                 this.columnnBeamCollectorEmperical = new global::System.Data.DataColumn("nBeamCollectorEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnBeamCollectorEmperical);
+                this.columnnReflectedCollectorEmperical = new global::System.Data.DataColumn("nReflectedCollectorEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnReflectedCollectorEmperical);
+                this.columnnDiffuseCollectorEmperical = new global::System.Data.DataColumn("nDiffuseCollectorEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDiffuseCollectorEmperical);
+                this.columnnTotalEmperical = new global::System.Data.DataColumn("nTotalEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotalEmperical);
+                this.columnnIBC_HNSEmperical = new global::System.Data.DataColumn("nIBC_HNSEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIBC_HNSEmperical);
+                this.columnnIDC_HNSEmperical = new global::System.Data.DataColumn("nIDC_HNSEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIDC_HNSEmperical);
+                this.columnnIRC_HNSEmperical = new global::System.Data.DataColumn("nIRC_HNSEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIRC_HNSEmperical);
+                this.columnnTOTAL_HNSEmperical = new global::System.Data.DataColumn("nTOTAL_HNSEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTOTAL_HNSEmperical);
+                this.columnnIBC2Emperical = new global::System.Data.DataColumn("nIBC2Emperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIBC2Emperical);
+                this.columnnIDC2Emperical = new global::System.Data.DataColumn("nIDC2Emperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIDC2Emperical);
+                this.columnnIRC2Emperical = new global::System.Data.DataColumn("nIRC2Emperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnIRC2Emperical);
+                this.columnnTOTAL2Emperical = new global::System.Data.DataColumn("nTOTAL2Emperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTOTAL2Emperical);
+                this.columnnInsolationPredictedEmperical = new global::System.Data.DataColumn("nInsolationPredictedEmperical", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnInsolationPredictedEmperical);
+                this.columnnInsolationPredictedEmpericalMonth = new global::System.Data.DataColumn("nInsolationPredictedEmpericalMonth", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnInsolationPredictedEmpericalMonth);
+                this.columnnDNIDay = new global::System.Data.DataColumn("nDNIDay", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDNIDay);
+                this.columnnDHIDay = new global::System.Data.DataColumn("nDHIDay", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnDHIDay);
+                this.columnnGHIDay = new global::System.Data.DataColumn("nGHIDay", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnGHIDay);
+                this.columnnTotalEmpericalDay = new global::System.Data.DataColumn("nTotalEmpericalDay", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnTotalEmpericalDay);
+                this.columnbUserSpecifiedCoordinates = new global::System.Data.DataColumn("bUserSpecifiedCoordinates", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbUserSpecifiedCoordinates);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnID}, true));
                 this.columnnID.AutoIncrement = true;
@@ -2000,6 +2308,9 @@ namespace Net_Zero {
                 this.columnnTOTAL_PNS.ReadOnly = true;
                 this.columnnTOTAL2.ReadOnly = true;
                 this.columnnAzimuthError.ReadOnly = true;
+                this.columnnTotalEmperical.ReadOnly = true;
+                this.columnnTOTAL_HNSEmperical.ReadOnly = true;
+                this.columnnTOTAL2Emperical.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2024,7 +2335,9 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitExpressions() {
                 this.nDifferenceRequiredPVChosenPVColumn.Expression = "nChosenPV-nRequiredPV";
-                this.nChosenPVWouldAccomodateColumn.Expression = "nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor*nInsolationPredicted";
+                this.nChosenPVWouldAccomodateColumn.Expression = "iif(nInsolationPredicted>0,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFact" +
+                    "or*nInsolationPredicted,nChosenPV*nBatteryEfficiency*nInverterDerate*nMPPTFactor" +
+                    "*nInsolationPredictedEmperical)";
                 this.nExcessLoadSuppliedColumn.Expression = "nChosenPVWouldAccomodate-nDemandTotal";
                 this.nPercentLoadSuppliedColumn.Expression = "iif(nDemandTotal>0,nChosenPVWouldAccomodate/nDemandTotal,0)";
                 this.nDaysRunFullChargeLocalColumn.Expression = "iif(-nExcessLoadSupplied<>0,((nChosenBattery*nVoltage)/1000)/-nExcessLoadSupplied" +
@@ -2041,6 +2354,9 @@ namespace Net_Zero {
                 this.nTOTAL_PNSColumn.Expression = "nIBC_PNS+nIDC_PNS+nIRC_PNS";
                 this.nTOTAL2Column.Expression = "nIBC2+nIDC2+nIRC2";
                 this.nAzimuthErrorColumn.Expression = "nChosenAzimuth-nSunAzimuth";
+                this.nTotalEmpericalColumn.Expression = "nBeamCollectorEmperical+nReflectedCollectorEmperical+nDiffuseCollectorEmperical";
+                this.nTOTAL_HNSEmpericalColumn.Expression = "nIBC_HNSEmperical+nIRC_HNSEmperical+nIDC_HNSEmperical";
+                this.nTOTAL2EmpericalColumn.Expression = "nIBC2Emperical+nIDC2Emperical+nIRC2Emperical";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5110,6 +5426,299 @@ namespace Net_Zero {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nReflectedCollectorEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nReflectedCollectorEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nReflectedCollectorEmperical\' in table \'getSummary\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nReflectedCollectorEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nDiffuseCollectorEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDiffuseCollectorEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDiffuseCollectorEmperical\' in table \'getSummary\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDiffuseCollectorEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nTotalEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTotalEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotalEmperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTotalEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIBC_HNSEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIBC_HNSEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIBC_HNSEmperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIBC_HNSEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIDC_HNSEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIDC_HNSEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIDC_HNSEmperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIDC_HNSEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIRC_HNSEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIRC_HNSEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIRC_HNSEmperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIRC_HNSEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nTOTAL_HNSEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTOTAL_HNSEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTOTAL_HNSEmperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTOTAL_HNSEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIBC2Emperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIBC2EmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIBC2Emperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIBC2EmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIDC2Emperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIDC2EmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIDC2Emperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIDC2EmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nIRC2Emperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nIRC2EmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nIRC2Emperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nIRC2EmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nTOTAL2Emperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTOTAL2EmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTOTAL2Emperical\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTOTAL2EmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nInsolationPredictedEmperical {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nInsolationPredictedEmpericalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nInsolationPredictedEmperical\' in table \'getSummary\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nInsolationPredictedEmpericalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nInsolationPredictedEmpericalMonth {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nInsolationPredictedEmpericalMonthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nInsolationPredictedEmpericalMonth\' in table \'getSummary\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nInsolationPredictedEmpericalMonthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nDNIDay {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDNIDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDNIDay\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDNIDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nDHIDay {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nDHIDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nDHIDay\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nDHIDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nGHIDay {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nGHIDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nGHIDay\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nGHIDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal nTotalEmpericalDay {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablegetSummary.nTotalEmpericalDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nTotalEmpericalDay\' in table \'getSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.nTotalEmpericalDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool bUserSpecifiedCoordinates {
+                get {
+                    try {
+                        return ((bool)(this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bUserSpecifiedCoordinates\' in table \'getSummary\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdtCreateDateNull() {
                 return this.IsNull(this.tablegetSummary.dtCreateDateColumn);
             }
@@ -6138,6 +6747,222 @@ namespace Net_Zero {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnBeamCollectorEmpericalNull() {
                 this[this.tablegetSummary.nBeamCollectorEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnReflectedCollectorEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nReflectedCollectorEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnReflectedCollectorEmpericalNull() {
+                this[this.tablegetSummary.nReflectedCollectorEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnDiffuseCollectorEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nDiffuseCollectorEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnDiffuseCollectorEmpericalNull() {
+                this[this.tablegetSummary.nDiffuseCollectorEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnTotalEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nTotalEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnTotalEmpericalNull() {
+                this[this.tablegetSummary.nTotalEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIBC_HNSEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIBC_HNSEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIBC_HNSEmpericalNull() {
+                this[this.tablegetSummary.nIBC_HNSEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIDC_HNSEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIDC_HNSEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIDC_HNSEmpericalNull() {
+                this[this.tablegetSummary.nIDC_HNSEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIRC_HNSEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIRC_HNSEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIRC_HNSEmpericalNull() {
+                this[this.tablegetSummary.nIRC_HNSEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnTOTAL_HNSEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nTOTAL_HNSEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnTOTAL_HNSEmpericalNull() {
+                this[this.tablegetSummary.nTOTAL_HNSEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIBC2EmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIBC2EmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIBC2EmpericalNull() {
+                this[this.tablegetSummary.nIBC2EmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIDC2EmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIDC2EmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIDC2EmpericalNull() {
+                this[this.tablegetSummary.nIDC2EmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnIRC2EmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nIRC2EmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnIRC2EmpericalNull() {
+                this[this.tablegetSummary.nIRC2EmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnTOTAL2EmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nTOTAL2EmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnTOTAL2EmpericalNull() {
+                this[this.tablegetSummary.nTOTAL2EmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnInsolationPredictedEmpericalNull() {
+                return this.IsNull(this.tablegetSummary.nInsolationPredictedEmpericalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnInsolationPredictedEmpericalNull() {
+                this[this.tablegetSummary.nInsolationPredictedEmpericalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnInsolationPredictedEmpericalMonthNull() {
+                return this.IsNull(this.tablegetSummary.nInsolationPredictedEmpericalMonthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnInsolationPredictedEmpericalMonthNull() {
+                this[this.tablegetSummary.nInsolationPredictedEmpericalMonthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnDNIDayNull() {
+                return this.IsNull(this.tablegetSummary.nDNIDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnDNIDayNull() {
+                this[this.tablegetSummary.nDNIDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnDHIDayNull() {
+                return this.IsNull(this.tablegetSummary.nDHIDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnDHIDayNull() {
+                this[this.tablegetSummary.nDHIDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnGHIDayNull() {
+                return this.IsNull(this.tablegetSummary.nGHIDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnGHIDayNull() {
+                this[this.tablegetSummary.nGHIDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnTotalEmpericalDayNull() {
+                return this.IsNull(this.tablegetSummary.nTotalEmpericalDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnTotalEmpericalDayNull() {
+                this[this.tablegetSummary.nTotalEmpericalDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsbUserSpecifiedCoordinatesNull() {
+                return this.IsNull(this.tablegetSummary.bUserSpecifiedCoordinatesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetbUserSpecifiedCoordinatesNull() {
+                this[this.tablegetSummary.bUserSpecifiedCoordinatesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8139,6 +8964,20 @@ namespace Net_Zero.SummaryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("nDHI", "nDHI");
             tableMapping.ColumnMappings.Add("nGHI", "nGHI");
             tableMapping.ColumnMappings.Add("nBeamCollectorEmperical", "nBeamCollectorEmperical");
+            tableMapping.ColumnMappings.Add("nReflectedCollectorEmperical", "nReflectedCollectorEmperical");
+            tableMapping.ColumnMappings.Add("nDiffuseCollectorEmperical", "nDiffuseCollectorEmperical");
+            tableMapping.ColumnMappings.Add("nIBC_HNSEmperical", "nIBC_HNSEmperical");
+            tableMapping.ColumnMappings.Add("nIDC_HNSEmperical", "nIDC_HNSEmperical");
+            tableMapping.ColumnMappings.Add("nIRC_HNSEmperical", "nIRC_HNSEmperical");
+            tableMapping.ColumnMappings.Add("nIBC2Emperical", "nIBC2Emperical");
+            tableMapping.ColumnMappings.Add("nIDC2Emperical", "nIDC2Emperical");
+            tableMapping.ColumnMappings.Add("nIRC2Emperical", "nIRC2Emperical");
+            tableMapping.ColumnMappings.Add("nInsolationPredictedEmperical", "nInsolationPredictedEmperical");
+            tableMapping.ColumnMappings.Add("nInsolationPredictedEmpericalMonth", "nInsolationPredictedEmpericalMonth");
+            tableMapping.ColumnMappings.Add("nDNIDay", "nDNIDay");
+            tableMapping.ColumnMappings.Add("nDHIDay", "nDHIDay");
+            tableMapping.ColumnMappings.Add("nGHIDay", "nGHIDay");
+            tableMapping.ColumnMappings.Add("bUserSpecifiedCoordinates", "bUserSpecifiedCoordinates");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
