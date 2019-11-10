@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net-Zero", "Net-Zero\Net-Zero.csproj", "{4968136B-EA3A-4686-AAED-359F45B9F120}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Net-Zero_Database", "Net-Zero_Database\Net-Zero_Database.sqlproj", "{67A35BAD-85F4-4DB7-88AF-9956F897B682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{4968136B-EA3A-4686-AAED-359F45B9F120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4968136B-EA3A-4686-AAED-359F45B9F120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4968136B-EA3A-4686-AAED-359F45B9F120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A35BAD-85F4-4DB7-88AF-9956F897B682}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[democracyImport] (
+    [nID]                               INT           IDENTITY (1000, 1) NOT NULL,
+    [ID]                                INT           NULL,
+    [Country]                           NVARCHAR (50) NULL,
+    [Score2011_2012]                    FLOAT (53)    NULL,
+    [Rank2011_2012]                     INT           NULL,
+    [Score2014_2015]                    FLOAT (53)    NULL,
+    [Rank2014_2015]                     INT           NULL,
+    [DIRankChange2011_2012___2014_2015] INT           NULL,
+    [DIRank2011_2012___2014_2015]       INT           NULL,
+    [DISCore2011_2012___2014_2015]      FLOAT (53)    NULL,
+    [PS2011_2012]                       FLOAT (53)    NULL,
+    [PS2014_2015]                       FLOAT (53)    NULL,
+    [EC2011_2012]                       FLOAT (53)    NULL,
+    [EC2014_2015]                       FLOAT (53)    NULL,
+    [EN2011_2012]                       FLOAT (53)    NULL,
+    [EN2014_2015]                       FLOAT (53)    NULL,
+    [GE2011_2012]                       FLOAT (53)    NULL,
+    [GE2014_2015]                       FLOAT (53)    NULL,
+    [H2011_2012]                        FLOAT (53)    NULL,
+    [H2014_2015]                        FLOAT (53)    NULL,
+    [K2011_2012]                        FLOAT (53)    NULL,
+    [K2014_2015]                        FLOAT (53)    NULL,
+    [GC2011_2012]                       FLOAT (53)    NULL,
+    [GC2014_2015]                       FLOAT (53)    NULL
+);
+

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Net_Zero_Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{67a35bad-85f4-4db7-88af-9956f897b682}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Net_Zero_Database</RootNamespace>
+    <AssemblyName>Net_Zero_Database</AssemblyName>
+    <ModelCollation>1033,CS</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_100_CS_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Snapshots" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\EDGAR_to_SQL.sql" />
+    <Build Include="dbo\Tables\role.sql" />
+    <Build Include="dbo\Tables\batterySeriesString.sql" />
+    <Build Include="dbo\Tables\users.sql" />
+    <Build Include="dbo\Tables\ca_cities.sql" />
+    <Build Include="dbo\Tables\projects.sql" />
+    <Build Include="dbo\Tables\PV.sql" />
+    <Build Include="dbo\Tables\edgarPivot.sql" />
+    <Build Include="dbo\Tables\battery.sql" />
+    <Build Include="dbo\Tables\democracyImport.sql" />
+    <Build Include="dbo\Tables\demandItems.sql" />
+    <Build Include="dbo\Tables\stateProvince.sql" />
+    <Build Include="dbo\Tables\country.sql" />
+    <Build Include="dbo\Tables\city_kWh.sql" />
+    <Build Include="dbo\Tables\PVMaster.sql" />
+    <Build Include="dbo\Tables\city.sql" />
+    <Build Include="dbo\Tables\insolation.sql" />
+    <Build Include="dbo\Tables\batteryMaster.sql" />
+    <Build Include="dbo\Tables\53.2530_-131.817200_53.252796_-131.817369_psmv3_60_tmy_Staged.sql" />
+    <Build Include="dbo\Tables\53.2530_-131.817200_53.252796_-131.817369_psmv3_60_tmy.sql" />
+    <Build Include="dbo\Tables\summary.sql" />
+    <Build Include="dbo\Functions\UDF_getCT.sql" />
+    <Build Include="dbo\Functions\UDF_getDeclination.sql" />
+    <Build Include="dbo\Functions\UDF_getAltitude.sql" />
+    <Build Include="dbo\Functions\UDF_getAzimuth.sql" />
+    <Build Include="dbo\Functions\UDF_getAirMassRatio.sql" />
+    <Build Include="dbo\Functions\UDF_get%40ASHRAE_A.sql" />
+    <Build Include="dbo\Functions\UDF_get%40ASHRAE_k.sql" />
+    <Build Include="dbo\Functions\UDF_get%40nIB.sql" />
+    <Build Include="dbo\Functions\UDF_getIncidence.sql" />
+    <Build Include="dbo\Functions\UDF_getSkyDiffuseFactor.sql" />
+    <Build Include="dbo\Functions\UDF_getDiffuse.sql" />
+    <Build Include="dbo\Functions\UDF_getBeamCollectorHorizontal.sql" />
+    <Build Include="dbo\Functions\UDF_getReflected.sql" />
+    <Build Include="dbo\Functions\UDF_getIncidenceHNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC_HNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC_HNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIncidenceHEW.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC_HEW.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC_HEW.sql" />
+    <Build Include="dbo\Functions\UDF_getIncidenceVERT.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC_VERT.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC_VERT.sql" />
+    <Build Include="dbo\Functions\UDF_getDiffuseEmperical.sql" />
+    <Build Include="dbo\Functions\UDF_getReflectedEmperical.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC_HNSEmperical.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC_HNSEmperical.sql" />
+    <Build Include="dbo\Functions\UDF_getIncidencePNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC_PNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC_PNS.sql" />
+    <Build Include="dbo\Functions\UDF_getIDC2.sql" />
+    <Build Include="dbo\Functions\UDF_getIRC2.sql" />
+    <Build Include="dbo\Stored Procedures\updateChosenBattery.sql" />
+    <Build Include="dbo\Stored Procedures\updateSummaryDates.sql" />
+    <Build Include="dbo\Stored Procedures\USP_autoBattery.sql" />
+    <Build Include="dbo\Stored Procedures\getEDGAR_to_SQL.sql" />
+    <Build Include="dbo\Stored Procedures\UTILITY_latlong.sql" />
+    <Build Include="dbo\Stored Procedures\getPV.sql" />
+    <Build Include="dbo\Stored Procedures\getUser.sql" />
+    <Build Include="dbo\Stored Procedures\getEDGAR_to_SQL_grouped.sql" />
+    <Build Include="dbo\Stored Procedures\UTIL_pivot.sql" />
+    <Build Include="dbo\Stored Procedures\USP_deletePV.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertPV.sql" />
+    <Build Include="dbo\Stored Procedures\getEdgarPivotGrouped.sql" />
+    <Build Include="dbo\Stored Procedures\getBatterySeriesString.sql" />
+    <Build Include="dbo\Stored Procedures\getBattery.sql" />
+    <Build Include="dbo\Stored Procedures\updateCityDemand.sql" />
+    <Build Include="dbo\Stored Procedures\getDemandItems.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertBatterySeriesString.sql" />
+    <Build Include="dbo\Stored Procedures\getSummary.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertBattery.sql" />
+    <Build Include="dbo\Stored Procedures\getSummaryAll.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updateBattery.sql" />
+    <Build Include="dbo\Stored Procedures\createDates.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updateBatterySeriesString.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updatePV.sql" />
+    <Build Include="dbo\Stored Procedures\getSummaryDailyTotals.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertDemandItem.sql" />
+    <Build Include="dbo\Stored Procedures\InsertCountries.sql" />
+    <Build Include="dbo\Stored Procedures\getAllCountries.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updateDemand.sql" />
+    <Build Include="dbo\Stored Procedures\CreateTMY.sql" />
+    <Build Include="dbo\Stored Procedures\updateChosenDemand.sql" />
+    <Build Include="dbo\Stored Procedures\UTILITYCOPYSTATES.sql" />
+    <Build Include="dbo\Stored Procedures\UTILITYUPDATECITY.sql" />
+    <Build Include="dbo\Stored Procedures\getAllProject.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertProject.sql" />
+    <Build Include="dbo\Stored Procedures\UTILITYInsertInsolation.sql" />
+    <Build Include="dbo\Stored Procedures\updateEnterprise.sql" />
+    <Build Include="dbo\Stored Procedures\getAllStateProvince.sql" />
+    <Build Include="dbo\Stored Procedures\getAllCity.sql" />
+    <Build Include="dbo\Stored Procedures\getPVMaster.sql" />
+    <Build Include="dbo\Stored Procedures\getAllInsolation.sql" />
+    <Build Include="dbo\Stored Procedures\getBatteryMaster.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertPVMaster.sql" />
+    <Build Include="dbo\Stored Procedures\updateCity.sql" />
+    <Build Include="dbo\Stored Procedures\USP_insertBatteryMaster.sql" />
+    <Build Include="dbo\Stored Procedures\updateDerates.sql" />
+    <Build Include="dbo\Stored Procedures\getProject.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updatePVMaster.sql" />
+    <Build Include="dbo\Stored Procedures\USP_updateBatteryMaster.sql" />
+    <Build Include="dbo\Stored Procedures\updateChosenPV.sql" />
+    <Build Include="dbo\Stored Procedures\USP_autoPV.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\Net-Zero_Database_20191028_21-02-50.dacpac" />
+  </ItemGroup>
+</Project>
