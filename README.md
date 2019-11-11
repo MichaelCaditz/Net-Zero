@@ -16,7 +16,7 @@ What does this software do?
 Estimates demand from list of appliances.
 User selects geograpical location of PV plant.
 Optional import of TMY file.
-Displays expected daily or monthly insolation for selected geographical location, either from motnhly averages or daily TMY data.
+Displays expected daily or monthly insolation for selected geographical location, either from monthly averages or daily TMY data.
 User selects sun-hours on which to size system.
 Recommends total rated power of PV based on demand versus chosen sun-hours.
 User chooses days of autonomy.
