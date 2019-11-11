@@ -28,6 +28,6 @@ Does much more . . .to be contimued . . . .
 
 Limitations:
 
-Uses outdated version of DeveExpress controls. I don't have budget for subscriptiopn renewal at thye moment.
+Uses outdated version of DevExpress controls. I don't have budget for subscription renewal at thye moment.
 
 
