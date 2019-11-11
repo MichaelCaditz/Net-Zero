@@ -21,3 +21,13 @@ User selects sun-hours on which to size system.
 Recommends total rated power of PV based on demand versus chosen sun-hours.
 User chooses days of autonomy.
 Recommends rated battery storage capacity based on demand, PV power, and days of autonomy.
+Calculates and charts energy balance (demand versus energy provided).
+Estimates greenhouse emission savings of project.
+
+Does much more . . .to be contimued . . . .
+
+Limitations:
+
+Uses outdated version of DeveExpress controls. I don't have budget for subscriptiopn renewal at thye moment.
+
+
