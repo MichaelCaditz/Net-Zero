@@ -1,4 +1,4 @@
-# NetZero
+# Net-Zero
 Off-grid PV plant sizing and metrics, residential or commercial, with storage.  Thesis project for MS-EM at NYIT, Vancouver. C# VS.net. MSSQL 2017 DB.  I am now making this open source.
 
 Windows desktop client/server
