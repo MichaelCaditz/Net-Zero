@@ -15,11 +15,12 @@ What does this software do?
 
 Estimates demand from list of appliances.
 User selects geograpical location of PV plant.
+User selects tracking system from fixed, various types of one-axis trracking, or two-axis tracking. User can specify collector tilt angle.
 Optional import of TMY file.
 Displays expected daily or monthly insolation for selected geographical location, either from monthly averages or daily TMY data.
 User selects sun-hours on which to size system.
 Recommends total rated power of PV based on demand versus chosen sun-hours.
-User chooses days of autonomy.
+User chooses desired days of autonomy (how long energy demand can be met from storage with no energy input from PV).
 Recommends rated battery storage capacity based on demand, PV power, and days of autonomy.
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
