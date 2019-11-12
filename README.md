@@ -29,6 +29,7 @@ Does much more . . .to be contimued . . . .
 
 Limitations:
 
-Uses outdated version of DevExpress controls. I don't have budget for subscription renewal at thye moment.
+Uses outdated version of DevExpress controls. I don't have budget for subscription renewal at the moment.
+Uses MSSQL bulk insert (for TMY file import) which is not permitted by many commercial MSSQL hosing services, such as Winhost. 
 
 
