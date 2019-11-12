@@ -6,7 +6,7 @@
     x:Class="Net_Zero.logon"
     Title="Net-Zero Logon" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" Background="#FF20593D"
     >
-
+<!--testest-->
     <Grid>
         <dx:SimpleButton x:Name="btnQuit" Content="Quit" HorizontalAlignment="Left" Height="25" Margin="369,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsCancel="True" Click="btnQuit_Click"/>
         <dx:SimpleButton x:Name="btnLogon" Content="Submit" HorizontalAlignment="Left" Height="25" Margin="254,251,0,0" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsDefault="True" Click="btnLogon_Click" Foreground="#FF1A2C1B"/>
