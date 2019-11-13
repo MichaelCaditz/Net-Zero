@@ -7,15 +7,15 @@ Platform specifications:
 C# 
 Visual Studio 2019
 WPF
-DevExpress WPFcontrols v18.1
+DevExpress WPF controls v18.1
 MSSQL 2017 Database
 Visual Studio database project
 
 What does this software do?
 
 Estimates demand from list of appliances.
-User selects geograpical location of PV plant.
-User selects tracking system from fixed, various types of one-axis trracking, or two-axis tracking. User can specify collector tilt angle.
+User selects geographical location of PV plant.
+User selects tracking system from fixed, various types of one-axis tracking, or two-axis tracking. User can specify collector tilt angle.
 Optional import of TMY file.
 Displays expected daily or monthly insolation for selected geographical location, either from monthly averages or daily TMY data.
 User selects sun-hours on which to size system.
@@ -25,7 +25,7 @@ Recommends rated battery storage capacity based on demand, PV power, and days of
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
 
-Does much more . . .to be contimued . . . .
+Does much more . . . to be contimued . . . .
 
 Limitations:
 
