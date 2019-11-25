@@ -27,6 +27,8 @@ Estimates greenhouse emission savings of project.
 
 The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
 
+Examp0les of calculations performed:
+
 Does much more . . . to be continued . . . .
 
 Limitations:
