@@ -65,7 +65,7 @@ Examples of calculations performed, either hourly or daily for a chosen time spa
 * what-if scenarios of above data, using each of the other tracking systems
 * various charts displaying selected data from above
 
-The accuracy of the above calculations have been tested in an academic research environment. References are available upon request. The calculations are made in code using T-SQL trigonometric functions.
+The accuracy of the above calculations has been tested in an academic research environment. References are available upon request. The calculations are made in code using T-SQL trigonometric functions.
 
 Does much more . . . to be continued . . . .
 
