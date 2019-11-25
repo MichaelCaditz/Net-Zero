@@ -29,6 +29,8 @@ The program performs multiple calculations related to the solar resource at a ch
 
 Examples of calculations performed:
 
+* 
+
 Does much more . . . to be continued . . . .
 
 Limitations:
