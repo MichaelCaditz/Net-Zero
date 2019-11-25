@@ -61,8 +61,9 @@ Examples of calculations performed, either hourly or daily for a chosen time spa
 * emperical diffuse radiation (from TMY) radiation on horizontal collector
 * clear sky reflected radiation 
 * emperical reflected radiation (from TMY) 
-** what-if scenarios of above data, using each of the other tracking systems
-** various charts displaying selected data from above
+
+* what-if scenarios of above data, using each of the other tracking systems
+* various charts displaying selected data from above
 
 The accuracy of the above calculations have been tested in an academic research environment. References are available upon request. The calculations are made in code using T-SQL trigonometric functions.
 
