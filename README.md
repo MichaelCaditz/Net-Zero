@@ -13,7 +13,11 @@ Visual Studio database project
 
 What does this software do?
 
-Unique workflow: Workflow starts with determining power demand. User then specifies hgeographic coordianates of PV plant, a tracking system, and a proposed sun-hour insolation value (obtained from TMY files imported by user, or optionally, monthly averages pre-loaded in database), and the number of days of auto9nomy desired. Net-Zero then calculates the rated PV capacity required, and also the rated battery storage capacity.
+Unique workflow: Workflow starts with determining power demand. User then specifies geographic coordianates of PV plant, a tracking system, and a proposed sun-hour insolation value (obtained from TMY files imported by user, or optionally, monthly averages pre-loaded in database), and the number of days of auto9nomy desired. Net-Zero then calculates the rated PV capacity required, and also the rated battery storage capacity.
+
+User can then chart the conequences of the chosen parameters vis a vis meeting the energy deman, What-if scenarios can be created to consider other tracking systems or assumed insolation values.
+
+Once user identifies rated PV power and batter capacity required, then those values could be input to SAM, or other software to build a system.
 
 Estimates demand from list of appliances.
 User selects geographical location of PV plant.
