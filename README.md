@@ -27,7 +27,7 @@ Estimates greenhouse emission savings of project.
 
 The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
 
-Examples of calculations performed, either hourly or daily for a chosen time span,  chosen latitude and longitude, chosen tracking system (fixed at n altitude; single-axis tracking HNS, HEW, PNS or VERT; or 2-axis), specified demand, chosen rated PV kW, chosen rated storage battery capacity kWh:
+Partial list of calculations performed, either hourly or daily for a chosen time span,  chosen latitude and longitude, chosen tracking system (fixed at n altitude; single-axis tracking HNS, HEW, PNS or VERT; or 2-axis), specified demand, chosen rated PV kW, chosen rated storage battery capacity kWh:
 
 * solar datetime
 * numerical day of year
