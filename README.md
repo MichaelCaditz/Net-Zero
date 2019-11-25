@@ -24,6 +24,7 @@ User chooses desired days of autonomy (how long energy demand can be met from st
 Recommends rated battery storage capacity based on demand, PV power, and days of autonomy.
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
+Didplays topographic map of chosen geographic PV location.
 
 The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
 
