@@ -1,5 +1,7 @@
 # Net-Zero
-Off-grid PV plant sizing and metrics, residential or commercial, with storage.  Thesis project for MS-EM at NYIT, Vancouver. C# VS.net. MSSQL 2017 DB.  I am now making this open source.
+Windows desktop (WPF) program for off-grid PV plant sizing and metrics, residential or commercial, with storage.  Thesis project for MS-EM at NYIT, Vancouver. C# VS.net. MSSQL 2017 DB.  I am now making this open source.
+
+Background: I am part of the anti-cloud resistance! I support hose who prefer their proprietary data to be hosted on local machines!
 
 Windows desktop client/server
 
