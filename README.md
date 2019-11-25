@@ -25,7 +25,9 @@ Recommends rated battery storage capacity based on demand, PV power, and days of
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
 
-Does much more . . . to be contimued . . . .
+The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
+
+Does much more . . . to be continued . . . .
 
 Limitations:
 
