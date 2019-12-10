@@ -32,11 +32,49 @@ User chooses desired days of autonomy (how long energy demand can be met from st
 Recommends rated battery storage capacity based on demand, PV power, and days of autonomy.
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
-Didplays topographic map of chosen geographic PV location.
+Displays topographic map of chosen geographic PV location.
 
 The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
 
-Examp0les of calculations performed:
+Partial list of calculations performed, either hourly or daily for a chosen time span,  chosen latitude and longitude, chosen tracking system (fixed at n altitude; single-axis tracking HNS, HEW, PNS or VERT; or 2-axis), specified demand, chosen rated PV kW, chosen rated storage battery capacity kWh:
+
+* solar datetime
+* numerical day of year
+* hour angle
+* civil time
+* solar declination
+* solar altitude
+* solar azimuth
+* air mass ratio
+* expected insolation from TMY file
+* actial PV tilt
+* optimal PV tilt
+* tilt error
+* actual PV azimuth
+* optimal PV azimuth
+* azimuth error
+* required PV kW
+* PV kW deficiency (or surplus)
+* chosen PV kW would accomodate . . .  kWh demand
+* surplus or deficit energy supplied
+* percent of demand supplied
+* cumulative battery energy loss over time period
+* battery remaining kWh
+* battery remaining percent
+* battery hours remaining
+* solar angle of incidence
+* clear sky beam normal to collector
+* emperical beam (from TMY) normal to collector
+* clear sky beam on horizontal collector
+* clear sky diffuse radiation on horizontal collector
+* emperical diffuse radiation (from TMY) radiation on horizontal collector
+* clear sky reflected radiation 
+* emperical reflected radiation (from TMY) 
+
+* what-if scenarios of above data, using each of the other tracking systems
+* various charts displaying selected data from above
+
+The accuracy of the above calculations has been tested in an academic research environment. References are available upon request. The calculations are made in code using T-SQL trigonometric functions.
 
 Does much more . . . to be continued . . . .
 
