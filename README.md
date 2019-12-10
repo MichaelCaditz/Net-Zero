@@ -1,5 +1,7 @@
 # Net-Zero
-Off-grid PV plant sizing and metrics, residential or commercial, with storage.  Thesis project for MS-EM at NYIT, Vancouver. C# VS.net. MSSQL 2017 DB.  I am now making this open source.
+Windows desktop (WPF) program for off-grid PV plant sizing and metrics, residential or commercial, with storage.  Thesis project for MS-EM at NYIT, Vancouver. C# VS.net. MSSQL 2017 DB.  I am now making this open source.
+
+Background: I am part of the anti-cloud resistance! I support hose who prefer their proprietary data to be hosted on local machines!
 
 Windows desktop client/server
 
@@ -13,6 +15,12 @@ Visual Studio database project
 
 What does this software do?
 
+Unique workflow: Workflow starts with determining power demand. User then specifies geographic coordianates of PV plant, a tracking system, and a proposed sun-hour insolation value (obtained from TMY files imported by user, or optionally, monthly averages pre-loaded in database), and the number of days of auto9nomy desired. Net-Zero then calculates the rated PV capacity required, and also the rated battery storage capacity.
+
+User can then chart the conequences of the chosen parameters vis a vis meeting the energy deman, What-if scenarios can be created to consider other tracking systems or assumed insolation values.
+
+Once user identifies rated PV power and batter capacity required, then those values could be input to SAM, or other software to build a system.
+
 Estimates demand from list of appliances.
 User selects geographical location of PV plant.
 User selects tracking system from fixed, various types of one-axis tracking, or two-axis tracking. User can specify collector tilt angle.
@@ -24,10 +32,11 @@ User chooses desired days of autonomy (how long energy demand can be met from st
 Recommends rated battery storage capacity based on demand, PV power, and days of autonomy.
 Calculates and charts energy balance (demand versus energy provided).
 Estimates greenhouse emission savings of project.
+Didplays topographic map of chosen geographic PV location.
 
 The program performs multiple calculations related to the solar resource at a chosen geographical location, and energy balance, i.e., the abilty of a chosen system to accomodate the energy demand of the population.
 
-Examp0les of calculations performed:------
+Examp0les of calculations performed:
 
 Does much more . . . to be continued . . . .
 
@@ -35,5 +44,9 @@ Limitations:
 
 Uses outdated version of DevExpress controls. I don't have budget for subscription renewal at the moment.
 Uses MSSQL bulk insert (for TMY file import) which is not permitted by many commercial MSSQL hosing services, such as Winhost. 
+
+Screenshots:
+https://www.thirdtransition.media/Net-Zero-Gallery/Net-Zero
+
 
 
