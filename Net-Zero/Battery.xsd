@@ -2,14 +2,15 @@
 <xs:schema id="Battery" targetNamespace="http://tempuri.org/Battery.xsd" xmlns:mstns="http://tempuri.org/Battery.xsd" xmlns="http://tempuri.org/Battery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Net_ZeroConnectionStringWinhost" IsAppSettingsProperty="true" Modifier="Assembly" Name="Net_ZeroConnectionStringWinhost (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Net_Zero.Properties.Settings.GlobalReference.Default.Net_ZeroConnectionStringWinhost" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="NetZeroConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="NetZeroConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Net_Zero.Properties.Settings.GlobalReference.Default.NetZeroConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="getBatterySeriesStringTableAdapter" GeneratorDataComponentClassName="getBatterySeriesStringTableAdapter" Name="getBatterySeriesString" UserDataComponentName="getBatterySeriesStringTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Net_ZeroConnectionStringWinhost (Settings)" DbObjectName="[Net-Zero].dbo.getBatterySeriesString" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="NetZeroConnectionString (Settings)" DbObjectName="NetZero.dbo.getBatterySeriesString" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.getBatterySeriesString</CommandText>
@@ -35,7 +36,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="getBatteryTableAdapter" GeneratorDataComponentClassName="getBatteryTableAdapter" Name="getBattery" UserDataComponentName="getBatteryTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Net_ZeroConnectionStringWinhost (Settings)" DbObjectName="[Net-Zero].dbo.getBattery" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="NetZeroConnectionString (Settings)" DbObjectName="NetZero.dbo.getBattery" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.getBattery</CommandText>
@@ -74,7 +75,7 @@
   <xs:element name="Battery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Battery" msprop:Generator_UserDSName="Battery">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="getBatterySeriesString" msprop:Generator_TableClassName="getBatterySeriesStringDataTable" msprop:Generator_TableVarName="tablegetBatterySeriesString" msprop:Generator_TablePropName="getBatterySeriesString" msprop:Generator_RowDeletingName="getBatterySeriesStringRowDeleting" msprop:Generator_RowChangingName="getBatterySeriesStringRowChanging" msprop:Generator_RowEvHandlerName="getBatterySeriesStringRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatterySeriesStringRowDeleted" msprop:Generator_UserTableName="getBatterySeriesString" msprop:Generator_RowChangedName="getBatterySeriesStringRowChanged" msprop:Generator_RowEvArgName="getBatterySeriesStringRowChangeEvent" msprop:Generator_RowClassName="getBatterySeriesStringRow">
+        <xs:element name="getBatterySeriesString" msprop:Generator_TableClassName="getBatterySeriesStringDataTable" msprop:Generator_TableVarName="tablegetBatterySeriesString" msprop:Generator_RowChangedName="getBatterySeriesStringRowChanged" msprop:Generator_TablePropName="getBatterySeriesString" msprop:Generator_RowDeletingName="getBatterySeriesStringRowDeleting" msprop:Generator_RowChangingName="getBatterySeriesStringRowChanging" msprop:Generator_RowEvHandlerName="getBatterySeriesStringRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatterySeriesStringRowDeleted" msprop:Generator_RowClassName="getBatterySeriesStringRow" msprop:Generator_UserTableName="getBatterySeriesString" msprop:Generator_RowEvArgName="getBatterySeriesStringRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -100,7 +101,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="getBattery" msprop:Generator_TableClassName="getBatteryDataTable" msprop:Generator_TableVarName="tablegetBattery" msprop:Generator_TablePropName="getBattery" msprop:Generator_RowDeletingName="getBatteryRowDeleting" msprop:Generator_RowChangingName="getBatteryRowChanging" msprop:Generator_RowEvHandlerName="getBatteryRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryRowDeleted" msprop:Generator_UserTableName="getBattery" msprop:Generator_RowChangedName="getBatteryRowChanged" msprop:Generator_RowEvArgName="getBatteryRowChangeEvent" msprop:Generator_RowClassName="getBatteryRow">
+        <xs:element name="getBattery" msprop:Generator_TableClassName="getBatteryDataTable" msprop:Generator_TableVarName="tablegetBattery" msprop:Generator_RowChangedName="getBatteryRowChanged" msprop:Generator_TablePropName="getBattery" msprop:Generator_RowDeletingName="getBatteryRowDeleting" msprop:Generator_RowChangingName="getBatteryRowChanging" msprop:Generator_RowEvHandlerName="getBatteryRowChangeEventHandler" msprop:Generator_RowDeletedName="getBatteryRowDeleted" msprop:Generator_RowClassName="getBatteryRow" msprop:Generator_UserTableName="getBattery" msprop:Generator_RowEvArgName="getBatteryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnID" msprop:Generator_ColumnPropNameInRow="nID" msprop:Generator_ColumnPropNameInTable="nIDColumn" msprop:Generator_UserColumnName="nID" type="xs:int" />
@@ -164,7 +165,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="getBatterySeriesString_getBattery" msdata:parent="getBatterySeriesString" msdata:child="getBattery" msdata:parentkey="nID" msdata:childkey="nBatterySeriesStringID" msprop:Generator_UserChildTable="getBattery" msprop:Generator_ChildPropName="GetgetBatteryRows" msprop:Generator_UserRelationName="getBatterySeriesString_getBattery" msprop:Generator_ParentPropName="getBatterySeriesStringRow" msprop:Generator_RelationVarName="relationgetBatterySeriesString_getBattery" msprop:Generator_UserParentTable="getBatterySeriesString" />
+      <msdata:Relationship name="getBatterySeriesString_getBattery" msdata:parent="getBatterySeriesString" msdata:child="getBattery" msdata:parentkey="nID" msdata:childkey="nBatterySeriesStringID" msprop:Generator_UserChildTable="getBattery" msprop:Generator_ChildPropName="GetgetBatteryRows" msprop:Generator_UserRelationName="getBatterySeriesString_getBattery" msprop:Generator_RelationVarName="relationgetBatterySeriesString_getBattery" msprop:Generator_UserParentTable="getBatterySeriesString" msprop:Generator_ParentPropName="getBatterySeriesStringRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
